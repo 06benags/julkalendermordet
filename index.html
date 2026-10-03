@@ -1246,6 +1246,159 @@ h1 {
 }
 
 
+
+/* =========================================================
+   TELEFONENS KODLÅS
+========================================================= */
+
+.phone-passcode {
+    width: min(330px, 90vw);
+    margin: 0 auto;
+    text-align: center;
+    font-family: Inter, sans-serif;
+}
+
+.phone-passcode-title {
+    font-size: 8px;
+    letter-spacing: .16em;
+    opacity: .65;
+    margin-bottom: 12px;
+}
+
+.phone-passcode-dots {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 13px;
+}
+
+.phone-passcode-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.65);
+    background: transparent;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.phone-passcode-dot.filled {
+    background: #f3eee2;
+    transform: scale(1.08);
+}
+
+.phone-passcode-error {
+    min-height: 15px;
+    font-size: 8px;
+    color: #d98c82;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.phone-passcode-error.show {
+    opacity: 1;
+}
+
+.phone-keypad {
+    width: 210px;
+    margin: 8px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.phone-key {
+    width: 58px;
+    height: 39px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 13px;
+    background: rgba(255,255,255,.075);
+    color: #f4efe4;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 3px 7px rgba(0,0,0,.2);
+    transition: background .1s ease, transform .1s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.phone-key:active {
+    background: rgba(255,255,255,.19);
+    transform: scale(.94);
+}
+
+.phone-key small {
+    display: block;
+    margin-top: 1px;
+    font-size: 5px;
+    letter-spacing: .08em;
+    opacity: .45;
+}
+
+.phone-key-clear {
+    background: transparent;
+    border-color: transparent;
+    font-size: 9px;
+    opacity: .7;
+}
+
+.phone-unlocked {
+    display: none;
+    width: min(280px, 85vw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.phone-unlocked.visible {
+    display: block;
+}
+
+.phone-unlocked-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.phone-unlocked-title {
+    font-size: 11px;
+    letter-spacing: .13em;
+    margin-bottom: 10px;
+}
+
+.phone-unlocked-text {
+    font-size: 8px;
+    line-height: 1.7;
+    opacity: .65;
+}
+
+.phone-lock-content.unlocked .phone-lock-symbol,
+.phone-lock-content.unlocked .phone-locked-title,
+.phone-lock-content.unlocked .phone-locked-text {
+    display: none;
+}
+
+.phone-lock-content.unlocked .phone-passcode {
+    display: none;
+}
+
+.phone-lock-content.unlocked .phone-unlocked {
+    display: block;
+}
+
+.phone-lock-content.shake {
+    animation: phoneShake .28s ease;
+}
+
+@keyframes phoneShake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-4px); }
+}
+
+
 /* =========================================================
    MOBIL
 ========================================================= */
@@ -2555,6 +2708,81 @@ function closePhone() {
     document.body.style.overflow = "auto";
 }
 
+let phoneEnteredCode = "";
+const PHONE_CODE = "079371";
+
+function updatePhoneCodeDisplay() {
+    const dots = document.querySelectorAll("#phonePasscodeDots .phone-passcode-dot");
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("filled", index < phoneEnteredCode.length);
+    });
+}
+
+function enterPhoneDigit(digit) {
+    if (document.getElementById("phoneLockContent")?.classList.contains("unlocked")) {
+        return;
+    }
+
+    if (phoneEnteredCode.length >= 6) {
+        return;
+    }
+
+    phoneEnteredCode += digit;
+    updatePhoneCodeDisplay();
+
+    if (phoneEnteredCode.length === 6) {
+        setTimeout(checkPhoneCode, 120);
+    }
+}
+
+function deletePhoneDigit() {
+    phoneEnteredCode = phoneEnteredCode.slice(0, -1);
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+}
+
+function clearPhoneCode() {
+    phoneEnteredCode = "";
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+}
+
+function hidePhoneCodeError() {
+    const error = document.getElementById("phonePasscodeError");
+    if (error) {
+        error.classList.remove("show");
+    }
+}
+
+function checkPhoneCode() {
+    const lockContent = document.getElementById("phoneLockContent");
+    const error = document.getElementById("phonePasscodeError");
+
+    if (phoneEnteredCode === PHONE_CODE) {
+        lockContent.classList.add("unlocked");
+        phoneEnteredCode = "";
+        updatePhoneCodeDisplay();
+        hidePhoneCodeError();
+        return;
+    }
+
+    lockContent.classList.add("shake");
+
+    if (error) {
+        error.classList.add("show");
+    }
+
+    setTimeout(() => {
+        lockContent.classList.remove("shake");
+    }, 300);
+
+    setTimeout(() => {
+        phoneEnteredCode = "";
+        updatePhoneCodeDisplay();
+    }, 450);
+}
+
 
 /* =========================================================
    KALENDER
@@ -3537,7 +3765,7 @@ function resetPuzzle() {
                 <span>▮▮▮ &nbsp;▰</span>
             </div>
 
-            <div class="phone-lock-content">
+            <div class="phone-lock-content" id="phoneLockContent">
 
                 <div class="phone-big-time" id="phoneBigTime">
                     --:--
@@ -3556,9 +3784,48 @@ function resetPuzzle() {
                 </div>
 
                 <div class="phone-locked-text">
-                    Innehållet är ännu inte tillgängligt.
-                    Någonting i telefonen kan vara viktigt
-                    för utredningen.
+                    Ange lösenkoden för att låsa upp telefonen.
+                </div>
+
+                <div class="phone-passcode">
+                    <div class="phone-passcode-title">LÖSENKOD</div>
+
+                    <div class="phone-passcode-dots" id="phonePasscodeDots">
+                        <span class="phone-passcode-dot"></span>
+                        <span class="phone-passcode-dot"></span>
+                        <span class="phone-passcode-dot"></span>
+                        <span class="phone-passcode-dot"></span>
+                        <span class="phone-passcode-dot"></span>
+                        <span class="phone-passcode-dot"></span>
+                    </div>
+
+                    <div class="phone-passcode-error" id="phonePasscodeError">
+                        Fel kod
+                    </div>
+
+                    <div class="phone-keypad">
+                        <button class="phone-key" onclick="enterPhoneDigit('1')">1<small></small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('2')">2<small>ABC</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('3')">3<small>DEF</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('4')">4<small>GHI</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('5')">5<small>JKL</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('6')">6<small>MNO</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('7')">7<small>PQRS</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('8')">8<small>TUV</small></button>
+                        <button class="phone-key" onclick="enterPhoneDigit('9')">9<small>WXYZ</small></button>
+                        <button class="phone-key phone-key-clear" onclick="clearPhoneCode()">RADERA</button>
+                        <button class="phone-key" onclick="enterPhoneDigit('0')">0<small>+</small></button>
+                        <button class="phone-key phone-key-clear" onclick="deletePhoneDigit()">⌫</button>
+                    </div>
+                </div>
+
+                <div class="phone-unlocked" id="phoneUnlocked">
+                    <div class="phone-unlocked-icon">🔓</div>
+                    <div class="phone-unlocked-title">TELEFONEN ÄR UPPLÅST</div>
+                    <div class="phone-unlocked-text">
+                        Du har kommit åt telefonen.
+                        Innehållet kommer snart att bli tillgängligt.
+                    </div>
                 </div>
 
             </div>
