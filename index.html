@@ -209,8 +209,6 @@ h1 {
         );
 }
 
-/* Rubrik */
-
 .investigation-header {
     text-align: center;
 
@@ -323,7 +321,6 @@ h1 {
 .paper:hover {
     transform:
         translateY(-12px)
-        rotate(0deg)
         scale(1.03);
 
     box-shadow:
@@ -391,6 +388,144 @@ h1 {
 }
 
 /* =========================
+   DOKUMENT
+========================= */
+
+.document-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    padding: 35px;
+
+    background: rgba(0,0,0,.78);
+
+    backdrop-filter: blur(5px);
+
+    overflow-y: auto;
+}
+
+.document {
+    width: min(850px, 100%);
+
+    min-height: 1000px;
+
+    margin: 20px auto 60px;
+
+    padding: 70px 75px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #e4dac1
+        );
+
+    color: #25221d;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7);
+
+    position: relative;
+}
+
+.document-top {
+    text-align: center;
+
+    border-bottom: 1px solid rgba(0,0,0,.25);
+
+    padding-bottom: 25px;
+
+    margin-bottom: 35px;
+}
+
+.document-top h2 {
+    font-family: Cinzel, serif;
+
+    font-size: 32px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 12px;
+}
+
+.document-number {
+    font-size: 11px;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+
+    opacity: .65;
+}
+
+.document h3 {
+    font-family: Cinzel, serif;
+
+    font-size: 18px;
+
+    margin-top: 30px;
+
+    margin-bottom: 12px;
+}
+
+.document p {
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+.document-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 25px 0 35px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(0,0,0,.18);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.close-document {
+    position: fixed;
+
+    top: 18px;
+
+    right: 25px;
+
+    z-index: 110;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    background: rgba(0,0,0,.4);
+
+    color: #fff;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+/* =========================
    TILLBAKA
 ========================= */
 
@@ -418,12 +553,6 @@ h1 {
     text-transform: uppercase;
 
     font-size: 11px;
-
-    transition: .25s ease;
-}
-
-.back-button:hover {
-    background: rgba(255,255,255,.08);
 }
 
 /* =========================
@@ -445,6 +574,10 @@ h1 {
     .paper {
         width: 220px;
         height: 290px;
+    }
+
+    .document {
+        padding: 45px 35px;
     }
 }
 
@@ -476,8 +609,28 @@ h1 {
         width: 90%;
         max-width: 280px;
     }
-}
 
+    .document-overlay {
+        padding: 15px;
+    }
+
+    .document {
+        padding: 35px 25px;
+        margin-top: 25px;
+    }
+
+    .document-top h2 {
+        font-size: 25px;
+    }
+
+    .document p {
+        font-size: 13px;
+    }
+
+    .document-info {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
@@ -514,7 +667,7 @@ h1 {
 
         <h2>FÖRUNDERSÖKNINGEN</h2>
 
-        <p>Ärende 24-1224</p>
+        <p>ÄRENDE 89-1224</p>
 
     </div>
 
@@ -523,7 +676,7 @@ h1 {
 
         <!-- FÖRUNDERSÖKNING -->
 
-        <div class="paper">
+        <div class="paper" onclick="openDocument()">
 
             <h3>Förundersökning</h3>
 
@@ -567,7 +720,7 @@ h1 {
             </p>
 
             <div class="paper-label">
-                Klicka för att öppna
+                Kommer senare
             </div>
 
         </div>
@@ -593,7 +746,7 @@ h1 {
             </p>
 
             <div class="paper-label">
-                Klicka för att öppna
+                Kommer senare
             </div>
 
         </div>
@@ -606,6 +759,149 @@ h1 {
     </button>
 
 </section>
+
+
+<!-- =========================
+     DOKUMENT SOM ÖPPNAS
+========================= -->
+
+<div class="document-overlay" id="documentOverlay">
+
+    <button class="close-document" onclick="closeDocument()">
+        ×
+    </button>
+
+
+    <article class="document">
+
+        <div class="document-top">
+
+            <h2>FÖRUNDERSÖKNING</h2>
+
+            <div class="document-number">
+                ÄRENDE 89-1224
+            </div>
+
+        </div>
+
+
+        <div class="document-info">
+
+            <div>
+                <strong>Ärendetyp:</strong><br>
+                Misstänkt dödsfall
+            </div>
+
+            <div>
+                <strong>Datum:</strong><br>
+                24 december 2024
+            </div>
+
+            <div>
+                <strong>Plats:</strong><br>
+                Fritidsstuga, Dalarna
+            </div>
+
+            <div>
+                <strong>Status:</strong><br>
+                Pågående förundersökning
+            </div>
+
+        </div>
+
+
+        <h3>Bakgrund</h3>
+
+        <p>
+            Den 24 december 2024 inkom ett larmsamtal
+            från en avlägsen fritidsstuga i Dalarna.
+            En man i 20-årsåldern hade hittats livlös
+            i ett av stugans sovrum.
+        </p>
+
+        <p>
+            Den avlidne identifierades som Benjamin.
+            Han hade kvällen innan firat jul tillsammans
+            med fem vänner: Benji, Moa, Elham, Gustav
+            och Felicia.
+        </p>
+
+
+        <h3>Händelseförlopp</h3>
+
+        <p>
+            Sällskapet hade anlänt till stugan den
+            23 december och tillbringat kvällen
+            tillsammans med middag och Bingolottos
+            uppesittarkväll.
+        </p>
+
+        <p>
+            Under kvällen hade gruppen bland annat
+            druckit glögg och ätit snacks.
+        </p>
+
+        <p>
+            Efter uppesittarkvällen gick samtliga
+            personer och lade sig.
+        </p>
+
+
+        <h3>Upptäckten</h3>
+
+        <p>
+            På morgonen den 24 december vaknade Gustav
+            och gick in i sovrummet där han fann Benjamin
+            livlös i sin säng.
+        </p>
+
+        <p>
+            Gustav kontaktade därefter 112.
+            Samtliga övriga personer befann sig
+            fortfarande i stugan när polis och
+            räddningspersonal anlände.
+        </p>
+
+
+        <h3>Rättsmedicinsk undersökning</h3>
+
+        <p>
+            Det stod inledningsvis inte klart vad som
+            hade orsakat dödsfallet.
+        </p>
+
+        <p>
+            Vid den rättsmedicinska undersökningen
+            konstaterades senare att Benjamin hade
+            avlidit till följd av förgiftning.
+        </p>
+
+
+        <h3>Förundersökning</h3>
+
+        <p>
+            Eftersom dödsfallet inträffat under den tid
+            då samtliga sex personer befann sig i stugan
+            inleddes en förundersökning om misstänkt mord.
+        </p>
+
+        <p>
+            Utredningen har därefter fokuserat på vad
+            som hände under kvällen den 23 december,
+            de fem kvarvarande personernas uppgifter
+            samt den dryck och de föremål som fanns
+            i stugan.
+        </p>
+
+        <p>
+            Samtliga personer som befann sig i stugan
+            betraktas i nuläget som relevanta för
+            utredningen.
+        </p>
+
+    </article>
+
+</div>
 
 
 <script>
@@ -626,8 +922,6 @@ for (let i = 1; i <= 24; i++) {
         <span class="number">${i}</span>
     `;
 
-
-    /* ENDAST LUCKA 1 */
 
     if (i === 1) {
 
@@ -658,7 +952,33 @@ function openInvestigation() {
 
 
 /* =========================
-   TILLBAKA
+   ÖPPNA DOKUMENTET
+========================= */
+
+function openDocument() {
+
+    document.getElementById("documentOverlay").style.display = "block";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================
+   STÄNG DOKUMENTET
+========================= */
+
+function closeDocument() {
+
+    document.getElementById("documentOverlay").style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+/* =========================
+   TILLBAKA TILL KALENDERN
 ========================= */
 
 function goBack() {
@@ -668,6 +988,7 @@ function goBack() {
     document.getElementById("calendarPage").style.display = "block";
 
     window.scrollTo(0, 0);
+
 }
 
 </script>
