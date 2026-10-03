@@ -171,7 +171,9 @@ body {
     z-index: 10;
 }
 
-/* Hus */
+/* =========================
+   HUS
+========================= */
 
 .house {
     position: absolute;
@@ -195,48 +197,99 @@ body {
 
     box-shadow:
         0 30px 45px rgba(0,0,0,.35);
+
+    z-index: 2;
 }
 
-/* Tak */
+/* =========================
+   TAK
+========================= */
 
 .roof {
     position: absolute;
 
-    left: 20px;
-    top: 32px;
+    left: 18px;
+    top: 18px;
 
-    width: 470px;
-    height: 150px;
+    width: 474px;
+    height: 145px;
 
-    background: #302725;
+    background:
+        linear-gradient(
+            145deg,
+            #3b302c 0%,
+            #2d2624 100%
+        );
 
-    transform: skewX(-28deg);
+    clip-path: polygon(
+        0% 100%,
+        23% 0%,
+        77% 0%,
+        100% 100%
+    );
 
-    border: 3px solid #211c1a;
+    border: none;
 
     box-shadow:
-        0 20px 25px rgba(0,0,0,.35);
+        0 18px 25px rgba(0,0,0,.35);
+
+    z-index: 1;
 }
 
-/* Snö på taket */
+/* =========================
+   SNÖ PÅ TAKET
+========================= */
 
 .roof-snow {
     position: absolute;
 
-    left: 10px;
-    top: 22px;
+    left: 18px;
+    top: 13px;
 
-    width: 490px;
-    height: 28px;
+    width: 474px;
+    height: 145px;
 
     background: #eef2f0;
 
-    transform: skewX(-28deg);
+    clip-path: polygon(
+        0% 100%,
+        23% 0%,
+        77% 0%,
+        100% 100%,
 
-    border-radius: 20px;
+        96% 100%,
+        76% 17%,
+        24% 17%,
+        4% 100%
+    );
 
-    box-shadow:
-        0 7px 12px rgba(0,0,0,.15);
+    filter:
+        drop-shadow(0 5px 5px rgba(0,0,0,.15));
+
+    z-index: 3;
+}
+
+/* Lite mörkare kant under snön */
+
+.roof-snow::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 7px;
+
+    background: rgba(190,202,202,.8);
+
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        96% 100%,
+        4% 100%
+    );
 }
 
 /* =========================
@@ -263,6 +316,8 @@ body {
 
     box-shadow:
         0 0 35px rgba(255,190,70,.45);
+
+    z-index: 4;
 }
 
 .window.left {
@@ -327,6 +382,8 @@ body {
         );
 
     border: 5px solid #211714;
+
+    z-index: 5;
 }
 
 .handle {
@@ -575,12 +632,15 @@ body {
 
     <!-- Träd -->
     <div class="trees">
+
         <div class="tree"></div>
         <div class="tree"></div>
         <div class="tree"></div>
+
         <div class="tree"></div>
         <div class="tree"></div>
         <div class="tree"></div>
+
     </div>
 
     <!-- Titel -->
@@ -617,9 +677,10 @@ body {
 
     </div>
 
-    <!-- Snö -->
+    <!-- Snömark -->
     <div class="snow-hill"></div>
 
+    <!-- Fallande snö -->
     <div class="snow"></div>
 
     <!-- Start -->
