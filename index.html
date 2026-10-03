@@ -3921,13 +3921,32 @@ function closePhoneApp() {
                 </div>
 
                 <div class="phone-unlocked" id="phoneUnlocked">
-                    <div class="phone-unlocked-icon">🔓</div>
-                    <div class="phone-unlocked-title">TELEFONEN ÄR UPPLÅST</div>
-                    <div class="phone-unlocked-text">
-                        Du har kommit åt telefonen.
-                        Innehållet kommer snart att bli tillgängligt.
-                    </div>
-                </div>
+    <div class="phone-home-status"><span id="phoneHomeTime">--:--</span><span>▮▮▮  Wi‑Fi  ▰</span></div>
+    <div class="phone-app-grid">
+      <button class="phone-app" onclick="openPhoneApp('Messages')"><span class="phone-app-icon app-messages">💬</span><span class="phone-app-name">Meddelanden</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Phone')"><span class="phone-app-icon app-phone">☎</span><span class="phone-app-name">Telefon</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Photos')"><span class="phone-app-icon app-photos">🌈</span><span class="phone-app-name">Bilder</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Notes')"><span class="phone-app-icon app-notes">📝</span><span class="phone-app-name">Anteckningar</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Maps')"><span class="phone-app-icon app-maps">🗺️</span><span class="phone-app-name">Kartor</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Mail')"><span class="phone-app-icon app-mail">✉</span><span class="phone-app-name">Mail</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Clock')"><span class="phone-app-icon app-clock">◷</span><span class="phone-app-name">Klocka</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Weather')"><span class="phone-app-icon app-weather">☁</span><span class="phone-app-name">Väder</span></button>
+    </div>
+    <div class="phone-dock">
+      <button class="phone-app" onclick="openPhoneApp('Phone')"><span class="phone-app-icon app-phone">☎</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Messages')"><span class="phone-app-icon app-messages">💬</span></button>
+      <button class="phone-app" onclick="openPhoneApp('Photos')"><span class="phone-app-icon app-photos">🌈</span></button>
+    </div>
+    <div class="phone-app-panel" id="phoneAppMessages"><div class="phone-app-top">Meddelanden <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Moa</strong><div class="phone-message">Är du fortfarande vaken?</div><div class="phone-message me">Ja. Vi måste prata.</div><div class="phone-message">Inte ikväll. Alla andra är där nere.</div><div class="phone-message me">Jag vet. Det gäller det som hände.</div></div></div>
+    <div class="phone-app-panel" id="phoneAppPhone"><div class="phone-app-top">Telefon <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-call"><strong>Gustav</strong><br>Igår 23:48 · Missat samtal</div><div class="phone-call"><strong>Moa</strong><br>Igår 22:16 · Utgående</div><div class="phone-call"><strong>Okänt nummer</strong><br>23 dec · 23:52 · Missat samtal</div></div></div>
+    <div class="phone-app-panel" id="phoneAppPhotos"><div class="phone-app-top">Bilder <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-photo">23 DECEMBER · 21:37<br>En bild från kvällen. Någon står precis utanför bild.</div><div class="phone-photo">23 DECEMBER · 22:04<br>Glögg på bordet. Ett glas saknas.</div></div></div>
+    <div class="phone-app-panel" id="phoneAppNotes"><div class="phone-app-top">Anteckningar <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-note"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
+    <div class="phone-app-panel" id="phoneAppMaps"><div class="phone-app-top">Kartor <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Senaste plats</strong><br>Stugan · 23 dec · 23:41<br><br>Telefonens senaste registrerade plats var utanför stugan.</div></div>
+    <div class="phone-app-panel" id="phoneAppMail"><div class="phone-app-top">Mail <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Ämne: Vi måste prata</strong><br>Från: Moa · 23 dec 20:11<hr>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</div></div>
+    <div class="phone-app-panel" id="phoneAppClock"><div class="phone-app-top">Klocka <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Alarm</strong><br>07:30 · På</div></div>
+    <div class="phone-app-panel" id="phoneAppWeather"><div class="phone-app-top">Väder <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Fårö</strong><br><br>☁️ 2° · Mulet<br>Vind 8 m/s</div></div>
+    <button class="phone-home-button" onclick="closePhoneApp()">●</button>
+  </div>
 
             </div>
 
