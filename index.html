@@ -33,6 +33,7 @@ body {
 
 body::before {
     content: "";
+
     position: fixed;
     inset: 0;
 
@@ -316,6 +317,8 @@ h1 {
     transition:
         transform .3s ease,
         box-shadow .3s ease;
+
+    overflow: hidden;
 }
 
 .paper:hover {
@@ -385,6 +388,30 @@ h1 {
     text-transform: uppercase;
 
     opacity: .5;
+}
+
+/* =========================
+   KARTFÖRHANDSVISNING
+========================= */
+
+.map-preview {
+    width: 100%;
+    height: 205px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0,0,0,.15);
+
+    background: #e7dfcc;
+}
+
+.map-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 }
 
 /* =========================
@@ -526,6 +553,98 @@ h1 {
 }
 
 /* =========================
+   KARTA
+========================= */
+
+.map-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 120;
+
+    padding: 25px;
+
+    background: rgba(0,0,0,.88);
+
+    backdrop-filter: blur(5px);
+
+    overflow-y: auto;
+}
+
+.map-container {
+    width: min(1200px, 100%);
+
+    margin: 20px auto 50px;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #e2d8c1
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.75);
+
+    color: #25221d;
+
+    position: relative;
+}
+
+.map-title {
+    text-align: center;
+
+    font-family: Cinzel, serif;
+
+    font-size: 25px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 20px;
+}
+
+.map-container img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.close-map {
+    position: fixed;
+
+    top: 18px;
+
+    right: 25px;
+
+    z-index: 130;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    background: rgba(0,0,0,.55);
+
+    color: #fff;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+/* =========================
    TILLBAKA
 ========================= */
 
@@ -574,6 +693,10 @@ h1 {
     .paper {
         width: 220px;
         height: 290px;
+    }
+
+    .map-preview {
+        height: 170px;
     }
 
     .document {
@@ -630,6 +753,19 @@ h1 {
     .document-info {
         grid-template-columns: 1fr;
     }
+
+    .map-overlay {
+        padding: 10px;
+    }
+
+    .map-container {
+        padding: 12px;
+        margin-top: 25px;
+    }
+
+    .map-title {
+        font-size: 20px;
+    }
 }
 </style>
 </head>
@@ -667,7 +803,7 @@ h1 {
 
         <h2>FÖRUNDERSÖKNINGEN</h2>
 
-        <p>ÄRENDE 89-1224</p>
+        <p>ÄRENDE 24-1224</p>
 
     </div>
 
@@ -728,25 +864,21 @@ h1 {
 
         <!-- KARTA -->
 
-        <div class="paper">
+        <div class="paper" onclick="openMap()">
 
             <h3>Karta</h3>
 
-            <div class="paper-line"></div>
+            <div class="map-preview">
 
-            <p>
-                Planritning över fritidsstugan
-                och dess rum.
-            </p>
+                <img
+                    src="stugkarta.png"
+                    alt="Planritning över fritidsstugan"
+                >
 
-            <div class="paper-line"></div>
-
-            <p>
-                Sovrum, kök, vardagsrum och entré.
-            </p>
+            </div>
 
             <div class="paper-label">
-                Kommer senare
+                Klicka för att öppna
             </div>
 
         </div>
@@ -779,7 +911,7 @@ h1 {
             <h2>FÖRUNDERSÖKNING</h2>
 
             <div class="document-number">
-                ÄRENDE 89-1224
+                ÄRENDE 24-1224
             </div>
 
         </div>
@@ -823,7 +955,7 @@ h1 {
             Den avlidne identifierades som Benjamin.
             Han hade kvällen innan firat jul tillsammans
             med fem vänner: Benji, Moa, Elham, Gustav
-            och Felicia.
+            och Cecilia.
         </p>
 
 
@@ -904,6 +1036,32 @@ h1 {
 </div>
 
 
+<!-- =========================
+     KARTA
+========================= -->
+
+<div class="map-overlay" id="mapOverlay">
+
+    <button class="close-map" onclick="closeMap()">
+        ×
+    </button>
+
+    <div class="map-container">
+
+        <div class="map-title">
+            PLANRITNING – FRITIDSSTUGA
+        </div>
+
+        <img
+            src="stugkarta.png"
+            alt="Planritning över fritidsstugan"
+        >
+
+    </div>
+
+</div>
+
+
 <script>
 
 /* =========================
@@ -971,6 +1129,32 @@ function openDocument() {
 function closeDocument() {
 
     document.getElementById("documentOverlay").style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+/* =========================
+   ÖPPNA KARTAN
+========================= */
+
+function openMap() {
+
+    document.getElementById("mapOverlay").style.display = "block";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================
+   STÄNG KARTAN
+========================= */
+
+function closeMap() {
+
+    document.getElementById("mapOverlay").style.display = "none";
 
     document.body.style.overflow = "auto";
 
