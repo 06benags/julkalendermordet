@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Julkalender</title>
+<title>Julmordet</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
@@ -68,14 +68,6 @@ body::before {
 header {
     text-align: center;
     padding: 55px 20px 35px;
-}
-
-.eyebrow {
-    font-size: 11px;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    opacity: .7;
-    margin-bottom: 14px;
 }
 
 h1 {
@@ -199,33 +191,6 @@ h1 {
 }
 
 /* =========================
-   LÅSTA LUCKOR
-========================= */
-
-.door.locked {
-    cursor: default;
-    filter: brightness(.72);
-}
-
-.door.locked:hover {
-    transform: none;
-}
-
-.lock {
-    position: absolute;
-
-    bottom: 12px;
-
-    font-size: 11px;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    opacity: .65;
-}
-
-/* =========================
    RESPONSIV
 ========================= */
 
@@ -250,10 +215,6 @@ h1 {
 
     .subtitle {
         font-size: 11px;
-    }
-
-    .lock {
-        font-size: 8px;
     }
 }
 
@@ -290,9 +251,18 @@ for (let i = 1; i <= 24; i++) {
         <span class="number">${i}</span>
     `;
 
-    door.addEventListener("click", () => {
-        alert(`Lucka ${i}`);
-    });
+    /* ENDAST LUCKA 1 ÄR KLICKBAR */
+    if (i === 1) {
+
+        door.addEventListener("click", () => {
+            alert("Lucka 1 öppnas...");
+        });
+
+    } else {
+
+        door.style.cursor = "default";
+
+    }
 
     calendar.appendChild(door);
 }
