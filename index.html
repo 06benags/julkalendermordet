@@ -2517,10 +2517,11 @@ function updatePhoneTime() {
     }
 }
 
-/* Uppdatera direkt och sedan varje sekund. */
-updatePhoneTime();
-setInterval(updatePhoneTime, 1000);
-
+/* Uppdatera klockan när hela sidan är laddad. */
+document.addEventListener("DOMContentLoaded", () => {
+    updatePhoneTime();
+    setInterval(updatePhoneTime, 1000);
+});
 
 function openPhone() {
     updatePhoneTime();
@@ -2532,20 +2533,6 @@ function closePhone() {
     document.getElementById("phoneOverlay").classList.remove("open");
     document.body.style.overflow = "auto";
 }
-
-
-
-
-function openPhone() {
-    document.getElementById("phoneOverlay").classList.add("open");
-    document.body.style.overflow = "hidden";
-}
-
-function closePhone() {
-    document.getElementById("phoneOverlay").classList.remove("open");
-    document.body.style.overflow = "auto";
-}
-
 
 
 /* =========================================================
