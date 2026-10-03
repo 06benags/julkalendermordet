@@ -2699,6 +2699,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function openPhone() {
     updatePhoneTime();
+
+    phoneEnteredCode = "";
+
+    const lockContent = document.getElementById("phoneLockContent");
+    if (lockContent) {
+        lockContent.classList.remove("unlocked", "shake");
+    }
+
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+
     document.getElementById("phoneOverlay").classList.add("open");
     document.body.style.overflow = "hidden";
 }
