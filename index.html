@@ -1995,7 +1995,7 @@ h1 {
         >
             <div class="phone-icon">
                 <div class="phone-screen">
-                    <div class="phone-time">22:14</div>
+                    <div class="phone-time" id="phoneTableTime">--:--</div>
                     <div class="phone-lock">LÅST</div>
                 </div>
             </div>
@@ -2492,6 +2492,49 @@ h1 {
 /* =========================================================
    MOBILTELEFON
 ========================================================= */
+
+function updatePhoneTime() {
+    const now = new Date();
+
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const currentTime = `${hours}:${minutes}`;
+
+    const tableTime = document.getElementById("phoneTableTime");
+    const statusTime = document.getElementById("phoneStatusTime");
+    const bigTime = document.getElementById("phoneBigTime");
+
+    if (tableTime) {
+        tableTime.textContent = currentTime;
+    }
+
+    if (statusTime) {
+        statusTime.textContent = currentTime;
+    }
+
+    if (bigTime) {
+        bigTime.textContent = currentTime;
+    }
+}
+
+/* Uppdatera direkt och sedan varje sekund. */
+updatePhoneTime();
+setInterval(updatePhoneTime, 1000);
+
+
+function openPhone() {
+    updatePhoneTime();
+    document.getElementById("phoneOverlay").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closePhone() {
+    document.getElementById("phoneOverlay").classList.remove("open");
+    document.body.style.overflow = "auto";
+}
+
+
+
 
 function openPhone() {
     document.getElementById("phoneOverlay").classList.add("open");
@@ -3482,14 +3525,14 @@ function resetPuzzle() {
         <div class="phone-device-screen">
 
             <div class="phone-status">
-                <span>22:14</span>
+                <span id="phoneStatusTime">--:--</span>
                 <span>▮▮▮ &nbsp;▰</span>
             </div>
 
             <div class="phone-lock-content">
 
-                <div class="phone-big-time">
-                    22:14
+                <div class="phone-big-time" id="phoneBigTime">
+                    --:--
                 </div>
 
                 <div class="phone-date">
