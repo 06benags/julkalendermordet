@@ -15,7 +15,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -28,7 +29,7 @@ body {
 }
 
 /* =========================
-   SCENE
+   HUVUDSCEN
 ========================= */
 
 .scene {
@@ -51,11 +52,12 @@ body {
 }
 
 /* =========================
-   MOON
+   MÅNE
 ========================= */
 
 .moon {
     position: absolute;
+
     width: 150px;
     height: 150px;
 
@@ -72,21 +74,26 @@ body {
 }
 
 /* =========================
-   DISTANT TREES
+   TRÄD
 ========================= */
 
 .trees {
     position: absolute;
+
     bottom: 27%;
     left: 0;
+
     width: 100%;
     height: 260px;
+
     opacity: .55;
 }
 
 .tree {
     position: absolute;
+
     bottom: 0;
+
     width: 0;
     height: 0;
 
@@ -95,21 +102,46 @@ body {
     border-bottom: 150px solid #10212a;
 }
 
-.tree:nth-child(1) { left: 4%; transform: scale(.8); }
-.tree:nth-child(2) { left: 13%; transform: scale(1.1); }
-.tree:nth-child(3) { left: 24%; transform: scale(.7); }
-.tree:nth-child(4) { right: 25%; transform: scale(.9); }
-.tree:nth-child(5) { right: 13%; transform: scale(1.2); }
-.tree:nth-child(6) { right: 3%; transform: scale(.75); }
+.tree:nth-child(1) {
+    left: 4%;
+    transform: scale(.8);
+}
+
+.tree:nth-child(2) {
+    left: 13%;
+    transform: scale(1.1);
+}
+
+.tree:nth-child(3) {
+    left: 24%;
+    transform: scale(.7);
+}
+
+.tree:nth-child(4) {
+    right: 25%;
+    transform: scale(.9);
+}
+
+.tree:nth-child(5) {
+    right: 13%;
+    transform: scale(1.2);
+}
+
+.tree:nth-child(6) {
+    right: 3%;
+    transform: scale(.75);
+}
 
 /* =========================
-   SNOW HILLS
+   SNÖMARK
 ========================= */
 
 .snow-hill {
     position: absolute;
+
     bottom: -20%;
     left: -10%;
+
     width: 120%;
     height: 48%;
 
@@ -122,7 +154,7 @@ body {
 }
 
 /* =========================
-   CABIN
+   STUGA
 ========================= */
 
 .cabin {
@@ -135,9 +167,11 @@ body {
     height: 350px;
 
     transform: translateX(-50%);
+
+    z-index: 10;
 }
 
-/* Cabin body */
+/* Hus */
 
 .house {
     position: absolute;
@@ -163,7 +197,7 @@ body {
         0 30px 45px rgba(0,0,0,.35);
 }
 
-/* Roof */
+/* Tak */
 
 .roof {
     position: absolute;
@@ -184,7 +218,7 @@ body {
         0 20px 25px rgba(0,0,0,.35);
 }
 
-/* Snow on roof */
+/* Snö på taket */
 
 .roof-snow {
     position: absolute;
@@ -206,7 +240,7 @@ body {
 }
 
 /* =========================
-   WINDOWS
+   FÖNSTER
 ========================= */
 
 .window {
@@ -272,7 +306,7 @@ body {
 }
 
 /* =========================
-   DOOR
+   DÖRR
 ========================= */
 
 .door {
@@ -310,7 +344,7 @@ body {
 }
 
 /* =========================
-   TITLE
+   TITEL
 ========================= */
 
 .title {
@@ -323,7 +357,7 @@ body {
 
     text-align: center;
 
-    z-index: 10;
+    z-index: 50;
 }
 
 .title h1 {
@@ -354,7 +388,68 @@ body {
 }
 
 /* =========================
-   SNOW
+   START-KNAPP
+========================= */
+
+.intro-buttons {
+    position: absolute;
+
+    left: 50%;
+    bottom: 8%;
+
+    transform: translateX(-50%);
+
+    z-index: 60;
+}
+
+.start-button {
+    min-width: 230px;
+
+    padding: 18px 42px;
+
+    border: 1px solid rgba(255,255,255,.65);
+
+    border-radius: 3px;
+
+    background:
+        rgba(18,29,36,.72);
+
+    backdrop-filter: blur(8px);
+
+    color: white;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: .35em;
+
+    text-indent: .35em;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.start-button:hover {
+    background: rgba(255,255,255,.92);
+
+    color: #18232b;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3);
+}
+
+/* =========================
+   SNÖ
 ========================= */
 
 .snow {
@@ -365,20 +460,33 @@ body {
     pointer-events: none;
 
     background-image:
-        radial-gradient(circle, white 1px, transparent 2px),
-        radial-gradient(circle, rgba(255,255,255,.8) 1.5px, transparent 2.5px),
-        radial-gradient(circle, rgba(255,255,255,.55) 2px, transparent 3px);
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1.5px,
+            transparent 2.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.55) 2px,
+            transparent 3px
+        );
 
     background-size:
         80px 80px,
         130px 130px,
         190px 190px;
 
-    animation: snowfall 18s linear infinite;
+    animation:
+        snowfall 18s linear infinite;
 
     opacity: .8;
 
-    z-index: 20;
+    z-index: 70;
 }
 
 @keyframes snowfall {
@@ -393,11 +501,12 @@ body {
 }
 
 /* =========================
-   DARK VIGNETTE
+   MÖRK KANT
 ========================= */
 
 .vignette {
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
@@ -409,7 +518,49 @@ body {
             rgba(0,0,0,.45) 100%
         );
 
-    z-index: 30;
+    z-index: 80;
+}
+
+/* =========================
+   MOBIL
+========================= */
+
+@media (max-width: 700px) {
+
+    .moon {
+        width: 90px;
+        height: 90px;
+
+        right: 8%;
+        top: 8%;
+    }
+
+    .cabin {
+        transform:
+            translateX(-50%)
+            scale(.72);
+
+        bottom: 15%;
+    }
+
+    .title {
+        top: 12%;
+        width: 95%;
+    }
+
+    .title h1 {
+        font-size: 45px;
+        letter-spacing: .12em;
+    }
+
+    .title p {
+        font-size: 10px;
+        letter-spacing: .2em;
+    }
+
+    .start-button {
+        min-width: 200px;
+    }
 }
 
 </style>
@@ -419,8 +570,10 @@ body {
 
 <div class="scene">
 
+    <!-- Måne -->
     <div class="moon"></div>
 
+    <!-- Träd -->
     <div class="trees">
         <div class="tree"></div>
         <div class="tree"></div>
@@ -430,14 +583,22 @@ body {
         <div class="tree"></div>
     </div>
 
+    <!-- Titel -->
     <div class="title">
+
         <h1>JULMORDET</h1>
-        <p>Kan du lösa mordet på 24 dagar?</p>
+
+        <p>
+            Kan du lösa mordet på 24 dagar?
+        </p>
+
     </div>
 
+    <!-- Stuga -->
     <div class="cabin">
 
         <div class="roof"></div>
+
         <div class="roof-snow"></div>
 
         <div class="house">
@@ -447,20 +608,46 @@ body {
             <div class="window right"></div>
 
             <div class="door">
+
                 <div class="handle"></div>
+
             </div>
 
         </div>
 
     </div>
 
+    <!-- Snö -->
     <div class="snow-hill"></div>
 
     <div class="snow"></div>
 
+    <!-- Start -->
+    <div class="intro-buttons">
+
+        <button
+            class="start-button"
+            onclick="startGame()"
+        >
+            STARTA
+        </button>
+
+    </div>
+
+    <!-- Vinjett -->
     <div class="vignette"></div>
 
 </div>
+
+<script>
+
+function startGame() {
+
+    alert("Spelet börjar snart...");
+
+}
+
+</script>
 
 </body>
 </html>
