@@ -1,252 +1,466 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JULMORDET</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>JULMORDET</title>
 
-    body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #101820;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background:
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #081018;
+    color: white;
+    font-family: Inter, sans-serif;
+}
+
+/* =========================
+   SCENE
+========================= */
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
         linear-gradient(
-          to bottom,
-          rgba(10, 20, 30, 0.15),
-          rgba(5, 12, 18, 0.55)
+            rgba(7, 15, 23, 0.15),
+            rgba(5, 12, 18, 0.55)
         ),
         linear-gradient(
-          to bottom,
-          #182b3a 0%,
-          #294052 48%,
-          #d9e1e3 100%
+            to bottom,
+            #101d2b 0%,
+            #182c3b 48%,
+            #9caeb5 100%
         );
+}
+
+/* =========================
+   MOON
+========================= */
+
+.moon {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+
+    right: 13%;
+    top: 11%;
+
+    border-radius: 50%;
+
+    background: #f4f0d8;
+
+    box-shadow:
+        0 0 30px rgba(255,245,205,.25),
+        0 0 100px rgba(255,245,205,.10);
+}
+
+/* =========================
+   DISTANT TREES
+========================= */
+
+.trees {
+    position: absolute;
+    bottom: 27%;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    opacity: .55;
+}
+
+.tree {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 150px solid #10212a;
+}
+
+.tree:nth-child(1) { left: 4%; transform: scale(.8); }
+.tree:nth-child(2) { left: 13%; transform: scale(1.1); }
+.tree:nth-child(3) { left: 24%; transform: scale(.7); }
+.tree:nth-child(4) { right: 25%; transform: scale(.9); }
+.tree:nth-child(5) { right: 13%; transform: scale(1.2); }
+.tree:nth-child(6) { right: 3%; transform: scale(.75); }
+
+/* =========================
+   SNOW HILLS
+========================= */
+
+.snow-hill {
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 120%;
+    height: 48%;
+
+    background: #dfe7e8;
+
+    border-radius: 50% 50% 0 0;
+
+    box-shadow:
+        inset 0 20px 35px rgba(255,255,255,.35);
+}
+
+/* =========================
+   CABIN
+========================= */
+
+.cabin {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18%;
+
+    width: 510px;
+    height: 350px;
+
+    transform: translateX(-50%);
+}
+
+/* Cabin body */
+
+.house {
+    position: absolute;
+
+    left: 55px;
+    bottom: 0;
+
+    width: 400px;
+    height: 210px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #55382c 0px,
+            #55382c 13px,
+            #472f26 14px,
+            #472f26 17px
+        );
+
+    border: 3px solid #34231d;
+
+    box-shadow:
+        0 30px 45px rgba(0,0,0,.35);
+}
+
+/* Roof */
+
+.roof {
+    position: absolute;
+
+    left: 20px;
+    top: 32px;
+
+    width: 470px;
+    height: 150px;
+
+    background: #302725;
+
+    transform: skewX(-28deg);
+
+    border: 3px solid #211c1a;
+
+    box-shadow:
+        0 20px 25px rgba(0,0,0,.35);
+}
+
+/* Snow on roof */
+
+.roof-snow {
+    position: absolute;
+
+    left: 10px;
+    top: 22px;
+
+    width: 490px;
+    height: 28px;
+
+    background: #eef2f0;
+
+    transform: skewX(-28deg);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 7px 12px rgba(0,0,0,.15);
+}
+
+/* =========================
+   WINDOWS
+========================= */
+
+.window {
+    position: absolute;
+
+    top: 48px;
+
+    width: 82px;
+    height: 82px;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd978 0%,
+            #eab957 55%,
+            #b47c30 100%
+        );
+
+    border: 6px solid #30231e;
+
+    box-shadow:
+        0 0 35px rgba(255,190,70,.45);
+}
+
+.window.left {
+    left: 42px;
+}
+
+.window.right {
+    right: 42px;
+}
+
+.window::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background: #30231e;
+
+    transform: translateX(-50%);
+}
+
+.window::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 100%;
+    height: 5px;
+
+    background: #30231e;
+
+    transform: translateY(-50%);
+}
+
+/* =========================
+   DOOR
+========================= */
+
+.door {
+    position: absolute;
+
+    left: 160px;
+    bottom: 0;
+
+    width: 80px;
+    height: 140px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #281b17,
+            #3b261f,
+            #281b17
+        );
+
+    border: 5px solid #211714;
+}
+
+.handle {
+    position: absolute;
+
+    right: 10px;
+    top: 68px;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #c9a85d;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    position: absolute;
+
+    top: 10%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+.title h1 {
+    font-family: Cinzel, serif;
+
+    font-size: clamp(54px, 8vw, 108px);
+
+    font-weight: 500;
+
+    letter-spacing: .18em;
+
+    margin-right: -.18em;
+
+    text-shadow:
+        0 3px 25px rgba(0,0,0,.65);
+}
+
+.title p {
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    letter-spacing: .34em;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.85);
+}
+
+/* =========================
+   SNOW
+========================= */
+
+.snow {
+    position: absolute;
+
+    inset: -100px;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,.8) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255,255,255,.55) 2px, transparent 3px);
+
+    background-size:
+        80px 80px,
+        130px 130px,
+        190px 190px;
+
+    animation: snowfall 18s linear infinite;
+
+    opacity: .8;
+
+    z-index: 20;
+}
+
+@keyframes snowfall {
+
+    from {
+        transform: translateY(-20px);
     }
 
-    /* Måne */
-    .moon {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: #f4f0dc;
-      top: 10%;
-      right: 13%;
-      box-shadow: 0 0 45px rgba(255, 248, 220, 0.25);
+    to {
+        transform: translateY(160px);
     }
+}
 
-    /* Snömark */
-    .snow-ground {
-      position: absolute;
-      bottom: -10%;
-      left: -5%;
-      width: 110%;
-      height: 48%;
-      background: #edf2f1;
-      border-radius: 50% 50% 0 0;
-      box-shadow: 0 -20px 50px rgba(255,255,255,0.18);
-    }
+/* =========================
+   DARK VIGNETTE
+========================= */
 
-    /* Huset */
-    .cabin {
-      position: absolute;
-      left: 50%;
-      bottom: 18%;
-      transform: translateX(-50%);
-      width: 430px;
-      height: 270px;
-    }
+.vignette {
+    position: absolute;
+    inset: 0;
 
-    .house {
-      position: absolute;
-      bottom: 0;
-      left: 40px;
-      width: 350px;
-      height: 190px;
-      background: #5b3b2d;
-      border: 4px solid #3d2920;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.3);
-    }
+    pointer-events: none;
 
-    /* Tak */
-    .roof {
-      position: absolute;
-      top: -105px;
-      left: -35px;
-      width: 420px;
-      height: 150px;
-      background: #3b302c;
-      border: 4px solid #2a2321;
-      transform: skewX(-28deg);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.25);
-    }
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.45) 100%
+        );
 
-    .snow-roof {
-      position: absolute;
-      top: -112px;
-      left: -42px;
-      width: 430px;
-      height: 32px;
-      background: #f4f6f5;
-      transform: skewX(-28deg);
-      border-radius: 12px;
-    }
+    z-index: 30;
+}
 
-    /* Dörr */
-    .door {
-      position: absolute;
-      bottom: 0;
-      left: 145px;
-      width: 72px;
-      height: 125px;
-      background: #38251e;
-      border: 4px solid #281b17;
-    }
-
-    .door-handle {
-      position: absolute;
-      right: 10px;
-      top: 65px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #c8a85b;
-    }
-
-    /* Fönster */
-    .window {
-      position: absolute;
-      width: 72px;
-      height: 72px;
-      top: 42px;
-      background: #e7bd63;
-      border: 6px solid #33251f;
-      box-shadow: 0 0 28px rgba(255, 191, 75, 0.55);
-    }
-
-    .window.left {
-      left: 35px;
-    }
-
-    .window.right {
-      right: 35px;
-    }
-
-    .window::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 5px;
-      height: 100%;
-      background: #33251f;
-      transform: translateX(-50%);
-    }
-
-    .window::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: #33251f;
-      transform: translateY(-50%);
-    }
-
-    /* Text */
-    .title {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      color: white;
-      letter-spacing: 0.18em;
-      text-shadow: 0 3px 18px rgba(0,0,0,0.6);
-    }
-
-    .title h1 {
-      margin: 0;
-      font-size: clamp(52px, 9vw, 110px);
-      font-weight: 400;
-    }
-
-    .title p {
-      margin: 15px 0 0;
-      font-family: Arial, sans-serif;
-      font-size: clamp(13px, 1.6vw, 19px);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
-
-    /* Snö */
-    .snow {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,0.9) 2px, transparent 3px),
-        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 2px);
-      background-size: 90px 90px, 45px 45px;
-      animation: snowfall 14s linear infinite;
-    }
-
-    @keyframes snowfall {
-      from {
-        background-position: 0 0, 0 0;
-      }
-      to {
-        background-position: 100px 700px, -80px 500px;
-      }
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-  <main class="hero">
+<div class="scene">
 
     <div class="moon"></div>
 
+    <div class="trees">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+    </div>
+
     <div class="title">
-      <h1>JULMORDET</h1>
-      <p>Kan du lösa mordet på 24 dagar?</p>
+        <h1>JULMORDET</h1>
+        <p>Kan du lösa mordet på 24 dagar?</p>
     </div>
 
     <div class="cabin">
-      <div class="roof"></div>
-      <div class="snow-roof"></div>
 
-      <div class="house">
-        <div class="window left"></div>
-        <div class="window right"></div>
+        <div class="roof"></div>
+        <div class="roof-snow"></div>
 
-        <div class="door">
-          <div class="door-handle"></div>
+        <div class="house">
+
+            <div class="window left"></div>
+
+            <div class="window right"></div>
+
+            <div class="door">
+                <div class="handle"></div>
+            </div>
+
         </div>
-      </div>
+
     </div>
 
-    <div class="snow-ground"></div>
+    <div class="snow-hill"></div>
+
     <div class="snow"></div>
 
-  </main>
+    <div class="vignette"></div>
+
+</div>
 
 </body>
 </html>
