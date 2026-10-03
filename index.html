@@ -57,6 +57,7 @@ body::before {
 }
 
 @keyframes snow {
+
     from {
         background-position:
             0 0,
@@ -89,8 +90,11 @@ h1 {
 
 .subtitle {
     margin-top: 14px;
+
     font-size: 14px;
+
     letter-spacing: .15em;
+
     opacity: .75;
 }
 
@@ -101,9 +105,11 @@ h1 {
 
 .calendar {
     width: min(1100px, 92%);
+
     margin: 20px auto 70px;
 
     display: grid;
+
     grid-template-columns: repeat(6, 1fr);
 
     gap: 18px;
@@ -115,6 +121,7 @@ h1 {
     aspect-ratio: 1 / 1.15;
 
     border: 1px solid rgba(255,255,255,.3);
+
     border-radius: 8px;
 
     background:
@@ -129,6 +136,7 @@ h1 {
         inset 0 1px rgba(255,255,255,.18);
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -143,13 +151,16 @@ h1 {
     content: "";
 
     position: absolute;
+
     inset: 7px;
 
     border: 1px solid rgba(255,255,255,.18);
+
     border-radius: 5px;
 }
 
 .door:hover {
+
     transform:
         translateY(-6px)
         scale(1.02);
@@ -160,12 +171,15 @@ h1 {
 }
 
 .number {
+
     position: relative;
+
     z-index: 2;
 
     font-family: Cinzel, serif;
 
     font-size: clamp(28px, 4vw, 45px);
+
     font-weight: 500;
 
     color: #fff8e9;
@@ -175,6 +189,7 @@ h1 {
 }
 
 .door:nth-child(3n) {
+
     background:
         linear-gradient(
             145deg,
@@ -184,6 +199,7 @@ h1 {
 }
 
 .door:nth-child(5n) {
+
     background:
         linear-gradient(
             145deg,
@@ -198,6 +214,7 @@ h1 {
 ========================================================= */
 
 #investigation {
+
     display: none;
 
     min-height: 100vh;
@@ -218,11 +235,14 @@ h1 {
 }
 
 .investigation-header {
+
     text-align: center;
+
     margin-bottom: 45px;
 }
 
 .investigation-header h2 {
+
     font-family: Cinzel, serif;
 
     font-size: clamp(34px, 6vw, 60px);
@@ -235,6 +255,7 @@ h1 {
 }
 
 .investigation-header p {
+
     margin-top: 12px;
 
     font-size: 13px;
@@ -252,6 +273,7 @@ h1 {
 ========================================================= */
 
 .table {
+
     position: relative;
 
     width: min(1150px, 94%);
@@ -286,6 +308,7 @@ h1 {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 55px;
@@ -299,9 +322,11 @@ h1 {
 ========================================================= */
 
 .paper {
+
     position: relative;
 
     width: 250px;
+
     height: 330px;
 
     padding: 30px 25px;
@@ -326,6 +351,7 @@ h1 {
 }
 
 .paper:hover {
+
     transform:
         translateY(-12px)
         scale(1.03);
@@ -335,18 +361,22 @@ h1 {
 }
 
 .paper:nth-child(1) {
+
     transform: rotate(-4deg);
 }
 
 .paper:nth-child(2) {
+
     transform: rotate(3deg);
 }
 
 .paper:nth-child(3) {
+
     transform: rotate(-2deg);
 }
 
 .paper h3 {
+
     font-family: Cinzel, serif;
 
     font-size: 23px;
@@ -359,6 +389,7 @@ h1 {
 }
 
 .paper-line {
+
     height: 1px;
 
     background: rgba(0,0,0,.15);
@@ -367,6 +398,7 @@ h1 {
 }
 
 .paper p {
+
     font-size: 12px;
 
     line-height: 1.7;
@@ -375,9 +407,11 @@ h1 {
 }
 
 .paper-label {
+
     position: absolute;
 
     bottom: 22px;
+
     left: 0;
 
     width: 100%;
@@ -399,6 +433,7 @@ h1 {
 ========================================================= */
 
 .document-overlay {
+
     display: none;
 
     position: fixed;
@@ -417,6 +452,7 @@ h1 {
 }
 
 .document {
+
     width: min(850px, 100%);
 
     min-height: 1000px;
@@ -441,6 +477,7 @@ h1 {
 }
 
 .document-top {
+
     text-align: center;
 
     border-bottom: 1px solid rgba(0,0,0,.25);
@@ -451,6 +488,7 @@ h1 {
 }
 
 .document-top h2 {
+
     font-family: Cinzel, serif;
 
     font-size: 32px;
@@ -461,6 +499,7 @@ h1 {
 }
 
 .document-number {
+
     font-size: 11px;
 
     letter-spacing: .25em;
@@ -471,6 +510,7 @@ h1 {
 }
 
 .document h3 {
+
     font-family: Cinzel, serif;
 
     font-size: 18px;
@@ -481,6 +521,7 @@ h1 {
 }
 
 .document p {
+
     font-size: 14px;
 
     line-height: 1.9;
@@ -489,6 +530,7 @@ h1 {
 }
 
 .document-info {
+
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -507,14 +549,17 @@ h1 {
 }
 
 .close-document {
+
     position: fixed;
 
     top: 18px;
+
     right: 25px;
 
     z-index: 1000;
 
     width: 42px;
+
     height: 42px;
 
     border: 1px solid rgba(255,255,255,.4);
@@ -536,6 +581,7 @@ h1 {
 ========================================================= */
 
 .map-overlay {
+
     display: none;
 
     position: fixed;
@@ -554,6 +600,7 @@ h1 {
 }
 
 .map-window {
+
     width: min(1250px, 100%);
 
     margin: 20px auto 50px;
@@ -574,11 +621,14 @@ h1 {
 }
 
 .map-header {
+
     text-align: center;
+
     margin-bottom: 18px;
 }
 
 .map-header h2 {
+
     font-family: Cinzel, serif;
 
     font-size: 28px;
@@ -589,6 +639,7 @@ h1 {
 }
 
 .map-header p {
+
     font-size: 12px;
 
     letter-spacing: .12em;
@@ -599,6 +650,7 @@ h1 {
 }
 
 .puzzle-instructions {
+
     text-align: center;
 
     max-width: 700px;
@@ -614,10 +666,11 @@ h1 {
 
 
 /* =========================================================
-   KARTA + KLICKBARA SÄNGAR
+   KARTAN
 ========================================================= */
 
 .map-container {
+
     position: relative;
 
     width: 100%;
@@ -637,6 +690,7 @@ h1 {
 }
 
 .map-container img {
+
     display: block;
 
     width: 100%;
@@ -649,166 +703,132 @@ h1 {
 }
 
 
-/*
-=========================================================
-   VIKTIGT
+/* =========================================================
+   KLICKBARA RUM
+========================================================= */
 
-   Dessa är klickzonerna för DE FAKTISKA SÄNGARNA.
+.room {
 
-   Bilden är 1536 x 1024.
-
-   SOVRUM 1:
-   Den stora sängen längst ned i vänstra huset.
-
-   Vi delar den i vänster och höger sida så att
-   Moa och Benji kan ligga på varsin sida.
-=========================================================
-*/
-
-.bed-slot {
     position: absolute;
 
-    z-index: 30;
+    z-index: 20;
 
     border: 2px solid transparent;
 
-    background: rgba(170,125,55,0);
+    background: rgba(150,110,55,0);
 
     cursor: pointer;
 
     transition:
-        background .18s ease,
-        border-color .18s ease,
-        box-shadow .18s ease;
-
-    line-height: normal;
-
-    padding: 0;
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
-.bed-slot:hover {
-    background: rgba(180,140,70,.18);
+.room:hover {
 
-    border-color: rgba(80,55,25,.65);
+    background: rgba(180,140,70,.15);
+
+    border-color: rgba(70,50,30,.55);
 
     box-shadow:
-        inset 0 0 20px rgba(180,140,70,.12);
+        inset 0 0 25px rgba(150,110,55,.12);
 }
 
-.bed-slot.selected-target {
-    background: rgba(180,140,70,.25);
+.room.selected-target {
 
-    border-color: rgba(80,55,25,.85);
+    background: rgba(180,140,70,.22);
+
+    border-color: rgba(70,50,30,.75);
 
     box-shadow:
-        inset 0 0 25px rgba(180,140,70,.16);
+        inset 0 0 30px rgba(150,110,55,.15);
+}
+
+
+/*
+=========================================================
+   RUM 1
+
+   Vänstra huset.
+   Det stora sovrummet längst ned.
+=========================================================
+*/
+
+.room-1 {
+
+    left: 25.8%;
+
+    top: 49.0%;
+
+    width: 27.5%;
+
+    height: 31.0%;
+}
+
+
+/*
+=========================================================
+   RUM 2
+
+   Övre vänstra sovrummet.
+=========================================================
+*/
+
+.room-2 {
+
+    left: 56.2%;
+
+    top: 21.5%;
+
+    width: 20.5%;
+
+    height: 47.5%;
+}
+
+
+/*
+=========================================================
+   RUM 3
+
+   Övre högra sovrummet.
+=========================================================
+*/
+
+.room-3 {
+
+    left: 77.0%;
+
+    top: 21.5%;
+
+    width: 20.0%;
+
+    height: 47.5%;
 }
 
 
 /* =========================================================
-   SOVRUM 1 — VÄNSTER SIDA
+   NAMN I RUMMEN
 ========================================================= */
 
-.bed-room1-left {
-
-    left: 32.2%;
-    top: 57.0%;
-
-    width: 6.3%;
-    height: 18.0%;
-}
-
-
-/* =========================================================
-   SOVRUM 1 — HÖGER SIDA
-========================================================= */
-
-.bed-room1-right {
-
-    left: 40.0%;
-    top: 57.0%;
-
-    width: 6.3%;
-    height: 18.0%;
-}
-
-
-/* =========================================================
-   SOVRUM 2 — ÖVRE SÄNG
-========================================================= */
-
-.bed-room2-top {
-
-    left: 59.0%;
-    top: 25.0%;
-
-    width: 12.0%;
-    height: 13.0%;
-}
-
-
-/* =========================================================
-   SOVRUM 2 — NEDRE SÄNG
-========================================================= */
-
-.bed-room2-bottom {
-
-    left: 59.0%;
-    top: 55.0%;
-
-    width: 12.0%;
-    height: 13.0%;
-}
-
-
-/* =========================================================
-   SOVRUM 3 — ÖVRE SÄNG
-========================================================= */
-
-.bed-room3-top {
-
-    left: 81.8%;
-    top: 25.0%;
-
-    width: 11.8%;
-    height: 13.0%;
-}
-
-
-/* =========================================================
-   SOVRUM 3 — NEDRE SÄNG
-========================================================= */
-
-.bed-room3-bottom {
-
-    left: 81.8%;
-    top: 55.0%;
-
-    width: 11.8%;
-    height: 13.0%;
-}
-
-
-/* =========================================================
-   NAMN PÅ SÄNGARNA
-========================================================= */
-
-.placed-name {
+.room-name {
 
     position: absolute;
 
-    z-index: 60;
+    z-index: 40;
 
     transform: translate(-50%, -50%);
 
-    padding: 5px 9px;
+    display: none;
 
-    background: rgba(247,240,220,.96);
+    padding: 6px 10px;
 
-    border: 1px solid rgba(60,45,30,.4);
+    background: rgba(247,240,220,.95);
+
+    border: 1px solid rgba(60,45,30,.35);
 
     box-shadow:
-        0 2px 8px rgba(0,0,0,.28);
+        0 2px 8px rgba(0,0,0,.25);
 
     color: #2b251e;
 
@@ -823,69 +843,191 @@ h1 {
     white-space: nowrap;
 
     pointer-events: none;
+}
 
-    display: none;
+.room-name.visible {
+
+    display: block;
 }
 
 
 /*
-    NAMNENS POSITIONER
+    Namnen placeras inne i respektive rum.
 
-    Dessa ligger mitt på respektive klickzon.
+    De här positionerna gäller KARTAN,
+    inte sängarna.
 */
 
+.room-name-moa {
 
-/* Moa — vänster sida av dubbelsängen */
+    left: 32.5%;
 
-.name-moa {
-    left: 35.35%;
-    top: 66%;
+    top: 62%;
 }
 
+.room-name-benji {
 
-/* Benji — höger sida av dubbelsängen */
+    left: 45%;
 
-.name-benji {
-    left: 43.15%;
-    top: 66%;
+    top: 62%;
 }
 
+.room-name-benjamin {
 
-/* Benjamin — övre sängen i sovrum 2 */
+    left: 66.5%;
 
-.name-benjamin {
-    left: 65.0%;
-    top: 31.5%;
+    top: 45%;
 }
 
+.room-name-gustav {
 
-/* Gustav — nedre sängen i sovrum 2 */
+    left: 66.5%;
 
-.name-gustav {
-    left: 65.0%;
-    top: 61.5%;
+    top: 54%;
 }
 
+.room-name-elham {
 
-/* Elham — övre sängen i sovrum 3 */
+    left: 87%;
 
-.name-elham {
-    left: 87.7%;
-    top: 31.5%;
+    top: 45%;
 }
 
+.room-name-cecilia {
 
-/* Cecilia — nedre sängen i sovrum 3 */
+    left: 87%;
 
-.name-cecilia {
-    left: 87.7%;
-    top: 61.5%;
+    top: 54%;
 }
 
 
 /* Benjamin ska vara röd */
 
-.name-benjamin {
+.room-name-benjamin {
+
+    color: #a32929;
+
+    border-color: rgba(163,41,41,.45);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   NAMN PÅ SÄNGAR EFTER LÖSNING
+========================================================= */
+
+.bed-name {
+
+    position: absolute;
+
+    z-index: 50;
+
+    display: none;
+
+    transform: translate(-50%, -50%);
+
+    padding: 5px 8px;
+
+    background: rgba(247,240,220,.96);
+
+    border: 1px solid rgba(60,45,30,.4);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.28);
+
+    color: #2b251e;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.bed-name.visible {
+
+    display: block;
+}
+
+
+/*
+=========================================================
+   EXAKTA SÄNGPOSITIONER EFTER RÄTT SVAR
+=========================================================
+*/
+
+
+/* SOVRUM 1 — MOA, vänster sida */
+
+.bed-moa {
+
+    left: 35.3%;
+
+    top: 65.7%;
+}
+
+
+/* SOVRUM 1 — BENJI, höger sida */
+
+.bed-benji {
+
+    left: 43.2%;
+
+    top: 65.7%;
+}
+
+
+/* SOVRUM 2 — BENJAMIN, övre sängen */
+
+.bed-benjamin {
+
+    left: 65.0%;
+
+    top: 31.7%;
+}
+
+
+/* SOVRUM 2 — GUSTAV, nedre sängen */
+
+.bed-gustav {
+
+    left: 65.0%;
+
+    top: 61.0%;
+}
+
+
+/* SOVRUM 3 — ELHAM, övre sängen */
+
+.bed-elham {
+
+    left: 87.2%;
+
+    top: 31.7%;
+}
+
+
+/* SOVRUM 3 — CECILIA, nedre sängen */
+
+.bed-cecilia {
+
+    left: 87.2%;
+
+    top: 61.0%;
+}
+
+
+/* Benjamin röd även på sängen */
+
+.bed-benjamin {
+
     color: #a32929;
 
     border-color: rgba(163,41,41,.5);
@@ -894,18 +1036,12 @@ h1 {
 }
 
 
-/* När en person är placerad visas namnet */
-
-.placed-name.visible {
-    display: block;
-}
-
-
 /* =========================================================
    PERSONER
 ========================================================= */
 
 .people-panel {
+
     width: min(850px, 100%);
 
     margin: 28px auto 0;
@@ -918,6 +1054,7 @@ h1 {
 }
 
 .people-title {
+
     text-align: center;
 
     font-family: Cinzel, serif;
@@ -930,6 +1067,7 @@ h1 {
 }
 
 .people-list {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -940,6 +1078,7 @@ h1 {
 }
 
 .person {
+
     border: 1px solid rgba(0,0,0,.25);
 
     background: #eee4cf;
@@ -961,10 +1100,12 @@ h1 {
 }
 
 .person:hover {
+
     transform: translateY(-2px);
 }
 
 .person.selected {
+
     background: #3a2d20;
 
     color: #f4eddb;
@@ -973,6 +1114,7 @@ h1 {
 }
 
 .person.placed {
+
     opacity: .55;
 }
 
@@ -982,6 +1124,7 @@ h1 {
 ========================================================= */
 
 .puzzle-actions {
+
     display: flex;
 
     justify-content: center;
@@ -994,6 +1137,7 @@ h1 {
 }
 
 .puzzle-button {
+
     padding: 11px 22px;
 
     border: 1px solid rgba(0,0,0,.28);
@@ -1018,22 +1162,26 @@ h1 {
 }
 
 .puzzle-button:hover {
+
     transform: translateY(-2px);
 
     background: #4b3928;
 }
 
 .puzzle-button.secondary {
+
     background: transparent;
 
     color: #3a2d20;
 }
 
 .puzzle-button.hidden {
+
     display: none;
 }
 
 .puzzle-message {
+
     min-height: 24px;
 
     margin-top: 18px;
@@ -1049,13 +1197,14 @@ h1 {
 
 
 /* =========================================================
-   NÄR PUSSELET ÄR LÅST
+   LÅST EFTER RÄTT SVAR
 ========================================================= */
 
-.map-window.solved .bed-slot {
-    cursor: default;
+.map-window.solved .room {
 
     pointer-events: none;
+
+    cursor: default;
 
     background: transparent;
 
@@ -1064,18 +1213,13 @@ h1 {
     box-shadow: none;
 }
 
-.map-window.solved .person {
-    pointer-events: none;
-
-    cursor: default;
-}
-
 
 /* =========================================================
    TILLBAKA
 ========================================================= */
 
 .back-button {
+
     display: block;
 
     margin: 35px auto 0;
@@ -1109,25 +1253,33 @@ h1 {
 @media (max-width: 850px) {
 
     .calendar {
+
         grid-template-columns: repeat(4, 1fr);
+
         gap: 14px;
     }
 
     .table {
+
         padding: 50px 25px;
+
         gap: 35px;
     }
 
     .paper {
+
         width: 220px;
+
         height: 290px;
     }
 
     .document {
+
         padding: 45px 35px;
     }
 
     .map-window {
+
         padding: 20px;
     }
 }
@@ -1136,72 +1288,95 @@ h1 {
 @media (max-width: 520px) {
 
     header {
+
         padding-top: 35px;
     }
 
     .calendar {
+
         grid-template-columns: repeat(3, 1fr);
+
         gap: 10px;
     }
 
     .subtitle {
+
         font-size: 11px;
     }
 
     #investigation {
+
         padding: 35px 15px 60px;
     }
 
     .table {
+
         width: 100%;
+
         padding: 40px 15px;
     }
 
     .paper {
+
         width: 90%;
+
         max-width: 280px;
     }
 
     .document-overlay {
+
         padding: 15px;
     }
 
     .document {
+
         padding: 35px 25px;
+
         margin-top: 25px;
     }
 
     .document-top h2 {
+
         font-size: 25px;
     }
 
     .document p {
+
         font-size: 13px;
     }
 
     .document-info {
+
         grid-template-columns: 1fr;
     }
 
     .map-overlay {
+
         padding: 10px;
     }
 
     .map-window {
+
         padding: 12px;
     }
 
     .map-header h2 {
+
         font-size: 22px;
     }
 
     .person {
+
         padding: 9px 10px;
+
         font-size: 11px;
     }
 
-    .placed-name {
+    .room-name,
+    .bed-name {
+
         font-size: 8px;
+
         padding: 4px 6px;
     }
 }
@@ -1236,6 +1411,7 @@ h1 {
     ></main>
 
 </div>
+
 
 
 <!-- =========================================================
@@ -1351,6 +1527,7 @@ h1 {
     </button>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1502,6 +1679,7 @@ h1 {
 </div>
 
 
+
 <!-- =========================================================
      KARTA
 ========================================================= -->
@@ -1538,13 +1716,13 @@ h1 {
         <div class="puzzle-instructions">
 
             <strong>
-                Placera personerna i rätt säng.
+                Placera personerna i rätt rum.
             </strong>
 
             <br>
 
             Välj en person i listan och klicka sedan
-            på den säng där personen sov.
+            på det rum där personen sov.
 
         </div>
 
@@ -1565,130 +1743,143 @@ h1 {
 
 
             <!-- =============================================
-                 SOVRUM 1 — VÄNSTER SIDA
+                 RUM 1
             ============================================== -->
 
             <button
                 type="button"
-                class="bed-slot bed-room1-left"
-                data-slot="room1-left"
-                onclick="placePerson('room1-left')"
-                aria-label="Vänster sida av sängen i sovrum 1"
+                class="room room-1"
+                data-room="room1"
+                onclick="placePerson('room1')"
+                aria-label="Sovrum 1"
             ></button>
 
 
             <!-- =============================================
-                 SOVRUM 1 — HÖGER SIDA
+                 RUM 2
             ============================================== -->
 
             <button
                 type="button"
-                class="bed-slot bed-room1-right"
-                data-slot="room1-right"
-                onclick="placePerson('room1-right')"
-                aria-label="Höger sida av sängen i sovrum 1"
+                class="room room-2"
+                data-room="room2"
+                onclick="placePerson('room2')"
+                aria-label="Sovrum 2"
             ></button>
 
 
             <!-- =============================================
-                 SOVRUM 2 — ÖVRE SÄNG
+                 RUM 3
             ============================================== -->
 
             <button
                 type="button"
-                class="bed-slot bed-room2-top"
-                data-slot="room2-top"
-                onclick="placePerson('room2-top')"
-                aria-label="Övre sängen i sovrum 2"
+                class="room room-3"
+                data-room="room3"
+                onclick="placePerson('room3')"
+                aria-label="Sovrum 3"
             ></button>
 
 
             <!-- =============================================
-                 SOVRUM 2 — NEDRE SÄNG
-            ============================================== -->
-
-            <button
-                type="button"
-                class="bed-slot bed-room2-bottom"
-                data-slot="room2-bottom"
-                onclick="placePerson('room2-bottom')"
-                aria-label="Nedre sängen i sovrum 2"
-            ></button>
-
-
-            <!-- =============================================
-                 SOVRUM 3 — ÖVRE SÄNG
-            ============================================== -->
-
-            <button
-                type="button"
-                class="bed-slot bed-room3-top"
-                data-slot="room3-top"
-                onclick="placePerson('room3-top')"
-                aria-label="Övre sängen i sovrum 3"
-            ></button>
-
-
-            <!-- =============================================
-                 SOVRUM 3 — NEDRE SÄNG
-            ============================================== -->
-
-            <button
-                type="button"
-                class="bed-slot bed-room3-bottom"
-                data-slot="room3-bottom"
-                onclick="placePerson('room3-bottom')"
-                aria-label="Nedre sängen i sovrum 3"
-            ></button>
-
-
-            <!-- =============================================
-                 NAMN
+                 NAMN SOM VISAS I RUMMEN
             ============================================== -->
 
             <div
-                class="placed-name name-moa"
-                id="name-Moa"
+                id="roomName-Moa"
+                class="room-name room-name-moa"
             >
                 Moa
             </div>
 
 
             <div
-                class="placed-name name-benji"
-                id="name-Benji"
+                id="roomName-Benji"
+                class="room-name room-name-benji"
             >
                 Benji
             </div>
 
 
             <div
-                class="placed-name name-benjamin"
-                id="name-Benjamin"
+                id="roomName-Benjamin"
+                class="room-name room-name-benjamin"
             >
                 Benjamin
             </div>
 
 
             <div
-                class="placed-name name-gustav"
-                id="name-Gustav"
+                id="roomName-Gustav"
+                class="room-name room-name-gustav"
             >
                 Gustav
             </div>
 
 
             <div
-                class="placed-name name-elham"
-                id="name-Elham"
+                id="roomName-Elham"
+                class="room-name room-name-elham"
             >
                 Elham
             </div>
 
 
             <div
-                class="placed-name name-cecilia"
-                id="name-Cecilia"
+                id="roomName-Cecilia"
+                class="room-name room-name-cecilia"
+            >
+                Cecilia
+            </div>
+
+
+            <!-- =============================================
+                 NAMN PÅ SÄNGAR EFTER RÄTT SVAR
+            ============================================== -->
+
+            <div
+                id="bedName-Moa"
+                class="bed-name bed-moa"
+            >
+                Moa
+            </div>
+
+
+            <div
+                id="bedName-Benji"
+                class="bed-name bed-benji"
+            >
+                Benji
+            </div>
+
+
+            <div
+                id="bedName-Benjamin"
+                class="bed-name bed-benjamin"
+            >
+                Benjamin
+            </div>
+
+
+            <div
+                id="bedName-Gustav"
+                class="bed-name bed-gustav"
+            >
+                Gustav
+            </div>
+
+
+            <div
+                id="bedName-Elham"
+                class="bed-name bed-elham"
+            >
+                Elham
+            </div>
+
+
+            <div
+                id="bedName-Cecilia"
+                class="bed-name bed-cecilia"
             >
                 Cecilia
             </div>
@@ -1697,7 +1888,7 @@ h1 {
 
 
         <!-- =================================================
-             PERSONLISTA
+             PERSONER
         ================================================= -->
 
         <div class="people-panel">
@@ -1718,6 +1909,7 @@ h1 {
                     Benjamin
                 </button>
 
+
                 <button
                     type="button"
                     class="person"
@@ -1726,6 +1918,7 @@ h1 {
                 >
                     Benji
                 </button>
+
 
                 <button
                     type="button"
@@ -1736,6 +1929,7 @@ h1 {
                     Moa
                 </button>
 
+
                 <button
                     type="button"
                     class="person"
@@ -1745,6 +1939,7 @@ h1 {
                     Elham
                 </button>
 
+
                 <button
                     type="button"
                     class="person"
@@ -1753,6 +1948,7 @@ h1 {
                 >
                     Gustav
                 </button>
+
 
                 <button
                     type="button"
@@ -1806,6 +2002,7 @@ h1 {
 </div>
 
 
+
 <script>
 
 
@@ -1837,7 +2034,8 @@ for (let i = 1; i <= 24; i++) {
             openInvestigation
         );
 
-    } else {
+    }
+    else {
 
         door.style.cursor = "default";
 
@@ -1944,49 +2142,66 @@ function goBack() {
    PUSSEL
 ========================================================= */
 
+
+/*
+    Vilken person är vald just nu?
+*/
+
 let selectedPerson = null;
+
+
+/*
+    Om pusslet är löst låser vi det.
+*/
 
 let puzzleSolved = false;
 
 
 /*
-    Varje slot kan bara innehålla en person.
+    Här sparas vilket rum varje person
+    har placerats i.
 */
 
-let placements = {
+let roomPlacements = {
 
-    "room1-left": null,
+    room1: [],
 
-    "room1-right": null,
+    room2: [],
 
-    "room2-top": null,
-
-    "room2-bottom": null,
-
-    "room3-top": null,
-
-    "room3-bottom": null
+    room3: []
 
 };
 
 
 /* =========================================================
-   FACIT
+   RÄTT SVAR
+
+   Sovrum 1:
+   Moa + Benji
+
+   Sovrum 2:
+   Benjamin + Gustav
+
+   Sovrum 3:
+   Elham + Cecilia
 ========================================================= */
 
-const correctPlacements = {
+const correctRooms = {
 
-    "room1-left": "Moa",
+    room1: [
+        "Moa",
+        "Benji"
+    ],
 
-    "room1-right": "Benji",
+    room2: [
+        "Benjamin",
+        "Gustav"
+    ],
 
-    "room2-top": "Benjamin",
-
-    "room2-bottom": "Gustav",
-
-    "room3-top": "Elham",
-
-    "room3-bottom": "Cecilia"
+    room3: [
+        "Elham",
+        "Cecilia"
+    ]
 
 };
 
@@ -2006,7 +2221,7 @@ function selectPerson(person) {
 
 
     /*
-        Markera valt namn.
+        Ta bort tidigare markering.
     */
 
     document
@@ -2020,15 +2235,19 @@ function selectPerson(person) {
         });
 
 
-    const button =
+    /*
+        Markera vald person.
+    */
+
+    const selectedButton =
         document.querySelector(
             `.person[data-person="${person}"]`
         );
 
 
-    if (button) {
+    if (selectedButton) {
 
-        button.classList.add(
+        selectedButton.classList.add(
             "selected"
         );
 
@@ -2036,14 +2255,14 @@ function selectPerson(person) {
 
 
     /*
-        Markera alla sängar som klickbara mål.
+        Markera rummen som möjliga mål.
     */
 
     document
-        .querySelectorAll(".bed-slot")
-        .forEach(slot => {
+        .querySelectorAll(".room")
+        .forEach(room => {
 
-            slot.classList.add(
+            room.classList.add(
                 "selected-target"
             );
 
@@ -2053,15 +2272,15 @@ function selectPerson(person) {
     document.getElementById(
         "puzzleMessage"
     ).textContent =
-        `${person} är vald. Klicka på den säng där personen sov.`;
+        `${person} är vald. Klicka på rummet där personen sov.`;
 }
 
 
 /* =========================================================
-   PLACERA PERSON
+   PLACERA PERSON I RUM
 ========================================================= */
 
-function placePerson(slotId) {
+function placePerson(roomId) {
 
     if (puzzleSolved) {
         return;
@@ -2069,7 +2288,7 @@ function placePerson(slotId) {
 
 
     /*
-        Ingen person vald.
+        Om ingen person valts.
     */
 
     if (!selectedPerson) {
@@ -2084,64 +2303,73 @@ function placePerson(slotId) {
 
 
     /*
-        Om platsen redan har någon:
-        meddela detta.
+        Kontrollera om rummet redan har två personer.
     */
 
     if (
-        placements[slotId] &&
-        placements[slotId] !== selectedPerson
+        roomPlacements[roomId].length >= 2 &&
+        !roomPlacements[roomId].includes(selectedPerson)
     ) {
 
         document.getElementById(
             "puzzleMessage"
         ).textContent =
-            `${placements[slotId]} ligger redan där.`;
+            "Det rummet har redan två personer.";
 
         return;
     }
 
 
     /*
-        Om personen redan ligger någon annanstans,
-        ta bort personen därifrån.
+        Ta bort personen från eventuellt
+        tidigare rum.
     */
 
-    Object.keys(placements).forEach(slot => {
+    Object.keys(roomPlacements).forEach(room => {
 
-        if (
-            placements[slot] ===
-            selectedPerson
-        ) {
-
-            placements[slot] = null;
-
-        }
+        roomPlacements[room] =
+            roomPlacements[room].filter(
+                person =>
+                    person !== selectedPerson
+            );
 
     });
 
 
     /*
-        Placera personen på den nya sängen.
+        Lägg personen i det nya rummet.
     */
 
-    placements[slotId] =
-        selectedPerson;
+    if (
+        !roomPlacements[roomId].includes(
+            selectedPerson
+        )
+    ) {
+
+        roomPlacements[roomId].push(
+            selectedPerson
+        );
+
+    }
 
 
     /*
-        Uppdatera kartan DIREKT.
+        Visa namnen inne i rummen.
     */
 
-    renderPlacements();
+    renderRoomNames();
 
 
     /*
-        Avmarkera person.
+        Rensa vald person.
     */
 
     selectedPerson = null;
 
+
+    /*
+        Ta bort markeringar.
+    */
 
     document
         .querySelectorAll(".person")
@@ -2155,10 +2383,10 @@ function placePerson(slotId) {
 
 
     document
-        .querySelectorAll(".bed-slot")
-        .forEach(slot => {
+        .querySelectorAll(".room")
+        .forEach(room => {
 
-            slot.classList.remove(
+            room.classList.remove(
                 "selected-target"
             );
 
@@ -2168,22 +2396,22 @@ function placePerson(slotId) {
     document.getElementById(
         "puzzleMessage"
     ).textContent =
-        "Personen placerades på sängen.";
+        "Personen placerades i rummet.";
 }
 
 
 /* =========================================================
-   VISA NAMN PÅ KARTAN
+   VISA NAMN I RUMMEN
 ========================================================= */
 
-function renderPlacements() {
+function renderRoomNames() {
 
     /*
-        Börja med att gömma alla namn.
+        Göm alla namn först.
     */
 
     document
-        .querySelectorAll(".placed-name")
+        .querySelectorAll(".room-name")
         .forEach(name => {
 
             name.classList.remove(
@@ -2194,40 +2422,105 @@ function renderPlacements() {
 
 
     /*
-        Visa varje placerad person.
+        Rum 1
     */
 
-    Object.keys(placements).forEach(slot => {
-
-        const person =
-            placements[slot];
+    const room1 =
+        roomPlacements.room1;
 
 
-        if (!person) {
-            return;
-        }
+    if (room1[0]) {
 
-
-        const nameElement =
-            document.getElementById(
-                `name-${person}`
-            );
-
-
-        if (nameElement) {
-
-            nameElement.classList.add(
+        document
+            .getElementById(
+                `roomName-${room1[0]}`
+            )
+            .classList.add(
                 "visible"
             );
+    }
 
-        }
 
-    });
+    if (room1[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room1[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
 
 
     /*
-        Markera vilka personer som redan
-        ligger på kartan.
+        Rum 2
+    */
+
+    const room2 =
+        roomPlacements.room2;
+
+
+    if (room2[0]) {
+
+        document
+            .getElementById(
+                `roomName-${room2[0]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    if (room2[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room2[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    /*
+        Rum 3
+    */
+
+    const room3 =
+        roomPlacements.room3;
+
+
+    if (room3[0]) {
+
+        document
+            .getElementById(
+                `roomName-${room3[0]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    if (room3[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room3[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+
+
+    }
+
+
+    /*
+        Markera vilka personer som placerats.
     */
 
     document
@@ -2240,8 +2533,10 @@ function renderPlacements() {
 
             const isPlaced =
                 Object.values(
-                    placements
-                ).includes(person);
+                    roomPlacements
+                )
+                .flat()
+                .includes(person);
 
 
             button.classList.toggle(
@@ -2250,11 +2545,121 @@ function renderPlacements() {
             );
 
         });
+
+
+    /*
+        Justera om två personer ligger
+        i samma rum så att de inte hamnar
+        exakt ovanpå varandra.
+
+        Vi gör detta genom att flytta
+        det andra namnet lite.
+    */
+
+    positionRoomNames(
+        "room1",
+        roomPlacements.room1
+    );
+
+    positionRoomNames(
+        "room2",
+        roomPlacements.room2
+    );
+
+    positionRoomNames(
+        "room3",
+        roomPlacements.room3
+    );
 }
 
 
 /* =========================================================
-   KONTROLLERA
+   POSITIONERA NAMN INNE I RUM
+========================================================= */
+
+function positionRoomNames(roomId, people) {
+
+    /*
+        Dessa positioner är relativa till hela kartan.
+    */
+
+    const positions = {
+
+        room1: [
+
+            {
+                left: "32.5%",
+                top: "61%"
+            },
+
+            {
+                left: "45%",
+                top: "61%"
+            }
+
+        ],
+
+        room2: [
+
+            {
+                left: "66.5%",
+                top: "42%"
+            },
+
+            {
+                left: "66.5%",
+                top: "52%"
+            }
+
+        ],
+
+        room3: [
+
+            {
+                left: "87%",
+                top: "42%"
+            },
+
+            {
+                left: "87%",
+                top: "52%"
+            }
+
+        ]
+
+    };
+
+
+    people.forEach((person, index) => {
+
+        const element =
+            document.getElementById(
+                `roomName-${person}`
+            );
+
+
+        if (!element) {
+            return;
+        }
+
+
+        const position =
+            positions[roomId][index];
+
+
+        element.style.left =
+            position.left;
+
+
+        element.style.top =
+            position.top;
+
+    });
+}
+
+
+/* =========================================================
+   KONTROLLERA PUSSEL
 ========================================================= */
 
 function checkPuzzle() {
@@ -2265,54 +2670,71 @@ function checkPuzzle() {
 
 
     /*
-        Kontrollera att alla sex platser
-        är fyllda.
+        Alla tre rum måste innehålla
+        exakt två personer.
     */
 
-    const allFilled =
-        Object.values(
-            placements
-        ).every(
-            value => value !== null
-        );
+    const allRoomsFilled =
+
+        roomPlacements.room1.length === 2 &&
+        roomPlacements.room2.length === 2 &&
+        roomPlacements.room3.length === 2;
 
 
-    if (!allFilled) {
+    if (!allRoomsFilled) {
 
         document.getElementById(
             "puzzleMessage"
         ).textContent =
-            "Alla sex sovplatser måste fyllas först.";
+            "Alla personer måste placeras först.";
 
         return;
     }
 
 
     /*
-        Kontrollera varje specifik säng.
+        Sortera både spelarens svar och facit
+        så ordningen inom rummet inte spelar roll.
     */
 
-    let correct = true;
+    const room1Correct =
+        [...roomPlacements.room1]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room1]
+        .sort()
+        .join("|");
 
 
-    Object.keys(
-        correctPlacements
-    ).forEach(slot => {
+    const room2Correct =
+        [...roomPlacements.room2]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room2]
+        .sort()
+        .join("|");
 
-        if (
-            placements[slot] !==
-            correctPlacements[slot]
-        ) {
 
-            correct = false;
+    const room3Correct =
+        [...roomPlacements.room3]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room3]
+        .sort()
+        .join("|");
 
-        }
 
-    });
+    const correct =
+        room1Correct &&
+        room2Correct &&
+        room3Correct;
 
 
     /* =====================================================
-       RÄTT
+       RÄTT SVAR
     ===================================================== */
 
     if (correct) {
@@ -2321,33 +2743,76 @@ function checkPuzzle() {
 
 
         /*
-            Visa alla namn.
-        */
-
-        renderPlacements();
-
-
-        /*
-            Lås hela pusslet.
+            Ta bort namnen ur rummen.
         */
 
         document
+            .querySelectorAll(".room-name")
+            .forEach(name => {
+
+                name.classList.remove(
+                    "visible"
+                );
+
+            });
+
+
+        /*
+            Visa namnen på de faktiska sängarna.
+        */
+
+        document
+            .querySelectorAll(".bed-name")
+            .forEach(name => {
+
+                name.classList.add(
+                    "visible"
+                );
+
+            });
+
+
+        /*
+            Lås rummen.
+        */
+
+        document
+            .querySelectorAll(".room")
+            .forEach(room => {
+
+                room.classList.remove(
+                    "selected-target"
+                );
+
+            });
+
+
+        document
             .getElementById("mapWindow")
-            .classList.add("solved");
+            .classList.add(
+                "solved"
+            );
 
 
         /*
             Ta bort knapparna.
+
+            När pusslet är löst ska man inte
+            kunna börja om.
         */
 
         document
             .getElementById("checkButton")
-            .classList.add("hidden");
+            .classList.add(
+                "hidden"
+            );
 
 
         document
             .getElementById("resetButton")
-            .classList.add("hidden");
+            .classList.add(
+                "hidden"
+            );
 
 
         /*
@@ -2369,20 +2834,12 @@ function checkPuzzle() {
             });
 
 
+        selectedPerson = null;
+
+
         /*
-            Lås sängarna.
+            Slutmeddelande.
         */
-
-        document
-            .querySelectorAll(".bed-slot")
-            .forEach(slot => {
-
-                slot.classList.remove(
-                    "selected-target"
-                );
-
-            });
-
 
         document.getElementById(
             "puzzleMessage"
@@ -2390,23 +2847,18 @@ function checkPuzzle() {
             "Rätt. Sovplatserna är fastställda.";
 
 
-        selectedPerson = null;
-
+        return;
     }
 
 
     /* =====================================================
-       FEL
+       FEL SVAR
     ===================================================== */
 
-    else {
-
-        document.getElementById(
-            "puzzleMessage"
-        ).textContent =
-            "Inte riktigt. Kontrollera placeringarna igen.";
-
-    }
+    document.getElementById(
+        "puzzleMessage"
+    ).textContent =
+        "Inte riktigt. Kontrollera vilka rum personerna sov i.";
 }
 
 
@@ -2416,24 +2868,23 @@ function checkPuzzle() {
 
 function resetPuzzle() {
 
+    /*
+        Om det redan är löst får man inte
+        börja om.
+    */
+
     if (puzzleSolved) {
         return;
     }
 
 
-    placements = {
+    roomPlacements = {
 
-        "room1-left": null,
+        room1: [],
 
-        "room1-right": null,
+        room2: [],
 
-        "room2-top": null,
-
-        "room2-bottom": null,
-
-        "room3-top": null,
-
-        "room3-bottom": null
+        room3: []
 
     };
 
@@ -2442,11 +2893,11 @@ function resetPuzzle() {
 
 
     /*
-        Rensa namn från kartan.
+        Göm alla rumsnamn.
     */
 
     document
-        .querySelectorAll(".placed-name")
+        .querySelectorAll(".room-name")
         .forEach(name => {
 
             name.classList.remove(
@@ -2457,7 +2908,22 @@ function resetPuzzle() {
 
 
     /*
-        Rensa personmarkeringar.
+        Göm sängnamnen.
+    */
+
+    document
+        .querySelectorAll(".bed-name")
+        .forEach(name => {
+
+            name.classList.remove(
+                "visible"
+            );
+
+        });
+
+
+    /*
+        Rensa personknappar.
     */
 
     document
@@ -2473,14 +2939,14 @@ function resetPuzzle() {
 
 
     /*
-        Rensa sängmarkeringar.
+        Rensa rum.
     */
 
     document
-        .querySelectorAll(".bed-slot")
-        .forEach(slot => {
+        .querySelectorAll(".room")
+        .forEach(room => {
 
-            slot.classList.remove(
+            room.classList.remove(
                 "selected-target"
             );
 
