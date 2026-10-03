@@ -1381,6 +1381,220 @@ h1 {
     }
 }
 
+
+/* =========================================================
+   EXTRA MOBILANPASSNING
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 30px 14px 24px;
+    }
+
+    h1 {
+        font-size: clamp(34px, 11vw, 52px);
+        letter-spacing: .08em;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: .12em;
+        line-height: 1.6;
+    }
+
+    .calendar {
+        width: calc(100% - 24px);
+        margin: 12px auto 45px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .door {
+        min-width: 0;
+        aspect-ratio: 1 / 1.08;
+        border-radius: 7px;
+    }
+
+    .number {
+        font-size: clamp(26px, 9vw, 38px);
+    }
+
+    #investigation {
+        padding: 30px 10px 45px;
+    }
+
+    .investigation-header {
+        margin-bottom: 28px;
+    }
+
+    .investigation-header h2 {
+        font-size: clamp(28px, 9vw, 44px);
+        letter-spacing: .07em;
+    }
+
+    .investigation-header p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .table {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 12px 35px;
+        gap: 18px;
+        border-radius: 5px;
+    }
+
+    .paper {
+        width: min(100%, 290px);
+        height: 285px;
+        padding: 25px 20px;
+    }
+
+    .paper h3 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .document-overlay {
+        padding: 10px;
+    }
+
+    .document {
+        width: 100%;
+        min-height: auto;
+        margin: 10px auto 30px;
+        padding: 32px 22px 40px;
+    }
+
+    .document-top h2 {
+        font-size: 23px;
+        line-height: 1.3;
+    }
+
+    .document p {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .close-document {
+        top: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .map-overlay {
+        padding: 6px;
+    }
+
+    .map-window {
+        width: 100%;
+        margin: 8px auto 25px;
+        padding: 12px 8px 18px;
+    }
+
+    .map-header {
+        padding: 0 5px;
+        margin-bottom: 14px;
+    }
+
+    .map-header h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .map-header p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .puzzle-instructions {
+        font-size: 11px;
+        line-height: 1.65;
+        padding: 0 5px;
+        margin-bottom: 16px;
+    }
+
+    .map-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .people-panel {
+        width: 100%;
+        margin-top: 18px;
+        padding: 14px 10px;
+    }
+
+    .people-list {
+        gap: 7px;
+    }
+
+    .person {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .puzzle-actions {
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .puzzle-button {
+        flex: 1 1 130px;
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 10px;
+    }
+
+    .puzzle-message {
+        font-size: 11px;
+        line-height: 1.5;
+        min-height: 34px;
+    }
+
+    .back-button {
+        width: calc(100% - 20px);
+        max-width: 300px;
+        margin-top: 25px;
+    }
+
+    .room-name,
+    .bed-name {
+        font-size: 7px;
+        padding: 3px 5px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .calendar {
+        gap: 8px;
+    }
+
+    .door::before {
+        inset: 5px;
+    }
+
+    .paper {
+        height: 270px;
+    }
+
+    .person {
+        flex: 1 1 calc(50% - 7px);
+    }
+
+    .puzzle-button {
+        flex-basis: 100%;
+    }
+}
+
 </style>
 </head>
 
