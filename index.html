@@ -1037,131 +1037,6 @@ h1 {
 
 
 /* =========================================================
-   KARTSCEN — KARTA + MOBIL PÅ BORDET
-========================================================= */
-
-.map-scene {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 18px;
-    width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-.map-scene .map-container {
-    flex: 1 1 auto;
-    min-width: 0;
-    margin: 0;
-}
-
-.map-phone-prop {
-    flex: 0 0 112px;
-    width: 112px;
-    margin-top: 28px;
-    padding: 10px;
-    border-radius: 14px;
-    background: linear-gradient(145deg,#4b2c19,#2b180e);
-    box-shadow: 0 12px 25px rgba(0,0,0,.38);
-    cursor: pointer;
-    transform: rotate(6deg);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.map-phone-prop:hover {
-    transform: rotate(2deg) translateY(-6px) scale(1.04);
-    box-shadow: 0 20px 35px rgba(0,0,0,.48);
-}
-
-.map-phone-device {
-    width: 82px;
-    height: 145px;
-    margin: 0 auto;
-    padding: 5px;
-    border: 3px solid #151515;
-    border-radius: 16px;
-    background: #080908;
-    box-shadow: 0 8px 16px rgba(0,0,0,.5);
-}
-
-.map-phone-screen {
-    width: 100%;
-    height: 100%;
-    border-radius: 11px;
-    background:
-        radial-gradient(circle at 50% 10%, rgba(105,135,110,.45), transparent 35%),
-        linear-gradient(160deg,#24392d,#0d1510 70%);
-    color: #f5f0e4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Inter,sans-serif;
-    text-align: center;
-}
-
-.map-phone-time {
-    font-size: 20px;
-}
-
-.map-phone-lock {
-    margin-top: 7px;
-    font-size: 7px;
-    letter-spacing: .12em;
-    opacity: .7;
-}
-
-.map-phone-label {
-    margin-top: 8px;
-    color: #f4eddb;
-    font-size: 8px;
-    line-height: 1.35;
-    text-align: center;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-@media (max-width: 850px) {
-    .map-scene {
-        gap: 12px;
-    }
-
-    .map-phone-prop {
-        flex-basis: 95px;
-        width: 95px;
-    }
-
-    .map-phone-device {
-        width: 68px;
-        height: 120px;
-    }
-}
-
-@media (max-width: 600px) {
-    .map-scene {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .map-scene .map-container {
-        width: 100%;
-    }
-
-    .map-phone-prop {
-        width: 120px;
-        flex-basis: auto;
-        margin-top: 4px;
-    }
-
-    .map-phone-device {
-        width: 76px;
-        height: 132px;
-    }
-}
-
-
-/* =========================================================
    PERSONER
 ========================================================= */
 
@@ -2272,8 +2147,6 @@ h1 {
              KARTA
         ================================================= -->
 
-        <div class="map-scene">
-
         <div
             class="map-container"
             id="mapContainer"
@@ -2429,24 +2302,32 @@ h1 {
 
         </div>
 
+        <!-- =================================================
+             MOBILTELEFON
+        ================================================= -->
 
         <div
-            class="map-phone-prop"
+            class="paper phone-paper"
             onclick="openPhone()"
-            title="Undersök mobiltelefonen"
         >
-            <div class="map-phone-device">
-                <div class="map-phone-screen">
-                    <div class="map-phone-time">22:14</div>
-                    <div class="map-phone-lock">🔒 LÅST</div>
+
+            <h3>Mobiltelefon</h3>
+
+            <div class="phone-icon">
+                <div class="phone-screen">
+                    <div class="phone-time">22:14</div>
+                    <div class="phone-lock">LÅST</div>
                 </div>
             </div>
 
-            <div class="map-phone-label">
-                Mobiltelefon<br>
+            <p>
+                En mobiltelefon som hittades bland
+                tillhörigheterna i stugan.
+            </p>
+
+            <div class="paper-label">
                 Klicka för att undersöka
             </div>
-        </div>
 
         </div>
 
