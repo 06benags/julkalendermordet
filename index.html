@@ -4,489 +4,256 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JULMORDET</title>
+<title>Julkalender</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
 
 body {
-    background: #081018;
-    color: white;
+    min-height: 100vh;
     font-family: Inter, sans-serif;
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 50% 0%, #29452f 0%, transparent 45%),
+        linear-gradient(135deg, #10251b, #183527 55%, #0b1812);
+
+    overflow-x: hidden;
 }
 
 /* =========================
-   BAKGRUND
+   SNÖ
 ========================= */
 
-.scene {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 18%,
-            rgba(58, 83, 101, 0.35),
-            transparent 38%
-        ),
-        linear-gradient(
-            to bottom,
-            #07121e 0%,
-            #101f2d 48%,
-            #182b38 100%
-        );
-}
-
-/* =========================
-   MÅNE
-========================= */
-
-.moon {
-    position: absolute;
-
-    width: 145px;
-    height: 145px;
-
-    top: 7%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 32%,
-            #faf8e9 0%,
-            #f3efd8 58%,
-            #e5dfc5 100%
-        );
-
-    box-shadow:
-        0 0 28px rgba(255, 247, 215, 0.28),
-        0 0 75px rgba(255, 247, 215, 0.13),
-        0 0 130px rgba(255, 247, 215, 0.06);
-
-    z-index: 2;
-}
-
-/* Små subtila kratrar */
-
-.moon::before {
+body::before {
     content: "";
-
-    position: absolute;
-
-    width: 22px;
-    height: 22px;
-
-    left: 28px;
-    top: 38px;
-
-    border-radius: 50%;
-
-    background: rgba(190, 184, 160, 0.13);
-
-    box-shadow:
-        45px 35px 0 5px rgba(190, 184, 160, 0.08),
-        68px 5px 0 2px rgba(190, 184, 160, 0.10),
-        20px 72px 0 4px rgba(190, 184, 160, 0.07);
-}
-
-/* =========================
-   MÅNENS GLÖD
-========================= */
-
-.moon-glow {
-    position: absolute;
-
-    width: 480px;
-    height: 240px;
-
-    top: 2%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(190, 207, 216, 0.11),
-            transparent 70%
-        );
-
-    filter: blur(20px);
-
-    pointer-events: none;
-
-    z-index: 1;
-}
-
-/* =========================
-   TITEL
-========================= */
-
-.title {
-    position: absolute;
-
-    top: 39%;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 100%;
-
-    text-align: center;
-
-    z-index: 10;
-}
-
-.title h1 {
-    font-family: Cinzel, serif;
-
-    font-size: clamp(58px, 9vw, 120px);
-
-    font-weight: 500;
-
-    letter-spacing: 0.17em;
-
-    margin-right: -0.17em;
-
-    color: #f4f1e8;
-
-    text-shadow:
-        0 3px 25px rgba(0,0,0,0.55);
-}
-
-.divider {
-    width: 100px;
-    height: 1px;
-
-    margin: 24px auto 20px;
-
-    background: rgba(255,255,255,0.55);
-}
-
-.title p {
-    font-size: 13px;
-
-    font-weight: 300;
-
-    letter-spacing: 0.32em;
-
-    text-transform: uppercase;
-
-    color: rgba(255,255,255,0.82);
-}
-
-/* =========================
-   START-KNAPP
-========================= */
-
-.intro-buttons {
-    position: absolute;
-
-    left: 50%;
-    bottom: 12%;
-
-    transform: translateX(-50%);
-
-    z-index: 20;
-}
-
-.start-button {
-    min-width: 220px;
-
-    padding: 17px 42px;
-
-    border: 1px solid rgba(255,255,255,0.55);
-
-    border-radius: 2px;
-
-    background: rgba(8,18,27,0.45);
-
-    backdrop-filter: blur(8px);
-
-    color: white;
-
-    font-family: Inter, sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.35em;
-
-    text-indent: 0.35em;
-
-    cursor: pointer;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.start-button:hover {
-    background: rgba(255,255,255,0.92);
-
-    color: #101c26;
-
-    border-color: white;
-
-    transform: translateY(-2px);
-}
-
-/* =========================
-   SNÖLAGER
-========================= */
-
-/* Långsam, stor snö */
-
-.snow-large {
-    position: absolute;
-
-    inset: -100px;
-
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.9) 0 2px,
-            transparent 3px
-        ),
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.75) 0 1.5px,
-            transparent 3px
-        );
-
-    background-size:
-        150px 150px,
-        230px 230px;
-
-    background-position:
-        10px 20px,
-        70px 90px;
-
-    animation:
-        snowLarge 24s linear infinite;
-
-    opacity: 0.65;
-
-    z-index: 30;
-}
-
-/* Mellanstora flingor */
-
-.snow-medium {
-    position: absolute;
-
-    inset: -100px;
-
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.9) 0 1.5px,
-            transparent 2.5px
-        ),
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.65) 0 1px,
-            transparent 2px
-        );
-
-    background-size:
-        85px 85px,
-        125px 125px;
-
-    background-position:
-        20px 10px,
-        50px 80px;
-
-    animation:
-        snowMedium 15s linear infinite;
-
-    opacity: 0.7;
-
-    z-index: 31;
-}
-
-/* Små snöpartiklar */
-
-.snow-small {
-    position: absolute;
-
-    inset: -100px;
-
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.75) 0 0.8px,
-            transparent 1.8px
-        );
-
-    background-size: 52px 52px;
-
-    animation:
-        snowSmall 11s linear infinite;
-
-    opacity: 0.55;
-
-    z-index: 32;
-}
-
-/* Rörelsen är lite diagonal,
-   så snön inte faller helt rakt */
-
-@keyframes snowLarge {
-
-    0% {
-        transform:
-            translate3d(-30px, -60px, 0);
-    }
-
-    100% {
-        transform:
-            translate3d(90px, 180px, 0);
-    }
-}
-
-@keyframes snowMedium {
-
-    0% {
-        transform:
-            translate3d(25px, -80px, 0);
-    }
-
-    100% {
-        transform:
-            translate3d(-55px, 220px, 0);
-    }
-}
-
-@keyframes snowSmall {
-
-    0% {
-        transform:
-            translate3d(-15px, -100px, 0);
-    }
-
-    100% {
-        transform:
-            translate3d(45px, 260px, 0);
-    }
-}
-
-/* =========================
-   LÄTT DIMMA
-========================= */
-
-.mist {
-    position: absolute;
-
-    left: -10%;
-    bottom: 0;
-
-    width: 120%;
-    height: 25%;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(205,220,224,0.08),
-            transparent
-        );
-
-    filter: blur(15px);
-
-    pointer-events: none;
-
-    z-index: 15;
-}
-
-/* =========================
-   MÖRK KANT
-========================= */
-
-.vignette {
-    position: absolute;
-
+    position: fixed;
     inset: 0;
 
     pointer-events: none;
 
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 38%,
-            rgba(0,0,0,0.42) 100%
-        );
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,.7) 1.5px, transparent 2.5px);
 
-    z-index: 40;
+    background-size:
+        80px 80px,
+        140px 140px;
+
+    animation: snow 18s linear infinite;
+
+    opacity: .45;
+}
+
+@keyframes snow {
+    from {
+        background-position: 0 0, 40px 0;
+    }
+
+    to {
+        background-position: 80px 500px, -40px 600px;
+    }
 }
 
 /* =========================
-   MOBIL
+   HEADER
 ========================= */
 
-@media (max-width: 700px) {
+header {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
 
-    .moon {
-        width: 105px;
-        height: 105px;
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    opacity: .7;
+    margin-bottom: 14px;
+}
 
-        top: 9%;
+h1 {
+    font-family: Cinzel, serif;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 500;
+    letter-spacing: .12em;
+}
+
+.subtitle {
+    margin-top: 14px;
+    font-size: 14px;
+    letter-spacing: .15em;
+    opacity: .75;
+}
+
+/* =========================
+   KALENDER
+========================= */
+
+.calendar {
+    width: min(1100px, 92%);
+    margin: 20px auto 70px;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+}
+
+/* =========================
+   LUCKOR
+========================= */
+
+.door {
+    position: relative;
+
+    aspect-ratio: 1 / 1.15;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a92e35,
+            #7e2029
+        );
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.18);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.door::before {
+    content: "";
+
+    position: absolute;
+    inset: 7px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 5px;
+}
+
+.door:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.35),
+        0 0 25px rgba(255,220,170,.12);
+}
+
+.number {
+    position: relative;
+    z-index: 2;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(28px, 4vw, 45px);
+
+    font-weight: 500;
+
+    color: #fff8e9;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.25);
+}
+
+/* =========================
+   JULDETALJ
+========================= */
+
+.door:nth-child(3n) {
+    background:
+        linear-gradient(
+            145deg,
+            #b38a3d,
+            #866324
+        );
+}
+
+.door:nth-child(5n) {
+    background:
+        linear-gradient(
+            145deg,
+            #315c40,
+            #20432e
+        );
+}
+
+/* =========================
+   LÅSTA LUCKOR
+========================= */
+
+.door.locked {
+    cursor: default;
+    filter: brightness(.72);
+}
+
+.door.locked:hover {
+    transform: none;
+}
+
+.lock {
+    position: absolute;
+
+    bottom: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    opacity: .65;
+}
+
+/* =========================
+   RESPONSIV
+========================= */
+
+@media (max-width: 850px) {
+
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    header {
+        padding-top: 35px;
     }
 
-    .title {
-        top: 39%;
+    .calendar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
 
-    .title h1 {
-        font-size: 46px;
-
-        letter-spacing: 0.11em;
-
-        margin-right: -0.11em;
+    .subtitle {
+        font-size: 11px;
     }
 
-    .title p {
-        font-size: 9px;
-
-        letter-spacing: 0.20em;
-
-        padding: 0 20px;
-    }
-
-    .divider {
-        margin: 18px auto;
-    }
-
-    .start-button {
-        min-width: 190px;
+    .lock {
+        font-size: 8px;
     }
 }
 
@@ -495,58 +262,43 @@ body {
 
 <body>
 
-<div class="scene">
+<header>
 
-    <!-- Måne -->
-    <div class="moon"></div>
-
-    <!-- Månens ljus -->
-    <div class="moon-glow"></div>
-
-    <!-- Titel -->
-    <div class="title">
-
-        <h1>JULMORDET</h1>
-
-        <div class="divider"></div>
-
-        <p>
-            Kan du lösa mordet på 24 dagar?
-        </p>
-
+    <div class="eyebrow">
+        24 dagar till jul
     </div>
 
-    <!-- Svag dimma -->
-    <div class="mist"></div>
+    <h1>JULKALENDERN</h1>
 
-    <!-- Snö -->
-    <div class="snow-large"></div>
-    <div class="snow-medium"></div>
-    <div class="snow-small"></div>
-
-    <!-- Start -->
-    <div class="intro-buttons">
-
-        <button
-            class="start-button"
-            onclick="startGame()"
-        >
-            STARTA
-        </button>
-
+    <div class="subtitle">
+        Öppna en lucka varje dag
     </div>
 
-    <!-- Mörka kanter -->
-    <div class="vignette"></div>
+</header>
 
-</div>
+<main class="calendar" id="calendar">
+
+</main>
 
 <script>
 
-function startGame() {
+const calendar = document.getElementById("calendar");
 
-    alert("Spelet börjar snart...");
+for (let i = 1; i <= 24; i++) {
 
+    const door = document.createElement("button");
+
+    door.className = "door";
+
+    door.innerHTML = `
+        <span class="number">${i}</span>
+    `;
+
+    door.addEventListener("click", () => {
+        alert(`Lucka ${i}`);
+    });
+
+    calendar.appendChild(door);
 }
 
 </script>
