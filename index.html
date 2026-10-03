@@ -1340,6 +1340,11 @@ h1 {
     gap: 9px 12px;
 }
 
+.phone-key-spacer {
+    width: 66px;
+    height: 66px;
+}
+
 .phone-key {
     width: 66px;
     height: 66px;
@@ -1381,19 +1386,19 @@ h1 {
 .phone-key small {
     display: block;
     margin-top: 0;
-    font-size: 4px;
-    line-height: 5px;
-    letter-spacing: .13em;
-    opacity: .4;
+    font-size: 6px;
+    line-height: 7px;
+    letter-spacing: .12em;
+    opacity: .52;
 }
 
 .phone-key-clear {
     background: transparent;
     border-color: transparent;
     box-shadow: none;
-    font-size: 10px;
+    font-size: 18px;
     letter-spacing: .02em;
-    opacity: .78;
+    opacity: .9;
 }
 
 .phone-key-clear:active {
@@ -1949,47 +1954,6 @@ h1 {
     background: #080908;
     box-shadow: 0 30px 90px rgba(0,0,0,.8), 0 0 35px rgba(255,255,255,.06);
     position: relative;
-}
-
-.phone-device::before {
-    content: "";
-    position: absolute;
-    top: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 112px;
-    height: 30px;
-    border-radius: 0 0 18px 18px;
-    background: #050505;
-    z-index: 6;
-    box-shadow: 0 1px 2px rgba(255,255,255,.06);
-}
-
-.phone-dynamic-island {
-    position: absolute;
-    z-index: 10;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 92px;
-    height: 25px;
-    border-radius: 18px;
-    background: #020202;
-    box-shadow:
-        inset 0 1px 2px rgba(255,255,255,.05),
-        0 1px 4px rgba(0,0,0,.55);
-}
-
-.phone-dynamic-island::after {
-    content: "";
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #0b1010;
-    box-shadow: inset 0 0 3px rgba(120,180,210,.45);
 }
 
 .phone-device-screen {
@@ -3877,8 +3841,6 @@ function resetPuzzle() {
 
         <div class="phone-device-screen">
 
-            <div class="phone-dynamic-island"></div>
-
             <div class="phone-status">
                 <span id="phoneStatusTime">--:--</span>
                 <span>▮▮▮ &nbsp;▰</span>
@@ -3921,6 +3883,7 @@ function resetPuzzle() {
                         <button class="phone-key" onclick="enterPhoneDigit('7')">7<small>PQRS</small></button>
                         <button class="phone-key" onclick="enterPhoneDigit('8')">8<small>TUV</small></button>
                         <button class="phone-key" onclick="enterPhoneDigit('9')">9<small>WXYZ</small></button>
+                        <div class="phone-key-spacer" aria-hidden="true"></div>
                         <button class="phone-key" onclick="enterPhoneDigit('0')">0<small>+</small></button>
                         <button class="phone-key phone-key-clear" onclick="deletePhoneDigit()">⌫</button>
                     </div>
