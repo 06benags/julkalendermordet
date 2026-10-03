@@ -1596,21 +1596,30 @@ h1 {
 }
 
 /* =========================================================
-   MOBILTELEFON / BEVISFÖREMÅL
+   MOBILTELEFON PÅ UTREDNINGSBORDET
 ========================================================= */
 
 .phone-paper {
     cursor: pointer;
+    width: 100px !important;
+    height: 172px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-3deg);
 }
 
 .phone-paper .phone-icon {
-    width: 76px;
-    height: 132px;
-    margin: 18px auto 20px;
-    border: 4px solid #27231d;
-    border-radius: 15px;
+    width: 82px;
+    height: 150px;
+    border: 4px solid #111;
+    border-radius: 17px;
     background: #171a18;
-    box-shadow: 0 10px 18px rgba(0,0,0,.3);
+    box-shadow: 0 14px 22px rgba(0,0,0,.42);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1621,16 +1630,16 @@ h1 {
     content: "";
     position: absolute;
     top: 7px;
-    width: 24px;
-    height: 3px;
-    border-radius: 4px;
+    width: 25px;
+    height: 4px;
+    border-radius: 5px;
     background: #555;
 }
 
 .phone-paper .phone-screen {
-    width: 61px;
-    height: 104px;
-    border-radius: 8px;
+    width: 66px;
+    height: 126px;
+    border-radius: 10px;
     background: linear-gradient(160deg,#24372d,#101814);
     color: #eee8d8;
     display: flex;
@@ -1642,7 +1651,7 @@ h1 {
 }
 
 .phone-paper .phone-time {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 400;
 }
 
@@ -1940,26 +1949,14 @@ h1 {
         <div
             class="paper phone-paper"
             onclick="openPhone()"
+            aria-label="Mobiltelefon"
         >
-
-            <h3>Mobiltelefon</h3>
-
             <div class="phone-icon">
                 <div class="phone-screen">
                     <div class="phone-time">22:14</div>
                     <div class="phone-lock">LÅST</div>
                 </div>
             </div>
-
-            <p>
-                En mobiltelefon som hittades bland
-                tillhörigheterna i stugan.
-            </p>
-
-            <div class="paper-label">
-                Klicka för att undersöka
-            </div>
-
         </div>
 
     </div>
