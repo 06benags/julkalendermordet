@@ -2498,11 +2498,28 @@ function updatePhoneTime() {
 
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
-    const currentTime = `${hours}:${minutes}`;
+    const currentTime = hours + ":" + minutes;
 
     const tableTime = document.getElementById("phoneTableTime");
     const statusTime = document.getElementById("phoneStatusTime");
     const bigTime = document.getElementById("phoneBigTime");
+    const phoneDate = document.getElementById("phoneDate");
+
+    const weekdays = [
+        "Söndag", "Måndag", "Tisdag", "Onsdag",
+        "Torsdag", "Fredag", "Lördag"
+    ];
+
+    const months = [
+        "januari", "februari", "mars", "april",
+        "maj", "juni", "juli", "augusti",
+        "september", "oktober", "november", "december"
+    ];
+
+    const currentDate =
+        weekdays[now.getDay()] + " " +
+        now.getDate() + " " +
+        months[now.getMonth()];
 
     if (tableTime) {
         tableTime.textContent = currentTime;
@@ -2514,6 +2531,10 @@ function updatePhoneTime() {
 
     if (bigTime) {
         bigTime.textContent = currentTime;
+    }
+
+    if (phoneDate) {
+        phoneDate.textContent = currentDate;
     }
 }
 
@@ -3522,8 +3543,8 @@ function resetPuzzle() {
                     --:--
                 </div>
 
-                <div class="phone-date">
-                    Måndag 23 december
+                <div class="phone-date" id="phoneDate">
+                    --
                 </div>
 
                 <div class="phone-lock-symbol">
