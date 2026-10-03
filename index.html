@@ -29,7 +29,7 @@ body {
 }
 
 /* =========================
-   HUVUDSCEN
+   BAKGRUND
 ========================= */
 
 .scene {
@@ -39,15 +39,16 @@ body {
     overflow: hidden;
 
     background:
-        linear-gradient(
-            rgba(7, 15, 23, 0.15),
-            rgba(5, 12, 18, 0.55)
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(50, 76, 94, 0.35),
+            transparent 38%
         ),
         linear-gradient(
             to bottom,
-            #101d2b 0%,
-            #182c3b 48%,
-            #9caeb5 100%
+            #08131f 0%,
+            #101f2d 48%,
+            #182b38 100%
         );
 }
 
@@ -58,390 +59,106 @@ body {
 .moon {
     position: absolute;
 
-    width: 150px;
-    height: 150px;
+    width: 165px;
+    height: 165px;
 
-    right: 13%;
-    top: 11%;
-
-    border-radius: 50%;
-
-    background: #f4f0d8;
-
-    box-shadow:
-        0 0 30px rgba(255,245,205,.25),
-        0 0 100px rgba(255,245,205,.10);
-}
-
-/* =========================
-   TRÄD
-========================= */
-
-.trees {
-    position: absolute;
-
-    bottom: 27%;
-    left: 0;
-
-    width: 100%;
-    height: 260px;
-
-    opacity: .55;
-}
-
-.tree {
-    position: absolute;
-
-    bottom: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left: 45px solid transparent;
-    border-right: 45px solid transparent;
-    border-bottom: 150px solid #10212a;
-}
-
-.tree:nth-child(1) {
-    left: 4%;
-    transform: scale(.8);
-}
-
-.tree:nth-child(2) {
-    left: 13%;
-    transform: scale(1.1);
-}
-
-.tree:nth-child(3) {
-    left: 24%;
-    transform: scale(.7);
-}
-
-.tree:nth-child(4) {
-    right: 25%;
-    transform: scale(.9);
-}
-
-.tree:nth-child(5) {
-    right: 13%;
-    transform: scale(1.2);
-}
-
-.tree:nth-child(6) {
-    right: 3%;
-    transform: scale(.75);
-}
-
-/* =========================
-   SNÖMARK
-========================= */
-
-.snow-hill {
-    position: absolute;
-
-    bottom: -20%;
-    left: -10%;
-
-    width: 120%;
-    height: 48%;
-
-    background: #dfe7e8;
-
-    border-radius: 50% 50% 0 0;
-
-    box-shadow:
-        inset 0 20px 35px rgba(255,255,255,.35);
-}
-
-/* =========================
-   STUGA
-========================= */
-
-.cabin {
-    position: absolute;
-
+    top: 14%;
     left: 50%;
-    bottom: 18%;
-
-    width: 510px;
-    height: 350px;
 
     transform: translateX(-50%);
 
-    z-index: 10;
-}
+    border-radius: 50%;
 
-/* =========================
-   HUS
-========================= */
-
-.house {
-    position: absolute;
-
-    left: 55px;
-    bottom: 0;
-
-    width: 400px;
-    height: 210px;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #55382c 0px,
-            #55382c 13px,
-            #472f26 14px,
-            #472f26 17px
-        );
-
-    border: 3px solid #34231d;
+    background: #f3efd9;
 
     box-shadow:
-        0 30px 45px rgba(0,0,0,.35);
-
-    z-index: 2;
+        0 0 30px rgba(255, 247, 215, 0.25),
+        0 0 90px rgba(255, 247, 215, 0.12),
+        0 0 150px rgba(255, 247, 215, 0.05);
 }
 
 /* =========================
-   TAK
+   MÅNENS LÄTTA MOLN
 ========================= */
 
-.roof {
+.moon-glow {
     position: absolute;
 
-    left: 18px;
-    top: 18px;
+    width: 500px;
+    height: 240px;
 
-    width: 474px;
-    height: 145px;
+    top: 9%;
+    left: 50%;
 
-    background:
-        linear-gradient(
-            145deg,
-            #3b302c 0%,
-            #2d2624 100%
-        );
-
-    clip-path: polygon(
-        0% 100%,
-        23% 0%,
-        77% 0%,
-        100% 100%
-    );
-
-    border: none;
-
-    box-shadow:
-        0 18px 25px rgba(0,0,0,.35);
-
-    z-index: 1;
-}
-
-/* =========================
-   SNÖ PÅ TAKET
-========================= */
-
-.roof-snow {
-    position: absolute;
-
-    left: 18px;
-    top: 13px;
-
-    width: 474px;
-    height: 145px;
-
-    background: #eef2f0;
-
-    clip-path: polygon(
-        0% 100%,
-        23% 0%,
-        77% 0%,
-        100% 100%,
-
-        96% 100%,
-        76% 17%,
-        24% 17%,
-        4% 100%
-    );
-
-    filter:
-        drop-shadow(0 5px 5px rgba(0,0,0,.15));
-
-    z-index: 3;
-}
-
-/* Lite mörkare kant under snön */
-
-.roof-snow::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 7px;
-
-    background: rgba(190,202,202,.8);
-
-    clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        96% 100%,
-        4% 100%
-    );
-}
-
-/* =========================
-   FÖNSTER
-========================= */
-
-.window {
-    position: absolute;
-
-    top: 48px;
-
-    width: 82px;
-    height: 82px;
+    transform: translateX(-50%);
 
     background:
         radial-gradient(
-            circle,
-            #ffd978 0%,
-            #eab957 55%,
-            #b47c30 100%
+            ellipse,
+            rgba(190, 207, 216, 0.10),
+            transparent 70%
         );
 
-    border: 6px solid #30231e;
+    filter: blur(18px);
 
-    box-shadow:
-        0 0 35px rgba(255,190,70,.45);
-
-    z-index: 4;
-}
-
-.window.left {
-    left: 42px;
-}
-
-.window.right {
-    right: 42px;
-}
-
-.window::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 0;
-
-    width: 5px;
-    height: 100%;
-
-    background: #30231e;
-
-    transform: translateX(-50%);
-}
-
-.window::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 50%;
-
-    width: 100%;
-    height: 5px;
-
-    background: #30231e;
-
-    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 /* =========================
-   DÖRR
-========================= */
-
-.door {
-    position: absolute;
-
-    left: 160px;
-    bottom: 0;
-
-    width: 80px;
-    height: 140px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #281b17,
-            #3b261f,
-            #281b17
-        );
-
-    border: 5px solid #211714;
-
-    z-index: 5;
-}
-
-.handle {
-    position: absolute;
-
-    right: 10px;
-    top: 68px;
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #c9a85d;
-}
-
-/* =========================
-   TITEL
+   TEXT
 ========================= */
 
 .title {
     position: absolute;
 
-    top: 10%;
+    top: 43%;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+
+    width: 100%;
 
     text-align: center;
 
-    z-index: 50;
+    z-index: 10;
 }
 
 .title h1 {
     font-family: Cinzel, serif;
 
-    font-size: clamp(54px, 8vw, 108px);
+    font-size: clamp(58px, 9vw, 120px);
 
     font-weight: 500;
 
-    letter-spacing: .18em;
+    letter-spacing: 0.17em;
 
-    margin-right: -.18em;
+    margin-right: -0.17em;
+
+    color: #f4f1e8;
 
     text-shadow:
-        0 3px 25px rgba(0,0,0,.65);
+        0 3px 25px rgba(0,0,0,0.55);
+}
+
+.divider {
+    width: 100px;
+    height: 1px;
+
+    margin: 24px auto 20px;
+
+    background: rgba(255,255,255,0.55);
 }
 
 .title p {
-    margin-top: 18px;
+    font-size: 13px;
 
-    font-size: 14px;
+    font-weight: 300;
 
-    letter-spacing: .34em;
+    letter-spacing: 0.32em;
 
     text-transform: uppercase;
 
-    color: rgba(255,255,255,.85);
+    color: rgba(255,255,255,0.82);
 }
 
 /* =========================
@@ -452,24 +169,23 @@ body {
     position: absolute;
 
     left: 50%;
-    bottom: 8%;
+    bottom: 12%;
 
     transform: translateX(-50%);
 
-    z-index: 60;
+    z-index: 20;
 }
 
 .start-button {
-    min-width: 230px;
+    min-width: 220px;
 
-    padding: 18px 42px;
+    padding: 17px 42px;
 
-    border: 1px solid rgba(255,255,255,.65);
+    border: 1px solid rgba(255,255,255,0.55);
 
-    border-radius: 3px;
+    border-radius: 2px;
 
-    background:
-        rgba(18,29,36,.72);
+    background: rgba(8,18,27,0.45);
 
     backdrop-filter: blur(8px);
 
@@ -477,32 +193,31 @@ body {
 
     font-family: Inter, sans-serif;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    font-weight: 500;
+    font-weight: 400;
 
-    letter-spacing: .35em;
+    letter-spacing: 0.35em;
 
-    text-indent: .35em;
+    text-indent: 0.35em;
 
     cursor: pointer;
 
     transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease,
-        box-shadow .3s ease;
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .start-button:hover {
-    background: rgba(255,255,255,.92);
+    background: rgba(255,255,255,0.92);
 
-    color: #18232b;
+    color: #101c26;
 
-    transform: translateY(-3px);
+    border-color: white;
 
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.3);
+    transform: translateY(-2px);
 }
 
 /* =========================
@@ -519,41 +234,41 @@ body {
     background-image:
         radial-gradient(
             circle,
-            white 1px,
+            rgba(255,255,255,0.9) 1px,
             transparent 2px
         ),
         radial-gradient(
             circle,
-            rgba(255,255,255,.8) 1.5px,
+            rgba(255,255,255,0.65) 1.5px,
             transparent 2.5px
         ),
         radial-gradient(
             circle,
-            rgba(255,255,255,.55) 2px,
+            rgba(255,255,255,0.45) 2px,
             transparent 3px
         );
 
     background-size:
-        80px 80px,
+        75px 75px,
         130px 130px,
-        190px 190px;
+        210px 210px;
 
     animation:
-        snowfall 18s linear infinite;
+        snowfall 20s linear infinite;
 
-    opacity: .8;
+    opacity: 0.75;
 
-    z-index: 70;
+    z-index: 30;
 }
 
 @keyframes snowfall {
 
     from {
-        transform: translateY(-20px);
+        transform: translate3d(0, -30px, 0);
     }
 
     to {
-        transform: translateY(160px);
+        transform: translate3d(80px, 180px, 0);
     }
 }
 
@@ -571,11 +286,11 @@ body {
     background:
         radial-gradient(
             ellipse at center,
-            transparent 35%,
-            rgba(0,0,0,.45) 100%
+            transparent 38%,
+            rgba(0,0,0,0.42) 100%
         );
 
-    z-index: 80;
+    z-index: 40;
 }
 
 /* =========================
@@ -585,38 +300,38 @@ body {
 @media (max-width: 700px) {
 
     .moon {
-        width: 90px;
-        height: 90px;
+        width: 105px;
+        height: 105px;
 
-        right: 8%;
-        top: 8%;
-    }
-
-    .cabin {
-        transform:
-            translateX(-50%)
-            scale(.72);
-
-        bottom: 15%;
+        top: 13%;
     }
 
     .title {
-        top: 12%;
-        width: 95%;
+        top: 43%;
     }
 
     .title h1 {
-        font-size: 45px;
-        letter-spacing: .12em;
+        font-size: 46px;
+
+        letter-spacing: 0.11em;
+
+        margin-right: -0.11em;
     }
 
     .title p {
-        font-size: 10px;
-        letter-spacing: .2em;
+        font-size: 9px;
+
+        letter-spacing: 0.20em;
+
+        padding: 0 20px;
+    }
+
+    .divider {
+        margin: 18px auto;
     }
 
     .start-button {
-        min-width: 200px;
+        min-width: 190px;
     }
 }
 
@@ -630,58 +345,21 @@ body {
     <!-- Måne -->
     <div class="moon"></div>
 
-    <!-- Träd -->
-    <div class="trees">
-
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="tree"></div>
-
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="tree"></div>
-
-    </div>
+    <!-- Månens ljus -->
+    <div class="moon-glow"></div>
 
     <!-- Titel -->
     <div class="title">
 
         <h1>JULMORDET</h1>
 
+        <div class="divider"></div>
+
         <p>
             Kan du lösa mordet på 24 dagar?
         </p>
 
     </div>
-
-    <!-- Stuga -->
-    <div class="cabin">
-
-        <div class="roof"></div>
-
-        <div class="roof-snow"></div>
-
-        <div class="house">
-
-            <div class="window left"></div>
-
-            <div class="window right"></div>
-
-            <div class="door">
-
-                <div class="handle"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Snömark -->
-    <div class="snow-hill"></div>
-
-    <!-- Fallande snö -->
-    <div class="snow"></div>
 
     <!-- Start -->
     <div class="intro-buttons">
@@ -695,7 +373,10 @@ body {
 
     </div>
 
-    <!-- Vinjett -->
+    <!-- Snö -->
+    <div class="snow"></div>
+
+    <!-- Mörka kanter -->
     <div class="vignette"></div>
 
 </div>
