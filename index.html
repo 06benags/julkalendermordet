@@ -28,12 +28,14 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
+
+/* =========================================================
    SNÖ
-========================= */
+========================================================= */
 
 body::before {
     content: "";
+
     position: fixed;
     inset: 0;
 
@@ -55,18 +57,24 @@ body::before {
 }
 
 @keyframes snow {
+
     from {
-        background-position: 0 0, 40px 0;
+        background-position:
+            0 0,
+            40px 0;
     }
 
     to {
-        background-position: 80px 500px, -40px 600px;
+        background-position:
+            80px 500px,
+            -40px 600px;
     }
 }
 
-/* =========================
+
+/* =========================================================
    STARTSIDA
-========================= */
+========================================================= */
 
 header {
     text-align: center;
@@ -75,34 +83,45 @@ header {
 
 h1 {
     font-family: Cinzel, serif;
+
     font-size: clamp(42px, 7vw, 76px);
+
     font-weight: 500;
+
     letter-spacing: .12em;
 }
 
 .subtitle {
     margin-top: 14px;
+
     font-size: 14px;
+
     letter-spacing: .15em;
+
     opacity: .75;
 }
 
-/* =========================
+
+/* =========================================================
    KALENDER
-========================= */
+========================================================= */
 
 .calendar {
     width: min(1100px, 92%);
+
     margin: 20px auto 70px;
 
     display: grid;
+
     grid-template-columns: repeat(6, 1fr);
+
     gap: 18px;
 }
 
-/* =========================
+
+/* =========================================================
    LUCKOR
-========================= */
+========================================================= */
 
 .door {
     position: relative;
@@ -125,6 +144,7 @@ h1 {
         inset 0 1px rgba(255,255,255,.18);
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -139,6 +159,7 @@ h1 {
     content: "";
 
     position: absolute;
+
     inset: 7px;
 
     border: 1px solid rgba(255,255,255,.18);
@@ -147,7 +168,9 @@ h1 {
 }
 
 .door:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform:
+        translateY(-6px)
+        scale(1.02);
 
     box-shadow:
         0 18px 35px rgba(0,0,0,.35),
@@ -156,6 +179,7 @@ h1 {
 
 .number {
     position: relative;
+
     z-index: 2;
 
     font-family: Cinzel, serif;
@@ -188,9 +212,10 @@ h1 {
         );
 }
 
-/* =========================
-   UTREDNINGSSIDA
-========================= */
+
+/* =========================================================
+   UTREDNING
+========================================================= */
 
 #investigation {
     display: none;
@@ -202,7 +227,7 @@ h1 {
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(115, 75, 38, .35),
+            rgba(115,75,38,.35),
             transparent 55%
         ),
         linear-gradient(
@@ -242,9 +267,10 @@ h1 {
     opacity: .55;
 }
 
-/* =========================
+
+/* =========================================================
    BORDET
-========================= */
+========================================================= */
 
 .table {
     position: relative;
@@ -289,9 +315,10 @@ h1 {
     flex-wrap: wrap;
 }
 
-/* =========================
+
+/* =========================================================
    PAPPER
-========================= */
+========================================================= */
 
 .paper {
     position: relative;
@@ -390,9 +417,10 @@ h1 {
     opacity: .5;
 }
 
-/* =========================
+
+/* =========================================================
    DOKUMENT
-========================= */
+========================================================= */
 
 .document-overlay {
     display: none;
@@ -506,18 +534,16 @@ h1 {
     position: fixed;
 
     top: 18px;
-
     right: 25px;
 
-    z-index: 110;
+    z-index: 1000;
 
     width: 42px;
-
     height: 42px;
 
     border: 1px solid rgba(255,255,255,.4);
 
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.55);
 
     color: #fff;
 
@@ -528,9 +554,10 @@ h1 {
     cursor: pointer;
 }
 
-/* =========================
+
+/* =========================================================
    KARTA
-========================= */
+========================================================= */
 
 .map-overlay {
     display: none;
@@ -539,7 +566,7 @@ h1 {
 
     inset: 0;
 
-    z-index: 120;
+    z-index: 200;
 
     padding: 25px;
 
@@ -573,7 +600,7 @@ h1 {
 .map-header {
     text-align: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .map-header h2 {
@@ -596,9 +623,10 @@ h1 {
     opacity: .65;
 }
 
-/* =========================
+
+/* =========================================================
    INSTRUKTION
-========================= */
+========================================================= */
 
 .puzzle-instructions {
     text-align: center;
@@ -614,29 +642,28 @@ h1 {
     color: #3b352d;
 }
 
-.puzzle-instructions strong {
-    font-weight: 500;
-}
 
-/* =========================
-   KARTBILD
-========================= */
+/* =========================================================
+   KARTAN
+========================================================= */
 
 .map-container {
     position: relative;
 
-    width: min(1150px, 100%);
+    width: 100%;
+
+    max-width: 1150px;
 
     margin: 0 auto;
+
+    line-height: 0;
+
+    overflow: hidden;
 
     border: 1px solid rgba(0,0,0,.25);
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.25);
-
-    background: #eee5d0;
-
-    overflow: hidden;
 }
 
 .map-container img {
@@ -645,91 +672,112 @@ h1 {
     width: 100%;
 
     height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
 }
 
-/* =========================
-   RUMSKLICK
-========================= */
+
+/* =========================================================
+   KLICKBARA RUM
+========================================================= */
 
 .room {
     position: absolute;
 
+    z-index: 20;
+
+    display: block;
+
     border: 2px solid transparent;
 
-    background: rgba(181, 142, 73, 0);
+    background: rgba(190,150,80,0);
 
     cursor: pointer;
 
-    padding: 0;
-
     transition:
-        background .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
-/*
-    RUM 1
-    Faktiska placeringen i bilden:
-    nedre högra delen av nedervåningen.
+
+/* SOVRUM 1
+   Nedervåningen – stora sovrummet
 */
 
-#room1 {
-    left: 26.0%;
-    top: 49.0%;
-    width: 26.0%;
-    height: 29.0%;
+.room1 {
+    left: 25.8%;
+    top: 48.5%;
+
+    width: 26.2%;
+    height: 29.2%;
 }
 
-/*
-    RUM 2
-    Faktiska placeringen i bilden:
-    övre vänstra rummet på övervåningen.
+
+/* SOVRUM 2
+   Övervåningen – vänster
 */
 
-#room2 {
-    left: 57.0%;
-    top: 23.0%;
-    width: 19.0%;
-    height: 46.0%;
-}
+.room2 {
+    left: 56.4%;
+    top: 21.5%;
 
-/*
-    RUM 3
-    Faktiska placeringen i bilden:
-    övre högra rummet på övervåningen.
-*/
-
-#room3 {
-    left: 76.0%;
-    top: 23.0%;
     width: 20.0%;
-    height: 46.0%;
+    height: 45.8%;
 }
 
-.room:hover,
-.room.active {
-    background: rgba(181, 142, 73, .16);
 
-    border-color: rgba(120, 82, 30, .75);
+/* SOVRUM 3
+   Övervåningen – höger
+*/
+
+.room3 {
+    left: 76.8%;
+    top: 21.5%;
+
+    width: 19.5%;
+    height: 45.8%;
+}
+
+
+/* HOVER */
+
+.room:hover {
+    background: rgba(190,150,80,.20);
+
+    border-color: rgba(100,70,30,.75);
 
     box-shadow:
-        inset 0 0 30px rgba(181,142,73,.12),
-        0 0 14px rgba(0,0,0,.12);
+        inset 0 0 30px rgba(190,150,80,.10);
 }
 
-/*
-    Vi visar inga extra rumsnamn.
-    Kartan har redan SOVRUM 1,
-    SOVRUM 2 och SOVRUM 3 utskrivna.
-*/
+
+/* VALT RUM */
+
+.room.active {
+    background: rgba(190,150,80,.24);
+
+    border-color: rgba(91,63,28,.9);
+
+    box-shadow:
+        inset 0 0 35px rgba(190,150,80,.15),
+        0 0 10px rgba(0,0,0,.15);
+}
+
+
+/* =========================================================
+   NAMN SOM VISAS UNDER PUSSELET
+========================================================= */
 
 .room-people {
     position: absolute;
 
     left: 50%;
-
-    bottom: 8%;
+    bottom: 7%;
 
     transform: translateX(-50%);
 
@@ -739,35 +787,145 @@ h1 {
 
     align-items: center;
 
-    gap: 3px;
+    gap: 4px;
 
-    min-width: 105px;
+    pointer-events: none;
 
-    text-align: center;
+    line-height: normal;
+
+    min-width: 100px;
+}
+
+.room-people span {
+    display: block;
+
+    padding: 5px 9px;
+
+    background: rgba(246,239,220,.94);
+
+    color: #30291f;
+
+    border: 1px solid rgba(0,0,0,.22);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.18);
 
     font-size: 10px;
 
-    line-height: 1.3;
+    white-space: nowrap;
+}
 
-    color: #30291f;
+
+/* =========================================================
+   SÄNGNAMN – VISAS NÄR PUSSELET ÄR LÖST
+========================================================= */
+
+.bed-name {
+    position: absolute;
+
+    z-index: 50;
+
+    display: none;
+
+    padding: 4px 8px;
+
+    background: rgba(244,237,219,.92);
+
+    border: 1px solid rgba(60,45,30,.35);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.20);
+
+    color: #29231c;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: .04em;
+
+    line-height: 1;
+
+    white-space: nowrap;
 
     pointer-events: none;
 }
 
-.room-people span {
-    background: rgba(244,237,219,.92);
 
-    padding: 4px 8px;
+/* BENJAMIN – RÖD */
 
-    border: 1px solid rgba(0,0,0,.18);
+.bed-name.benjamin {
+    color: #9e2525;
 
-    box-shadow:
-        0 2px 5px rgba(0,0,0,.12);
+    border-color: rgba(158,37,37,.45);
+
+    font-weight: 600;
 }
 
-/* =========================
+
+/* När pusslet är löst */
+
+.map-container.solved .bed-name {
+    display: block;
+}
+
+
+/*
+    SOVRUM 1
+    Dubbelsängen längst ned.
+    Moa och Benji placeras på varsin sida.
+*/
+
+.bed-moa {
+    left: 38.5%;
+    top: 64.0%;
+}
+
+.bed-benji {
+    left: 45.5%;
+    top: 64.0%;
+}
+
+
+/*
+    SOVRUM 2
+    Övre vänstra rummet.
+    Två separata sängar.
+*/
+
+.bed-benjamin {
+    left: 62.8%;
+    top: 36.5%;
+}
+
+.bed-gustav {
+    left: 62.8%;
+    top: 59.0%;
+}
+
+
+/*
+    SOVRUM 3
+    Övre högra rummet.
+    Två separata sängar.
+*/
+
+.bed-elham {
+    left: 82.3%;
+    top: 36.5%;
+}
+
+.bed-cecilia {
+    left: 82.3%;
+    top: 59.0%;
+}
+
+
+/* =========================================================
    PERSONLISTA
-========================= */
+========================================================= */
 
 .people-panel {
     width: min(850px, 100%);
@@ -840,9 +998,10 @@ h1 {
     opacity: .55;
 }
 
-/* =========================
+
+/* =========================================================
    PUSSELKNAPPAR
-========================= */
+========================================================= */
 
 .puzzle-actions {
     display: flex;
@@ -892,6 +1051,10 @@ h1 {
     color: #3a2d20;
 }
 
+.puzzle-button.hidden {
+    display: none;
+}
+
 .puzzle-message {
     min-height: 24px;
 
@@ -906,9 +1069,39 @@ h1 {
     color: #3a2d20;
 }
 
-/* =========================
+
+/* =========================================================
+   LÖST-LÄGE
+========================================================= */
+
+.map-window.solved .puzzle-instructions {
+    opacity: .55;
+}
+
+.map-window.solved .person {
+    cursor: default;
+
+    pointer-events: none;
+
+    opacity: .35;
+}
+
+.map-window.solved .room {
+    cursor: default;
+
+    pointer-events: none;
+
+    background: transparent;
+
+    border-color: transparent;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
    TILLBAKA
-========================= */
+========================================================= */
 
 .back-button {
     display: block;
@@ -936,24 +1129,28 @@ h1 {
     font-size: 11px;
 }
 
-/* =========================
+
+/* =========================================================
    RESPONSIV
-========================= */
+========================================================= */
 
 @media (max-width: 850px) {
 
     .calendar {
         grid-template-columns: repeat(4, 1fr);
+
         gap: 14px;
     }
 
     .table {
         padding: 50px 25px;
+
         gap: 35px;
     }
 
     .paper {
         width: 220px;
+
         height: 290px;
     }
 
@@ -966,6 +1163,7 @@ h1 {
     }
 }
 
+
 @media (max-width: 520px) {
 
     header {
@@ -974,6 +1172,7 @@ h1 {
 
     .calendar {
         grid-template-columns: repeat(3, 1fr);
+
         gap: 10px;
     }
 
@@ -987,11 +1186,13 @@ h1 {
 
     .table {
         width: 100%;
+
         padding: 40px 15px;
     }
 
     .paper {
         width: 90%;
+
         max-width: 280px;
     }
 
@@ -1001,6 +1202,7 @@ h1 {
 
     .document {
         padding: 35px 25px;
+
         margin-top: 25px;
     }
 
@@ -1030,24 +1232,27 @@ h1 {
 
     .person {
         padding: 9px 10px;
+
         font-size: 11px;
     }
 
-    .room-people {
+    .bed-name {
         font-size: 8px;
-        min-width: 70px;
+
+        padding: 3px 5px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      JULKALENDER
-========================= -->
+========================================================= -->
 
 <div id="calendarPage">
 
@@ -1061,14 +1266,17 @@ h1 {
 
     </header>
 
-    <main class="calendar" id="calendar"></main>
+    <main
+        class="calendar"
+        id="calendar"
+    ></main>
 
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      UTREDNING
-========================= -->
+========================================================= -->
 
 <section id="investigation">
 
@@ -1076,7 +1284,7 @@ h1 {
 
         <h2>FÖRUNDERSÖKNINGEN</h2>
 
-        <p>ÄRENDE 24-1224</p>
+        <p>ÄRENDE 89-1224</p>
 
     </div>
 
@@ -1181,9 +1389,9 @@ h1 {
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      FÖRUNDERSÖKNING
-========================= -->
+========================================================= -->
 
 <div
     class="document-overlay"
@@ -1205,7 +1413,7 @@ h1 {
             <h2>FÖRUNDERSÖKNING</h2>
 
             <div class="document-number">
-                ÄRENDE 24-1224
+                ÄRENDE 89-1224
             </div>
 
         </div>
@@ -1278,7 +1486,7 @@ h1 {
         <p>
             På morgonen den 24 december vaknade Gustav
             och gick in i sovrummet där han fann Benjamin
-            livlös.
+            livlös i sin säng.
         </p>
 
         <p>
@@ -1330,9 +1538,9 @@ h1 {
 </div>
 
 
-<!-- =========================
-     KARTPUZZEL
-========================= -->
+<!-- =========================================================
+     KARTA
+========================================================= -->
 
 <div
     class="map-overlay"
@@ -1347,7 +1555,10 @@ h1 {
     </button>
 
 
-    <div class="map-window">
+    <div
+        class="map-window"
+        id="mapWindow"
+    >
 
         <div class="map-header">
 
@@ -1374,11 +1585,14 @@ h1 {
         </div>
 
 
-        <!-- =========================
-             SJÄLVA KARTAN
-        ========================= -->
+        <!-- =================================================
+             KARTA
+        ================================================= -->
 
-        <div class="map-container">
+        <div
+            class="map-container"
+            id="mapContainer"
+        >
 
             <img
                 src="stugkarta.png"
@@ -1389,59 +1603,85 @@ h1 {
             <!-- SOVRUM 1 -->
 
             <button
-                class="room"
-                id="room1"
+                class="room room1"
                 onclick="placePerson('room1')"
                 aria-label="Sovrum 1"
-            >
-
-                <div
-                    class="room-people"
-                    id="room1People"
-                ></div>
-
-            </button>
+            ></button>
 
 
             <!-- SOVRUM 2 -->
 
             <button
-                class="room"
-                id="room2"
+                class="room room2"
                 onclick="placePerson('room2')"
                 aria-label="Sovrum 2"
-            >
-
-                <div
-                    class="room-people"
-                    id="room2People"
-                ></div>
-
-            </button>
+            ></button>
 
 
             <!-- SOVRUM 3 -->
 
             <button
-                class="room"
-                id="room3"
+                class="room room3"
                 onclick="placePerson('room3')"
                 aria-label="Sovrum 3"
+            ></button>
+
+
+            <!-- =================================================
+                 NAMN PÅ SÄNGAR
+            ================================================= -->
+
+
+            <!-- SOVRUM 1 -->
+
+            <div
+                class="bed-name bed-moa"
             >
+                Moa
+            </div>
 
-                <div
-                    class="room-people"
-                    id="room3People"
-                ></div>
+            <div
+                class="bed-name bed-benji"
+            >
+                Benji
+            </div>
 
-            </button>
+
+            <!-- SOVRUM 2 -->
+
+            <div
+                class="bed-name bed-benjamin benjamin"
+            >
+                Benjamin
+            </div>
+
+            <div
+                class="bed-name bed-gustav"
+            >
+                Gustav
+            </div>
+
+
+            <!-- SOVRUM 3 -->
+
+            <div
+                class="bed-name bed-elham"
+            >
+                Elham
+            </div>
+
+            <div
+                class="bed-name bed-cecilia"
+            >
+                Cecilia
+            </div>
 
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              PERSONER
-        ========================= -->
+        ================================================= -->
 
         <div class="people-panel">
 
@@ -1510,9 +1750,9 @@ h1 {
         </div>
 
 
-        <!-- =========================
+        <!-- =================================================
              KNAPPAR
-        ========================= -->
+        ================================================= -->
 
         <div class="puzzle-actions">
 
@@ -1526,6 +1766,7 @@ h1 {
 
             <button
                 class="puzzle-button secondary"
+                id="resetButton"
                 onclick="resetPuzzle()"
             >
                 Börja om
@@ -1546,20 +1787,27 @@ h1 {
 
 <script>
 
-/* =========================
-   SKAPA KALENDER
-========================= */
+
+/* =========================================================
+   KALENDER
+========================================================= */
 
 const calendar =
     document.getElementById("calendar");
 
 
-for (let i = 1; i <= 24; i++) {
+for (
+    let i = 1;
+    i <= 24;
+    i++
+) {
 
     const door =
         document.createElement("button");
 
+
     door.className = "door";
+
 
     door.innerHTML = `
         <span class="number">${i}</span>
@@ -1584,9 +1832,9 @@ for (let i = 1; i <= 24; i++) {
 }
 
 
-/* =========================
+/* =========================================================
    ÖPPNA UTREDNING
-========================= */
+========================================================= */
 
 function openInvestigation() {
 
@@ -1604,9 +1852,9 @@ function openInvestigation() {
 }
 
 
-/* =========================
-   ÖPPNA FÖRUNDERSÖKNING
-========================= */
+/* =========================================================
+   FÖRUNDERSÖKNING
+========================================================= */
 
 function openDocument() {
 
@@ -1619,10 +1867,6 @@ function openDocument() {
 }
 
 
-/* =========================
-   STÄNG FÖRUNDERSÖKNING
-========================= */
-
 function closeDocument() {
 
     document.getElementById(
@@ -1634,9 +1878,9 @@ function closeDocument() {
 }
 
 
-/* =========================
-   ÖPPNA KARTA
-========================= */
+/* =========================================================
+   KARTA
+========================================================= */
 
 function openMap() {
 
@@ -1646,15 +1890,8 @@ function openMap() {
 
 
     document.body.style.overflow = "hidden";
-
-
-    renderRooms();
 }
 
-
-/* =========================
-   STÄNG KARTA
-========================= */
 
 function closeMap() {
 
@@ -1667,9 +1904,9 @@ function closeMap() {
 }
 
 
-/* =========================
+/* =========================================================
    TILLBAKA
-========================= */
+========================================================= */
 
 function goBack() {
 
@@ -1687,11 +1924,13 @@ function goBack() {
 }
 
 
-/* ==================================================
+/* =========================================================
    SOVRUMSPUSSEL
-================================================== */
+========================================================= */
 
 let selectedPerson = null;
+
+let puzzleSolved = false;
 
 
 let placements = {
@@ -1705,16 +1944,9 @@ let placements = {
 };
 
 
-/*
-    FACIT
-
-    Nedervåning:
-    Sovrum 1 = Moa + Benji
-
-    Övervåning:
-    Sovrum 2 = Benjamin + Gustav
-    Sovrum 3 = Elham + Cecilia
-*/
+/* =========================================================
+   FACIT
+========================================================= */
 
 const correctRooms = {
 
@@ -1736,11 +1968,21 @@ const correctRooms = {
 };
 
 
-/* =========================
+/* =========================================================
    VÄLJ PERSON
-========================= */
+========================================================= */
 
 function selectPerson(person) {
+
+    /*
+        Om pusslet redan är löst
+        ska ingenting gå att ändra.
+    */
+
+    if (puzzleSolved) {
+        return;
+    }
+
 
     selectedPerson = person;
 
@@ -1789,11 +2031,20 @@ function selectPerson(person) {
 }
 
 
-/* =========================
+/* =========================================================
    PLACERA PERSON
-========================= */
+========================================================= */
 
 function placePerson(roomId) {
+
+    /*
+        Lås allt efter rätt svar.
+    */
+
+    if (puzzleSolved) {
+        return;
+    }
+
 
     if (!selectedPerson) {
 
@@ -1846,8 +2097,7 @@ function placePerson(roomId) {
 
 
     /*
-        Ett sovrum får maximalt
-        två personer.
+        Max två personer per rum.
     */
 
     if (
@@ -1871,14 +2121,12 @@ function placePerson(roomId) {
         ).textContent =
             "Det rummet är redan fyllt. Flytta någon av personerna först.";
 
-        renderRooms();
-
         return;
     }
 
 
     /*
-        Placera personen.
+        Lägg personen i rummet.
     */
 
     if (
@@ -1894,7 +2142,7 @@ function placePerson(roomId) {
     }
 
 
-    renderRooms();
+    renderPlacements();
 
 
     document.getElementById(
@@ -1904,8 +2152,11 @@ function placePerson(roomId) {
 
 
     /*
-        Nollställ vald person.
+        Nollställ valt namn.
     */
+
+    selectedPerson = null;
+
 
     document
         .querySelectorAll(".person")
@@ -1927,52 +2178,14 @@ function placePerson(roomId) {
             );
 
         });
-
-
-    selectedPerson = null;
 }
 
 
-/* =========================
-   VISA PERSONER I RUM
-========================= */
+/* =========================================================
+   VISA PLACERINGAR
+========================================================= */
 
-function renderRooms() {
-
-    Object.keys(placements).forEach(roomId => {
-
-        const container =
-            document.getElementById(
-                `${roomId}People`
-            );
-
-
-        if (!container) {
-            return;
-        }
-
-
-        container.innerHTML = "";
-
-
-        placements[roomId].forEach(person => {
-
-            const span =
-                document.createElement("span");
-
-            span.textContent = person;
-
-            container.appendChild(span);
-
-        });
-
-    });
-
-
-    /*
-        Markera personer som redan
-        har placerats.
-    */
+function renderPlacements() {
 
     document
         .querySelectorAll(".person")
@@ -1999,11 +2212,20 @@ function renderRooms() {
 }
 
 
-/* =========================
-   KONTROLLERA
-========================= */
+/* =========================================================
+   KONTROLLERA PUSSEL
+========================================================= */
 
 function checkPuzzle() {
+
+    if (puzzleSolved) {
+        return;
+    }
+
+
+    /*
+        Alla rum måste vara fyllda.
+    */
 
     const allRoomsFilled =
         Object.values(
@@ -2024,6 +2246,10 @@ function checkPuzzle() {
         return;
     }
 
+
+    /*
+        Kontrollera varje rum.
+    */
 
     let correct = true;
 
@@ -2072,14 +2298,94 @@ function checkPuzzle() {
     });
 
 
+    /* =====================================================
+       RÄTT
+    ===================================================== */
+
     if (correct) {
+
+        puzzleSolved = true;
+
+
+        /*
+            Lås hela pusslet.
+        */
+
+        document
+            .getElementById("mapWindow")
+            .classList.add("solved");
+
+
+        document
+            .getElementById("mapContainer")
+            .classList.add("solved");
+
+
+        /*
+            Ta bort "Börja om".
+        */
+
+        document
+            .getElementById("resetButton")
+            .classList.add("hidden");
+
+
+        /*
+            Ta bort markeringar.
+        */
+
+        document
+            .querySelectorAll(".room")
+            .forEach(room => {
+
+                room.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+        document
+            .querySelectorAll(".person")
+            .forEach(button => {
+
+                button.classList.remove(
+                    "selected"
+                );
+
+                button.classList.add(
+                    "placed"
+                );
+
+            });
+
+
+        /*
+            Viktigt:
+            Efter rätt svar visas namnen
+            direkt på sängarna.
+        */
 
         document.getElementById(
             "puzzleMessage"
         ).textContent =
-            "Rätt. Sovplatserna stämmer överens med utredningens uppgifter.";
+            "Rätt. Sovplatserna är fastställda.";
 
-    } else {
+
+        /*
+            Markera att pusslet är färdigt.
+        */
+
+        selectedPerson = null;
+
+    }
+
+
+    /* =====================================================
+       FEL
+    ===================================================== */
+
+    else {
 
         document.getElementById(
             "puzzleMessage"
@@ -2090,11 +2396,21 @@ function checkPuzzle() {
 }
 
 
-/* =========================
+/* =========================================================
    BÖRJA OM
-========================= */
+========================================================= */
 
 function resetPuzzle() {
+
+    /*
+        Om det redan är löst ska
+        funktionen inte göra någonting.
+    */
+
+    if (puzzleSolved) {
+        return;
+    }
+
 
     placements = {
 
@@ -2131,9 +2447,6 @@ function resetPuzzle() {
             );
 
         });
-
-
-    renderRooms();
 
 
     document.getElementById(
