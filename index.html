@@ -1215,29 +1215,6 @@ h1 {
 
 
 /* =========================================================
-   MOBILTELEFON
-========================================================= */
-
-function openPhone() {
-
-    document.getElementById(
-        "phoneOverlay"
-    ).classList.add("open");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closePhone() {
-
-    document.getElementById(
-        "phoneOverlay"
-    ).classList.remove("open");
-
-    document.body.style.overflow = "auto";
-}
-
-/* =========================================================
    TILLBAKA
 ========================================================= */
 
@@ -2473,6 +2450,21 @@ function closePhone() {
 
 
 <script>
+
+/* =========================================================
+   MOBILTELEFON
+========================================================= */
+
+function openPhone() {
+    document.getElementById("phoneOverlay").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closePhone() {
+    document.getElementById("phoneOverlay").classList.remove("open");
+    document.body.style.overflow = "auto";
+}
+
 
 
 /* =========================================================
