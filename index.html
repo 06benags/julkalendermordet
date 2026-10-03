@@ -2094,6 +2094,39 @@ h1 {
 .phone-call{padding:10px 0;border-bottom:1px solid #ddd}.phone-note{background:#fff3a6;border-radius:10px;padding:12px;margin-bottom:10px}
 .phone-photo{height:150px;border-radius:12px;background:linear-gradient(135deg,#26364a,#8a7357 48%,#1d1e23);display:flex;align-items:flex-end;padding:10px;color:#fff;font-size:10px;margin-bottom:10px}
 .phone-home-button{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#aaa;font-size:18px;z-index:10;cursor:pointer}
+
+/* iOS-STYLE PHONE HOME SCREEN */
+.phone-lock-content.unlocked{padding:0;justify-content:flex-start;overflow:hidden}
+.phone-lock-content.unlocked .phone-unlocked{display:block;position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0;text-align:left;animation:phoneUnlockFade .35s ease;overflow:hidden;border-radius:29px;background:#111}
+.phone-lock-content.unlocked .phone-passcode,.phone-lock-content.unlocked .phone-locked-text{display:none}
+.phone-home-wallpaper{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 88%,rgba(255,191,94,.34),transparent 23%),linear-gradient(180deg,rgba(4,19,35,.15),rgba(3,9,13,.72)),linear-gradient(160deg,#132d40 0%,#31566a 38%,#162a25 61%,#080d0c 100%)}
+.phone-home-wallpaper:before{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:43%;background:linear-gradient(170deg,transparent 0 19%,#111a18 20% 38%,#0a100f 39%);clip-path:polygon(0 42%,18% 18%,36% 34%,54% 8%,72% 27%,100% 2%,100% 100%,0 100%)}
+.phone-home-wallpaper:after{content:"";position:absolute;left:23%;bottom:13%;width:54%;height:24%;background:linear-gradient(180deg,#463d2d,#191613);clip-path:polygon(50% 0,100% 25%,93% 100%,7% 100%,0 25%);box-shadow:0 0 30px rgba(255,174,68,.25)}
+.phone-home-status{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:12px 18px 0;color:#fff;font-size:10px;font-weight:600;text-shadow:0 1px 4px #000}
+.phone-home-status-icons{display:flex;gap:6px;align-items:center}.phone-battery{font-size:8px;border:1px solid #fff;border-radius:3px;padding:0 2px}
+.phone-home-apps{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,52px);justify-content:center;gap:16px 10px;margin-top:24px}
+.ios-app{position:relative;width:52px;border:0;background:none;color:#fff;padding:0;cursor:pointer;font-family:Inter,sans-serif;text-align:center;-webkit-tap-highlight-color:transparent}
+.ios-app b{display:block;font-size:7.5px;font-weight:500;margin-top:4px;white-space:nowrap;text-shadow:0 1px 3px #000}
+.ios-app em{position:absolute;top:-5px;right:-5px;background:#ff3045;color:#fff;font-style:normal;font-size:8px;min-width:16px;height:16px;line-height:16px;border-radius:10px;box-shadow:0 1px 3px #000;z-index:3}
+.ios-icon{display:flex;position:relative;width:46px;height:46px;margin:auto;border-radius:11px;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.38),inset 0 1px 1px rgba(255,255,255,.3)}
+.ios-icon:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 35%,rgba(0,0,0,.08));pointer-events:none}
+.messages-icon{background:linear-gradient(#63e879,#28b84c)}.messages-icon:before{content:"";width:24px;height:18px;border-radius:50%;background:#fff}.messages-icon:after{background:linear-gradient(135deg,rgba(255,255,255,.2),transparent 35%)}.messages-icon i{position:absolute;width:8px;height:8px;background:#fff;bottom:9px;left:11px;transform:rotate(30deg)}
+.calendar-icon{background:#fff;color:#222;display:block;text-align:center}.calendar-icon:before{content:"TIS";display:block;height:13px;background:#ef3b48;color:#fff;font-size:6px;line-height:13px;font-weight:700}.calendar-icon strong{font-size:22px;line-height:31px;font-weight:500}
+.photos-icon{background:conic-gradient(#f5c842,#ef5b48,#a54cd9,#3d8fe9,#45c878,#f5c842)}.photos-icon i{width:22px;height:22px;border:5px solid #fff;border-radius:50%;position:relative}.photos-icon i:after{content:"";position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;left:4px;top:4px}
+.camera-icon{background:linear-gradient(#3a3d42,#17191c)}.camera-icon:before{content:"";width:27px;height:18px;border-radius:5px;background:#30343a;border:2px solid #777}.camera-icon i{position:absolute;width:9px;height:9px;border-radius:50%;background:#111;border:2px solid #aaa}
+.maps-icon{background:linear-gradient(145deg,#67b96d,#f2db6b 48%,#72b9e8)}.maps-icon:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(75deg,transparent 0 12px,rgba(255,255,255,.55) 13px 15px)}.maps-icon i{width:12px;height:12px;background:#e44b4b;border:2px solid #fff;border-radius:50%;z-index:1}
+.clock-icon{background:#f7f7f7}.clock-icon i{width:28px;height:28px;border:2px solid #222;border-radius:50%;position:relative}.clock-icon i:before{content:"";position:absolute;width:2px;height:9px;background:#222;left:13px;top:4px}.clock-icon i:after{content:"";position:absolute;width:8px;height:2px;background:#222;left:13px;top:12px;transform:rotate(30deg);transform-origin:left}
+.weather-icon{background:linear-gradient(#55b8ef,#3981d4)}.weather-icon i{font-size:20px;color:#ffd34f;text-shadow:8px 7px 0 #fff}
+.notes-icon{background:#fff}.notes-icon:before{content:"";position:absolute;left:0;right:0;top:9px;height:3px;background:#f1cf4e;box-shadow:0 8px 0 #ddd,0 16px 0 #ddd,0 24px 0 #ddd}.notes-icon i{position:absolute;left:0;top:0;width:7px;height:100%;background:#e8c74d}
+.reminders-icon{background:#f7f7f7;color:#2d6edc}.reminders-icon i{font-style:normal;font-size:22px}.appstore-icon{background:linear-gradient(#5bb9ff,#2477d9)}.appstore-icon i{font-size:30px;transform:rotate(-5deg)}.settings-icon{background:linear-gradient(#9fa4aa,#565b61)}.settings-icon i{font-size:26px;font-style:normal}.mail-icon{background:linear-gradient(#62b8ff,#2485e8)}.mail-icon i{font-style:normal;font-size:24px}
+.phone-icon{background:linear-gradient(#65dc71,#25a849)}.phone-icon i{font-style:normal;color:#fff;font-size:23px;transform:rotate(-22deg)}.safari-icon{background:radial-gradient(circle,#fff 0 15%,#eaf4ff 16% 28%,#49a6e9 29% 48%,#1873d1 49% 100%);color:#e42d43}.safari-icon i{font-size:29px;transform:rotate(20deg)}.spotify-icon{background:#171717}.spotify-icon i{color:#20d760;font-size:29px;font-style:normal}.whatsapp-icon{background:#26d367}.whatsapp-icon i{font-style:normal;font-size:22px;color:#fff}
+.ios-dock{position:absolute;z-index:3;left:11px;right:11px;bottom:10px;height:57px;border-radius:18px;background:rgba(245,245,245,.18);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-around}
+.ios-dock .ios-app{width:46px}.ios-dock .ios-icon{width:43px;height:43px}.ios-dock .ios-app b{display:none}
+.phone-app-panel{display:none;position:absolute!important;inset:0!important;background:#f8f8fa;color:#1c1c1e;z-index:20!important;border-radius:29px;overflow:hidden;text-align:left}.phone-app-panel.open{display:block}
+.ios-app-header{height:58px;padding:18px 13px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddd;font-size:14px;background:rgba(248,248,250,.96)}.ios-app-header button{border:0;background:none;color:#007aff;font-size:28px;line-height:20px;cursor:pointer}.ios-app-header span{color:#007aff}.ios-app-header.dark{background:#000;color:#fff;border-color:#222}.ios-app-header.dark button{color:#fff}.ios-app-body{height:calc(100% - 58px);padding:12px 13px;overflow:auto;font-size:10px}.ios-search{background:#e9e9ed;border-radius:9px;padding:7px 10px;color:#777;margin-bottom:5px}.ios-row{display:flex;align-items:center;gap:9px;padding:10px 2px;border-bottom:1px solid #ddd;position:relative}.ios-row>div:nth-child(2){min-width:0}.ios-row strong{display:block;font-size:11px}.ios-row small{display:block;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:155px}.ios-row time{margin-left:auto;color:#888;font-size:8px}.ios-avatar{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex:none}.avatar-moa{background:#a77a9c}.avatar-gustav{background:#506d82}.avatar-elham{background:#c08b58}.avatar-benjamin{background:#555}
+.calendar-body{text-align:center}.calendar-month{font-size:13px;color:#777;margin-top:8px}.calendar-big{font-size:64px;font-weight:200;margin:14px 0}.calendar-event{text-align:left;background:#eaf2ff;border-left:3px solid #3478f6;border-radius:7px;padding:9px;margin:7px 0}.calendar-event strong,.calendar-event small{display:block}.calendar-event small{color:#777;margin-top:2px}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0}.gallery-photo{height:82px;background:#334b52;display:flex;align-items:flex-end;padding:5px;color:#fff;font-size:7px;background-size:cover}.p1{background:linear-gradient(#17222d,#d09a62)}.p2{background:linear-gradient(135deg,#304b60,#1d211f)}.p3{background:linear-gradient(135deg,#815d3f,#202b31)}.p4{background:linear-gradient(#0e1c29,#667c82)}.p5{background:linear-gradient(135deg,#554332,#1d2225)}.p6{background:linear-gradient(#182a38,#a07855)}.p7{background:linear-gradient(135deg,#151a20,#725b45)}.p8{background:linear-gradient(#293c47,#151a18)}
+.ios-map{height:calc(100% - 58px);position:relative;overflow:hidden;background:repeating-linear-gradient(18deg,#e4efd9 0 26px,#d6e5cc 27px 29px),repeating-linear-gradient(108deg,transparent 0 45px,#fff 46px 49px)}.map-road{position:absolute;background:#fff;opacity:.85}.r1{width:150%;height:12px;top:42%;left:-20%;transform:rotate(-18deg)}.r2{width:130%;height:8px;top:62%;left:-10%;transform:rotate(28deg)}.map-pin{position:absolute;left:48%;top:43%;color:#e44b4b;font-size:30px;text-shadow:0 2px 3px #777}.ios-map strong,.ios-map small{position:absolute;left:15px;bottom:50px}.ios-map small{bottom:33px;color:#777}.ios-dark-body{height:calc(100% - 58px);background:#000;color:#fff;padding:15px}.clock-face{text-align:center;font-size:44px;font-weight:200;margin:55px 0}.alarm-row{border-top:1px solid #333;padding:14px 2px}.alarm-row strong{display:block;font-size:24px;font-weight:300}.alarm-row small{color:#aaa}.weather-head{background:#459ad9;color:#fff;border-color:#459ad9}.weather-head button,.weather-head span{color:#fff}.weather-screen{height:calc(100% - 58px);background:linear-gradient(#3c9cdb,#75bfe7 45%,#e7f2f7);color:#fff;padding:32px 22px}.weather-screen small{font-size:14px}.weather-screen strong{display:block;font-size:72px;font-weight:200;margin-top:12px}.weather-screen span{font-size:17px}.weather-screen p{font-size:10px}.note-card{background:#fff4a3;border-radius:8px;padding:15px;line-height:1.6}.reminder{padding:13px 3px;border-bottom:1px solid #ddd;color:#333}.store-card{height:130px;border-radius:12px;background:linear-gradient(135deg,#6fcbff,#2864e8);color:#fff;padding:15px}.settings-list>div{background:#fff;border-bottom:1px solid #ddd;padding:13px 10px;font-size:10px}.settings-list span{float:right;color:#888}.mail-message{padding:10px}.mail-message small{display:block;color:#777;margin:4px 0 12px}.mail-message p{line-height:1.6}.call-list>div{padding:14px 4px;border-bottom:1px solid #ddd}.call-list strong,.call-list small{display:block}.call-list small{color:#777;margin-top:3px}.ios-browser{padding:15px;text-align:center}.browser-bar{background:#e9e9ed;border-radius:10px;padding:9px;color:#777}.ios-browser h2{margin-top:60px;font-size:18px}.ios-browser p{color:#777;font-size:10px}.spotify-screen{height:calc(100% - 58px);background:#111;color:#fff;padding:25px}.album-art{width:155px;height:155px;margin:10px auto 28px;background:linear-gradient(135deg,#8e1515,#1b0e0e);display:flex;align-items:center;justify-content:center;text-align:center;font-size:28px;font-weight:700}.spotify-screen p{color:#aaa}.ios-camera{position:absolute;inset:0;background:#090909;color:#fff}.ios-camera>button{position:absolute;top:15px;left:15px;background:none;border:0;color:#fff;font-size:27px;z-index:2}.camera-view{height:70%;display:flex;align-items:center;justify-content:center;color:#555;font-size:9px}.camera-shutter{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);width:58px;height:58px;border:5px solid #fff;border-radius:50%;font-size:0}
+.phone-home-button{position:absolute;z-index:30;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#fff;font-size:15px;cursor:pointer;opacity:.8}
 </style>
 </head>
 
@@ -3921,32 +3954,70 @@ function closePhoneApp() {
                 </div>
 
                 <div class="phone-unlocked" id="phoneUnlocked">
-    <div class="phone-home-status"><span id="phoneHomeTime">--:--</span><span>▮▮▮  Wi‑Fi  ▰</span></div>
-    <div class="phone-app-grid">
-      <button class="phone-app" onclick="openPhoneApp('Messages')"><span class="phone-app-icon app-messages">💬</span><span class="phone-app-name">Meddelanden</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Phone')"><span class="phone-app-icon app-phone">☎</span><span class="phone-app-name">Telefon</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Photos')"><span class="phone-app-icon app-photos">🌈</span><span class="phone-app-name">Bilder</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Notes')"><span class="phone-app-icon app-notes">📝</span><span class="phone-app-name">Anteckningar</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Maps')"><span class="phone-app-icon app-maps">🗺️</span><span class="phone-app-name">Kartor</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Mail')"><span class="phone-app-icon app-mail">✉</span><span class="phone-app-name">Mail</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Clock')"><span class="phone-app-icon app-clock">◷</span><span class="phone-app-name">Klocka</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Weather')"><span class="phone-app-icon app-weather">☁</span><span class="phone-app-name">Väder</span></button>
-    </div>
-    <div class="phone-dock">
-      <button class="phone-app" onclick="openPhoneApp('Phone')"><span class="phone-app-icon app-phone">☎</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Messages')"><span class="phone-app-icon app-messages">💬</span></button>
-      <button class="phone-app" onclick="openPhoneApp('Photos')"><span class="phone-app-icon app-photos">🌈</span></button>
-    </div>
-    <div class="phone-app-panel" id="phoneAppMessages"><div class="phone-app-top">Meddelanden <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Moa</strong><div class="phone-message">Är du fortfarande vaken?</div><div class="phone-message me">Ja. Vi måste prata.</div><div class="phone-message">Inte ikväll. Alla andra är där nere.</div><div class="phone-message me">Jag vet. Det gäller det som hände.</div></div></div>
-    <div class="phone-app-panel" id="phoneAppPhone"><div class="phone-app-top">Telefon <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-call"><strong>Gustav</strong><br>Igår 23:48 · Missat samtal</div><div class="phone-call"><strong>Moa</strong><br>Igår 22:16 · Utgående</div><div class="phone-call"><strong>Okänt nummer</strong><br>23 dec · 23:52 · Missat samtal</div></div></div>
-    <div class="phone-app-panel" id="phoneAppPhotos"><div class="phone-app-top">Bilder <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-photo">23 DECEMBER · 21:37<br>En bild från kvällen. Någon står precis utanför bild.</div><div class="phone-photo">23 DECEMBER · 22:04<br>Glögg på bordet. Ett glas saknas.</div></div></div>
-    <div class="phone-app-panel" id="phoneAppNotes"><div class="phone-app-top">Anteckningar <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><div class="phone-note"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
-    <div class="phone-app-panel" id="phoneAppMaps"><div class="phone-app-top">Kartor <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Senaste plats</strong><br>Stugan · 23 dec · 23:41<br><br>Telefonens senaste registrerade plats var utanför stugan.</div></div>
-    <div class="phone-app-panel" id="phoneAppMail"><div class="phone-app-top">Mail <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Ämne: Vi måste prata</strong><br>Från: Moa · 23 dec 20:11<hr>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</div></div>
-    <div class="phone-app-panel" id="phoneAppClock"><div class="phone-app-top">Klocka <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Alarm</strong><br>07:30 · På</div></div>
-    <div class="phone-app-panel" id="phoneAppWeather"><div class="phone-app-top">Väder <button class="phone-app-close" onclick="closePhoneApp()">×</button></div><div class="phone-app-body"><strong>Fårö</strong><br><br>☁️ 2° · Mulet<br>Vind 8 m/s</div></div>
-    <button class="phone-home-button" onclick="closePhoneApp()">●</button>
+  <div class="phone-home-wallpaper"></div>
+  <div class="phone-home-status">
+    <span id="phoneHomeTime">--:--</span>
+    <span class="phone-home-status-icons"><span>▮▮▮</span><span>⌁</span><span class="phone-battery">▰</span></span>
   </div>
+
+  <div class="phone-home-apps">
+    <button class="ios-app" onclick="openPhoneApp('Messages')"><span class="ios-icon messages-icon"><i></i></span><b>Meddelanden</b><em>3</em></button>
+    <button class="ios-app" onclick="openPhoneApp('Calendar')"><span class="ios-icon calendar-icon"><strong>24</strong></span><b>Kalender</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Photos')"><span class="ios-icon photos-icon"><i></i></span><b>Bilder</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Camera')"><span class="ios-icon camera-icon"><i></i></span><b>Kamera</b></button>
+
+    <button class="ios-app" onclick="openPhoneApp('Maps')"><span class="ios-icon maps-icon"><i></i></span><b>Kartor</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Clock')"><span class="ios-icon clock-icon"><i></i></span><b>Klocka</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Weather')"><span class="ios-icon weather-icon"><i>☀</i></span><b>Väder</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Notes')"><span class="ios-icon notes-icon"><i></i></span><b>Anteckningar</b></button>
+
+    <button class="ios-app" onclick="openPhoneApp('Reminders')"><span class="ios-icon reminders-icon"><i>≡</i></span><b>Påminnelser</b></button>
+    <button class="ios-app" onclick="openPhoneApp('AppStore')"><span class="ios-icon appstore-icon"><i>⌁</i></span><b>App Store</b></button>
+    <button class="ios-app" onclick="openPhoneApp('Settings')"><span class="ios-icon settings-icon"><i>⚙</i></span><b>Inställningar</b><em>1</em></button>
+    <button class="ios-app" onclick="openPhoneApp('Mail')"><span class="ios-icon mail-icon"><i>✉</i></span><b>Mail</b><em>5</em></button>
+  </div>
+
+  <div class="ios-dock">
+    <button class="ios-app" onclick="openPhoneApp('Phone')"><span class="ios-icon phone-icon"><i>☎</i></span></button>
+    <button class="ios-app" onclick="openPhoneApp('Safari')"><span class="ios-icon safari-icon"><i>⌁</i></span></button>
+    <button class="ios-app" onclick="openPhoneApp('Spotify')"><span class="ios-icon spotify-icon"><i>≋</i></span></button>
+    <button class="ios-app" onclick="openPhoneApp('WhatsApp')"><span class="ios-icon whatsapp-icon"><i>☎</i></span><em>1</em></button>
+  </div>
+
+  <div class="phone-app-panel" id="phoneAppMessages"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Meddelanden</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-search">Sök</div><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Är du vaken? Vi måste prata...</small></div><time>20:41</time></div><div class="ios-row"><div class="ios-avatar avatar-gustav">G</div><div><strong>Gustav</strong><small>Säg vad som hände? Ring mig.</small></div><time>19:58</time></div><div class="ios-row"><div class="ios-avatar avatar-elham">E</div><div><strong>Elham</strong><small>Du måste kolla bilden jag skickade.</small></div><time>18:22</time></div><div class="ios-row"><div class="ios-avatar avatar-benjamin">B</div><div><strong>Benjamin</strong><small>Träffas vid stugan ikväll? Viktigt.</small></div><time>14:37</time></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppCalendar"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kalender</strong><span>＋</span></div><div class="ios-app-body calendar-body"><div class="calendar-month">December 2024</div><div class="calendar-big">24</div><div class="calendar-event"><strong>Julafton</strong><small>Hela dagen</small></div><div class="calendar-event"><strong>Stugan</strong><small>23 dec · 19:00–23:59</small></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppPhotos"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Bilder</strong><span>•••</span></div><div class="ios-app-body photo-grid"><div class="gallery-photo p1">21:37</div><div class="gallery-photo p2">21:52</div><div class="gallery-photo p3">22:04</div><div class="gallery-photo p4">22:17</div><div class="gallery-photo p5">23:11</div><div class="gallery-photo p6">23:42</div><div class="gallery-photo p7">23:58</div><div class="gallery-photo p8">00:06</div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppCamera"><div class="ios-camera"><button onclick="closePhoneApp()">×</button><div class="camera-view">KAMERA</div><div class="camera-shutter">●</div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppMaps"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kartor</strong><span>⌁</span></div><div class="ios-map"><div class="map-road r1"></div><div class="map-road r2"></div><div class="map-pin">●</div><strong>Stugan</strong><small>Senaste plats · 23:41</small></div></div>
+
+  <div class="phone-app-panel" id="phoneAppClock"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Klocka</strong><span>＋</span></div><div class="ios-dark-body"><div class="clock-face">23:41</div><div class="alarm-row"><strong>07:30</strong><small>På · Vardagar</small></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppWeather"><div class="ios-app-header weather-head"><button onclick="closePhoneApp()">‹</button><strong>Väder</strong><span>•••</span></div><div class="weather-screen"><small>Fårö</small><strong>2°</strong><span>Mulet</span><p>Vind 8 m/s · N</p></div></div>
+
+  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppReminders"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Påminnelser</strong><span>＋</span></div><div class="ios-app-body"><div class="reminder">○ Prata med Moa</div><div class="reminder">○ Kolla kameran</div><div class="reminder">○ Ring Gustav</div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppAppStore"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>App Store</strong><span>◎</span></div><div class="ios-app-body"><h2>Upptäck</h2><div class="store-card">Det här är en låst telefon.</div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppSettings"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Inställningar</strong><span></span></div><div class="ios-app-body settings-list"><div>Flygplansläge <span>○</span></div><div>Wi‑Fi <span>På ›</span></div><div>Bluetooth <span>På ›</span></div><div>Notiser <span>›</span></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppMail"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Mail</strong><span>✎</span></div><div class="ios-app-body"><div class="mail-message"><strong>Vi måste prata</strong><small>Från: Moa · 20:11</small><p>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</p></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>Igår 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>Igår 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>23 dec · 23:52 · Missat samtal</small></div></div></div>
+
+  <div class="phone-app-panel" id="phoneAppSafari"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Safari</strong><span>＋</span></div><div class="ios-browser"><div class="browser-bar">sök eller skriv webbplats</div><h2>Ingen anslutning</h2><p>Det finns ingen internetanslutning.</p></div></div>
+
+  <div class="phone-app-panel" id="phoneAppSpotify"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Spotify</strong><span>•••</span></div><div class="spotify-screen"><div class="album-art">JUL<br>2024</div><strong>Senast spelade</strong><p>Christmas Classics</p></div></div>
+
+  <div class="phone-app-panel" id="phoneAppWhatsApp"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>WhatsApp</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Senast online 20:41</small></div></div></div></div>
+
+  <button class="phone-home-button" onclick="closePhoneApp()">⌄</button>
+</div>
 
             </div>
 
