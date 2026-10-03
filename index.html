@@ -2071,6 +2071,29 @@ h1 {
     }
 }
 
+
+/* --- Upplåst telefon: hemskärm och appar --- */
+.phone-unlocked{display:none;width:100%;height:100%;position:relative;overflow:hidden;border-radius:42px;background:linear-gradient(145deg,#17213a,#101727 55%,#090d16);color:#fff;font-family:Inter,sans-serif}
+.phone-lock-content.unlocked .phone-unlocked{display:flex;flex-direction:column}
+.phone-lock-content.unlocked .phone-passcode,.phone-lock-content.unlocked .phone-locked-text{display:none}
+.phone-home-status{display:flex;justify-content:space-between;align-items:center;padding:14px 19px 0;font-size:9px;font-weight:600;opacity:.9}
+.phone-home-time{font-size:11px}
+.phone-app-grid{display:grid;grid-template-columns:repeat(4,52px);gap:18px 10px;justify-content:center;margin-top:30px}
+.phone-app{border:0;background:none;color:#fff;padding:0;width:52px;cursor:pointer;font-family:Inter,sans-serif;text-align:center}
+.phone-app-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 5px 12px rgba(0,0,0,.3),inset 0 1px 1px rgba(255,255,255,.22);margin:auto}
+.phone-app-name{display:block;font-size:8px;margin-top:5px;text-shadow:0 1px 2px #000}
+.app-messages{background:linear-gradient(#54d66b,#24a844)}.app-phone{background:linear-gradient(#58d86a,#25a647)}.app-photos{background:linear-gradient(135deg,#ffcf45,#f45b69,#7c4dff)}.app-notes{background:#f4e9b9;color:#222}.app-maps{background:#fff;color:#2c7a4b}.app-mail{background:#4d9df7}.app-clock{background:#151a23}.app-weather{background:linear-gradient(#57b8f5,#2875db)}
+.phone-dock{position:absolute;left:14px;right:14px;bottom:13px;height:62px;border-radius:20px;background:rgba(255,255,255,.11);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-around}
+.phone-dock .phone-app-icon{width:43px;height:43px}
+.phone-app-panel{display:none;position:absolute;inset:0;background:#f5f4ef;color:#1d1d1f;z-index:5;border-radius:42px;overflow:hidden}
+.phone-app-panel.open{display:block}
+.phone-app-top{height:62px;padding:25px 17px 0;font-size:14px;font-weight:700;border-bottom:1px solid #ddd;display:flex;align-items:center;justify-content:space-between}
+.phone-app-close{border:0;background:none;font-size:20px;color:#555;cursor:pointer}
+.phone-app-body{padding:14px 16px;font-size:11px;line-height:1.5;overflow:auto;height:calc(100% - 62px)}
+.phone-message{background:#e6e6eb;border-radius:14px;padding:8px 10px;margin:8px 0;max-width:88%}.phone-message.me{margin-left:auto;background:#2f9d50;color:#fff}
+.phone-call{padding:10px 0;border-bottom:1px solid #ddd}.phone-note{background:#fff3a6;border-radius:10px;padding:12px;margin-bottom:10px}
+.phone-photo{height:150px;border-radius:12px;background:linear-gradient(135deg,#26364a,#8a7357 48%,#1d1e23);display:flex;align-items:flex-end;padding:10px;color:#fff;font-size:10px;margin-bottom:10px}
+.phone-home-button{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#aaa;font-size:18px;z-index:10;cursor:pointer}
 </style>
 </head>
 
@@ -3817,6 +3840,14 @@ function resetPuzzle() {
     ).textContent = "";
 }
 
+
+function openPhoneApp(app) {
+    const panel=document.getElementById("phoneApp"+app.charAt(0).toUpperCase()+app.slice(1));
+    if(panel) panel.classList.add("open");
+}
+function closePhoneApp() {
+    document.querySelectorAll(".phone-app-panel").forEach(p=>p.classList.remove("open"));
+}
 </script>
 
 
