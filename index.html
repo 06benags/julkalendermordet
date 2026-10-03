@@ -62,7 +62,7 @@ body::before {
 }
 
 /* =========================
-   HEADER
+   STARTSIDA
 ========================= */
 
 header {
@@ -129,8 +129,7 @@ h1 {
 
     transition:
         transform .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
+        box-shadow .25s ease;
 }
 
 .door::before {
@@ -168,10 +167,6 @@ h1 {
         0 2px 5px rgba(0,0,0,.25);
 }
 
-/* =========================
-   JULDETALJ
-========================= */
-
 .door:nth-child(3n) {
     background:
         linear-gradient(
@@ -191,6 +186,247 @@ h1 {
 }
 
 /* =========================
+   UTREDNINGSSIDA
+========================= */
+
+#investigation {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 55px 30px 80px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(115, 75, 38, .35),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #21170f,
+            #120d09
+        );
+}
+
+/* Rubrik */
+
+.investigation-header {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.investigation-header h2 {
+    font-family: Cinzel, serif;
+
+    font-size: clamp(34px, 6vw, 60px);
+
+    font-weight: 500;
+
+    letter-spacing: .12em;
+
+    color: #f3e6c9;
+}
+
+.investigation-header p {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    opacity: .55;
+}
+
+/* =========================
+   BORDET
+========================= */
+
+.table {
+    position: relative;
+
+    width: min(1150px, 94%);
+
+    min-height: 620px;
+
+    margin: 0 auto;
+
+    padding: 70px 50px;
+
+    border-radius: 6px;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,255,255,.035),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #4b2c19,
+            #321c11 45%,
+            #24130b
+        );
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.65),
+        inset 0 1px rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 55px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   PAPPER
+========================= */
+
+.paper {
+    position: relative;
+
+    width: 250px;
+
+    height: 330px;
+
+    padding: 30px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #ddd2b8
+        );
+
+    color: #27231d;
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,.4);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.paper:hover {
+    transform:
+        translateY(-12px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.55);
+}
+
+.paper:nth-child(1) {
+    transform: rotate(-4deg);
+}
+
+.paper:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.paper:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.paper h3 {
+    font-family: Cinzel, serif;
+
+    font-size: 23px;
+
+    letter-spacing: .05em;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.paper-line {
+    height: 1px;
+
+    background: rgba(0,0,0,.15);
+
+    margin: 13px 0;
+}
+
+.paper p {
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    opacity: .7;
+}
+
+.paper-label {
+    position: absolute;
+
+    bottom: 22px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+
+    opacity: .5;
+}
+
+/* =========================
+   TILLBAKA
+========================= */
+
+.back-button {
+    display: block;
+
+    margin: 35px auto 0;
+
+    padding: 12px 25px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    color: #fff;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-family: Inter, sans-serif;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    font-size: 11px;
+
+    transition: .25s ease;
+}
+
+.back-button:hover {
+    background: rgba(255,255,255,.08);
+}
+
+/* =========================
    RESPONSIV
 ========================= */
 
@@ -199,6 +435,16 @@ h1 {
     .calendar {
         grid-template-columns: repeat(4, 1fr);
         gap: 14px;
+    }
+
+    .table {
+        padding: 50px 25px;
+        gap: 35px;
+    }
+
+    .paper {
+        width: 220px;
+        height: 290px;
     }
 }
 
@@ -216,6 +462,20 @@ h1 {
     .subtitle {
         font-size: 11px;
     }
+
+    #investigation {
+        padding: 35px 15px 60px;
+    }
+
+    .table {
+        width: 100%;
+        padding: 40px 15px;
+    }
+
+    .paper {
+        width: 90%;
+        max-width: 280px;
+    }
 }
 
 </style>
@@ -223,21 +483,136 @@ h1 {
 
 <body>
 
-<header>
+<!-- =========================
+     JULKALENDER
+========================= -->
 
-    <h1>JULMORDET</h1>
+<div id="calendarPage">
 
-    <div class="subtitle">
-        Kan du lösa mordet på 24 dagar?
+    <header>
+
+        <h1>JULMORDET</h1>
+
+        <div class="subtitle">
+            Kan du lösa mordet på 24 dagar?
+        </div>
+
+    </header>
+
+    <main class="calendar" id="calendar"></main>
+
+</div>
+
+
+<!-- =========================
+     FÖRUNDERSÖKNING
+========================= -->
+
+<section id="investigation">
+
+    <div class="investigation-header">
+
+        <h2>FÖRUNDERSÖKNINGEN</h2>
+
+        <p>Ärende 24-1224</p>
+
     </div>
 
-</header>
 
-<main class="calendar" id="calendar">
+    <div class="table">
 
-</main>
+        <!-- FÖRUNDERSÖKNING -->
+
+        <div class="paper">
+
+            <h3>Förundersökning</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Dokumentation rörande det misstänkta
+                dödsfallet vid fritidsstugan.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Utredningen inleds den 24 december.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+
+        <!-- FÖRHÖR -->
+
+        <div class="paper">
+
+            <h3>Förhör</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Förhör med personer som befann sig
+                i stugan under kvällen.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Sex personer befann sig på platsen.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+
+        <!-- KARTA -->
+
+        <div class="paper">
+
+            <h3>Karta</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Planritning över fritidsstugan
+                och dess rum.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Sovrum, kök, vardagsrum och entré.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="back-button" onclick="goBack()">
+        Tillbaka till kalendern
+    </button>
+
+</section>
+
 
 <script>
+
+/* =========================
+   SKAPA LUCKOR
+========================= */
 
 const calendar = document.getElementById("calendar");
 
@@ -251,12 +626,12 @@ for (let i = 1; i <= 24; i++) {
         <span class="number">${i}</span>
     `;
 
-    /* ENDAST LUCKA 1 ÄR KLICKBAR */
+
+    /* ENDAST LUCKA 1 */
+
     if (i === 1) {
 
-        door.addEventListener("click", () => {
-            alert("Lucka 1 öppnas...");
-        });
+        door.addEventListener("click", openInvestigation);
 
     } else {
 
@@ -265,6 +640,34 @@ for (let i = 1; i <= 24; i++) {
     }
 
     calendar.appendChild(door);
+}
+
+
+/* =========================
+   ÖPPNA FÖRUNDERSÖKNING
+========================= */
+
+function openInvestigation() {
+
+    document.getElementById("calendarPage").style.display = "none";
+
+    document.getElementById("investigation").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   TILLBAKA
+========================= */
+
+function goBack() {
+
+    document.getElementById("investigation").style.display = "none";
+
+    document.getElementById("calendarPage").style.display = "block";
+
+    window.scrollTo(0, 0);
 }
 
 </script>
