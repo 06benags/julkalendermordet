@@ -1269,23 +1269,31 @@ h1 {
     letter-spacing:-.02em;
     font-variant-numeric:tabular-nums;
 }
-.phone-lock-content,
-.phone-unlocked{
-    transition:opacity .28s ease, transform .28s ease;
+.phone-lock-content{
+    position:relative;
 }
 .phone-lock-content.unlocked{
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+}
+.phone-lock-content.unlocked .phone-lock-header,
+.phone-lock-content.unlocked .phone-locked-text,
+.phone-lock-content.unlocked .phone-passcode{
     opacity:0;
     transform:translateY(-8px);
     pointer-events:none;
+    transition:opacity .22s ease, transform .28s ease;
 }
-.phone-unlocked{
-    opacity:0;
-    transform:scale(.985);
-    transition:opacity .32s ease .04s, transform .32s cubic-bezier(.2,.8,.2,1) .04s;
+.phone-lock-header,
+.phone-locked-text,
+.phone-passcode{
+    transition:opacity .22s ease, transform .28s ease;
 }
 .phone-lock-content.unlocked .phone-unlocked{
     opacity:1;
     transform:scale(1);
+    transition:opacity .32s ease .04s, transform .32s cubic-bezier(.2,.8,.2,1) .04s;
 }
 .phone-lock-5g{
     position:absolute;
