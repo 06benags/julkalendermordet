@@ -4319,94 +4319,113 @@ function addSosMessage(who,text){
     log.scrollTop=log.scrollHeight;
 }
 
-function gustavResponse(input){
-    const q=input.toLowerCase().trim();
+function normalizeSosQuestion(input){
+    return input
+        .toLowerCase()
+        .replace(/[åä]/g,"a")
+        .replace(/ö/g,"o")
+        .replace(/[^a-z0-9\\s]/g," ")
+        .replace(/\\s+/g," ")
+        .trim();
+}
 
-    // Grunduppgifter som Gustav säkert kan svara på.
-    if(/(?:vad heter|namn|heter) (?:personen|killen|han)|vem (?:är|heter)|offer/.test(q))
+function hasAny(q, words){
+    return words.some(w => q.includes(w));
+}
+
+function gustavResponse(input){
+    const q=normalizeSosQuestion(input);
+
+    // Gustav ska förstå även korta, konstigt formulerade och vardagliga frågor.
+    if(hasAny(q,["vad heter han","hans namn","namnet","vem ar han","vem ar personen","personen heter","killen heter","offer"]))
         return "Han heter Benjamin Afsharazad.";
-    if(/hur gammal|ålder/.test(q))
+    if(hasAny(q,["hur gammal","alder","20 ar","tjugo ar"]))
         return "Han är 20 år.";
-    if(/hur många|antal personer|många personer|många är ni/.test(q))
+    if(hasAny(q,["hur manga ar ni","hur manga personer","hur manga i stugan","antalet","ni totalt","totalt hur manga"]))
         return "Vi är sex stycken totalt.";
-    if(/kompisgäng|vänner|vilka är ni|är ni vänner/.test(q))
+    if(hasAny(q,["vilka ar ni","ar ni kompisar","kompisgang","vanner","alla kompisar"]))
         return "Vi är ett kompisgäng.";
-    if(/var befinner|var är ni|adress|plats|gps|position|hitta oss|hitta er/.test(q))
+
+    // Plats / orientering
+    if(hasAny(q,["var ar ni","vart ar ni","var befinner ni","vart befinner ni","vilken plats","vilken adress","adressen","gps","position","kan ni hitta","hitta er","hitta oss","vart ar stugan","var ar stugan"]))
         return "Vi är i en stuga. Jag vet inte adressen tyvärr. Kan ni inte se vart min GPS är?";
-    if(/hur länge|när kom|när anlände|igår|kom hit/.test(q))
+    if(hasAny(q,["nar kom ni","nar kom ni hit","nar kom ni dit","kom hit nar","anlande","kom hit igar","igarkvall","hur lange har ni varit"]))
         return "Vi kom hit igår. Jag har inte så bra koll på området.";
-    if(/beskriv stugan|hur ser stugan|vad finns (?:i|vid) närheten|landmärke|kännetecken/.test(q))
+    if(hasAny(q,["hur ser stugan ut","beskriv stugan","vad ar det for stuga","vad finns utanfor","vad finns i narheten","landmarke","nagot man kan hitta"]))
         return "Jag vet inte riktigt. Vi kom hit igår och jag har inte så bra koll. Kan ni inte bara komma nu?";
 
-    // Benjamin och det akuta läget.
-    if(/var är benjamin|samma rum|står framför|är han (?:här|där)/.test(q))
+    // Var Benjamin är och hans tillstånd
+    if(hasAny(q,["var ar benjamin","vart ar benjamin","ar han har","ar han dar","samma rum","star du bredvid","star framfor","var star du"]))
         return "Ja, jag står precis framför honom.";
-    if(/golv|säng|ligger/.test(q))
+    if(hasAny(q,["ligger han","ligger","sang","golvet","var ligger han","ar han i sangen"]))
         return "Han ligger här i sin säng.";
-    if(/vaken|medvet|reager|kontakt|svara|vakna/.test(q))
+    if(hasAny(q,["vaken","medvetande","medvet","reagerar","reagerar han","kontakt","svarar han","gar han att vacka","vakna"]))
         return "Han reagerar inte. Jag har redan försökt.";
-    if(/andas|andning|bröstkorg|bröstet rör/.test(q))
+    if(hasAny(q,["andas","andning","luft","bröstet ror","bröstkorgen","rorelse i bröstet","andas han"]))
         return "Ja, vänta... nej. Det rör sig inte.";
-    if(/känn.*andning|kind|mun|näsa|luft/.test(q))
+    if(hasAny(q,["kanna andning","kanner du luft","luft ur munnen","mun och nasa","kind mot","kanner du nagot"]))
         return "Nej, inget. Han andas inte... kan ni skynda?";
-    if(/kall|varm|temperatur/.test(q))
+    if(hasAny(q,["kall","varm","temperatur","kroppen kall","kroppen varm"]))
         return "Han är kall.";
-    if(/blod|skada|sår|våld|kniv|vapen/.test(q))
+    if(hasAny(q,["blod","sår","skada","skadad","vald","slagen","kniv","vapen","nagot konstigt med kroppen"]))
         return "Nej, inget. Jag ser inget blod eller någon skada.";
-    if(/hlr|hjärt-lung|hjärt lung|hjärt|kompression|trycka på bröstet/.test(q))
-        return "Jag gör hjärt-lungräddning.";
-    if(/gör du nu|vad gör du|vad händer just nu/.test(q))
+    if(hasAny(q,["hlr","hjart lungraddning","hjartlungraddning","kompression","trycker pa brostet","trycker pa hans brost","vad gor du nu"]))
         return "Jag gör hjärt-lungräddning.";
 
-    // Tidsuppgifter.
-    if(/senast.*liv|såg.*liv|när.*såg.*benjamin|senast.*såg/.test(q))
+    // Tider
+    if(hasAny(q,["nar sag du honom","senast sag","sag honom sist","nar var han vid liv","nar levde han","senast vid liv","sista gangen","nar pratade du med honom"]))
         return "Innan vi gick och la oss... vid ett–två-tiden ungefär.";
-    if(/när vaknade|när gick upp|vaknade.*tid|upp.*tid/.test(q))
+    if(hasAny(q,["nar vaknade du","vilken tid vaknade","nar gick du upp","vaknade runt","nar steg du upp"]))
         return "Jag vaknade runt tio.";
-    if(/hur länge.*still|hur länge.*låg|när upptäck|när hittade/.test(q))
+    if(hasAny(q,["hur lange lag han","hur lange var han stilla","nar upptackte du","nar hittade du","nar markte du","hur lange har det varit"]))
         return "Jag märkte efter kanske tjugo minuter att Benjamin fortfarande låg helt stilla.";
-    if(/mådde|må bra|normal|som vanligt|frisk/.test(q))
+    if(hasAny(q,["madde han bra","malde han bra","var han normal","verkade han frisk","var han sjuk","hade han problem med halsa"]))
         return "Jag tror han är fullt frisk. Han verkade må bra igår kväll.";
-    if(/sjukdom|sjuk|medicin|tablett|läkemedel/.test(q))
+
+    // Medicin / sjukdom
+    if(hasAny(q,["sjukdom","sjuk","medicin","tabletter","tablett","lakemedel","mediciner","tar han nagot"]))
         return "Nej, tror inte det. Inte vad jag vet.";
 
-    // Övriga personer.
-    if(/ensam|andra|övriga|resten|fem|någon annan|personerna|folk/.test(q))
+    // De andra
+    if(hasAny(q,["ensam","ar du ensam","andra har","finns det fler","ar nagon mer dar","ar det fler","finns fler personer"]))
         return "Nej, det är flera här. Vi är ett kompisgäng.";
-    if(/var.*andra|befinner.*andra|var.*fem|var.*personerna/.test(q))
+    if(hasAny(q,["var ar dom","var ar de","vart ar dom","vart ar de","var befinner sig de andra","var ar dom andra","de andra var","dom andra var"]))
         return "Nej, inte exakt. De är säkert i stugan någonstans.";
-    if(/rop|kalla på|väcka.*andra|någon.*hjälpa/.test(q))
+    if(hasAny(q,["vack dom andra","ropa pa dom","ropa pa de andra","be nagon komma","kan nagon hjalpa","kan nagon annan hjalpa"]))
         return "Ja... vänta.";
-    if(/kom någon|någon kom|någon här nu|hjälp.*kommit/.test(q))
+    if(hasAny(q,["kom nagon","har nagon kommit","nagon kom","ar nagon hos dig nu","fick du hjalp"]))
         return "Nej.";
-    if(/sova|sover|sov de|sover de/.test(q))
+    if(hasAny(q,["sover dom","sover de","sover nagon","kanske sover","sover alla"]))
         return "Vet inte... de kanske sover.";
 
-    // Dryck och kvällen.
-    if(/alkohol|sprit|öl|vin|drink/.test(q))
+    // Kvällen och dryck
+    if(hasAny(q,["alkohol","sprit","vin","ol","öl","drink","drack alkohol"]))
         return "Nej.";
-    if(/vad.*druck|drack|dricka|dryck|glögg|julmust|vatten/.test(q))
+    if(hasAny(q,["vad drack ni","vad har ni druckit","drack ni","druckit","dricka","dryck","glogg","julmust","vatten"]))
         return "Glögg, julmust och vatten typ.";
-    if(/benjamin.*drack|drack.*benjamin|druckit.*benjamin/.test(q))
+    if(hasAny(q,["drack benjamin","drack han","har benjamin druckit","vad drack benjamin"]))
         return "Inte vet jag... vi drack nog alla det.";
-    if(/bråk|konflikt|osams|hot|hotad/.test(q))
+    if(hasAny(q,["brak","bråk","osams","konflikt","hot","hotad","tjafs","gral","gräl"]))
         return "Nej, inte vad jag märkte. Allt verkade normalt när vi gick och lade oss.";
 
-    // Stugan och vägen in.
-    if(/dörr|låst|låsa|olåst/.test(q))
+    // Dörr / tillträde
+    if(hasAny(q,["dorren","dörren","last","låst","olast","olåst","ar dorren oppen","kan man komma in"]))
         return "Den är låst... tror jag.";
-    if(/ingång|väg in|komma in|annan väg|fönster/.test(q))
+    if(hasAny(q,["annan ingang","annan vag in","annan väg in","hur kommer man in","finns annan vag","finns annan väg","fonster","fönster"]))
         return "Nej, bara genom dörren.";
-    if(/öppna|låsa upp/.test(q))
+    if(hasAny(q,["oppna dorren","öppna dörren","lasa upp","låsa upp","kan du oppna","kan du öppna"]))
         return "Ja, när ni kommer.";
-    if(/någon lämna|lämnat|gått ut|ute|inbrott|främmande/.test(q))
+    if(hasAny(q,["nagon lamnade","någon lämnade","lamnat stugan","lämnat stugan","gatt ut","gått ut","nagon gick","någon gick","inbrott","frammande"]))
         return "Jag har inte sett någon lämna stugan.";
 
-    // Sammanfattning om operatören ber Gustav berätta.
-    if(/vad har hänt|vad hände|berätta|beskriv.*händ|förklara/.test(q))
+    // Fri berättelse
+    if(hasAny(q,["vad har hant","vad hände","beratta","berätta","beskriv handelsen","beskriv händelsen","forklara","förklara","vad ar det som hander","vad ar det som händer"]))
         return "Jag vaknade runt tio. Benjamin låg kvar i sin säng och jag trodde först att han sov. Jag försökte väcka honom, men han reagerade inte. Jag kollade om han andades och då... då insåg jag att något var riktigt fel.";
 
-    // Gustav är stressad och ska inte kunna svara på sådant han rimligen inte vet.
+    // Frågor som kräver detaljer Gustav inte rimligen känner till.
+    if(hasAny(q,["vem gjorde","vem forgiftade","vem hällde","vem hall upp","varfor dog","varför dog","vad dog han av","vilket gift","giftet","vem ar skyldig","vem ar mördaren","vem gjorde det","hur dog han"]))
+        return "Jag vet inte. Jag försöker bara få hjälp till honom just nu.";
+
     return "Jag vet inte... jag är skakis just nu. Fråga mig en sak i taget så ska jag försöka svara.";
 }
 function sendSosMessage(event){
