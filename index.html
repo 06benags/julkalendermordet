@@ -1321,6 +1321,34 @@ filter:brightness(0);}
     transform-origin:center;
 }
 
+.phone-lock-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.phone-lock-header .phone-big-time {
+    font-family: Cinzel,serif;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -.055em;
+}
+
+.phone-lock-header .phone-date {
+    margin-top: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: .88;
+}
+
+.phone-lock-header + .phone-locked-text {
+    font-size: 9px;
+    opacity: .72;
+    margin-bottom: 4px;
+}
+
 .phone-passcode {
     width: 100%;
     max-width: 280px;
@@ -3994,6 +4022,11 @@ function closePhoneApp() {
             </div>
 
             <div class="phone-lock-content" id="phoneLockContent">
+
+                <div class="phone-lock-header">
+                    <div class="phone-big-time" id="phoneBigTime">--:--</div>
+                    <div class="phone-date" id="phoneDate">--</div>
+                </div>
 
                     <div class="phone-locked-text">
                     Ange lösenord
