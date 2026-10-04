@@ -4472,10 +4472,17 @@ async function sendSosMessage(event){
     // Försök först med den riktiga AI:n. Om backend inte är ansluten
     // används Gustavs lokala kunskapsbas så att spelet fortfarande fungerar.
     try{
+        const log=document.getElementById("sosChatLog");
+        const history=log ? Array.from(log.querySelectorAll(".sos-msg")).map(el=>{
+            const who=el.classList.contains("operator") ? "user" : "assistant";
+            const content=(el.innerText || "").replace(/^.*?:\\s*/,"").trim();
+            return {role:who,content};
+        }).slice(-20) : [];
+
         const response=await fetch(window.GUSTAV_AI_ENDPOINT || "",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({message:text})
+            body:JSON.stringify({message:text,history})
         });
         if(!response.ok) throw new Error("AI-backend svarade inte");
         const data=await response.json();
