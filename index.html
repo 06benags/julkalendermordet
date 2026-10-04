@@ -1262,10 +1262,30 @@ h1 {
     color:#000 !important;
     position:relative;
     top:4px;
-    font-weight:400;
+    font-weight:600;
     text-shadow:none;
     filter:none;
     opacity:1;
+    letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+}
+.phone-lock-content,
+.phone-unlocked{
+    transition:opacity .28s ease, transform .28s ease;
+}
+.phone-lock-content.unlocked{
+    opacity:0;
+    transform:translateY(-8px);
+    pointer-events:none;
+}
+.phone-unlocked{
+    opacity:0;
+    transform:scale(.985);
+    transition:opacity .32s ease .04s, transform .32s cubic-bezier(.2,.8,.2,1) .04s;
+}
+.phone-lock-content.unlocked .phone-unlocked{
+    opacity:1;
+    transform:scale(1);
 }
 .phone-lock-5g{
     position:absolute;
