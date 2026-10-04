@@ -4382,7 +4382,7 @@ function mapDirections(){
     const c=document.getElementById("phoneMapCard");
     if(c){
         const p=c.querySelector("p");
-        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41 · Dalarna";
+        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41 · Särna, Dalarna";
     }
 }
 let phoneCameraStream = null;
@@ -4596,8 +4596,8 @@ function closePhoneApp() {
     <iframe
       class="phone-real-map"
       id="phoneRealMap"
-      title="Karta över den fiktiva stugan i Dalarna"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=12.96%2C61.68%2C13.12%2C61.77&amp;layer=mapnik"
+      title="Karta över stugan i Dalarna"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=12.82%2C61.59%2C13.30%2C61.86&amp;layer=mapnik"
       loading="eager"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
@@ -4621,7 +4621,7 @@ function closePhoneApp() {
     <div class="map-card" id="phoneMapCard">
       <small>Senaste plats</small>
       <strong>Stugan</strong>
-      <p>Registrerad position · 23:41 · Dalarna</p>
+      <p>Registrerad position · 23:41 · Särna, Dalarna</p>
       <button type="button" onclick="mapDirections()">Vägbeskrivning</button>
       <button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button>
     </div>
