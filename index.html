@@ -4014,6 +4014,9 @@ filter:brightness(0);}
 
 
 <script>
+/* AI-endpoint fylls i när den säkra backend-funktionen är deployad. */
+window.GUSTAV_AI_ENDPOINT = "";
+
 
 /* =========================================================
    MOBILTELEFON
@@ -4469,7 +4472,7 @@ async function sendSosMessage(event){
     // Försök först med den riktiga AI:n. Om backend inte är ansluten
     // används Gustavs lokala kunskapsbas så att spelet fortfarande fungerar.
     try{
-        const response=await fetch("https://julmordet-ai.vercel.app/api/gustav",{
+        const response=await fetch(window.GUSTAV_AI_ENDPOINT || "",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({message:text})
