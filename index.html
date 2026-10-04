@@ -4456,19 +4456,33 @@ function gustavResponse(input){
 
     return "Jag vet inte... jag är skakis just nu. Fråga mig en sak i taget så ska jag försöka svara.";
 }
-function sendSosMessage(event){
+async function sendSosMessage(event){
     event.preventDefault();
     const input=document.getElementById("sosChatInput");
     if(!input)return;
     const text=input.value.trim();
     if(!text)return;
+
     addSosMessage("SOS-operatören",text);
     input.value="";
-    setTimeout(()=>{
-        addSosMessage("Gustav",gustavResponse(text));
-        const i=document.getElementById("sosChatInput");
-        if(i)i.focus();
-    },450);
+
+    // Försök först med den riktiga AI:n. Om backend inte är ansluten
+    // används Gustavs lokala kunskapsbas så att spelet fortfarande fungerar.
+    try{
+        const response=await fetch("https://julmordet-ai.vercel.app/api/gustav",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({message:text})
+        });
+        if(!response.ok) throw new Error("AI-backend svarade inte");
+        const data=await response.json();
+        addSosMessage("Gustav",data.reply || gustavResponse(text));
+    }catch(error){
+        setTimeout(()=>addSosMessage("Gustav",gustavResponse(text)),350);
+    }
+
+    const i=document.getElementById("sosChatInput");
+    if(i)i.focus();
 }
 
 function finishSosCall(){
