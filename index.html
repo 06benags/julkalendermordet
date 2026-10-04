@@ -4336,6 +4336,26 @@ function hasAny(q, words){
 function gustavResponse(input){
     const q=normalizeSosQuestion(input);
 
+    // Vanligt samtal.
+    if(hasAny(q,["hej","tjena","hallå","hello"]))
+        return "Hej... ja, hej.";
+    if(hasAny(q,["hör du mig","hor du mig","kan du höra mig","hörs jag","ar du kvar","är du kvar"]))
+        return "Ja, jag hör dig.";
+    if(hasAny(q,["okej","ok","okej da","okej då"]))
+        return "Okej...";
+    if(hasAny(q,["vänta","vanta","en sekund","ett ögonblick","ett ogonblick"]))
+        return "Okej... jag väntar.";
+    if(hasAny(q,["tack","tusen tack"]))
+        return "Mm... okej.";
+    if(hasAny(q,["förlåt","forlat"]))
+        return "Det är okej.";
+    if(hasAny(q,["lugna dig","ta det lugnt"]))
+        return "Jag försöker...";
+    if(hasAny(q,["vad gör du","vad gor du","vad händer","vad hander"]))
+        return "Jag är hos Benjamin. Jag försöker hjälpa honom.";
+    if(hasAny(q,["är du rädd","ar du radd","rädd","radd"]))
+        return "Ja... lite. Det här är helt sjukt.";
+
     // Gustavs egna grunduppgifter.
     if(hasAny(q,["vad heter du","ditt namn","namnet ditt","vem ar du","vem är du","vad kallas du"]))
         return "Gustav. Gustav Lindqvist.";
@@ -4343,8 +4363,6 @@ function gustavResponse(input){
         return "Jag är 20 år.";
     if(hasAny(q,["ar du gustav","är du gustav","heter du gustav"]))
         return "Ja, Gustav Lindqvist.";
-
-    const q=normalizeSosQuestion(input);
 
     // Gustav ska förstå även korta, konstigt formulerade och vardagliga frågor.
     if(hasAny(q,["vad heter han","hans namn","namnet","vem ar han","vem ar personen","personen heter","killen heter","offer"]))
