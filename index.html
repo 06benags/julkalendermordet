@@ -1251,6 +1251,18 @@ h1 {
    TELEFONENS KODLÅS — REALISTISK SMARTPHONE
 ========================================================= */
 
+.phone-status-icons{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.phone-lock-battery-image{
+    width:20px;
+    height:10px;
+    object-fit:contain;
+    display:block;
+}
+
 .phone-passcode {
     width: 100%;
     max-width: 280px;
@@ -3906,8 +3918,11 @@ function closePhoneApp() {
         <div class="phone-device-screen">
 
             <div class="phone-status">
-                <span id="phoneStatusTime">--:--</span>
-                <span>▮▮▮ &nbsp;▰</span>
+                <span class="phone-status-icons">
+                    <span>▮▮▮</span>
+                    <span>⌁</span>
+                    <img class="phone-lock-battery-image" src="batteri.webp" alt="Batteri">
+                </span>
             </div>
 
             <div class="phone-lock-content" id="phoneLockContent">
