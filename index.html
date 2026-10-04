@@ -4369,18 +4369,17 @@ function resetPuzzle() {
 }
 
 
-let phoneMapZoom=4.5;
+let phoneMapZoom=1;
 function applyPhoneMapTransform(){
     const map=document.getElementById("phoneRealMap");
     if(!map)return;
-    map.style.transform="scale("+phoneMapZoom+")";
+    map.style.transform="rotate(90deg)";
 }
 function zoomPhoneMap(d){
-    phoneMapZoom=Math.min(4.5,Math.max(1,phoneMapZoom+d*.25));
     applyPhoneMapTransform();
 }
 function locatePhoneMap(){
-    phoneMapZoom=4.5;
+    phoneMapZoom=1;
     applyPhoneMapTransform();
 }
 function toggleMapCard(){
