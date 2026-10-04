@@ -4369,14 +4369,14 @@ function resetPuzzle() {
 }
 
 
-let phoneMapZoom=1;
+let phoneMapZoom=3.2;
 function applyPhoneMapTransform(){
     const map=document.getElementById("phoneRealMap");
     if(!map)return;
     map.style.transform="scale("+phoneMapZoom+")";
 }
 function zoomPhoneMap(d){
-    phoneMapZoom=Math.min(1.35,Math.max(1,phoneMapZoom+d*.15));
+    phoneMapZoom=Math.min(4.5,Math.max(1,phoneMapZoom+d*.25));
     applyPhoneMapTransform();
 }
 function locatePhoneMap(){
