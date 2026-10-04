@@ -2694,21 +2694,21 @@ filter:brightness(0);}</style>
 
 .suspects-overlay{display:none;position:fixed;inset:0;z-index:99990;background:rgba(12,12,12,.96);padding:42px;box-sizing:border-box;color:#f5f1e8;font-family:Georgia,serif}.suspects-window{max-width:1100px;margin:0 auto;background:#eee9df;color:#181716;min-height:70vh;padding:34px;box-sizing:border-box}.suspects-top{border-bottom:1px solid rgba(0,0,0,.2);padding-bottom:18px;margin-bottom:28px}.suspects-top h2{margin:0;font-size:30px;letter-spacing:.12em}.suspects-top p{margin:8px 0 0;opacity:.6}.suspects-grid{display:flex;gap:24px}.suspect-card{width:220px}.suspect-photo{width:220px;height:280px;background:#d5cec1;overflow:hidden;border:1px solid rgba(0,0,0,.18)}.suspect-photo img{width:100%;height:100%;object-fit:cover;display:block}.suspect-card h3{font-size:18px;margin:12px 0}.suspects-close{position:fixed;right:28px;bottom:24px;border:1px solid rgba(255,255,255,.5);background:#181716;color:#fff;padding:11px 18px;cursor:pointer}
 
-/* MISSTÄNKTA – LÖSA PERSONFOTOGRAFIER */
-.suspects-overlay{display:none;position:fixed;inset:0;z-index:99990;background:rgba(10,10,9,.93);padding:48px;box-sizing:border-box;color:#f2eee5}
-.suspects-board{width:min(1180px,94vw);height:min(760px,88vh);margin:auto;position:relative;background:linear-gradient(145deg,#30251b,#211912);box-shadow:0 30px 80px rgba(0,0,0,.7);padding:30px;box-sizing:border-box;overflow:auto}
-.suspects-board-header{height:38px;border-bottom:1px solid rgba(255,255,255,.15);display:flex;align-items:flex-start;justify-content:space-between;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.18em;opacity:.72}
-.suspects-board-header button{border:0;background:none;color:#fff;font-size:28px;line-height:18px;cursor:pointer;opacity:.7}
-.suspect-photo-grid{display:flex;flex-wrap:wrap;gap:42px;padding:42px 18px}
-.suspect-photo-card{width:245px;position:relative;transform:rotate(-1.5deg);filter:drop-shadow(0 16px 16px rgba(0,0,0,.5))}
-.suspect-photo-card:nth-child(2n){transform:rotate(2deg)}
-.suspect-photo-image{background:#e9e4d9;padding:10px 10px 38px;box-sizing:border-box;box-shadow:0 8px 18px rgba(0,0,0,.38)}
-.suspect-photo-image img{display:block;width:100%;height:270px;object-fit:cover}
-.suspect-photo-name{position:absolute;left:10px;right:10px;bottom:9px;color:#171512;font-family:Georgia,serif;font-size:18px;letter-spacing:.02em}
-.suspect-photo-note{position:absolute;left:10px;right:10px;bottom:-25px;color:rgba(255,255,255,.45);font:9px Arial,sans-serif;letter-spacing:.13em}
-
-/* GEMENSAMT STÄNG-KRYSS */
-.unified-close{position:absolute!important;top:18px!important;right:18px!important;width:38px!important;height:38px!important;border-radius:50%!important;border:1px solid rgba(255,255,255,.24)!important;background:rgba(0,0,0,.42)!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;font:normal 25px/1 Arial,sans-serif!important;cursor:pointer!important;z-index:100001!important;opacity:.9!important;box-sizing:border-box!important;transition:background .2s,transform .2s,opacity .2s!important}.unified-close:hover{background:rgba(255,255,255,.16)!important;transform:scale(1.05)!important;opacity:1!important}.suspects-board{position:relative!important}.interrogation-window{position:relative!important}.interrogation-close{top:18px!important;right:18px!important;bottom:auto!important}
+/* MISSTÄNKTA – FOTOHÖG + ENKEL BILDBLÄDDRING */
+.photo-stack{position:relative;width:250px;height:330px;cursor:pointer;transition:transform .3s ease,filter .3s ease;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+.photo-stack:hover{transform:translateY(-12px) rotate(-1deg);filter:drop-shadow(0 25px 30px rgba(0,0,0,.55))}
+.photo-stack-back{position:absolute;width:205px;height:255px;left:23px;top:30px;background:#f7f3ea;box-shadow:0 8px 14px rgba(0,0,0,.25);border:1px solid rgba(0,0,0,.12)}
+.photo-stack-back-1{transform:rotate(-7deg);left:18px;top:25px}.photo-stack-back-2{transform:rotate(6deg);left:28px;top:32px}
+.photo-stack-photo{position:absolute;width:205px;height:255px;left:23px;top:27px;background:#eee7d8;padding:7px;box-sizing:border-box;box-shadow:0 12px 18px rgba(0,0,0,.3);transform:rotate(-2deg)}
+.photo-stack-photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-stack-label{position:absolute;left:34px;bottom:25px;background:#f4eddb;color:#27231d;padding:10px 18px;font-family:Cinzel,serif;font-size:16px;letter-spacing:.12em;box-shadow:0 5px 10px rgba(0,0,0,.28);transform:rotate(-3deg)}
+.suspects-overlay{display:none;position:fixed;inset:0;z-index:99990;background:rgba(12,11,10,.82);backdrop-filter:blur(3px);align-items:center;justify-content:center}
+.suspects-viewer{position:relative;width:min(560px,82vw);padding:34px 70px 28px;box-sizing:border-box}
+.suspect-enlarged-photo{background:#eee8dc;padding:12px 12px 54px;box-shadow:0 22px 45px rgba(0,0,0,.55);transform:rotate(-1deg)}
+.suspect-enlarged-photo img{display:block;width:100%;height:min(62vh,560px);object-fit:cover;background:#d6cec0}
+.suspect-viewer-caption{position:relative;margin-top:-43px;padding:0 8px;color:#171512;font-family:Georgia,serif;display:flex;flex-direction:column;gap:5px}.suspect-viewer-caption strong{font-size:21px;font-weight:normal}.suspect-viewer-caption span{font:9px Arial,sans-serif;letter-spacing:.14em;opacity:.5}
+.suspect-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font:34px/40px Georgia,serif;cursor:pointer;z-index:2}.suspect-nav:hover{background:rgba(255,255,255,.14)}.suspect-prev{left:8px}.suspect-next{right:8px}
+.suspect-counter{position:absolute;left:0;right:0;bottom:0;text-align:center;color:rgba(255,255,255,.65);font:11px Arial,sans-serif;letter-spacing:.12em}
+.suspects-viewer-close{top:0!important;right:0!important}
 </style>
 </head>
 
@@ -2893,18 +2893,4938 @@ filter:brightness(0);}</style>
 ========================================================= -->
 
 <div class="suspects-overlay" id="suspectsOverlay">
-  <div class="suspects-board">
-    <div class="suspects-board-header">
-      <span>FÖRUNDERSÖKNING · PERSONBILDER</span>
-      <button class="unified-close" onclick="closeSuspects()" aria-label="Stäng">×</button>
-    </div>
-    <div class="suspect-photo-grid">
-      <div class="suspect-photo-card">
-        <div class="suspect-photo-image"><img src="IMG_0655.jpeg" alt="Benji Holm"></div>
-        <div class="suspect-photo-name">Benji Holm</div>
-        <div class="suspect-photo-note">PERSONBILD · 24 DECEMBER</div>
+  <div class="suspects-viewer">
+    <button class="unified-close suspects-viewer-close" onclick="closeSuspects()" aria-label="Stäng">×</button>
+    <button class="suspect-nav suspect-prev" onclick="previousSuspect()" aria-label="Föregående">‹</button>
+    <div class="suspect-enlarged-photo">
+      <img id="suspectViewerImage" src="IMG_0655.jpeg" alt="Benji Holm">
+      <div class="suspect-viewer-caption">
+        <strong id="suspectViewerName">Benji Holm</strong>
+        <span id="suspectViewerMeta">PERSONBILD · 24 DECEMBER</span>
       </div>
     </div>
+    <button class="suspect-nav suspect-next" onclick="nextSuspect()" aria-label="Nästa">›</button>
+    <div class="suspect-counter" id="suspectCounter">1 / 1</div>
+  </div>
+</div>
+<div class="interrogation-overlay" id="interrogationOverlay">
+
+    <div class="interrogation-window">
+
+        <div class="interrogation-top">
+            <h2>FÖRHÖRSPROTOKOLL</h2>
+            <p>Förundersökning · misstänkt dödsfall · fritidsstugan</p>
+
+            <div class="interrogation-meta">
+                <div><strong>Förhörsdatum</strong>24 december</div>
+                <div><strong>Plats</strong>Stugan · Förhör enskilt</div>
+                <div><strong>Förhörsledare</strong>Kriminalinspektör L. Andersson</div>
+            </div>
+        </div>
+
+        <div class="interrogation-layout">
+
+            <aside class="interrogation-suspects">
+                <h3>PERSONER</h3>
+
+                <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
+                    <strong>Moa Brandin</strong>
+                    <small>Förhör 09:14 · 18 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('benji',this)">
+                    <strong>Benji Holm</strong>
+                    <small>Förhör 09:46 · 14 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
+                    <strong>Gustav Lindqvist</strong>
+                    <small>Förhör 10:51 · 16 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('elham',this)">
+                    <strong>Elham Nouri</strong>
+                    <small>Förhör 11:23 · 19 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
+                    <strong>Cecilia Isaksson</strong>
+                    <small>Förhör 12:01 · 17 min</small>
+                </button>
+            </aside>
+
+            <main class="interrogation-main" id="interrogationContent"></main>
+
+        </div>
+    </div>
+
+    <button class="interrogation-close unified-close" onclick="closeInterrogation()" aria-label="Stäng">×</button>
+</div>
+
+<!-- =========================================================
+     FÖRUNDERSÖKNING
+========================================================= -->
+
+<div
+    class="document-overlay"
+    id="documentOverlay"
+>
+
+    <button
+        class="close-document"
+        onclick="closeDocument()"
+    >
+        ×
+    </button>
+
+
+    <article class="document">
+
+        <div class="document-top">
+
+            <h2>FÖRUNDERSÖKNING</h2>
+
+            <div class="document-number">
+                ÄRENDE 24-1224
+            </div>
+
+        </div>
+
+
+        <div class="document-info">
+
+            <div>
+                <strong>Ärendetyp:</strong><br>
+                Misstänkt dödsfall
+            </div>
+
+            <div>
+                <strong>Datum:</strong><br>
+                24 december 2024
+            </div>
+
+            <div>
+                <strong>Plats:</strong><br>
+                Fritidsstuga, Dalarna
+            </div>
+
+            <div>
+                <strong>Status:</strong><br>
+                Pågående förundersökning
+            </div>
+
+        </div>
+
+
+        <h3>Bakgrund</h3>
+
+        <p>
+            Den 24 december 2024 inkom ett larmsamtal
+            från en avlägsen fritidsstuga i Dalarna.
+            En man i 20-årsåldern hade hittats livlös
+            i ett av stugans sovrum.
+        </p>
+
+        <p>
+            Den avlidne identifierades som Benjamin.
+            Han hade kvällen innan firat jul tillsammans
+            med fem vänner: Benji, Moa, Elham, Gustav
+            och Cecilia.
+        </p>
+
+
+        <h3>Händelseförlopp</h3>
+
+        <p>
+            Sällskapet hade anlänt till stugan den
+            23 december och tillbringat kvällen
+            tillsammans med middag och Bingolottos
+            uppesittarkväll.
+        </p>
+
+        <p>
+            Under kvällen hade gruppen bland annat
+            druckit glögg och ätit snacks.
+        </p>
+
+        <p>
+            Efter uppesittarkvällen gick samtliga
+            personer och lade sig.
+        </p>
+
+
+        <h3>Upptäckten</h3>
+
+        <p>
+            På morgonen den 24 december vaknade Gustav
+            och gick in i sovrummet där han fann Benjamin
+            livlös i sin säng.
+        </p>
+
+        <p>
+            Gustav kontaktade därefter 112.
+            Samtliga övriga personer befann sig
+            fortfarande i stugan när polis och
+            räddningspersonal anlände.
+        </p>
+
+
+        <h3>Rättsmedicinsk undersökning</h3>
+
+        <p>
+            Det stod inledningsvis inte klart vad som
+            hade orsakat dödsfallet.
+        </p>
+
+        <p>
+            Vid den rättsmedicinska undersökningen
+            konstaterades senare att Benjamin hade
+            avlidit till följd av förgiftning.
+        </p>
+
+
+        <h3>Förundersökning</h3>
+
+        <p>
+            Eftersom dödsfallet inträffat under den tid
+            då samtliga sex personer befann sig i stugan
+            inleddes en förundersökning om misstänkt mord.
+        </p>
+
+        <p>
+            Utredningen har därefter fokuserat på vad
+            som hände under kvällen den 23 december,
+            de fem kvarvarande personernas uppgifter
+            samt den dryck och de föremål som fanns
+            i stugan.
+        </p>
+
+        <p>
+            Samtliga personer som befann sig i stugan
+            betraktas i nuläget som relevanta för
+            utredningen.
+        </p>
+
+    </article>
+
+</div>
+
+
+
+<!-- =========================================================
+     KARTA
+========================================================= -->
+
+<div
+    class="map-overlay"
+    id="mapOverlay"
+>
+
+    <button
+        class="close-document"
+        onclick="closeMap()"
+    >
+        ×
+    </button>
+
+
+    <div
+        class="map-window"
+        id="mapWindow"
+    >
+
+        <div class="map-header">
+
+            <h2>STUGKARTA</h2>
+
+            <p>
+                Bilaga till förundersökningen
+            </p>
+
+        </div>
+
+
+        <div class="puzzle-instructions">
+
+            <strong>
+                VEM SOV VART?
+            </strong>
+
+            <br>
+
+            Välj en person i listan och klicka sedan
+            på det rum där personen sov.
+
+        </div>
+
+
+        <!-- =================================================
+             KARTA
+        ================================================= -->
+
+        <div
+            class="map-container"
+            id="mapContainer"
+        >
+
+            <img
+                src="stugkarta.png"
+                alt="Planritning över fritidsstugan"
+            >
+
+
+            <!-- =============================================
+                 RUM 1
+            ============================================== -->
+
+            <button
+                type="button"
+                class="room room-1"
+                data-room="room1"
+                onclick="placePerson('room1')"
+                aria-label="Sovrum 1"
+            ></button>
+
+
+            <!-- =============================================
+                 RUM 2
+            ============================================== -->
+
+            <button
+                type="button"
+                class="room room-2"
+                data-room="room2"
+                onclick="placePerson('room2')"
+                aria-label="Sovrum 2"
+            ></button>
+
+
+            <!-- =============================================
+                 RUM 3
+            ============================================== -->
+
+            <button
+                type="button"
+                class="room room-3"
+                data-room="room3"
+                onclick="placePerson('room3')"
+                aria-label="Sovrum 3"
+            ></button>
+
+
+            <!-- =============================================
+                 NAMN SOM VISAS I RUMMEN
+            ============================================== -->
+
+            <div
+                id="roomName-Moa"
+                class="room-name room-name-moa"
+            >
+                Moa
+            </div>
+
+
+            <div
+                id="roomName-Benji"
+                class="room-name room-name-benji"
+            >
+                Benji
+            </div>
+
+
+            <div
+                id="roomName-Benjamin"
+                class="room-name room-name-benjamin"
+            >
+                Benjamin
+            </div>
+
+
+            <div
+                id="roomName-Gustav"
+                class="room-name room-name-gustav"
+            >
+                Gustav
+            </div>
+
+
+            <div
+                id="roomName-Elham"
+                class="room-name room-name-elham"
+            >
+                Elham
+            </div>
+
+
+            <div
+                id="roomName-Cecilia"
+                class="room-name room-name-cecilia"
+            >
+                Cecilia
+            </div>
+
+
+            <!-- =============================================
+                 NAMN PÅ SÄNGAR EFTER RÄTT SVAR
+            ============================================== -->
+
+            <div
+                id="bedName-Moa"
+                class="bed-name bed-moa"
+            >
+                Moa
+            </div>
+
+
+            <div
+                id="bedName-Benji"
+                class="bed-name bed-benji"
+            >
+                Benji
+            </div>
+
+
+            <div
+                id="bedName-Benjamin"
+                class="bed-name bed-benjamin"
+            >
+                Benjamin
+            </div>
+
+
+            <div
+                id="bedName-Gustav"
+                class="bed-name bed-gustav"
+            >
+                Gustav
+            </div>
+
+
+            <div
+                id="bedName-Elham"
+                class="bed-name bed-elham"
+            >
+                Elham
+            </div>
+
+
+            <div
+                id="bedName-Cecilia"
+                class="bed-name bed-cecilia"
+            >
+                Cecilia
+            </div>
+
+        </div>
+
+        <!-- =================================================
+             PERSONER
+        ================================================= -->
+
+        <div class="people-panel">
+
+            <div class="people-title">
+                PERSONER
+            </div>
+
+
+            <div class="people-list">
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Benjamin"
+                    onclick="selectPerson('Benjamin')"
+                >
+                    Benjamin
+                </button>
+
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Benji"
+                    onclick="selectPerson('Benji')"
+                >
+                    Benji
+                </button>
+
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Moa"
+                    onclick="selectPerson('Moa')"
+                >
+                    Moa
+                </button>
+
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Elham"
+                    onclick="selectPerson('Elham')"
+                >
+                    Elham
+                </button>
+
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Gustav"
+                    onclick="selectPerson('Gustav')"
+                >
+                    Gustav
+                </button>
+
+
+                <button
+                    type="button"
+                    class="person"
+                    data-person="Cecilia"
+                    onclick="selectPerson('Cecilia')"
+                >
+                    Cecilia
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             KNAPPAR
+        ================================================= -->
+
+        <div class="puzzle-actions">
+
+            <button
+                type="button"
+                class="puzzle-button"
+                id="checkButton"
+                onclick="checkPuzzle()"
+            >
+                Kontrollera
+            </button>
+
+
+            <button
+                type="button"
+                class="puzzle-button secondary"
+                id="resetButton"
+                onclick="resetPuzzle()"
+            >
+                Börja om
+            </button>
+
+        </div>
+
+
+        <div
+            class="puzzle-message"
+            id="puzzleMessage"
+        ></div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   MOBILTELEFON
+========================================================= */
+
+function updatePhoneTime() {
+    const now = new Date();
+
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const currentTime = hours + ":" + minutes;
+
+    const tableTime = document.getElementById("phoneTableTime");
+    const statusTime = document.getElementById("phoneHomeTime");
+    const bigTime = document.getElementById("phoneBigTime");
+    const phoneDate = document.getElementById("phoneDate");
+
+    const weekdays = [
+        "Söndag", "Måndag", "Tisdag", "Onsdag",
+        "Torsdag", "Fredag", "Lördag"
+    ];
+
+    const months = [
+        "januari", "februari", "mars", "april",
+        "maj", "juni", "juli", "augusti",
+        "september", "oktober", "november", "december"
+    ];
+
+    const currentDate =
+        weekdays[now.getDay()] + " " +
+        now.getDate() + " " +
+        months[now.getMonth()];
+
+    if (tableTime) {
+        tableTime.textContent = currentTime;
+    const lockTopbar = document.getElementById("phoneLockTopbar");
+    if (lockTopbar) lockTopbar.setAttribute("data-time", currentTime);
+    }
+
+    if (statusTime) {
+        statusTime.textContent = currentTime;
+    }
+
+    if (bigTime) {
+        bigTime.textContent = currentTime;
+    }
+
+    if (phoneDate) {
+        phoneDate.textContent = currentDate;
+    }
+}
+
+/* Uppdatera klockan när hela sidan är laddad. */
+document.addEventListener("DOMContentLoaded", () => {
+    updatePhoneTime();
+    setInterval(updatePhoneTime, 1000);
+});
+
+function openPhone() {
+    updatePhoneTime();
+
+    phoneEnteredCode = "";
+
+    const lockContent = document.getElementById("phoneLockContent");
+    if (lockContent) {
+        lockContent.classList.remove("unlocked", "shake");
+    }
+
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+
+    document.getElementById("phoneOverlay").classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closePhone() {
+    document.getElementById("phoneOverlay").classList.remove("open");
+    document.body.style.overflow = "auto";
+}
+
+let phoneZoom = 1;
+let phonePanX = 0;
+let phonePanY = 0;
+let phoneDragging = false;
+let phoneDragStartX = 0;
+let phoneDragStartY = 0;
+let phonePanStartX = 0;
+let phonePanStartY = 0;
+
+function applyPhoneTransform() {
+    const phone = document.querySelector(".phone-device");
+    const label = document.getElementById("phoneZoomLevel");
+    if (!phone) return;
+
+    phone.style.setProperty("--phone-scale", phoneZoom);
+    phone.style.setProperty("--phone-x", phonePanX + "px");
+    phone.style.setProperty("--phone-y", phonePanY + "px");
+
+    if (label) label.textContent = Math.round(phoneZoom * 100) + "%";
+}
+
+function setPhoneZoom(value) {
+    phoneZoom = Math.min(5, Math.max(1, value));
+
+    if (phoneZoom === 1) {
+        phonePanX = 0;
+        phonePanY = 0;
+    }
+
+    applyPhoneTransform();
+}
+
+function changePhoneZoom(amount) {
+    setPhoneZoom(phoneZoom + amount);
+}
+
+function resetPhoneZoom() {
+    phoneZoom = 1;
+    phonePanX = 0;
+    phonePanY = 0;
+    applyPhoneTransform();
+}
+
+function startPhoneDrag(event) {
+    if (phoneZoom <= 1) return;
+    phoneDragging = true;
+    phoneDragStartX = event.clientX;
+    phoneDragStartY = event.clientY;
+    phonePanStartX = phonePanX;
+    phonePanStartY = phonePanY;
+
+    const stage = document.getElementById("phoneZoomStage");
+    if (stage) stage.classList.add("dragging");
+}
+
+function movePhoneDrag(event) {
+    if (!phoneDragging) return;
+    phonePanX = phonePanStartX + event.clientX - phoneDragStartX;
+    phonePanY = phonePanStartY + event.clientY - phoneDragStartY;
+    applyPhoneTransform();
+}
+
+function endPhoneDrag() {
+    phoneDragging = false;
+    const stage = document.getElementById("phoneZoomStage");
+    if (stage) stage.classList.remove("dragging");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const stage = document.getElementById("phoneZoomStage");
+    if (!stage) return;
+
+    stage.addEventListener("pointerdown", startPhoneDrag);
+    stage.addEventListener("pointermove", movePhoneDrag);
+    stage.addEventListener("pointerup", endPhoneDrag);
+    stage.addEventListener("pointercancel", endPhoneDrag);
+    stage.addEventListener("pointerleave", endPhoneDrag);
+
+    stage.addEventListener("wheel", event => {
+        if (!document.getElementById("phoneOverlay")?.classList.contains("open")) return;
+        event.preventDefault();
+        const amount = event.deltaY < 0 ? 0.25 : -0.25;
+        setPhoneZoom(phoneZoom + amount);
+    }, {passive:false});
+});
+
+let phoneEnteredCode = "";
+const PHONE_CODE = "079371";
+
+function updatePhoneCodeDisplay() {
+    const dots = document.querySelectorAll("#phonePasscodeDots .phone-passcode-dot");
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("filled", index < phoneEnteredCode.length);
+    });
+}
+
+function enterPhoneDigit(digit) {
+    if (document.getElementById("phoneLockContent")?.classList.contains("unlocked")) {
+        return;
+    }
+
+    if (phoneEnteredCode.length >= 6) {
+        return;
+    }
+
+    phoneEnteredCode += digit;
+    updatePhoneCodeDisplay();
+
+    if (phoneEnteredCode.length === 6) {
+        setTimeout(checkPhoneCode, 120);
+    }
+}
+
+function deletePhoneDigit() {
+    phoneEnteredCode = phoneEnteredCode.slice(0, -1);
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+}
+
+function clearPhoneCode() {
+    phoneEnteredCode = "";
+    hidePhoneCodeError();
+    updatePhoneCodeDisplay();
+}
+
+function hidePhoneCodeError() {
+    const error = document.getElementById("phonePasscodeError");
+    if (error) {
+        error.classList.remove("show");
+    }
+}
+
+function checkPhoneCode() {
+    const lockContent = document.getElementById("phoneLockContent");
+    const error = document.getElementById("phonePasscodeError");
+
+    if (phoneEnteredCode === PHONE_CODE) {
+        lockContent.classList.add("unlocked");
+        phoneEnteredCode = "";
+        updatePhoneCodeDisplay();
+        hidePhoneCodeError();
+        return;
+    }
+
+    lockContent.classList.add("shake");
+
+    if (error) {
+        error.classList.add("show");
+    }
+
+    setTimeout(() => {
+        lockContent.classList.remove("shake");
+    }, 300);
+
+    setTimeout(() => {
+        phoneEnteredCode = "";
+        updatePhoneCodeDisplay();
+    }, 450);
+}
+
+
+/* =========================================================
+   KALENDER
+========================================================= */
+
+const calendar =
+    document.getElementById("calendar");
+
+
+for (let i = 1; i <= 24; i++) {
+
+    const door =
+        document.createElement("button");
+
+    door.type = "button";
+
+    door.className = "door";
+
+    door.innerHTML =
+        `<span class="number">${i}</span>`;
+
+
+    if (i === 1) {
+
+        door.addEventListener(
+            "click",
+            openInvestigation
+        );
+
+    }
+    else {
+
+        door.style.cursor = "default";
+
+    }
+
+
+    calendar.appendChild(door);
+}
+
+
+/* =========================================================
+   ÖPPNA UTREDNING
+========================================================= */
+
+function openInvestigation() {
+
+    document.getElementById(
+        "calendarPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "investigation"
+    ).style.display = "block";
+
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================================================
+   DOKUMENT
+========================================================= */
+
+function openDocument() {
+
+    document.getElementById(
+        "documentOverlay"
+    ).style.display = "block";
+
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeDocument() {
+
+    document.getElementById(
+        "documentOverlay"
+    ).style.display = "none";
+
+
+    document.body.style.overflow = "auto";
+}
+
+
+/* =========================================================
+   KARTA
+========================================================= */
+
+function openMap() {
+
+    document.getElementById(
+        "mapOverlay"
+    ).style.display = "block";
+
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeMap() {
+
+    document.getElementById(
+        "mapOverlay"
+    ).style.display = "none";
+
+
+    document.body.style.overflow = "auto";
+}
+
+
+/* =========================================================
+   TILLBAKA
+========================================================= */
+
+function goBack() {
+
+    document.getElementById(
+        "investigation"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "calendarPage"
+    ).style.display = "block";
+
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================================================
+   PUSSEL
+========================================================= */
+
+
+/*
+    Vilken person är vald just nu?
+*/
+
+let selectedPerson = null;
+
+
+/*
+    Om pusslet är löst låser vi det.
+*/
+
+let puzzleSolved = false;
+
+
+/*
+    Här sparas vilket rum varje person
+    har placerats i.
+*/
+
+let roomPlacements = {
+
+    room1: [],
+
+    room2: [],
+
+    room3: []
+
+};
+
+
+/* =========================================================
+   RÄTT SVAR
+
+   Sovrum 1:
+   Moa + Benji
+
+   Sovrum 2:
+   Benjamin + Gustav
+
+   Sovrum 3:
+   Elham + Cecilia
+========================================================= */
+
+const correctRooms = {
+
+    room1: [
+        "Moa",
+        "Benji"
+    ],
+
+    room2: [
+        "Benjamin",
+        "Gustav"
+    ],
+
+    room3: [
+        "Elham",
+        "Cecilia"
+    ]
+
+};
+
+
+/* =========================================================
+   VÄLJ PERSON
+========================================================= */
+
+function selectPerson(person) {
+
+    if (puzzleSolved) {
+        return;
+    }
+
+
+    selectedPerson = person;
+
+
+    /*
+        Ta bort tidigare markering.
+    */
+
+    document
+        .querySelectorAll(".person")
+        .forEach(button => {
+
+            button.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+    /*
+        Markera vald person.
+    */
+
+    const selectedButton =
+        document.querySelector(
+            `.person[data-person="${person}"]`
+        );
+
+
+    if (selectedButton) {
+
+        selectedButton.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    /*
+        Markera rummen som möjliga mål.
+    */
+
+    document
+        .querySelectorAll(".room")
+        .forEach(room => {
+
+            room.classList.add(
+                "selected-target"
+            );
+
+        });
+
+
+    document.getElementById(
+        "puzzleMessage"
+    ).textContent =
+        `${person} är vald. Klicka på rummet där personen sov.`;
+}
+
+
+/* =========================================================
+   PLACERA PERSON I RUM
+========================================================= */
+
+function placePerson(roomId) {
+
+    if (puzzleSolved) {
+        return;
+    }
+
+
+    /*
+        Om ingen person valts.
+    */
+
+    if (!selectedPerson) {
+
+        document.getElementById(
+            "puzzleMessage"
+        ).textContent =
+            "Välj först en person.";
+
+        return;
+    }
+
+
+    /*
+        Kontrollera om rummet redan har två personer.
+    */
+
+    if (
+        roomPlacements[roomId].length >= 2 &&
+        !roomPlacements[roomId].includes(selectedPerson)
+    ) {
+
+        document.getElementById(
+            "puzzleMessage"
+        ).textContent =
+            "Det rummet har redan två personer.";
+
+        return;
+    }
+
+
+    /*
+        Ta bort personen från eventuellt
+        tidigare rum.
+    */
+
+    Object.keys(roomPlacements).forEach(room => {
+
+        roomPlacements[room] =
+            roomPlacements[room].filter(
+                person =>
+                    person !== selectedPerson
+            );
+
+    });
+
+
+    /*
+        Lägg personen i det nya rummet.
+    */
+
+    if (
+        !roomPlacements[roomId].includes(
+            selectedPerson
+        )
+    ) {
+
+        roomPlacements[roomId].push(
+            selectedPerson
+        );
+
+    }
+
+
+    /*
+        Visa namnen inne i rummen.
+    */
+
+    renderRoomNames();
+
+
+    /*
+        Rensa vald person.
+    */
+
+    selectedPerson = null;
+
+
+    /*
+        Ta bort markeringar.
+    */
+
+    document
+        .querySelectorAll(".person")
+        .forEach(button => {
+
+            button.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(".room")
+        .forEach(room => {
+
+            room.classList.remove(
+                "selected-target"
+            );
+
+        });
+
+
+    document.getElementById(
+        "puzzleMessage"
+    ).textContent =
+        "Personen placerades i rummet.";
+}
+
+
+/* =========================================================
+   VISA NAMN I RUMMEN
+========================================================= */
+
+function renderRoomNames() {
+
+    /*
+        Göm alla namn först.
+    */
+
+    document
+        .querySelectorAll(".room-name")
+        .forEach(name => {
+
+            name.classList.remove(
+                "visible"
+            );
+
+        });
+
+
+    /*
+        Rum 1
+    */
+
+    const room1 =
+        roomPlacements.room1;
+
+
+    if (room1[0]) {
+
+        document
+            .getElementById(
+                `roomName-${room1[0]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    if (room1[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room1[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    /*
+        Rum 2
+    */
+
+    const room2 =
+        roomPlacements.room2;
+
+
+    if (room2[0]) {
+
+        document
+            .getElementById(
+                `roomName-${room2[0]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    if (room2[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room2[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    /*
+        Rum 3
+    */
+
+    const room3 =
+        roomPlacements.room3;
+
+
+    if (room3[0]) {
+
+        document
+            .getElementById(
+                `roomName-${room3[0]}`
+            )
+            .classList.add(
+                "visible"
+            );
+    }
+
+
+    if (room3[1]) {
+
+        document
+            .getElementById(
+                `roomName-${room3[1]}`
+            )
+            .classList.add(
+                "visible"
+            );
+
+
+    }
+
+
+    /*
+        Markera vilka personer som placerats.
+    */
+
+    document
+        .querySelectorAll(".person")
+        .forEach(button => {
+
+            const person =
+                button.dataset.person;
+
+
+            const isPlaced =
+                Object.values(
+                    roomPlacements
+                )
+                .flat()
+                .includes(person);
+
+
+            button.classList.toggle(
+                "placed",
+                isPlaced
+            );
+
+        });
+
+
+    /*
+        Justera om två personer ligger
+        i samma rum så att de inte hamnar
+        exakt ovanpå varandra.
+
+        Vi gör detta genom att flytta
+        det andra namnet lite.
+    */
+
+    positionRoomNames(
+        "room1",
+        roomPlacements.room1
+    );
+
+    positionRoomNames(
+        "room2",
+        roomPlacements.room2
+    );
+
+    positionRoomNames(
+        "room3",
+        roomPlacements.room3
+    );
+}
+
+
+/* =========================================================
+   POSITIONERA NAMN INNE I RUM
+========================================================= */
+
+function positionRoomNames(roomId, people) {
+
+    /*
+        Dessa positioner är relativa till hela kartan.
+    */
+
+    const positions = {
+
+        room1: [
+
+            {
+                left: "32.5%",
+                top: "61%"
+            },
+
+            {
+                left: "45%",
+                top: "61%"
+            }
+
+        ],
+
+        room2: [
+
+            {
+                left: "66.5%",
+                top: "42%"
+            },
+
+            {
+                left: "66.5%",
+                top: "52%"
+            }
+
+        ],
+
+        room3: [
+
+            {
+                left: "87%",
+                top: "42%"
+            },
+
+            {
+                left: "87%",
+                top: "52%"
+            }
+
+        ]
+
+    };
+
+
+    people.forEach((person, index) => {
+
+        const element =
+            document.getElementById(
+                `roomName-${person}`
+            );
+
+
+        if (!element) {
+            return;
+        }
+
+
+        const position =
+            positions[roomId][index];
+
+
+        element.style.left =
+            position.left;
+
+
+        element.style.top =
+            position.top;
+
+    });
+}
+
+
+/* =========================================================
+   KONTROLLERA PUSSEL
+========================================================= */
+
+function checkPuzzle() {
+
+    if (puzzleSolved) {
+        return;
+    }
+
+
+    /*
+        Alla tre rum måste innehålla
+        exakt två personer.
+    */
+
+    const allRoomsFilled =
+
+        roomPlacements.room1.length === 2 &&
+        roomPlacements.room2.length === 2 &&
+        roomPlacements.room3.length === 2;
+
+
+    if (!allRoomsFilled) {
+
+        document.getElementById(
+            "puzzleMessage"
+        ).textContent =
+            "Alla personer måste placeras först.";
+
+        return;
+    }
+
+
+    /*
+        Sortera både spelarens svar och facit
+        så ordningen inom rummet inte spelar roll.
+    */
+
+    const room1Correct =
+        [...roomPlacements.room1]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room1]
+        .sort()
+        .join("|");
+
+
+    const room2Correct =
+        [...roomPlacements.room2]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room2]
+        .sort()
+        .join("|");
+
+
+    const room3Correct =
+        [...roomPlacements.room3]
+        .sort()
+        .join("|")
+        ===
+        [...correctRooms.room3]
+        .sort()
+        .join("|");
+
+
+    const correct =
+        room1Correct &&
+        room2Correct &&
+        room3Correct;
+
+
+    /* =====================================================
+       RÄTT SVAR
+    ===================================================== */
+
+    if (correct) {
+
+        puzzleSolved = true;
+
+
+        /*
+            Ta bort namnen ur rummen.
+        */
+
+        document
+            .querySelectorAll(".room-name")
+            .forEach(name => {
+
+                name.classList.remove(
+                    "visible"
+                );
+
+            });
+
+
+        /*
+            Visa namnen på de faktiska sängarna.
+        */
+
+        document
+            .querySelectorAll(".bed-name")
+            .forEach(name => {
+
+                name.classList.add(
+                    "visible"
+                );
+
+            });
+
+
+        /*
+            Lås rummen.
+        */
+
+        document
+            .querySelectorAll(".room")
+            .forEach(room => {
+
+                room.classList.remove(
+                    "selected-target"
+                );
+
+            });
+
+
+        document
+            .getElementById("mapWindow")
+            .classList.add(
+                "solved"
+            );
+
+
+        /*
+            Ta bort knapparna.
+
+            När pusslet är löst ska man inte
+            kunna börja om.
+        */
+
+        document
+            .getElementById("checkButton")
+            .classList.add(
+                "hidden"
+            );
+
+
+        document
+            .getElementById("resetButton")
+            .classList.add(
+                "hidden"
+            );
+
+
+        /*
+            Lås personerna.
+        */
+
+        document
+            .querySelectorAll(".person")
+            .forEach(button => {
+
+                button.classList.remove(
+                    "selected"
+                );
+
+                button.classList.add(
+                    "placed"
+                );
+
+            });
+
+
+        selectedPerson = null;
+
+
+        /*
+            Slutmeddelande.
+        */
+
+        document.getElementById(
+            "puzzleMessage"
+        ).textContent =
+            "Rätt. Sovplatserna är fastställda.";
+
+
+        return;
+    }
+
+
+    /* =====================================================
+       FEL SVAR
+    ===================================================== */
+
+    document.getElementById(
+        "puzzleMessage"
+    ).textContent =
+        "Inte riktigt. Kontrollera vilka rum personerna sov i.";
+}
+
+
+/* =========================================================
+   BÖRJA OM
+========================================================= */
+
+function resetPuzzle() {
+
+    /*
+        Om det redan är löst får man inte
+        börja om.
+    */
+
+    if (puzzleSolved) {
+        return;
+    }
+
+
+    roomPlacements = {
+
+        room1: [],
+
+        room2: [],
+
+        room3: []
+
+    };
+
+
+    selectedPerson = null;
+
+
+    /*
+        Göm alla rumsnamn.
+    */
+
+    document
+        .querySelectorAll(".room-name")
+        .forEach(name => {
+
+            name.classList.remove(
+                "visible"
+            );
+
+        });
+
+
+    /*
+        Göm sängnamnen.
+    */
+
+    document
+        .querySelectorAll(".bed-name")
+        .forEach(name => {
+
+            name.classList.remove(
+                "visible"
+            );
+
+        });
+
+
+    /*
+        Rensa personknappar.
+    */
+
+    document
+        .querySelectorAll(".person")
+        .forEach(button => {
+
+            button.classList.remove(
+                "selected",
+                "placed"
+            );
+
+        });
+
+
+    /*
+        Rensa rum.
+    */
+
+    document
+        .querySelectorAll(".room")
+        .forEach(room => {
+
+            room.classList.remove(
+                "selected-target"
+            );
+
+        });
+
+
+    document.getElementById(
+        "puzzleMessage"
+    ).textContent = "";
+}
+
+
+const interrogationData = {
+moa:{
+    time:"09:14",
+    text:[
+        ["Förhörsledaren","Vi börjar från början. Berätta om gårdagen, från det att du vaknade. Ta det i din egen ordning.","officer"],
+        ["Moa","Okej... Jag vaknade ganska sent, strax efter nio tror jag. Jag gick ner och gjorde kaffe. Det var rätt lugnt på morgonen. Benjamin var redan uppe och satt vid köksbordet. Han höll på med sin telefon.",""],
+        ["Förhörsledaren","Var det något särskilt med honom?","officer"],
+        ["Moa","Han var lite frånvarande. Inte konstigt egentligen, men... ja. Han svarade knappt när jag pratade med honom.",""],
+        ["Förhörsledaren","Vad hände sedan?","officer"],
+        ["Moa","Vi åt frukost tillsammans. Gustav gick ut en stund. Elham och Cecilia började fixa med maten inför kvällen. Jag minns att det regnade nästan hela förmiddagen, så vi var mest inne.",""],
+        ["Förhörsledaren","När märkte du första gången att stämningen förändrades?","officer"],
+        ["Moa","Efter lunch. Benjamin och den avlidne satt inne i vardagsrummet och pratade ganska tyst. Jag hörde inte allt, men jag hörde ordet 'pengar'. Sen blev det tyst när jag kom in.",""],
+        ["Förhörsledaren","Var de osams?","officer"],
+        ["Moa","Jag skulle inte säga osams då. Mer... obekvämt.",""],
+        ["Förhörsledaren","Och eftermiddagen?","officer"],
+        ["Moa","Vi spelade kort ett tag. Vid fem ungefär gick jag och duschade. Sen började alla göra sig i ordning. Middagen åt vi runt halv åtta.",""],
+        ["Förhörsledaren","Hur var middagen?","officer"],
+        ["Moa","Bra först. Sen drack folk lite och pratade mer. Den avlidne och Benjamin hamnade i diskussion igen. Den här gången var det mer spänt. Jag gick ut ur köket för att slippa höra.",""],
+        ["Förhörsledaren","Såg du den avlidne efter middagen?","officer"],
+        ["Moa","Ja. I vardagsrummet vid kanske tio. Han satt ensam och tittade på telefonen. Sen gick jag upp till mitt rum vid kvart i elva.",""],
+        ["Förhörsledaren","Du har tidigare sagt att du inte var nere igen.","officer"],
+        ["Moa","Jag menade att jag inte gick ner för att umgås. Men... jag gick faktiskt ner igen. Kanske tio minuter senare. Jag ville hämta vatten.",""],
+        ["Förhörsledaren","Vad såg du?","officer"],
+        ["Moa","Köket var tomt. Jag hörde röster från vardagsrummet. En man och en kvinna. Jag såg ingen. Sedan gick jag upp igen.",""],
+        ["Förhörsledaren","Och efter det?","officer"],
+        ["Moa","Jag låg i sängen. Jag hörde en dörr slå igen någon gång efter elva. Sen var det tyst. Det var först senare vi förstod att något var fel.",""]
+    ],
+    note:"Moa lämnar fler detaljer efter följdfrågor. Hennes tidsuppgifter är ungefärliga och bör jämföras med telefondata och övriga förhör."
+},
+benji:{
+    time:"09:46",
+    text:[
+        ["Förhörsledaren","Jag vill att du berättar om hela gårdagen, inte bara timmarna kring dödsfallet.","officer"],
+        ["Benji","Vi kom igång sent. Jag sov länge. Frukost blev väl vid tio. Sen hjälpte jag till med ved och sånt.",""],
+        ["Förhörsledaren","Vilka var ute?","officer"],
+        ["Benji","Jag och Gustav först. Benjamin kom ut en stund senare. Vi snackade om allt möjligt. Det var normalt.",""],
+        ["Förhörsledaren","Vad gjorde ni efter lunch?","officer"],
+        ["Benji","Jag spelade kort med Cecilia. Sen satt vi i vardagsrummet. Den avlidne var där ett tag. Han verkade irriterad på något.",""],
+        ["Förhörsledaren","Vet du vad?","officer"],
+        ["Benji","Nej. Jag frågade men han sa att det inte var något.",""],
+        ["Förhörsledaren","När började du dricka?","officer"],
+        ["Benji","Till maten. Inte mycket. Ett par glas bara.",""],
+        ["Förhörsledaren","Vad minns du av kvällen efter tio?","officer"],
+        ["Benji","Vi satt i vardagsrummet. Jag gick till köket flera gånger. Jag minns inte exakt när.",""],
+        ["Förhörsledaren","Du har tidigare sagt att du gick och lade dig strax efter elva.","officer"],
+        ["Benji","Ja, ungefär.",""],
+        ["Förhörsledaren","Var du nere efter det?","officer"],
+        ["Benji","Inte vad jag minns. Eller... jag gick kanske ner en gång. För vatten.",""],
+        ["Förhörsledaren","Var den avlidne där då?","officer"],
+        ["Benji","Jag tror det. Nej, vänta. Jag tror han satt i vardagsrummet.",""],
+        ["Förhörsledaren","Du verkar osäker.","officer"],
+        ["Benji","Ja. Jag var trött. Och jag hade druckit.",""],
+        ["Förhörsledaren","Hörde du något senare?","officer"],
+        ["Benji","En stol eller något som föll. Jag tänkte att någon tappat något. Sen gick jag tillbaka till rummet.",""]
+    ],
+    note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser."
+},
+gustav:{
+    time:"10:51",
+    text:[
+        ["Förhörsledaren","Berätta om dagen från morgonen.","officer"],
+        ["Gustav","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
+        ["Förhörsledaren","Var du ensam med någon under dagen?","officer"],
+        ["Gustav","En stund med Benjamin. Vi var ute kanske en timme efter lunch också.",""],
+        ["Förhörsledaren","Hur verkade han?","officer"],
+        ["Gustav","Normal. Lite irriterad, kanske. Men det var han ibland.",""],
+        ["Förhörsledaren","Vad hände under eftermiddagen?","officer"],
+        ["Gustav","Jag sov en stund. Sen spelade vi kort. Jag tror Cecilia vann.",""],
+        ["Förhörsledaren","Och middagen?","officer"],
+        ["Gustav","Helt vanlig. Efteråt satt vi tillsammans. Jag gick och lade mig tidigt, strax före elva.",""],
+        ["Förhörsledaren","När somnade du?","officer"],
+        ["Gustav","Vet inte. Ganska snabbt.",""],
+        ["Förhörsledaren","Du ringde Benjamin 23:48.","officer"],
+        ["Gustav","Gjorde jag?",""],
+        ["Förhörsledaren","Ja. Ett utgående samtal.","officer"],
+        ["Gustav","Då måste jag ha vaknat. Jag minns inte det.",""],
+        ["Förhörsledaren","Pratade du med någon efter det?","officer"],
+        ["Gustav","Nej, inte vad jag minns.",""],
+        ["Förhörsledaren","Hörde du något från nedervåningen?","officer"],
+        ["Gustav","Nej. Jag sov. Eller... jag tror att jag sov.",""]
+    ],
+    note:"Samtalsloggen visar kontakt 23:48 trots Gustavs uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret."
+},
+elham:{
+    time:"11:23",
+    text:[
+        ["Förhörsledaren","Ta dagen från början. Vad gjorde du?","officer"],
+        ["Elham","Jag gick upp tidigt. Cecilia och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
+        ["Förhörsledaren","Hur var stämningen under dagen?","officer"],
+        ["Elham","Bra. Alla skojade. Det var först senare på kvällen som det blev spänt.",""],
+        ["Förhörsledaren","När såg du den avlidne första gången den dagen?","officer"],
+        ["Elham","Vid frukosten.",""],
+        ["Förhörsledaren","Och senare?","officer"],
+        ["Elham","Han gick mycket mellan vardagsrummet och köket. På eftermiddagen satt han länge med sin telefon.",""],
+        ["Förhörsledaren","Såg du honom prata med Benjamin?","officer"],
+        ["Elham","Ja. Flera gånger. Jag hörde inte alltid vad de sa.",""],
+        ["Förhörsledaren","Hur var middagen?","officer"],
+        ["Elham","Bra tills de började diskutera igen. Jag tror att det handlade om pengar.",""],
+        ["Förhörsledaren","Vad gjorde du efter middagen?","officer"],
+        ["Elham","Jag satt i vardagsrummet. Runt elva gick jag till köket. Benjamin var i hallen då.",""],
+        ["Förhörsledaren","Vad gjorde han?","officer"],
+        ["Elham","Det såg ut som att han letade efter något. Han sa inget till mig.",""],
+        ["Förhörsledaren","När såg du den avlidne senast?","officer"],
+        ["Elham","Runt 23:10, tror jag. Han satt i vardagsrummet.",""],
+        ["Förhörsledaren","Vad hände sedan?","officer"],
+        ["Elham","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
+    ],
+    note:"Elham ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse."
+},
+cecilia:{
+    time:"12:01",
+    text:[
+        ["Förhörsledaren","Berätta om dagen som du minns den.","officer"],
+        ["Cecilia","Jag vaknade runt nio. Elham hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
+        ["Förhörsledaren","Vad gjorde du efter frukosten?","officer"],
+        ["Cecilia","Jag läste en stund. Sen hjälpte jag till med maten. På eftermiddagen spelade jag kort med Benji.",""],
+        ["Förhörsledaren","Såg du något mellan Benjamin och den avlidne?","officer"],
+        ["Cecilia","De pratade flera gånger. Jag tänkte inte så mycket på det förrän på kvällen.",""],
+        ["Förhörsledaren","Vad hände på kvällen?","officer"],
+        ["Cecilia","Efter middagen satt vi alla tillsammans en stund. Sen började folk gå undan. Jag gick upp till mitt rum vid elva ungefär.",""],
+        ["Förhörsledaren","Var du nere igen?","officer"],
+        ["Cecilia","Ja. Jag gick på toaletten strax efter elva.",""],
+        ["Förhörsledaren","Såg du någon i hallen?","officer"],
+        ["Cecilia","Jag tror att jag såg Benjamin. Men det var mörkt och jag såg honom bara bakifrån.",""],
+        ["Förhörsledaren","Hörde du något?","officer"],
+        ["Cecilia","En dörr. Jag tror köksdörren. Sen hörde jag någon gå i trappan.",""],
+        ["Förhörsledaren","Kan du säga vem det var?","officer"],
+        ["Cecilia","Nej. Det kan jag inte.",""],
+        ["Förhörsledaren","När somnade du?","officer"],
+        ["Cecilia","Efter midnatt. Jag låg och läste en stund.",""]
+    ],
+    note:"Cecilia är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören."
+}
+};
+
+const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Gustav Lindqvist",elham:"Elham Nouri",cecilia:"Cecilia Isaksson"};
+function openInterrogation(){
+    const overlay=document.getElementById("interrogationOverlay");
+    if(!overlay)return;
+    overlay.style.display="block";
+    const first=overlay.querySelector(".interrogation-person");
+    showInterrogation("moa",first);
+}
+function closeInterrogation(){
+    const overlay=document.getElementById("interrogationOverlay");
+    if(overlay)overlay.style.display="none";
+}
+function showInterrogation(key,button){
+    const data=interrogationData[key];
+    const content=document.getElementById("interrogationContent");
+    if(!data||!content)return;
+    document.querySelectorAll(".interrogation-person").forEach(b=>b.classList.remove("active"));
+    if(button)button.classList.add("active");
+    content.innerHTML=`
+        <div class="interrogation-person-header">
+            <div class="interrogation-profile"><div class="interrogation-transcript">
+            ${data.text.map(row=>`<div class="interrogation-entry ${row[2]||""}">
+                <div class="speaker">${row[0]}</div>
+                <div class="speech">${row[1]}</div>
+            </div>`).join("")}
+        </div>
+        <div class="interrogation-note"><strong>Utredningsanteckning</strong><br>${data.note}</div>
+    `;
+}
+
+let phoneMapZoom=1;
+function applyPhoneMapTransform(){
+    const map=document.getElementById("phoneRealMap");
+    if(!map)return;
+    map.style.transform="rotate(90deg)";
+}
+function zoomPhoneMap(d){
+    applyPhoneMapTransform();
+}
+function locatePhoneMap(){
+    phoneMapZoom=1;
+    applyPhoneMapTransform();
+}
+function toggleMapCard(){
+    const c=document.getElementById("phoneMapCard");
+    if(c)c.classList.toggle("map-card-hidden");
+}
+function mapDirections(){
+    const c=document.getElementById("phoneMapCard");
+    if(c){
+        const p=c.querySelector("p");
+        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41 · Särna, Dalarna";
+    }
+}
+let phoneCameraStream = null;
+
+async function startPhoneCamera() {
+    const video = document.getElementById("phoneCameraVideo");
+    const message = document.getElementById("phoneCameraMessage");
+
+    if (!video) return;
+
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        if (message) message.textContent = "Din webbläsare kan inte använda kameran här.";
+        return;
+    }
+
+    if (phoneCameraStream) {
+        video.srcObject = phoneCameraStream;
+        if (message) message.style.display = "none";
+        return;
+    }
+
+    if (message) {
+        message.textContent = "Tillåt kameran i webbläsaren för att se dig själv.";
+        message.style.display = "block";
+    }
+
+    try {
+        phoneCameraStream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: "user",
+                width: { ideal: 1280 },
+                height: { ideal: 720 }
+            },
+            audio: false
+        });
+
+        video.srcObject = phoneCameraStream;
+        video.style.transform = "scaleX(-1)";
+        if (message) message.style.display = "none";
+        await video.play();
+    } catch (error) {
+        console.warn("Kunde inte starta kameran:", error);
+        if (message) {
+            message.style.display = "block";
+            message.textContent = "Kameran kunde inte startas. Kontrollera att du har gett sidan kameratillstånd.";
+        }
+    }
+}
+
+function stopPhoneCamera() {
+    if (phoneCameraStream) {
+        phoneCameraStream.getTracks().forEach(track => track.stop());
+        phoneCameraStream = null;
+    }
+
+    const video = document.getElementById("phoneCameraVideo");
+    if (video) video.srcObject = null;
+
+    const message = document.getElementById("phoneCameraMessage");
+    if (message) {
+        message.style.display = "block";
+        message.textContent = "Kameran startar…";
+    }
+}
+
+function openPhoneApp(app) {
+    const panel=document.getElementById("phoneApp"+app.charAt(0).toUpperCase()+app.slice(1));
+    if(panel) panel.classList.add("open");
+
+    if (app.toLowerCase() === "maps") {
+        const card = document.getElementById("phoneMapCard");
+        if (card) {
+            card.classList.remove("map-card-hidden");
+            const p = card.querySelector("p");
+            if (p) p.textContent = "Registrerad position · 23:41 · Särna, Dalarna";
+        }
+    }
+
+    if (app.toLowerCase() === "camera") {
+        startPhoneCamera();
+    }
+}
+
+function closePhoneApp() {
+    document.querySelectorAll(".phone-app-panel").forEach(p=>p.classList.remove("open"));
+    stopPhoneCamera();
+}
+
+
+const suspectPhotos=[
+  {name:"Benji Holm",image:"IMG_0655.jpeg"}
+];
+let suspectIndex=0;
+function renderSuspect(){
+  const p=suspectPhotos[suspectIndex], img=document.getElementById("suspectViewerImage"), name=document.getElementById("suspectViewerName"), counter=document.getElementById("suspectCounter");
+  if(!p||!img)return;
+  img.src=p.image; img.alt=p.name; name.textContent=p.name; counter.textContent=(suspectIndex+1)+" / "+suspectPhotos.length;
+}
+function openSuspects(){const o=document.getElementById("suspectsOverlay");if(o){suspectIndex=0;renderSuspect();o.style.display="flex";}}
+function closeSuspects(){const o=document.getElementById("suspectsOverlay");if(o)o.style.display="none";}
+function nextSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex+1)%suspectPhotos.length;renderSuspect();}
+function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex-1+suspectPhotos.length)%suspectPhotos.length;renderSuspect();}
+!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Julmordet</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Inter, sans-serif;
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 50% 0%, #29452f 0%, transparent 45%),
+        linear-gradient(135deg, #10251b, #183527 55%, #0b1812);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SNÖ
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,.7) 1.5px, transparent 2.5px);
+
+    background-size:
+        80px 80px,
+        140px 140px;
+
+    animation: snow 18s linear infinite;
+
+    opacity: .45;
+
+    z-index: 999;
+}
+
+@keyframes snow {
+
+    from {
+        background-position:
+            0 0,
+            40px 0;
+    }
+
+    to {
+        background-position:
+            80px 500px,
+            -40px 600px;
+    }
+}
+
+
+/* =========================================================
+   STARTSIDA
+========================================================= */
+
+header {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+h1 {
+    font-family: Cinzel, serif;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 500;
+    letter-spacing: .12em;
+}
+
+.subtitle {
+    margin-top: 14px;
+
+    font-size: 14px;
+
+    letter-spacing: .15em;
+
+    opacity: .75;
+}
+
+
+/* =========================================================
+   KALENDER
+========================================================= */
+
+.calendar {
+    width: min(1100px, 92%);
+
+    margin: 20px auto 70px;
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 18px;
+}
+
+.door {
+    position: relative;
+
+    aspect-ratio: 1 / 1.15;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a92e35,
+            #7e2029
+        );
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.18);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.door::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 5px;
+}
+
+.door:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.35),
+        0 0 25px rgba(255,220,170,.12);
+}
+
+.number {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(28px, 4vw, 45px);
+
+    font-weight: 500;
+
+    color: #fff8e9;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.25);
+}
+
+.door:nth-child(3n) {
+
+    background:
+        linear-gradient(
+            145deg,
+            #b38a3d,
+            #866324
+        );
+}
+
+.door:nth-child(5n) {
+
+    background:
+        linear-gradient(
+            145deg,
+            #315c40,
+            #20432e
+        );
+}
+
+
+/* =========================================================
+   UTREDNING
+========================================================= */
+
+#investigation {
+
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 55px 30px 80px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(115,75,38,.35),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #21170f,
+            #120d09
+        );
+}
+
+.investigation-header {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.investigation-header h2 {
+
+    font-family: Cinzel, serif;
+
+    font-size: clamp(34px, 6vw, 60px);
+
+    font-weight: 500;
+
+    letter-spacing: .12em;
+
+    color: #f3e6c9;
+}
+
+.investigation-header p {
+
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    opacity: .55;
+}
+
+
+/* =========================================================
+   BORDET
+========================================================= */
+
+.table {
+
+    position: relative;
+
+    width: min(1150px, 94%);
+
+    min-height: 620px;
+
+    margin: 0 auto;
+
+    padding: 70px 50px;
+
+    border-radius: 6px;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,255,255,.035),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #4b2c19,
+            #321c11 45%,
+            #24130b
+        );
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.65),
+        inset 0 1px rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 55px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   PAPPER
+========================================================= */
+
+.paper {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 330px;
+
+    padding: 30px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #ddd2b8
+        );
+
+    color: #27231d;
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,.4);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.paper:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.03);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,.55);
+}
+
+.paper:nth-child(1) {
+
+    transform: rotate(-4deg);
+}
+
+.paper:nth-child(2) {
+
+    transform: rotate(3deg);
+}
+
+.paper:nth-child(3) {
+
+    transform: rotate(-2deg);
+}
+
+.paper h3 {
+
+    font-family: Cinzel, serif;
+
+    font-size: 23px;
+
+    letter-spacing: .05em;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.paper-line {
+
+    height: 1px;
+
+    background: rgba(0,0,0,.15);
+
+    margin: 13px 0;
+}
+
+.paper p {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    opacity: .7;
+}
+
+.paper-label {
+
+    position: absolute;
+
+    bottom: 22px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+
+    opacity: .5;
+}
+
+
+/* =========================================================
+   DOKUMENT
+========================================================= */
+
+.document-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    padding: 35px;
+
+    background: rgba(0,0,0,.78);
+
+    backdrop-filter: blur(5px);
+
+    overflow-y: auto;
+}
+
+.document {
+
+    width: min(850px, 100%);
+
+    min-height: 1000px;
+
+    margin: 20px auto 60px;
+
+    padding: 70px 75px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #e4dac1
+        );
+
+    color: #25221d;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7);
+
+    position: relative;
+}
+
+.document-top {
+
+    text-align: center;
+
+    border-bottom: 1px solid rgba(0,0,0,.25);
+
+    padding-bottom: 25px;
+
+    margin-bottom: 35px;
+}
+
+.document-top h2 {
+
+    font-family: Cinzel, serif;
+
+    font-size: 32px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 12px;
+}
+
+.document-number {
+
+    font-size: 11px;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+
+    opacity: .65;
+}
+
+.document h3 {
+
+    font-family: Cinzel, serif;
+
+    font-size: 18px;
+
+    margin-top: 30px;
+
+    margin-bottom: 12px;
+}
+
+.document p {
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+.document-info {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 25px 0 35px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(0,0,0,.18);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.close-document {
+
+    position: fixed;
+
+    top: 18px;
+
+    right: 25px;
+
+    z-index: 1000;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    background: rgba(0,0,0,.55);
+
+    color: #fff;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   KARTA
+========================================================= */
+
+.map-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    padding: 25px;
+
+    background: rgba(0,0,0,.88);
+
+    backdrop-filter: blur(6px);
+
+    overflow-y: auto;
+}
+
+.map-window {
+
+    width: min(1250px, 100%);
+
+    margin: 20px auto 50px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4eddb,
+            #e4dac1
+        );
+
+    color: #25221d;
+
+    padding: 30px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.75);
+}
+
+.map-header {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.map-header h2 {
+
+    font-family: Cinzel, serif;
+
+    font-size: 28px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 10px;
+}
+
+.map-header p {
+
+    font-size: 12px;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    opacity: .65;
+}
+
+.puzzle-instructions {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 25px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #3b352d;
+}
+
+
+/* =========================================================
+   KARTAN
+========================================================= */
+
+.map-container {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0,0,0,.25);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    line-height: 0;
+}
+
+.map-container img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   KLICKBARA RUM
+========================================================= */
+
+.room {
+
+    position: absolute;
+
+    z-index: 20;
+
+    border: 2px solid transparent;
+
+    background: rgba(150,110,55,0);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.room:hover {
+
+    background: rgba(180,140,70,.15);
+
+    border-color: rgba(70,50,30,.55);
+
+    box-shadow:
+        inset 0 0 25px rgba(150,110,55,.12);
+}
+
+.room.selected-target {
+
+    background: rgba(180,140,70,.22);
+
+    border-color: rgba(70,50,30,.75);
+
+    box-shadow:
+        inset 0 0 30px rgba(150,110,55,.15);
+}
+
+
+/*
+=========================================================
+   RUM 1
+
+   Vänstra huset.
+   Det stora sovrummet längst ned.
+=========================================================
+*/
+
+.room-1 {
+
+    left: 25.8%;
+
+    top: 49.0%;
+
+    width: 27.5%;
+
+    height: 31.0%;
+}
+
+
+/*
+=========================================================
+   RUM 2
+
+   Övre vänstra sovrummet.
+=========================================================
+*/
+
+.room-2 {
+
+    left: 56.2%;
+
+    top: 21.5%;
+
+    width: 20.5%;
+
+    height: 47.5%;
+}
+
+
+/*
+=========================================================
+   RUM 3
+
+   Övre högra sovrummet.
+=========================================================
+*/
+
+.room-3 {
+
+    left: 77.0%;
+
+    top: 21.5%;
+
+    width: 20.0%;
+
+    height: 47.5%;
+}
+
+
+/* =========================================================
+   NAMN I RUMMEN
+========================================================= */
+
+.room-name {
+
+    position: absolute;
+
+    z-index: 40;
+
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    padding: 6px 10px;
+
+    background: rgba(247,240,220,.95);
+
+    border: 1px solid rgba(60,45,30,.35);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.25);
+
+    color: #2b251e;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.room-name.visible {
+
+    display: block;
+}
+
+
+/*
+    Namnen placeras inne i respektive rum.
+
+    De här positionerna gäller KARTAN,
+    inte sängarna.
+*/
+
+.room-name-moa {
+
+    left: 32.5%;
+
+    top: 62%;
+}
+
+.room-name-benji {
+
+    left: 45%;
+
+    top: 62%;
+}
+
+.room-name-benjamin {
+
+    left: 66.5%;
+
+    top: 45%;
+}
+
+.room-name-gustav {
+
+    left: 66.5%;
+
+    top: 54%;
+}
+
+.room-name-elham {
+
+    left: 87%;
+
+    top: 45%;
+}
+
+.room-name-cecilia {
+
+    left: 87%;
+
+    top: 54%;
+}
+
+
+/* Benjamin är neutral medan pusslet löses */
+
+.room-name-benjamin {
+
+    color: #2b251e;
+
+    border-color: rgba(60,45,30,.35);
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   NAMN PÅ SÄNGAR EFTER LÖSNING
+========================================================= */
+
+.bed-name {
+
+    position: absolute;
+
+    z-index: 50;
+
+    display: none;
+
+    transform: translate(-50%, -50%);
+
+    padding: 5px 8px;
+
+    background: rgba(247,240,220,.96);
+
+    border: 1px solid rgba(60,45,30,.4);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.28);
+
+    color: #2b251e;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.bed-name.visible {
+
+    display: block;
+}
+
+
+/*
+=========================================================
+   EXAKTA SÄNGPOSITIONER EFTER RÄTT SVAR
+=========================================================
+*/
+
+
+/* SOVRUM 1 — MOA, vänster sida */
+
+.bed-moa {
+
+    left: 35.3%;
+
+    top: 65.7%;
+}
+
+
+/* SOVRUM 1 — BENJI, höger sida */
+
+.bed-benji {
+
+    left: 43.2%;
+
+    top: 65.7%;
+}
+
+
+/* SOVRUM 2 — BENJAMIN, övre sängen */
+
+.bed-benjamin {
+
+    left: 65.0%;
+
+    top: 31.7%;
+}
+
+
+/* SOVRUM 2 — GUSTAV, nedre sängen */
+
+.bed-gustav {
+
+    left: 65.0%;
+
+    top: 61.0%;
+}
+
+
+/* SOVRUM 3 — ELHAM, övre sängen */
+
+.bed-elham {
+
+    left: 87.2%;
+
+    top: 31.7%;
+}
+
+
+/* SOVRUM 3 — CECILIA, nedre sängen */
+
+.bed-cecilia {
+
+    left: 87.2%;
+
+    top: 61.0%;
+}
+
+
+/* Benjamin röd även på sängen */
+
+.bed-benjamin {
+
+    color: #a32929;
+
+    border-color: rgba(163,41,41,.5);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PERSONER
+========================================================= */
+
+.people-panel {
+
+    width: min(850px, 100%);
+
+    margin: 28px auto 0;
+
+    padding: 22px;
+
+    border: 1px solid rgba(0,0,0,.18);
+
+    background: rgba(255,255,255,.18);
+}
+
+.people-title {
+
+    text-align: center;
+
+    font-family: Cinzel, serif;
+
+    font-size: 16px;
+
+    letter-spacing: .08em;
+
+    margin-bottom: 16px;
+}
+
+.people-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.person {
+
+    border: 1px solid rgba(0,0,0,.25);
+
+    background: #eee4cf;
+
+    color: #302a22;
+
+    padding: 10px 14px;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.person:hover {
+
+    transform: translateY(-2px);
+}
+
+.person.selected {
+
+    background: #3a2d20;
+
+    color: #f4eddb;
+
+    border-color: #3a2d20;
+}
+
+.person.placed {
+
+    opacity: .55;
+}
+
+
+/* =========================================================
+   KNAPPAR
+========================================================= */
+
+.puzzle-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    flex-wrap: wrap;
+}
+
+.puzzle-button {
+
+    padding: 11px 22px;
+
+    border: 1px solid rgba(0,0,0,.28);
+
+    background: #3a2d20;
+
+    color: #f4eddb;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.puzzle-button:hover {
+
+    transform: translateY(-2px);
+
+    background: #4b3928;
+}
+
+.puzzle-button.secondary {
+
+    background: transparent;
+
+    color: #3a2d20;
+}
+
+.puzzle-button.hidden {
+
+    display: none;
+}
+
+.puzzle-message {
+
+    min-height: 24px;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    letter-spacing: .04em;
+
+    color: #3a2d20;
+}
+
+
+/* =========================================================
+   LÅST EFTER RÄTT SVAR
+========================================================= */
+
+.map-window.solved .room {
+
+    pointer-events: none;
+
+    cursor: default;
+
+    background: transparent;
+
+    border-color: transparent;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TILLBAKA
+========================================================= */
+
+.back-button {
+
+    display: block;
+
+    margin: 35px auto 0;
+
+    padding: 12px 25px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    color: #fff;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-family: Inter, sans-serif;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    font-size: 11px;
+}
+
+
+
+
+/* =========================================================
+   FÖRHÖR — REALISTISK UTREDNINGSVY
+========================================================= */
+.interrogation-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:190;
+    padding:28px;
+    background:rgba(10,9,7,.94);
+    backdrop-filter:blur(7px);
+    overflow-y:auto;
+}
+.interrogation-window{
+    width:min(1050px,100%);
+    margin:20px auto 50px;
+    background:#eee8da;
+    color:#28251f;
+    box-shadow:0 30px 90px rgba(0,0,0,.75);
+    border:1px solid rgba(255,255,255,.12);
+}
+.interrogation-top{
+    padding:28px 34px 22px;
+    border-bottom:1px solid rgba(0,0,0,.18);
+    background:#e6dfd0;
+}
+.interrogation-top h2{
+    font-family:Cinzel,serif;
+    font-size:28px;
+    letter-spacing:.08em;
+}
+.interrogation-top p{
+    margin-top:8px;
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    opacity:.58;
+}
+.interrogation-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    margin-top:20px;
+    border:1px solid rgba(0,0,0,.14);
+    background:rgba(0,0,0,.14);
+}
+.interrogation-meta div{
+    padding:12px 14px;
+    background:#eee8da;
+    font-size:11px;
+}
+.interrogation-meta strong{
+    display:block;
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    opacity:.55;
+    margin-bottom:4px;
+}
+.interrogation-layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    min-height:560px;
+}
+.interrogation-suspects{
+    padding:22px 16px;
+    background:#ddd5c5;
+    border-right:1px solid rgba(0,0,0,.15);
+}
+.interrogation-suspects h3{
+    font-family:Cinzel,serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    margin:0 0 12px 8px;
+}
+.interrogation-person{
+    width:100%;
+    padding:13px 12px;
+    margin-bottom:7px;
+    text-align:left;
+    border:1px solid rgba(0,0,0,.15);
+    background:#ebe4d5;
+    color:#28251f;
+    cursor:pointer;
+    font-family:Inter,sans-serif;
+}
+.interrogation-person:hover,
+.interrogation-person.active{
+    background:#3a3025;
+    color:#f5eddf;
+}
+.interrogation-person strong{
+    display:block;
+    font-size:12px;
+}
+.interrogation-person small{
+    display:block;
+    margin-top:3px;
+    font-size:9px;
+    opacity:.6;
+}
+.interrogation-main{
+    padding:30px 34px 36px;
+}
+.interrogation-profile{display:flex;align-items:center;gap:18px}
+.interrogation-photo{width:82px;height:104px;flex:0 0 82px;background:#cfc6b5;border:1px solid rgba(0,0,0,.18);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.interrogation-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.interrogation-photo span{display:none;font-size:8px;letter-spacing:.14em;opacity:.45}
+.interrogation-photo.no-photo span{display:block}
+@media(max-width:700px){.interrogation-profile{align-items:flex-start}.interrogation-photo{width:68px;height:88px;flex-basis:68px}}
+.interrogation-person-header{
+    border-bottom:1px solid rgba(0,0,0,.16);
+    padding-bottom:17px;
+    margin-bottom:20px;
+}
+.interrogation-person-header h3{
+    font-family:Cinzel,serif;
+    font-size:23px;
+}
+.interrogation-person-header p{
+    margin-top:5px;
+    font-size:11px;
+    opacity:.6;
+}
+.interrogation-transcript{
+    font-size:13px;
+    line-height:1.75;
+}
+.interrogation-entry{
+    margin-bottom:19px;
+}
+.interrogation-entry .speaker{
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#746956;
+    margin-bottom:4px;
+}
+.interrogation-entry .speech{
+    padding-left:15px;
+    border-left:2px solid #b7ad9b;
+}
+.interrogation-entry.officer .speech{
+    border-left-color:#51463a;
+}
+.interrogation-note{
+    margin-top:25px;
+    padding:15px 17px;
+    background:#e3dbc9;
+    border:1px solid rgba(0,0,0,.14);
+    font-size:11px;
+    line-height:1.65;
+}
+.interrogation-note strong{
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+.interrogation-close{
+    display:block;
+    margin:0 auto 25px;
+    padding:11px 22px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.3);
+    color:#fff;
+    font-family:Inter,sans-serif;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+@media(max-width:700px){
+    .interrogation-overlay{padding:10px}
+    .interrogation-layout{grid-template-columns:1fr}
+    .interrogation-suspects{border-right:0;border-bottom:1px solid rgba(0,0,0,.15)}
+    .interrogation-meta{grid-template-columns:1fr}
+    .interrogation-main{padding:24px 20px}
+}
+
+/* =========================================================
+   TELEFONENS KODLÅS — REALISTISK SMARTPHONE
+========================================================= */
+
+.phone-status-icons,
+.phone-status,
+.phone-home-status-icons,
+.phone-home-status > *:not(#phoneHomeTime) {
+    display:none !important;
+}
+
+.phone-home-status #phoneHomeTime{
+    color:#000 !important;
+    position:relative;
+    top:4px;
+    font-weight:600;
+    text-shadow:none;
+    filter:none;
+    opacity:1;
+    letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+}
+.phone-lock-content{
+    position:relative;
+}
+.phone-lock-content.unlocked{
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+}
+.phone-lock-content.unlocked .phone-lock-header,
+.phone-lock-content.unlocked .phone-locked-text,
+.phone-lock-content.unlocked .phone-passcode{
+    opacity:0;
+    transform:translateY(-8px);
+    pointer-events:none;
+    transition:opacity .22s ease, transform .28s ease;
+}
+.phone-lock-header,
+.phone-locked-text,
+.phone-passcode{
+    transition:opacity .22s ease, transform .28s ease;
+}
+.phone-lock-content.unlocked .phone-unlocked{
+    opacity:1;
+    transform:scale(1);
+    transition:opacity .32s ease .04s, transform .32s cubic-bezier(.2,.8,.2,1) .04s;
+}
+.phone-lock-5g{
+    position:absolute;
+    top:21px;
+    right:61px;
+    color:#000;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:-.02em;
+    line-height:16px;
+}
+.phone-lock-battery-image{
+    width:38px;
+    height:19px;
+    object-fit:contain;
+    display:block;
+    transform:scale(1.45);
+    transform-origin:center;
+filter:brightness(0);}
+
+.phone-lock-topbar > * {
+    display: none;
+}
+.phone-lock-topbar .phone-dynamic-island,
+.phone-lock-topbar .phone-lock-5g,
+.phone-lock-topbar .phone-lock-battery-image {
+    display: block;
+}
+
+/* På upplåst mobil behåll 5G och batteri, men dölj låsskärmens extra Dynamic Island. */
+.phone-device-screen:has(.phone-lock-content.unlocked) .phone-lock-topbar .phone-dynamic-island{
+    display:none !important;
+}
+
+.phone-lock-topbar{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:55px;
+    z-index:30;
+    pointer-events:none;
+}
+
+.phone-lock-topbar::before{
+    content:"";
+}
+.phone-lock-topbar .phone-dynamic-island{
+    top:11px;
+}
+.phone-lock-battery-image{
+    position:absolute;
+    top:19px;
+    right:18px;
+    width:38px;
+    height:19px;
+    object-fit:contain;
+    display:block;
+    transform:scale(1.45);
+    transform-origin:center;
+}
+
+.phone-lock-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.phone-lock-header .phone-big-time {
+    font-family: Cinzel,serif;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -.055em;
+}
+
+.phone-lock-header .phone-date {
+    margin-top: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: .88;
+}
+
+.phone-lock-header + .phone-locked-text {
+    font-size: 9px;
+    opacity: .72;
+    margin-bottom: 4px;
+}
+
+.phone-passcode {
+    width: 100%;
+    max-width: 280px;
+    margin: 8px auto 0;
+    text-align: center;
+    font-family: Inter, sans-serif;
+}
+
+.phone-lock-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.phone-lock-header .phone-big-time {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -.055em;
+}
+
+.phone-lock-header .phone-date {
+    margin-top: 7px;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: .88;
+}
+
+.phone-lock-header + .phone-locked-text {
+    font-size: 9px;
+    opacity: .72;
+    margin-bottom: 4px;
+}
+
+.phone-passcode-title {
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    opacity: .5;
+    margin-bottom: 9px;
+}
+
+.phone-passcode-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 9px;
+}
+
+.phone-passcode-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.72);
+    background: transparent;
+    box-shadow: 0 0 4px rgba(255,255,255,.05);
+    transition: background .12s ease, transform .12s ease, box-shadow .12s ease;
+}
+
+.phone-passcode-dot.filled {
+    background: #f5f2e9;
+    border-color: #f5f2e9;
+    transform: scale(1.12);
+    box-shadow: 0 0 7px rgba(255,255,255,.25);
+}
+
+.phone-passcode-error {
+    min-height: 13px;
+    font-size: 7px;
+    color: #ff9c91;
+    opacity: 0;
+    transition: opacity .15s ease;
+}
+
+.phone-passcode-error.show {
+    opacity: 1;
+}
+
+.phone-keypad {
+    width: 222px;
+    margin: 12px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 66px);
+    grid-auto-rows: 66px;
+    justify-content: center;
+    gap: 9px 12px;
+}
+
+.phone-key-spacer {
+    width: 66px;
+    height: 66px;
+}
+
+.phone-key {
+    width: 66px;
+    height: 66px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.105),
+            rgba(255,255,255,.045)
+        );
+    color: #f7f4ec;
+    font-family: Inter, sans-serif;
+    font-size: 23px;
+    font-weight: 300;
+    cursor: pointer;
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.12),
+        inset 0 -2px 4px rgba(0,0,0,.18),
+        0 2px 5px rgba(0,0,0,.28);
+    transition:
+        background .08s ease,
+        transform .08s ease,
+        box-shadow .08s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.phone-key:active {
+    background: rgba(255,255,255,.2);
+    transform: scale(.91);
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 1px 3px rgba(0,0,0,.25);
+}
+
+.phone-key small {
+    display: block;
+    margin-top: 0;
+    font-size: 6px;
+    line-height: 7px;
+    letter-spacing: .12em;
+    opacity: .52;
+}
+
+.phone-key-clear {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    font-size: 18px;
+    letter-spacing: .02em;
+    opacity: .9;
+}
+
+.phone-key-clear:active {
+    background: rgba(255,255,255,.08);
+    box-shadow: none;
+}
+
+.phone-unlocked {
+    display: none;
+    width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+    text-align: center;
+    animation: phoneUnlockFade .45s ease;
+}
+
+.phone-unlocked-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,.5));
+}
+
+.phone-unlocked-title {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    margin-bottom: 9px;
+}
+
+.phone-unlocked-text {
+    font-size: 7px;
+    line-height: 1.7;
+    opacity: .58;
+}
+
+.phone-lock-content.unlocked .phone-lock-symbol,
+.phone-lock-content.unlocked .phone-locked-title,
+.phone-lock-content.unlocked .phone-locked-text {
+    display: none;
+}
+
+.phone-lock-content.unlocked .phone-passcode {
+    display: none;
+}
+
+.phone-lock-content.unlocked .phone-unlocked {
+    display: block;
+}
+
+.phone-lock-content.shake {
+    animation: phoneShake .28s ease;
+}
+
+@keyframes phoneShake {
+    0%,100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(3px); }
+}
+
+@keyframes phoneUnlockFade {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   MOBIL
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .calendar {
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 14px;
+    }
+
+    .table {
+
+        padding: 50px 25px;
+
+        gap: 35px;
+    }
+
+    .paper {
+
+        width: 220px;
+
+        height: 290px;
+    }
+
+    .document {
+
+        padding: 45px 35px;
+    }
+
+    .map-window {
+
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    header {
+
+        padding-top: 35px;
+    }
+
+    .calendar {
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 10px;
+    }
+
+    .subtitle {
+
+        font-size: 11px;
+    }
+
+    #investigation {
+
+        padding: 35px 15px 60px;
+    }
+
+    .table {
+
+        width: 100%;
+
+        padding: 40px 15px;
+    }
+
+    .paper {
+
+        width: 90%;
+
+        max-width: 280px;
+    }
+
+    .document-overlay {
+
+        padding: 15px;
+    }
+
+    .document {
+
+        padding: 35px 25px;
+
+        margin-top: 25px;
+    }
+
+    .document-top h2 {
+
+        font-size: 25px;
+    }
+
+    .document p {
+
+        font-size: 13px;
+    }
+
+    .document-info {
+
+        grid-template-columns: 1fr;
+    }
+
+    .map-overlay {
+
+        padding: 10px;
+    }
+
+    .map-window {
+
+        padding: 12px;
+    }
+
+    .map-header h2 {
+
+        font-size: 22px;
+    }
+
+    .person {
+
+        padding: 9px 10px;
+
+        font-size: 11px;
+    }
+
+    .room-name,
+    .bed-name {
+
+        font-size: 8px;
+
+        padding: 4px 6px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA MOBILANPASSNING
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 30px 14px 24px;
+    }
+
+    h1 {
+        font-size: clamp(34px, 11vw, 52px);
+        letter-spacing: .08em;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: .12em;
+        line-height: 1.6;
+    }
+
+    .calendar {
+        width: calc(100% - 24px);
+        margin: 12px auto 45px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .door {
+        min-width: 0;
+        aspect-ratio: 1 / 1.08;
+        border-radius: 7px;
+    }
+
+    .number {
+        font-size: clamp(26px, 9vw, 38px);
+    }
+
+    #investigation {
+        padding: 30px 10px 45px;
+    }
+
+    .investigation-header {
+        margin-bottom: 28px;
+    }
+
+    .investigation-header h2 {
+        font-size: clamp(28px, 9vw, 44px);
+        letter-spacing: .07em;
+    }
+
+    .investigation-header p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    .table {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 12px 35px;
+        gap: 18px;
+        border-radius: 5px;
+    }
+
+    .paper {
+        width: min(100%, 290px);
+        height: 285px;
+        padding: 25px 20px;
+    }
+
+    .paper h3 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .document-overlay {
+        padding: 10px;
+    }
+
+    .document {
+        width: 100%;
+        min-height: auto;
+        margin: 10px auto 30px;
+        padding: 32px 22px 40px;
+    }
+
+    .document-top h2 {
+        font-size: 23px;
+        line-height: 1.3;
+    }
+
+    .document p {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .close-document {
+        top: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .map-overlay {
+        padding: 6px;
+    }
+
+    .map-window {
+        width: 100%;
+        margin: 8px auto 25px;
+        padding: 12px 8px 18px;
+    }
+
+    .map-header {
+        padding: 0 5px;
+        margin-bottom: 14px;
+    }
+
+    .map-header h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .map-header p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .puzzle-instructions {
+        font-size: 11px;
+        line-height: 1.65;
+        padding: 0 5px;
+        margin-bottom: 16px;
+    }
+
+    .map-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .people-panel {
+        width: 100%;
+        margin-top: 18px;
+        padding: 14px 10px;
+    }
+
+    .people-list {
+        gap: 7px;
+    }
+
+    .person {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .puzzle-actions {
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .puzzle-button {
+        flex: 1 1 130px;
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 10px;
+    }
+
+    .puzzle-message {
+        font-size: 11px;
+        line-height: 1.5;
+        min-height: 34px;
+    }
+
+    .back-button {
+        width: calc(100% - 20px);
+        max-width: 300px;
+        margin-top: 25px;
+    }
+
+    .room-name,
+    .bed-name {
+        font-size: 7px;
+        padding: 3px 5px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .calendar {
+        gap: 8px;
+    }
+
+    .door::before {
+        inset: 5px;
+    }
+
+    .paper {
+        height: 270px;
+    }
+
+    .person {
+        flex: 1 1 calc(50% - 7px);
+    }
+
+    .puzzle-button {
+        flex-basis: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILTELEFON PÅ UTREDNINGSBORDET
+========================================================= */
+
+.phone-paper {
+    cursor: pointer;
+    width: 100px !important;
+    height: 172px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-4deg);
+}
+
+.phone-paper .phone-icon {
+    width: 82px;
+    height: 154px;
+    border: 3px solid #090a09;
+    border-radius: 18px;
+    background:
+        linear-gradient(145deg, #3a3d3b 0%, #171918 18%, #0a0b0a 100%);
+    box-shadow:
+        0 5px 5px rgba(0,0,0,.25),
+        0 14px 24px rgba(0,0,0,.42),
+        inset 1px 1px 2px rgba(255,255,255,.18),
+        inset -2px -2px 4px rgba(0,0,0,.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-paper .phone-icon::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 27px;
+    height: 5px;
+    border-radius: 8px;
+    background: #050505;
+    box-shadow: 0 1px 1px rgba(255,255,255,.15);
+    z-index: 3;
+}
+
+.phone-paper .phone-icon::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 8px;
+    width: 2px;
+    height: 28px;
+    border-radius: 2px;
+    background: rgba(255,255,255,.12);
+}
+
+.phone-paper .phone-screen {
+    width: 68px;
+    height: 134px;
+    border-radius: 12px;
+    background:
+        radial-gradient(circle at 70% 15%, rgba(130,170,140,.16), transparent 30%),
+        linear-gradient(160deg,#30483a 0%,#17251c 42%,#09100c 100%);
+    color: #eee8d8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter,sans-serif;
+    line-height: 1.3;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 12px rgba(0,0,0,.55),
+        inset 2px 2px 5px rgba(255,255,255,.04);
+}
+
+.phone-paper .phone-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        115deg,
+        rgba(255,255,255,.13) 0%,
+        rgba(255,255,255,.035) 18%,
+        transparent 35%
+    );
+    pointer-events: none;
+}
+
+.phone-paper .phone-time {
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 1px 4px rgba(0,0,0,.65);
+}
+
+.phone-paper .phone-lock {
+    font-size: 7px;
+    margin-top: 6px;
+    opacity: .7;
+    letter-spacing: .08em;
+    text-shadow: 0 1px 3px rgba(0,0,0,.7);
+}
+.phone-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    padding: 20px;
+    background: rgba(0,0,0,.9);
+    backdrop-filter: blur(7px);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.phone-zoom-stage{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    touch-action:none;
+    cursor:grab;
+}
+
+.phone-zoom-stage.dragging{
+    cursor:grabbing;
+}
+
+.phone-zoom-controls{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    z-index:1200;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:7px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    background:rgba(15,15,15,.82);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+}
+
+.phone-zoom-controls button{
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:10px;
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    font:600 17px Inter,sans-serif;
+    cursor:pointer;
+    transition:background .2s ease, transform .15s ease;
+}
+
+.phone-zoom-controls button:hover{
+    background:rgba(255,255,255,.18);
+}
+
+.phone-zoom-controls button:active{
+    transform:scale(.94);
+}
+
+.phone-zoom-level{
+    min-width:48px;
+    text-align:center;
+    color:rgba(255,255,255,.82);
+    font:500 10px Inter,sans-serif;
+    letter-spacing:.04em;
+}
+
+.phone-overlay.open {
+    display: flex;
+}
+
+.phone-device {
+    width: min(330px, 88vw);
+    aspect-ratio: 9 / 18.5;
+    transform:translate(var(--phone-x, 0px), var(--phone-y, 0px)) scale(var(--phone-scale, 1));
+    transform-origin:center center;
+    transition:transform .12s ease;
+    padding: 10px;
+    border: 3px solid #151515;
+    border-radius: 38px;
+    background: #080908;
+    box-shadow: 0 30px 90px rgba(0,0,0,.8), 0 0 35px rgba(255,255,255,.06);
+    position: relative;
+}
+
+.phone-device-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 29px;
+    overflow: hidden;
+    position: relative;
+    background:
+        radial-gradient(circle at 50% 10%, rgba(105,135,110,.45), transparent 32%),
+        linear-gradient(160deg,#24392d,#0d1510 70%);
+    color: #f5f0e4;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-device-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg, rgba(255,255,255,.10), transparent 18%, transparent 72%, rgba(255,255,255,.025)),
+        radial-gradient(circle at 50% 100%, rgba(0,0,0,.28), transparent 42%);
+    mix-blend-mode: screen;
+}
+
+.phone-status {
+    padding: 17px 20px 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    opacity: .8;
+}
+
+.phone-lock-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.phone-big-time {
+    font-family: Cinzel,serif;
+    font-size: 46px;
+    letter-spacing: .04em;
+}
+
+.phone-date {
+    margin-top: 7px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+.phone-lock-symbol {
+    margin: 38px 0 14px;
+    font-size: 24px;
+}
+
+.phone-locked-title {
+    font-family: Cinzel,serif;
+    font-size: 16px;
+    letter-spacing: .06em;
+}
+
+.phone-locked-text {
+    max-width: 230px;
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 1.7;
+    opacity: .62;
+}
+
+.phone-bottom {
+    padding: 15px 20px 22px;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .45;
+}
+
+.phone-close {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    z-index: 310;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    background: rgba(0,0,0,.5);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .phone-device {
+        width: min(300px, 82vw);
+    }
+
+    .phone-big-time {
+        font-size: 40px;
+    }
+
+    .phone-close {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+
+/* --- Upplåst telefon: hemskärm och appar --- */
+.phone-unlocked{display:none;width:100%;height:100%;position:relative;overflow:hidden;border-radius:42px;background:linear-gradient(145deg,#17213a,#101727 55%,#090d16);color:#fff;font-family:Inter,sans-serif}
+.phone-lock-content.unlocked .phone-unlocked{display:flex;flex-direction:column}
+.phone-lock-content.unlocked .phone-passcode,.phone-lock-content.unlocked .phone-locked-text{display:none}
+.phone-home-status{display:flex;justify-content:space-between;align-items:center;padding:14px 19px 0;font-size:9px;font-weight:600;opacity:.9;color:#000;}
+.phone-home-time{font-size:11px}
+.phone-app-grid{display:grid;grid-template-columns:repeat(4,52px);gap:18px 10px;justify-content:center;margin-top:30px}
+.phone-app{border:0;background:none;color:#fff;padding:0;width:52px;cursor:pointer;font-family:Inter,sans-serif;text-align:center}
+.phone-app-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 5px 12px rgba(0,0,0,.3),inset 0 1px 1px rgba(255,255,255,.22);margin:auto}
+.phone-app-name{display:block;font-size:8px;margin-top:5px;text-shadow:0 1px 2px #000}
+.app-messages{background:linear-gradient(#54d66b,#24a844)}.app-phone{background:linear-gradient(#58d86a,#25a647)}.app-photos{background:linear-gradient(135deg,#ffcf45,#f45b69,#7c4dff)}.app-notes{background:#f4e9b9;color:#222}.app-maps{background:#fff;color:#2c7a4b}.app-mail{background:#4d9df7}.app-clock{background:#151a23}.app-weather{background:linear-gradient(#57b8f5,#2875db)}
+.phone-dock{position:absolute;left:14px;right:14px;bottom:13px;height:62px;border-radius:20px;background:rgba(255,255,255,.11);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-around}
+.phone-dock .phone-app-icon{width:43px;height:43px}
+.phone-app-panel{display:none;position:absolute;inset:0;background:#f5f4ef;color:#1d1d1f;z-index:5;border-radius:42px;overflow:hidden}
+.phone-app-panel.open{display:block}
+.phone-app-top{height:62px;padding:25px 17px 0;font-size:14px;font-weight:700;border-bottom:1px solid #ddd;display:flex;align-items:center;justify-content:space-between}
+.phone-app-close{border:0;background:none;font-size:20px;color:#555;cursor:pointer}
+.phone-app-body{padding:14px 16px;font-size:11px;line-height:1.5;overflow:auto;height:calc(100% - 62px)}
+.phone-message{background:#e6e6eb;border-radius:14px;padding:8px 10px;margin:8px 0;max-width:88%}.phone-message.me{margin-left:auto;background:#2f9d50;color:#fff}
+.phone-call{padding:10px 0;border-bottom:1px solid #ddd}.phone-note{background:#fff3a6;border-radius:10px;padding:12px;margin-bottom:10px}
+.phone-photo{height:150px;border-radius:12px;background:linear-gradient(135deg,#26364a,#8a7357 48%,#1d1e23);display:flex;align-items:flex-end;padding:10px;color:#fff;font-size:10px;margin-bottom:10px}
+.phone-home-button{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#aaa;font-size:18px;z-index:10;cursor:pointer}
+
+/* iOS-STYLE PHONE HOME SCREEN */
+.phone-lock-content.unlocked{padding:0;justify-content:flex-start;overflow:hidden}
+.phone-lock-content.unlocked .phone-unlocked{display:block;position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0;text-align:left;animation:phoneUnlockFade .35s ease;overflow:hidden;border-radius:29px;background:#111}
+.phone-lock-content.unlocked .phone-passcode,.phone-lock-content.unlocked .phone-locked-text{display:none}
+.phone-home-wallpaper{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 88%,rgba(255,191,94,.34),transparent 23%),linear-gradient(180deg,rgba(4,19,35,.15),rgba(3,9,13,.72)),linear-gradient(160deg,#132d40 0%,#31566a 38%,#162a25 61%,#080d0c 100%);background-image:url("bakgrundsbild.jfif");}
+
+
+.phone-home-status{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:12px 18px 0;color:#fff;font-size:10px;font-weight:600;text-shadow:0 1px 4px #000}
+.phone-home-status-icons{display:flex;gap:6px;align-items:center}.phone-battery{font-size:8px;border:1px solid #fff;border-radius:3px;padding:0 2px}
+.phone-home-apps{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,52px);justify-content:center;gap:16px 10px;margin-top:55px}
+.ios-app{position:relative;width:52px;border:0;background:none;color:#fff;padding:0;cursor:pointer;font-family:Inter,sans-serif;text-align:center;-webkit-tap-highlight-color:transparent}
+.ios-app b{display:block;font-size:7.5px;font-weight:500;margin-top:4px;white-space:nowrap;text-shadow:0 1px 3px #000}
+.ios-app em{position:absolute;top:-5px;right:-5px;background:#ff3045;color:#fff;font-style:normal;font-size:8px;min-width:16px;height:16px;line-height:16px;border-radius:10px;box-shadow:0 1px 3px #000;z-index:3}
+.ios-icon{display:flex;position:relative;width:46px;height:46px;margin:auto;border-radius:11px;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.38),inset 0 1px 1px rgba(255,255,255,.3)}
+.ios-icon:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 35%,rgba(0,0,0,.08));pointer-events:none}
+.messages-icon{background:linear-gradient(#63e879,#28b84c)}.messages-icon:before{content:"";width:24px;height:18px;border-radius:50%;background:#fff}.messages-icon:after{background:linear-gradient(135deg,rgba(255,255,255,.2),transparent 35%)}.messages-icon i{position:absolute;width:8px;height:8px;background:#fff;bottom:9px;left:11px;transform:rotate(30deg)}
+.calendar-icon{background:#fff;color:#222;display:block;text-align:center}.calendar-icon:before{content:"TIS";display:block;height:13px;background:#ef3b48;color:#fff;font-size:6px;line-height:13px;font-weight:700}.calendar-icon strong{font-size:22px;line-height:31px;font-weight:500}
+.photos-icon{background:conic-gradient(#f5c842,#ef5b48,#a54cd9,#3d8fe9,#45c878,#f5c842)}.photos-icon i{width:22px;height:22px;border:5px solid #fff;border-radius:50%;position:relative}.photos-icon i:after{content:"";position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;left:4px;top:4px}
+.camera-icon{background:linear-gradient(#3a3d42,#17191c)}.camera-icon:before{content:"";width:27px;height:18px;border-radius:5px;background:#30343a;border:2px solid #777}.camera-icon i{position:absolute;width:9px;height:9px;border-radius:50%;background:#111;border:2px solid #aaa}
+.maps-icon{background:linear-gradient(145deg,#67b96d,#f2db6b 48%,#72b9e8)}.maps-icon:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(75deg,transparent 0 12px,rgba(255,255,255,.55) 13px 15px)}.maps-icon i{width:12px;height:12px;background:#e44b4b;border:2px solid #fff;border-radius:50%;z-index:1}
+.clock-icon{background:#f7f7f7}.clock-icon i{width:28px;height:28px;border:2px solid #222;border-radius:50%;position:relative}.clock-icon i:before{content:"";position:absolute;width:2px;height:9px;background:#222;left:13px;top:4px}.clock-icon i:after{content:"";position:absolute;width:8px;height:2px;background:#222;left:13px;top:12px;transform:rotate(30deg);transform-origin:left}
+.weather-icon{background:linear-gradient(#55b8ef,#3981d4)}.weather-icon i{font-size:20px;color:#ffd34f;text-shadow:8px 7px 0 #fff}
+.notes-icon{background:#fff}.notes-icon:before{content:"";position:absolute;left:0;right:0;top:9px;height:3px;background:#f1cf4e;box-shadow:0 8px 0 #ddd,0 16px 0 #ddd,0 24px 0 #ddd}.notes-icon i{position:absolute;left:0;top:0;width:7px;height:100%;background:#e8c74d}
+.reminders-icon{background:#f7f7f7;color:#2d6edc}.reminders-icon i{font-style:normal;font-size:22px}.appstore-icon{background:linear-gradient(#5bb9ff,#2477d9)}.appstore-icon i{font-size:30px;transform:rotate(-5deg)}.settings-icon{background:linear-gradient(#9fa4aa,#565b61)}.settings-icon i{font-size:26px;font-style:normal}.mail-icon{background:linear-gradient(#62b8ff,#2485e8)}.mail-icon i{font-style:normal;font-size:24px}
+.phone-icon{background:linear-gradient(#65dc71,#25a849)}.phone-icon i{font-style:normal;color:#fff;font-size:23px;transform:rotate(-22deg)}.safari-icon{background:radial-gradient(circle,#fff 0 15%,#eaf4ff 16% 28%,#49a6e9 29% 48%,#1873d1 49% 100%);color:#e42d43}.safari-icon i{font-size:29px;transform:rotate(20deg)}.spotify-icon{background:#171717}.spotify-icon i{color:#20d760;font-size:29px;font-style:normal}.whatsapp-icon{background:#26d367}.whatsapp-icon i{font-style:normal;font-size:22px;color:#fff}
+.ios-dock{position:absolute;z-index:3;left:11px;right:11px;bottom:10px;height:57px;border-radius:18px;background:rgba(245,245,245,.18);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-around}
+.ios-dock .ios-app{width:46px}.ios-dock .ios-icon{width:43px;height:43px}.ios-dock .ios-app b{display:none}
+.phone-app-panel{display:none;position:absolute!important;inset:0!important;background:#f8f8fa;color:#1c1c1e;z-index:20!important;border-radius:29px;overflow:hidden;text-align:left}.phone-app-panel.open{display:block}
+.ios-app-header{height:58px;padding:18px 13px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddd;font-size:14px;background:rgba(248,248,250,.96)}.ios-app-header button{border:0;background:none;color:#007aff;font-size:28px;line-height:20px;cursor:pointer}.ios-app-header span{color:#007aff}.ios-app-header.dark{background:#000;color:#fff;border-color:#222}.ios-app-header.dark button{color:#fff}.ios-app-body{height:calc(100% - 58px);padding:12px 13px;overflow:auto;font-size:10px}.ios-search{background:#e9e9ed;border-radius:9px;padding:7px 10px;color:#777;margin-bottom:5px}.ios-row{display:flex;align-items:center;gap:9px;padding:10px 2px;border-bottom:1px solid #ddd;position:relative}.ios-row>div:nth-child(2){min-width:0}.ios-row strong{display:block;font-size:11px}.ios-row small{display:block;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:155px}.ios-row time{margin-left:auto;color:#888;font-size:8px}.ios-avatar{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex:none}.avatar-moa{background:#a77a9c}.avatar-gustav{background:#506d82}.avatar-elham{background:#c08b58}.avatar-benjamin{background:#555}
+.calendar-body{text-align:center}.calendar-month{font-size:13px;color:#777;margin-top:8px}.calendar-big{font-size:64px;font-weight:200;margin:14px 0}.calendar-event{text-align:left;background:#eaf2ff;border-left:3px solid #3478f6;border-radius:7px;padding:9px;margin:7px 0}.calendar-event strong,.calendar-event small{display:block}.calendar-event small{color:#777;margin-top:2px}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0}.gallery-photo{height:82px;background:#334b52;display:flex;align-items:flex-end;padding:5px;color:#fff;font-size:7px;background-size:cover}.p1{background:linear-gradient(#17222d,#d09a62)}.p2{background:linear-gradient(135deg,#304b60,#1d211f)}.p3{background:linear-gradient(135deg,#815d3f,#202b31)}.p4{background:linear-gradient(#0e1c29,#667c82)}.p5{background:linear-gradient(135deg,#554332,#1d2225)}.p6{background:linear-gradient(#182a38,#a07855)}.p7{background:linear-gradient(135deg,#151a20,#725b45)}.p8{background:linear-gradient(#293c47,#151a18)}
+.ios-map{
+    height:calc(100% - 58px);
+    position:relative;
+    overflow:hidden;
+    background:#d9e2e7;
+    color:#172019;
+    font-family:Inter,sans-serif;
+    isolation:isolate;
+    touch-action:none;
+}
+.phone-real-map{pointer-events:none;user-select:none;-webkit-user-select:none;}
+.phone-real-map{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:115%;
+    height:115%;
+    min-width:0;
+    min-height:0;
+    border:0;
+    display:block;
+    background:#d9e2e7;
+    object-fit:cover;
+    object-position:center;
+    transform:translate(-50%,-50%);
+    transform-origin:center center;
+    transition:transform .25s ease;
+}
+.map-real-overlay{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:8;
+}
+.map-search{
+    position:absolute;
+    z-index:40;
+    left:10px;
+    right:10px;
+    top:9px;
+    height:31px;
+    display:flex;
+    align-items:center;
+    padding:0 12px;
+    border-radius:17px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 2px 10px rgba(0,0,0,.22);
+    color:#737373;
+    font-size:9px;
+}
+.map-search span:first-child{font-size:11px;margin-right:6px}
+.map-location{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:18px;
+    height:18px;
+    transform:translate(-50%,-50%);
+    z-index:20;
+}
+.map-location .map-gps{
+    position:absolute;
+    left:0;
+    top:0;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#1683e8;
+    border:3px solid #fff;
+    box-shadow:0 0 0 7px rgba(22,131,232,.18),0 2px 5px rgba(0,0,0,.32);
+}
+.map-location .map-gps::after{
+    content:"";
+    position:absolute;
+    inset:-12px;
+    border:1px solid rgba(22,131,232,.28);
+    border-radius:50%;
+    animation:mapPulse 2s ease-out infinite;
+}
+.map-stuga-pin{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:25px;
+    height:25px;
+    transform:translate(-50%,-100%);
+    z-index:21;
+    cursor:pointer;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.34));
+}
+.map-stuga-pin::before{
+    content:"";
+    position:absolute;
+    width:24px;
+    height:24px;
+    border-radius:50% 50% 50% 0;
+    background:#e94d4d;
+    transform:rotate(-45deg);
+}
+.map-stuga-pin::after{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:7px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#fff;
+}
+.map-pin-label{
+    position:absolute;
+    left:calc(50% + 13px);
+    top:calc(50% - 42px);
+    z-index:22;
+    padding:4px 7px;
+    border-radius:7px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 2px 7px rgba(0,0,0,.18);
+    font-size:8px;
+    font-weight:600;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.map-card{
+    position:absolute;
+    z-index:50;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    padding:10px 11px;
+    border-radius:13px;
+    background:rgba(255,255,255,.97);
+    box-shadow:0 3px 14px rgba(0,0,0,.22);
+}
+.map-card small{display:block;color:#777;font-size:7px;margin-bottom:2px}
+.map-card strong{font-size:12px}
+.map-card p{font-size:7px;color:#666;margin:2px 0 7px}
+.map-card button{border:0;border-radius:8px;padding:6px 9px;background:#1677d2;color:#fff;font-size:7px;font-weight:600}
+.map-card .map-detail{background:#eef4fa;color:#1677d2;margin-left:4px}
+.map-card-hidden{display:none!important}
+.map-location-note{
+    position:absolute;
+    left:50%;
+    top:calc(50% + 14px);
+    transform:translateX(-50%);
+    z-index:19;
+    font-size:6px;
+    color:#176fc4;
+    background:rgba(255,255,255,.86);
+    padding:2px 5px;
+    border-radius:6px;
+    white-space:nowrap;
+    box-shadow:0 1px 4px rgba(0,0,0,.12);
+}
+@keyframes mapPulse{
+    0%,100%{transform:scale(.75);opacity:.7}
+    70%{transform:scale(1.35);opacity:0}
+}
+.ios-dark-body{height:calc(100% - 58px);background:#000;color:#fff;padding:15px}.clock-face{text-align:center;font-size:44px;font-weight:200;margin:55px 0}.alarm-row{border-top:1px solid #333;padding:14px 2px}.alarm-row strong{display:block;font-size:24px;font-weight:300}.alarm-row small{color:#aaa}.weather-head{background:#459ad9;color:#fff;border-color:#459ad9}.weather-head button,.weather-head span{color:#fff}.weather-screen{height:calc(100% - 58px);background:linear-gradient(#3c9cdb,#75bfe7 45%,#e7f2f7);color:#fff;padding:32px 22px}.weather-screen small{font-size:14px}.weather-screen strong{display:block;font-size:72px;font-weight:200;margin-top:12px}.weather-screen span{font-size:17px}.weather-screen p{font-size:10px}.note-card{background:#fff4a3;border-radius:8px;padding:15px;line-height:1.6}.reminder{padding:13px 3px;border-bottom:1px solid #ddd;color:#333}.store-card{height:130px;border-radius:12px;background:linear-gradient(135deg,#6fcbff,#2864e8);color:#fff;padding:15px}.settings-list>div{background:#fff;border-bottom:1px solid #ddd;padding:13px 10px;font-size:10px}.settings-list span{float:right;color:#888}.mail-message{padding:10px}.mail-message small{display:block;color:#777;margin:4px 0 12px}.mail-message p{line-height:1.6}.call-list>div{padding:14px 4px;border-bottom:1px solid #ddd}.call-list strong,.call-list small{display:block}.call-list small{color:#777;margin-top:3px}.ios-browser{padding:15px;text-align:center}.browser-bar{background:#e9e9ed;border-radius:10px;padding:9px;color:#777}.ios-browser h2{margin-top:60px;font-size:18px}.ios-browser p{color:#777;font-size:10px}.spotify-screen{height:calc(100% - 58px);background:#111;color:#fff;padding:25px}.album-art{width:155px;height:155px;margin:10px auto 28px;background:linear-gradient(135deg,#8e1515,#1b0e0e);display:flex;align-items:center;justify-content:center;text-align:center;font-size:28px;font-weight:700}.spotify-screen p{color:#aaa}.ios-camera{position:absolute;inset:0;background:#090909;color:#fff;overflow:hidden}.ios-camera>button{position:absolute;top:15px;left:15px;background:rgba(0,0,0,.35);border:0;color:#fff;font-size:27px;line-height:1;width:38px;height:38px;border-radius:50%;z-index:4;cursor:pointer}.camera-view{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#090909;display:block}.camera-message{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78%;text-align:center;color:rgba(255,255,255,.82);font-size:10px;line-height:1.6;text-shadow:0 1px 5px #000;z-index:3}.camera-shutter{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:62px;height:62px;border:5px solid #fff;border-radius:50%;font-size:0;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.45)}
+.phone-home-button{position:absolute;z-index:30;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#fff;font-size:15px;cursor:pointer;opacity:.8}
+.image-app-icon{background:transparent!important;overflow:hidden!important;border:0!important;box-shadow:none!important;padding:0!important}.image-app-icon img{width:100%;height:100%;object-fit:cover;display:block;border-radius:11px}/* Dynamic Island ska alltid ligga över ALLT innehåll i telefonen – även appar och bilder. */
+.phone-home-wallpaper .phone-dynamic-island{
+    z-index:9999 !important;
+    pointer-events:none !important;
+}
+
+.phone-unlocked > .phone-persistent-island{
+    position:absolute !important;
+    top:11px !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    z-index:100000 !important;
+    pointer-events:none !important;
+}
+.phone-dynamic-island{position:absolute;z-index:20;top:11px;left:50%;transform:translateX(-50%);width:104px;height:30px;border-radius:18px;background:linear-gradient(180deg,#050505,#000);box-shadow:0 1px 2px rgba(255,255,255,.08) inset,0 2px 8px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;box-sizing:border-box}.phone-island-camera{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#304b65 0 18%,#111722 38%,#020305 72%);box-shadow:0 0 0 1px rgba(255,255,255,.06)}.phone-island-sensor{width:6px;height:6px;border-radius:50%;background:#070707;margin-left:5px}.phone-battery-image{
+    width:38px;
+    height:19px;
+    object-fit:contain;
+    display:block;
+    transform:scale(1.45);
+    transform-origin:center;
+filter:brightness(0);}</style>
+<style>
+.desktop-real-map-wrap{width:100%;max-width:1150px;margin:0 auto 28px}
+.desktop-real-map{position:relative;width:100%;overflow:hidden;border:1px solid rgba(0,0,0,.25);box-shadow:0 10px 30px rgba(0,0,0,.25);background:#dfe7e4;line-height:0}
+.desktop-real-map img{display:block;width:100%;height:auto;max-width:100%;user-select:none;-webkit-user-drag:none}
+
+.desktop-map-caption{text-align:center;margin-top:8px;font:500 10px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#3b352d;opacity:.65}
+
+.suspects-overlay{display:none;position:fixed;inset:0;z-index:99990;background:rgba(12,12,12,.96);padding:42px;box-sizing:border-box;color:#f5f1e8;font-family:Georgia,serif}.suspects-window{max-width:1100px;margin:0 auto;background:#eee9df;color:#181716;min-height:70vh;padding:34px;box-sizing:border-box}.suspects-top{border-bottom:1px solid rgba(0,0,0,.2);padding-bottom:18px;margin-bottom:28px}.suspects-top h2{margin:0;font-size:30px;letter-spacing:.12em}.suspects-top p{margin:8px 0 0;opacity:.6}.suspects-grid{display:flex;gap:24px}.suspect-card{width:220px}.suspect-photo{width:220px;height:280px;background:#d5cec1;overflow:hidden;border:1px solid rgba(0,0,0,.18)}.suspect-photo img{width:100%;height:100%;object-fit:cover;display:block}.suspect-card h3{font-size:18px;margin:12px 0}.suspects-close{position:fixed;right:28px;bottom:24px;border:1px solid rgba(255,255,255,.5);background:#181716;color:#fff;padding:11px 18px;cursor:pointer}
+
+/* MISSTÄNKTA – FOTOHÖG + ENKEL BILDBLÄDDRING */
+.photo-stack{position:relative;width:250px;height:330px;cursor:pointer;transition:transform .3s ease,filter .3s ease;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+.photo-stack:hover{transform:translateY(-12px) rotate(-1deg);filter:drop-shadow(0 25px 30px rgba(0,0,0,.55))}
+.photo-stack-back{position:absolute;width:205px;height:255px;left:23px;top:30px;background:#f7f3ea;box-shadow:0 8px 14px rgba(0,0,0,.25);border:1px solid rgba(0,0,0,.12)}
+.photo-stack-back-1{transform:rotate(-7deg);left:18px;top:25px}.photo-stack-back-2{transform:rotate(6deg);left:28px;top:32px}
+.photo-stack-photo{position:absolute;width:205px;height:255px;left:23px;top:27px;background:#eee7d8;padding:7px;box-sizing:border-box;box-shadow:0 12px 18px rgba(0,0,0,.3);transform:rotate(-2deg)}
+.photo-stack-photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-stack-label{position:absolute;left:34px;bottom:25px;background:#f4eddb;color:#27231d;padding:10px 18px;font-family:Cinzel,serif;font-size:16px;letter-spacing:.12em;box-shadow:0 5px 10px rgba(0,0,0,.28);transform:rotate(-3deg)}
+.suspects-overlay{display:none;position:fixed;inset:0;z-index:99990;background:rgba(12,11,10,.82);backdrop-filter:blur(3px);align-items:center;justify-content:center}
+.suspects-viewer{position:relative;width:min(560px,82vw);padding:34px 70px 28px;box-sizing:border-box}
+.suspect-enlarged-photo{background:#eee8dc;padding:12px 12px 54px;box-shadow:0 22px 45px rgba(0,0,0,.55);transform:rotate(-1deg)}
+.suspect-enlarged-photo img{display:block;width:100%;height:min(62vh,560px);object-fit:cover;background:#d6cec0}
+.suspect-viewer-caption{position:relative;margin-top:-43px;padding:0 8px;color:#171512;font-family:Georgia,serif;display:flex;flex-direction:column;gap:5px}.suspect-viewer-caption strong{font-size:21px;font-weight:normal}.suspect-viewer-caption span{font:9px Arial,sans-serif;letter-spacing:.14em;opacity:.5}
+.suspect-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font:34px/40px Georgia,serif;cursor:pointer;z-index:2}.suspect-nav:hover{background:rgba(255,255,255,.14)}.suspect-prev{left:8px}.suspect-next{right:8px}
+.suspect-counter{position:absolute;left:0;right:0;bottom:0;text-align:center;color:rgba(255,255,255,.65);font:11px Arial,sans-serif;letter-spacing:.12em}
+.suspects-viewer-close{top:0!important;right:0!important}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     KALENDER
+========================================================= -->
+
+<div id="calendarPage">
+
+    <header>
+
+        <h1>JULMORDET</h1>
+
+        <div class="subtitle">
+            Kan du lösa mordet på 24 dagar?
+        </div>
+
+    </header>
+
+
+    <main
+        class="calendar"
+        id="calendar"
+    ></main>
+
+</div>
+
+
+
+<!-- =========================================================
+     UTREDNING
+========================================================= -->
+
+<section id="investigation">
+
+    <div class="investigation-header">
+
+        <h2>FÖRUNDERSÖKNINGEN</h2>
+
+        <p>ÄRENDE 24-1224</p>
+
+    </div>
+
+
+    <div class="table">
+
+
+        <!-- FÖRUNDERSÖKNING -->
+
+        <div
+            class="paper"
+            onclick="openDocument()"
+        >
+
+            <h3>Förundersökning</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Dokumentation rörande det misstänkta
+                dödsfallet vid fritidsstugan.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Utredningen inleds den 24 december.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+
+        <!-- FÖRHÖR -->
+
+        <div class="photo-stack" id="suspectPaper" onclick="openSuspects()">
+    <div class="photo-stack-back photo-stack-back-1"></div>
+    <div class="photo-stack-back photo-stack-back-2"></div>
+    <div class="photo-stack-photo">
+        <img src="IMG_0655.jpeg" alt="Benji Holm">
+    </div>
+    <div class="photo-stack-label">MISSTÄNKTA</div>
+</div>
+
+<div class="paper" onclick="openInterrogation()">
+
+            <h3>Förhör</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Förhör med personer som befann sig
+                i stugan under kvällen.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Sex personer befann sig på platsen.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+
+        <!-- KARTA -->
+
+        <div
+            class="paper"
+            onclick="openMap()"
+        >
+
+            <h3>Karta</h3>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Planritning över fritidsstugan
+                och dess rum.
+            </p>
+
+            <div class="paper-line"></div>
+
+            <p>
+                Identifiera vilket sovrum varje
+                person sov i.
+            </p>
+
+            <div class="paper-label">
+                Klicka för att öppna
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MOBILTELEFON
+        ================================================= -->
+
+        <div
+            class="phone-paper"
+            onclick="openPhone()"
+            aria-label="Mobiltelefon"
+        >
+            <div class="phone-icon">
+                <div class="phone-screen">
+                    <div class="phone-time" id="phoneTableTime">--:--</div>
+                    <div class="phone-lock">LÅST</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <button
+        class="back-button"
+        onclick="goBack()"
+    >
+        Tillbaka till kalendern
+    </button>
+
+</section>
+
+
+
+
+
+
+<!-- =========================================================
+     FÖRHÖR
+========================================================= -->
+
+<div class="suspects-overlay" id="suspectsOverlay">
+  <div class="suspects-viewer">
+    <button class="unified-close suspects-viewer-close" onclick="closeSuspects()" aria-label="Stäng">×</button>
+    <button class="suspect-nav suspect-prev" onclick="previousSuspect()" aria-label="Föregående">‹</button>
+    <div class="suspect-enlarged-photo">
+      <img id="suspectViewerImage" src="IMG_0655.jpeg" alt="Benji Holm">
+      <div class="suspect-viewer-caption">
+        <strong id="suspectViewerName">Benji Holm</strong>
+        <span id="suspectViewerMeta">PERSONBILD · 24 DECEMBER</span>
+      </div>
+    </div>
+    <button class="suspect-nav suspect-next" onclick="nextSuspect()" aria-label="Nästa">›</button>
+    <div class="suspect-counter" id="suspectCounter">1 / 1</div>
   </div>
 </div>
 <div class="interrogation-overlay" id="interrogationOverlay">
