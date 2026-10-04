@@ -1265,6 +1265,30 @@ h1 {
     transform-origin:center;
 }
 
+.phone-lock-topbar{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:55px;
+    z-index:30;
+    pointer-events:none;
+}
+.phone-lock-topbar .phone-dynamic-island{
+    top:11px;
+}
+.phone-lock-battery-image{
+    position:absolute;
+    top:19px;
+    right:18px;
+    width:38px;
+    height:19px;
+    object-fit:contain;
+    display:block;
+    transform:scale(1.45);
+    transform-origin:center;
+}
+
 .phone-passcode {
     width: 100%;
     max-width: 280px;
@@ -3926,12 +3950,12 @@ function closePhoneApp() {
 
         <div class="phone-device-screen">
 
-            <div class="phone-status">
-                <span class="phone-status-icons">
-                    <span>▮▮▮</span>
-                    <span>⌁</span>
-                    <img class="phone-lock-battery-image" src="batteri.webp" alt="Batteri">
-                </span>
+            <div class="phone-lock-topbar">
+                <div class="phone-dynamic-island" aria-hidden="true">
+                    <span class="phone-island-camera"></span>
+                    <span class="phone-island-sensor"></span>
+                </div>
+                <img class="phone-lock-battery-image" src="batteri.webp" alt="Batteri">
             </div>
 
             <div class="phone-lock-content" id="phoneLockContent">
