@@ -4320,38 +4320,95 @@ function addSosMessage(who,text){
 }
 
 function gustavResponse(input){
-    const q=input.toLowerCase();
+    const q=input.toLowerCase().trim();
 
-    if(/var|befinner|adress|plats|stuga|ort|väg/.test(q))
-        return "Vi är i en stuga som heter Brostugan... på Långtjärnsvägen 47, i Älvdalen. Jag vet inte exakt vad orten heter här.";
-    if(/vem|namn|heter han|offer|kompis/.test(q))
-        return "Han heter Benjamin. Benjamin Afsharazad. Han är 20 år.";
-    if(/vaken|medvets|kontakt|reager/.test(q))
-        return "Nej. Jag får ingen reaktion alls. Jag har ropat på honom och försökt väcka honom.";
-    if(/andas|andning/.test(q))
-        return "Nej... jag kan inte känna någon andning. Jag tittar på bröstet men det rör sig inte.";
-    if(/hjärt|hlr|cpr|kompression|bröst/.test(q))
-        return "Okej. Jag försöker. Säg vad jag ska göra.";
-    if(/när|tid|hur länge|upptäck|hittade|vaknade|sov/.test(q))
-        return "Jag vaknade runt tio. Efter kanske tjugo minuter märkte jag att Benjamin fortfarande låg helt stilla.";
-    if(/skad|blod|våld|slagsmål|kniv|vapen/.test(q))
-        return "Jag ser inget blod och jag ser inga tydliga skador. Han ligger i sängen.";
-    if(/ensam|någon annan|andra|folk|vänner|kompisar/.test(q))
-        return "De andra är här i stugan. Jag tror att alla är kvar.";
-    if(/dricka|druck|alkohol|glögg|julmust|vatten/.test(q))
-        return "Vi drack glögg och julmust igår kväll. Ingen alkohol.";
-    if(/dörr|låst|inbrott|någon gick|lämnade|ute/.test(q))
-        return "Jag har inte sett någon lämna stugan. Jag tror dörren var låst, men jag kollade inte själv precis innan.";
-    if(/sjuk|medicin|allerg|sjukdom/.test(q))
-        return "Inte vad jag vet. Benjamin verkade må bra igår kväll.";
-    if(/bråk|konflikt|hot|osams/.test(q))
+    // Grunduppgifter som Gustav säkert kan svara på.
+    if(/(?:vad heter|namn|heter) (?:personen|killen|han)|vem (?:är|heter)|offer/.test(q))
+        return "Han heter Benjamin Afsharazad.";
+    if(/hur gammal|ålder/.test(q))
+        return "Han är 20 år.";
+    if(/hur många|antal personer|många personer|många är ni/.test(q))
+        return "Vi är sex stycken totalt.";
+    if(/kompisgäng|vänner|vilka är ni|är ni vänner/.test(q))
+        return "Vi är ett kompisgäng.";
+    if(/var befinner|var är ni|adress|plats|gps|position|hitta oss|hitta er/.test(q))
+        return "Vi är i en stuga. Jag vet inte adressen tyvärr. Kan ni inte se vart min GPS är?";
+    if(/hur länge|när kom|när anlände|igår|kom hit/.test(q))
+        return "Vi kom hit igår. Jag har inte så bra koll på området.";
+    if(/beskriv stugan|hur ser stugan|vad finns (?:i|vid) närheten|landmärke|kännetecken/.test(q))
+        return "Jag vet inte riktigt. Vi kom hit igår och jag har inte så bra koll. Kan ni inte bara komma nu?";
+
+    // Benjamin och det akuta läget.
+    if(/var är benjamin|samma rum|står framför|är han (?:här|där)/.test(q))
+        return "Ja, jag står precis framför honom.";
+    if(/golv|säng|ligger/.test(q))
+        return "Han ligger här i sin säng.";
+    if(/vaken|medvet|reager|kontakt|svara|vakna/.test(q))
+        return "Han reagerar inte. Jag har redan försökt.";
+    if(/andas|andning|bröstkorg|bröstet rör/.test(q))
+        return "Ja, vänta... nej. Det rör sig inte.";
+    if(/känn.*andning|kind|mun|näsa|luft/.test(q))
+        return "Nej, inget. Han andas inte... kan ni skynda?";
+    if(/kall|varm|temperatur/.test(q))
+        return "Han är kall.";
+    if(/blod|skada|sår|våld|kniv|vapen/.test(q))
+        return "Nej, inget. Jag ser inget blod eller någon skada.";
+    if(/hlr|hjärt-lung|hjärt lung|hjärt|kompression|trycka på bröstet/.test(q))
+        return "Jag gör hjärt-lungräddning.";
+    if(/gör du nu|vad gör du|vad händer just nu/.test(q))
+        return "Jag gör hjärt-lungräddning.";
+
+    // Tidsuppgifter.
+    if(/senast.*liv|såg.*liv|när.*såg.*benjamin|senast.*såg/.test(q))
+        return "Innan vi gick och la oss... vid ett–två-tiden ungefär.";
+    if(/när vaknade|när gick upp|vaknade.*tid|upp.*tid/.test(q))
+        return "Jag vaknade runt tio.";
+    if(/hur länge.*still|hur länge.*låg|när upptäck|när hittade/.test(q))
+        return "Jag märkte efter kanske tjugo minuter att Benjamin fortfarande låg helt stilla.";
+    if(/mådde|må bra|normal|som vanligt|frisk/.test(q))
+        return "Jag tror han är fullt frisk. Han verkade må bra igår kväll.";
+    if(/sjukdom|sjuk|medicin|tablett|läkemedel/.test(q))
+        return "Nej, tror inte det. Inte vad jag vet.";
+
+    // Övriga personer.
+    if(/ensam|andra|övriga|resten|fem|någon annan|personerna|folk/.test(q))
+        return "Nej, det är flera här. Vi är ett kompisgäng.";
+    if(/var.*andra|befinner.*andra|var.*fem|var.*personerna/.test(q))
+        return "Nej, inte exakt. De är säkert i stugan någonstans.";
+    if(/rop|kalla på|väcka.*andra|någon.*hjälpa/.test(q))
+        return "Ja... vänta.";
+    if(/kom någon|någon kom|någon här nu|hjälp.*kommit/.test(q))
+        return "Nej.";
+    if(/sova|sover|sov de|sover de/.test(q))
+        return "Vet inte... de kanske sover.";
+
+    // Dryck och kvällen.
+    if(/alkohol|sprit|öl|vin|drink/.test(q))
+        return "Nej.";
+    if(/vad.*druck|drack|dricka|dryck|glögg|julmust|vatten/.test(q))
+        return "Glögg, julmust och vatten typ.";
+    if(/benjamin.*drack|drack.*benjamin|druckit.*benjamin/.test(q))
+        return "Inte vet jag... vi drack nog alla det.";
+    if(/bråk|konflikt|osams|hot|hotad/.test(q))
         return "Nej, inte vad jag märkte. Allt verkade normalt när vi gick och lade oss.";
-    if(/vad har hänt|vad hände|beskriv|berätta/.test(q))
-        return "Jag vaknade vid tio och Benjamin låg kvar i sängen. Jag trodde först att han sov. Sedan försökte jag väcka honom och fick ingen reaktion. Jag kollade andningen och då... då insåg jag att något var riktigt fel.";
+
+    // Stugan och vägen in.
+    if(/dörr|låst|låsa|olåst/.test(q))
+        return "Den är låst... tror jag.";
+    if(/ingång|väg in|komma in|annan väg|fönster/.test(q))
+        return "Nej, bara genom dörren.";
+    if(/öppna|låsa upp/.test(q))
+        return "Ja, när ni kommer.";
+    if(/någon lämna|lämnat|gått ut|ute|inbrott|främmande/.test(q))
+        return "Jag har inte sett någon lämna stugan.";
+
+    // Sammanfattning om operatören ber Gustav berätta.
+    if(/vad har hänt|vad hände|berätta|beskriv.*händ|förklara/.test(q))
+        return "Jag vaknade runt tio. Benjamin låg kvar i sin säng och jag trodde först att han sov. Jag försökte väcka honom, men han reagerade inte. Jag kollade om han andades och då... då insåg jag att något var riktigt fel.";
+
+    // Gustav är stressad och ska inte kunna svara på sådant han rimligen inte vet.
     return "Jag vet inte... jag är skakis just nu. Fråga mig en sak i taget så ska jag försöka svara.";
-
 }
-
 function sendSosMessage(event){
     event.preventDefault();
     const input=document.getElementById("sosChatInput");
