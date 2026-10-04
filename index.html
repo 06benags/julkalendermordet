@@ -2295,6 +2295,29 @@ filter:brightness(0);}
     .table > .phone-paper{height:190px !important;grid-column:1 / -1;justify-self:center;}
 }
 
+
+/* =========================================================
+   UTREDNING — FULL BREDD PÅ MOBIL
+========================================================= */
+@media (max-width:600px){
+    html,body{width:100%;min-width:100%;}
+    body.investigation-active{
+        background:linear-gradient(180deg,#21170f,#120d09) !important;
+    }
+    #investigation{
+        width:100vw !important;
+        max-width:none !important;
+        min-width:100vw !important;
+        margin:0 !important;
+        padding-left:10px !important;
+        padding-right:10px !important;
+    }
+    #investigation .table{
+        width:100% !important;
+        max-width:none !important;
+    }
+}
+
 /* =========================================================
    MOBILTELEFON PÅ UTREDNINGSBORDET
 ========================================================= */
@@ -3914,6 +3937,8 @@ function openInvestigation() {
         "investigation"
     ).style.display = "block";
 
+    document.body.classList.add("investigation-active");
+
 
     window.scrollTo(0, 0);
 }
@@ -3976,6 +4001,8 @@ function closeMap() {
 ========================================================= */
 
 function goBack() {
+
+    document.body.classList.remove("investigation-active");
 
     document.getElementById(
         "investigation"
