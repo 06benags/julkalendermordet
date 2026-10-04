@@ -1293,8 +1293,9 @@ filter:brightness(0);}
 }
 
 /* På upplåst mobil behåll 5G och batteri, men dölj låsskärmens extra Dynamic Island. */
-.phone-lock-content.unlocked ~ .phone-home-status + .phone-home-apps{}
-.phone-lock-content.unlocked ~ * .phone-dynamic-island{}
+.phone-device-screen:has(.phone-lock-content.unlocked) .phone-lock-topbar .phone-dynamic-island{
+    display:none !important;
+}
 
 .phone-lock-topbar{
     position:absolute;
