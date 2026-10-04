@@ -2335,12 +2335,14 @@ filter:brightness(0);}
 .phone-real-map{pointer-events:none;user-select:none;-webkit-user-select:none;}
 .phone-real-map{
     position:absolute;
-    inset:-1px;
-    width:calc(100% + 2px);
-    height:calc(100% + 2px);
+    inset:0;
+    width:100%;
+    height:100%;
     border:0;
     display:block;
     background:#d9e2e7;
+    object-fit:contain;
+    object-position:center;
     transform-origin:center center;
     transition:transform .25s ease;
 }
@@ -2528,11 +2530,9 @@ filter:brightness(0);}
 filter:brightness(0);}</style>
 <style>
 .desktop-real-map-wrap{width:100%;max-width:1150px;margin:0 auto 28px}
-.desktop-real-map{position:relative;width:100%;height:min(52vw,520px);min-height:330px;overflow:hidden;border:1px solid rgba(0,0,0,.25);box-shadow:0 10px 30px rgba(0,0,0,.25);background:#dfe7e4}
-.desktop-real-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
-.desktop-map-pin{position:absolute;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);border-radius:50%;background:#1683e8;border:4px solid #fff;box-shadow:0 0 0 8px rgba(22,131,232,.2),0 2px 6px rgba(0,0,0,.35);z-index:3}
-.desktop-map-pin:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%);background:#fff;border-radius:50%}
-.desktop-map-label{position:absolute;left:calc(50% + 16px);top:calc(50% - 12px);padding:6px 9px;border-radius:7px;background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.2);font:600 10px Inter,sans-serif;color:#222;z-index:4;white-space:nowrap}
+.desktop-real-map{position:relative;width:100%;overflow:hidden;border:1px solid rgba(0,0,0,.25);box-shadow:0 10px 30px rgba(0,0,0,.25);background:#dfe7e4;line-height:0}
+.desktop-real-map img{display:block;width:100%;height:auto;max-width:100%;user-select:none;-webkit-user-drag:none}
+
 .desktop-map-caption{text-align:center;margin-top:8px;font:500 10px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#3b352d;opacity:.65}
 </style>
 </head>
@@ -2886,14 +2886,9 @@ filter:brightness(0);}</style>
 
         <div class="desktop-real-map-wrap">
             <div class="desktop-real-map">
-                <iframe
-                    title="Riktig karta över stugan i Särna, Dalarna"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=12.82%2C61.59%2C13.30%2C61.86&amp;layer=mapnik"
-                    loading="eager"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                <div class="desktop-map-pin" aria-label="Stugan och din position"></div>
-                <div class="desktop-map-label">Stugan · Din position</div>
+                <img
+                    src="Mappkarta.png"
+                    alt="Karta över stugan i Dalarna">
             </div>
             <div class="desktop-map-caption">Särna, Dalarna · registrerad position 23:41</div>
         </div>
@@ -4616,14 +4611,12 @@ function closePhoneApp() {
 <div class="phone-app-panel" id="phoneAppMaps">
   <div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kartor</strong><span>⌁</span></div>
   <div class="ios-map" id="phoneMapSurface">
-    <iframe
+    <img
       class="phone-real-map"
       id="phoneRealMap"
-      title="Karta över stugan i Dalarna"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=12.82%2C61.59%2C13.30%2C61.86&amp;layer=mapnik"
-      loading="eager"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+      src="Mappkarta.png"
+      alt="Karta över stugan i Dalarna"
+      draggable="false">
 
     <div class="map-real-overlay">
       <div class="map-location" aria-label="Din position">
