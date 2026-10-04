@@ -72,6 +72,51 @@ body::before {
 }
 
 
+.locked-door-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(6px);
+}
+
+.locked-door-card {
+    width: min(430px, 92vw);
+    padding: 42px 32px 30px;
+    text-align: center;
+    color: #30251c;
+    background: #f3ead8;
+    border: 1px solid rgba(255,255,255,.45);
+    box-shadow: 0 25px 70px rgba(0,0,0,.55);
+}
+
+.locked-door-kicker {
+    margin-bottom: 22px;
+    font-size: 10px;
+    letter-spacing: .2em;
+    opacity: .55;
+}
+
+.locked-door-card strong {
+    display: block;
+    font-family: Cinzel, serif;
+    font-size: 28px;
+    letter-spacing: .08em;
+}
+
+.locked-door-card button {
+    margin-top: 28px;
+    padding: 10px 25px;
+    border: 1px solid rgba(0,0,0,.25);
+    background: transparent;
+    color: #30251c;
+    cursor: pointer;
+}
+
 /* =========================================================
    STARTSIDA
 ========================================================= */
@@ -168,6 +213,28 @@ h1 {
     box-shadow:
         0 18px 35px rgba(0,0,0,.35),
         0 0 25px rgba(255,220,170,.12);
+}
+
+.door-locked {
+    filter: saturate(.45) brightness(.65);
+    cursor: not-allowed !important;
+}
+
+.door-locked:hover {
+    transform: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.18);
+}
+
+.door-status {
+    position: absolute;
+    bottom: 12px;
+    z-index: 3;
+    font-size: 8px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .72;
 }
 
 .number {
@@ -3164,6 +3231,14 @@ filter:brightness(0);}
 
 <body>
 
+<div id="lockedDoorOverlay" class="locked-door-overlay" onclick="closeLockedDoor()">
+    <div class="locked-door-card" onclick="event.stopPropagation()">
+        <div class="locked-door-kicker">JULMORDET · 2026</div>
+        <div id="lockedDoorText"></div>
+        <button type="button" onclick="closeLockedDoor()">Stäng</button>
+    </div>
+</div>
+
 
 <!-- =========================================================
      KALENDER
@@ -3201,7 +3276,7 @@ filter:brightness(0);}
 
         <h2>UTREDNING</h2>
 
-        <p>ÄRENDE 24-1224</p>
+        <p>ÄRENDE 26-1201</p>
 
     </div>
 
@@ -3228,7 +3303,7 @@ filter:brightness(0);}
             <div class="paper-line"></div>
 
             <p>
-                Utredningen inleds den 24 december.
+                Utredningen inleds den 1 december.
             </p>
 
             <div class="paper-label">
@@ -3349,7 +3424,7 @@ filter:brightness(0);}
       <img id="suspectViewerImage" src="IMG_0655.jpeg" alt="Benji Holm">
       <div class="suspect-viewer-caption">
         <strong id="suspectViewerName">Benji Holm</strong>
-        <span id="suspectViewerMeta">PERSONBILD · 24 DECEMBER</span>
+        <span id="suspectViewerMeta">PERSONBILD · 1 DECEMBER</span>
       </div>
     </div>
     <button class="suspect-nav suspect-next" onclick="nextSuspect()" aria-label="Nästa">›</button>
@@ -3367,7 +3442,7 @@ filter:brightness(0);}
             <p>Förundersökning · misstänkt dödsfall · fritidsstugan</p>
 
             <div class="interrogation-meta">
-                <div><strong>Förhörsdatum</strong>24 december</div>
+                <div><strong>Förhörsdatum</strong>1 december</div>
                 <div><strong>Plats</strong>Stugan · Förhör enskilt</div>
                 <div><strong>Förhörsledare</strong>Kriminalinspektör L. Andersson</div>
             </div>
@@ -3424,12 +3499,12 @@ filter:brightness(0);}
 
         <div class="document-top">
             <h2>FÖRUNDERSÖKNINGSPROTOKOLL</h2>
-            <div class="document-number">ÄRENDE 24-1224</div>
+            <div class="document-number">ÄRENDE 26-1201</div>
         </div>
 
         <div class="document-info">
             <div><strong>Ärendetyp</strong><br>Misstänkt dödsfall</div>
-            <div><strong>Datum</strong><br>24 december 2024</div>
+            <div><strong>Datum</strong><br>1 december 2026</div>
             <div><strong>Plats</strong><br>Brostugan, Långtjärnsvägen 47<br>796 91 Älvdalen</div>
             <div><strong>Avliden</strong><br>Benjamin Afsharazad, 20 år</div>
             <div><strong>Polisregion</strong><br>Bergslagen</div>
@@ -3439,7 +3514,7 @@ filter:brightness(0);}
         <h3>1. HÄNDELSERAPPORT</h3>
 
         <p>
-            Den 24 december 2024 klockan 10:23 inkom ett larmsamtal
+            Den 1 december 2026 klockan 10:23 inkom ett larmsamtal
             till SOS Alarm från Gustav Lindqvist, som befann sig i
             en fritidsstuga på ovan angiven adress tillsammans med
             fem vänner. Lindqvist uppgav att hans vän Benjamin
@@ -3448,7 +3523,7 @@ filter:brightness(0);}
 
         <p>
             Av de inledande uppgifterna framgår att sällskapet
-            hade anlänt till stugan den 23 december för att fira
+            hade anlänt till stugan den 30 november för att fira
             jul och uppesittarkväll. Under kvällen åt sällskapet
             middag och förtärde bland annat glögg, julmust och
             snacks. Alkohol uppges inte ha förekommit.
@@ -3515,7 +3590,7 @@ filter:brightness(0);}
         <h3>5. SAMTALSLOGG – SOS ALARM</h3>
 
         <div class="document-info" style="grid-template-columns: 1fr 1fr; margin-top:10px; margin-bottom:12px;">
-            <div><strong>Datum</strong><br>24 december 2024</div>
+            <div><strong>Datum</strong><br>1 december 2026</div>
             <div><strong>Tid</strong><br>10:23</div>
             <div><strong>Inringare</strong><br>Gustav Lindqvist</div>
             <div><strong>Ärende</strong><br>Medvetslös person / ingen andning</div>
@@ -3536,7 +3611,7 @@ filter:brightness(0);}
         <h3>6. VIKTIGA TIDPUNKTER</h3>
 
         <div class="document-timeline">
-            <p><strong>23 dec, kväll:</strong> Sällskapet anländer till stugan och firar uppesittarkväll.</p>
+            <p><strong>30 nov, kväll:</strong> Sällskapet anländer till stugan och firar uppesittarkväll.</p>
             <p><strong>ca 01:00–02:00:</strong> Benjamin Afsharazad och Gustav Lindqvist går och lägger sig.</p>
             <p><strong>ca 10:00:</strong> Gustav Lindqvist vaknar.</p>
             <p><strong>ca 10:20:</strong> Benjamin Afsharazad upptäcks vara livlös.</p>
@@ -3570,7 +3645,7 @@ filter:brightness(0);}
         </div>
 
         <div class="document-footer">
-            <span>ÄRENDE 24-1224 · FÖRUNDERSÖKNINGSPROTOKOLL</span>
+            <span>ÄRENDE 26-1201 · FÖRUNDERSÖKNINGSPROTOKOLL</span>
             <span>Sida 1</span>
         </div>
 
@@ -4150,40 +4225,88 @@ function checkPhoneCode() {
    KALENDER
 ========================================================= */
 
-const calendar =
-    document.getElementById("calendar");
+const calendar = document.getElementById("calendar");
 
+function getCalendarState() {
+    const now = new Date();
+    const start = new Date(2026, 11, 1);
+    const end = new Date(2026, 11, 24, 23, 59, 59);
+
+    if (now < start) return { unlocked: 0, phase: "before" };
+    if (now > end) return { unlocked: 24, phase: "after" };
+
+    return {
+        unlocked: Math.min(24, now.getDate()),
+        phase: "during"
+    };
+}
+
+function updateCalendarDoors() {
+    const state = getCalendarState();
+
+    document.querySelectorAll(".door").forEach((door, index) => {
+        const day = index + 1;
+        const unlocked = day <= state.unlocked;
+
+        door.classList.toggle("door-locked", !unlocked);
+        door.setAttribute("aria-disabled", unlocked ? "false" : "true");
+
+        const label = door.querySelector(".door-status");
+        if (label) {
+            label.textContent = unlocked ? "ÖPPEN" : "LÅST";
+        }
+
+        door.onclick = unlocked
+            ? openInvestigation
+            : () => showLockedDoor(day);
+    });
+
+    const subtitle = document.querySelector(".subtitle");
+    if (subtitle) {
+        if (state.phase === "before") {
+            subtitle.textContent = "Mordet inträffar 1 december 2026 · Utredningen öppnar dag för dag";
+        } else if (state.phase === "during") {
+            subtitle.textContent = "Kan du lösa mordet på 24 dagar?";
+        } else {
+            subtitle.textContent = "Utredningen är öppen · Kan du lösa mordet?";
+        }
+    }
+}
+
+function showLockedDoor(day) {
+    const date = new Date(2026, 11, day);
+    const month = "december";
+    const overlay = document.getElementById("lockedDoorOverlay");
+    const text = document.getElementById("lockedDoorText");
+
+    if (!overlay || !text) return;
+
+    text.innerHTML =
+        "<strong>LUCKA " + day + "</strong><br><br>" +
+        "Den här luckan är låst.<br>" +
+        "Den öppnas " + day + " " + month + " 2026.";
+
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function closeLockedDoor() {
+    const overlay = document.getElementById("lockedDoorOverlay");
+    if (overlay) overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+}
 
 for (let i = 1; i <= 24; i++) {
-
-    const door =
-        document.createElement("button");
-
+    const door = document.createElement("button");
     door.type = "button";
-
     door.className = "door";
-
     door.innerHTML =
-        `<span class="number">${i}</span>`;
-
-
-    if (i === 1) {
-
-        door.addEventListener(
-            "click",
-            openInvestigation
-        );
-
-    }
-    else {
-
-        door.style.cursor = "default";
-
-    }
-
-
+        `<span class="number">${i}</span><span class="door-status"></span>`;
     calendar.appendChild(door);
 }
+
+updateCalendarDoors();
+setInterval(updateCalendarDoors, 60 * 1000);
 
 
 /* =========================================================
@@ -5540,9 +5663,9 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
 <div class="phone-app-panel" id="phoneAppClock"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Klocka</strong><span>＋</span></div><div class="ios-dark-body"><div class="clock-face">23:41</div><div class="alarm-row"><strong>07:30</strong><small>På · Vardagar</small></div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppWeather"><div class="ios-app-header weather-head"><button onclick="closePhoneApp()">‹</button><strong>Väder</strong><span>•••</span></div><div class="weather-screen"><small>Fårö</small><strong>2°</strong><span>Mulet</span><p>Vind 8 m/s · N</p></div></div>
+  <div class="phone-app-panel" id="phoneAppWeather"><div class="ios-app-header weather-head"><button onclick="closePhoneApp()">‹</button><strong>Väder</strong><span>•••</span></div><div class="weather-screen"><small>Dalarna</small><strong>-4°</strong><span>Mulet</span><p>Vind 5 m/s · N</p></div></div>
 
-  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
+  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>30/11</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
 
   <div class="phone-app-panel" id="phoneAppReminders"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Påminnelser</strong><span>＋</span></div><div class="ios-app-body"><div class="reminder">○ Prata med Moa</div><div class="reminder">○ Kolla kameran</div><div class="reminder">○ Ring Gustav</div></div></div>
 
@@ -5552,11 +5675,11 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppMail"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Mail</strong><span>✎</span></div><div class="ios-app-body"><div class="mail-message"><strong>Vi måste prata</strong><small>Från: Moa · 20:11</small><p>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</p></div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>Igår 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>Igår 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>23 dec · 23:52 · Missat samtal</small></div></div></div>
+  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>30 nov 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>30 nov 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>30 nov · 23:52 · Missat samtal</small></div></div></div>
 
   <div class="phone-app-panel" id="phoneAppSafari"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Safari</strong><span>＋</span></div><div class="ios-browser"><div class="browser-bar">sök eller skriv webbplats</div><h2>Ingen anslutning</h2><p>Det finns ingen internetanslutning.</p></div></div>
 
-  <div class="phone-app-panel" id="phoneAppSpotify"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Spotify</strong><span>•••</span></div><div class="spotify-screen"><div class="album-art">JUL<br>2024</div><strong>Senast spelade</strong><p>Christmas Classics</p></div></div>
+  <div class="phone-app-panel" id="phoneAppSpotify"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Spotify</strong><span>•••</span></div><div class="spotify-screen"><div class="album-art">JUL<br>2026</div><strong>Senast spelade</strong><p>Christmas Classics</p></div></div>
 
   <div class="phone-app-panel" id="phoneAppWhatsApp"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>WhatsApp</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Senast online 20:41</small></div></div></div></div>
 
