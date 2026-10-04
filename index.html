@@ -2900,6 +2900,84 @@ filter:brightness(0);}
     opacity:1!important;
 }
 
+
+/* =========================================================
+   MISSTÄNKTA — BÄTTRE MOBILVISNING
+========================================================= */
+@media (max-width:600px){
+    .suspects-overlay{
+        padding:0 !important;
+        align-items:center !important;
+        justify-content:center !important;
+        background:rgba(8,7,6,.91) !important;
+    }
+    .suspects-viewer{
+        width:92vw !important;
+        max-width:420px !important;
+        padding:26px 34px 34px !important;
+        box-sizing:border-box !important;
+    }
+    .suspect-enlarged-photo{
+        width:100% !important;
+        padding:8px 8px 18px !important;
+        box-sizing:border-box !important;
+        transform:rotate(-.7deg) !important;
+        box-shadow:0 16px 34px rgba(0,0,0,.55) !important;
+    }
+    .suspect-enlarged-photo img{
+        width:100% !important;
+        height:auto !important;
+        max-height:62vh !important;
+        object-fit:contain !important;
+        object-position:center !important;
+        background:#d6cec0 !important;
+    }
+    .suspect-viewer-caption{
+        margin-top:8px !important;
+        padding:0 4px !important;
+        gap:3px !important;
+    }
+    .suspect-viewer-caption strong{
+        font-size:19px !important;
+        line-height:1.15 !important;
+    }
+    .suspect-viewer-caption span{
+        font-size:8px !important;
+        letter-spacing:.12em !important;
+    }
+    .suspect-nav{
+        width:44px !important;
+        height:44px !important;
+        font-size:30px !important;
+        line-height:40px !important;
+        background:rgba(0,0,0,.58) !important;
+    }
+    .suspect-prev{left:-2px !important;}
+    .suspect-next{right:-2px !important;}
+    .suspect-counter{
+        bottom:8px !important;
+        font-size:10px !important;
+    }
+}
+
+@media (max-width:390px){
+    .suspects-viewer{
+        width:94vw !important;
+        padding-left:30px !important;
+        padding-right:30px !important;
+        padding-top:22px !important;
+    }
+    .suspect-enlarged-photo{
+        padding:7px 7px 16px !important;
+    }
+    .suspect-enlarged-photo img{
+        max-height:60vh !important;
+    }
+    .suspect-nav{width:40px !important;height:40px !important;}
+    .suspect-prev{left:-1px !important;}
+    .suspect-next{right:-1px !important;}
+}
+
 </style>
 <style>
 .desktop-real-map-wrap{width:100%;max-width:1150px;margin:0 auto 28px}
