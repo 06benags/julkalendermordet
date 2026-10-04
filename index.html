@@ -2886,32 +2886,27 @@ filter:brightness(0);}</style>
                 <h3>PERSONER</h3>
 
                 <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
-                    <strong>Moa</strong>
+                    <strong>Moa Brandin</strong>
                     <small>Förhör 09:14 · 18 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('benji',this)">
-                    <strong>Benji</strong>
+                    <strong>Benji Holm</strong>
                     <small>Förhör 09:46 · 14 min</small>
                 </button>
 
-                <button class="interrogation-person" onclick="showInterrogation('benjamin',this)">
-                    <strong>Benjamin</strong>
-                    <small>Förhör 10:12 · 22 min</small>
-                </button>
-
                 <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
-                    <strong>Gustav</strong>
+                    <strong>Gustav Lindqvist</strong>
                     <small>Förhör 10:51 · 16 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
-                    <strong>Elham</strong>
+                    <strong>Elham Nouri</strong>
                     <small>Förhör 11:23 · 19 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
-                    <strong>Cecilia</strong>
+                    <strong>Cecilia Isaksson</strong>
                     <small>Förhör 12:01 · 17 min</small>
                 </button>
             </aside>
@@ -4655,39 +4650,6 @@ benji:{
     note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser.",
     photoCaption:"Benji · porträtt för identifiering"
 },
-benjamin:{
-    time:"10:12",
-    role:"Bekant till den avlidne",
-    image:"forhor-benjamin.jpg",
-    text:[
-        ["Förhörsledaren","Vi tar hela dygnet. Börja med morgonen.","officer"],
-        ["Benjamin","Jag vaknade vid åtta eller halv nio. Jag gick ner, åt frukost och sen var jag mest ute med Gustav och Benji.",""],
-        ["Förhörsledaren","Hur var relationen mellan dig och den avlidne?","officer"],
-        ["Benjamin","Bra. Vi var vänner.",""],
-        ["Förhörsledaren","Ni pratade om pengar.","officer"],
-        ["Benjamin","Ja, det gjorde vi. Jag hade lånat honom pengar tidigare.",""],
-        ["Förhörsledaren","När pratade ni om det?","officer"],
-        ["Benjamin","På eftermiddagen. Inget stort.",""],
-        ["Förhörsledaren","Och efter middagen?","officer"],
-        ["Benjamin","Vi pratade igen. Det blev lite hetare, men vi bråkade inte.",""],
-        ["Förhörsledaren","När såg du honom senast?","officer"],
-        ["Benjamin","Strax före elva. Han var i vardagsrummet. Jag gick upp efter det.",""],
-        ["Förhörsledaren","Du har sagt att du gick upp före elva.","officer"],
-        ["Benjamin","Då har jag sagt fel. Jag var stressad när ni frågade första gången.",""],
-        ["Förhörsledaren","Någon såg dig i hallen omkring 23:10.","officer"],
-        ["Benjamin","Det kan stämma. Jag gick ner för att hämta vatten.",""],
-        ["Förhörsledaren","Varför nämnde du inte det tidigare?","officer"],
-        ["Benjamin","För att jag inte tänkte på det som en viktig del av kvällen.",""],
-        ["Förhörsledaren","Hade du kontakt med honom efter 23:10?","officer"],
-        ["Benjamin","Nej. Inte vad jag minns.",""],
-        ["Förhörsledaren","Ringde eller skrev ni till varandra?","officer"],
-        ["Benjamin","Inte vad jag minns.",""],
-        ["Förhörsledaren","Vad gjorde du sedan?","officer"],
-        ["Benjamin","Jag gick upp och lade mig. Jag tror jag somnade ganska snabbt.",""]
-    ],
-    note:"Benjamin korrigerar sin tidslinje under förhöret. Hans uppgifter bör kontrolleras mot telefonens loggar och övriga personers tidsuppgifter.",
-    photoCaption:"Benjamin · porträtt för identifiering"
-},
 gustav:{
     time:"10:51",
     role:"Vän till sällskapet",
@@ -4775,6 +4737,7 @@ cecilia:{
 }
 };
 
+const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Gustav Lindqvist",elham:"Elham Nouri",cecilia:"Cecilia Isaksson"};
 function openInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
     if(!overlay)return;
