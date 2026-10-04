@@ -1247,6 +1247,181 @@ h1 {
 
 
 
+
+/* =========================================================
+   FÖRHÖR — REALISTISK UTREDNINGSVY
+========================================================= */
+.interrogation-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:190;
+    padding:28px;
+    background:rgba(10,9,7,.94);
+    backdrop-filter:blur(7px);
+    overflow-y:auto;
+}
+.interrogation-window{
+    width:min(1050px,100%);
+    margin:20px auto 50px;
+    background:#eee8da;
+    color:#28251f;
+    box-shadow:0 30px 90px rgba(0,0,0,.75);
+    border:1px solid rgba(255,255,255,.12);
+}
+.interrogation-top{
+    padding:28px 34px 22px;
+    border-bottom:1px solid rgba(0,0,0,.18);
+    background:#e6dfd0;
+}
+.interrogation-top h2{
+    font-family:Cinzel,serif;
+    font-size:28px;
+    letter-spacing:.08em;
+}
+.interrogation-top p{
+    margin-top:8px;
+    font-size:11px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    opacity:.58;
+}
+.interrogation-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    margin-top:20px;
+    border:1px solid rgba(0,0,0,.14);
+    background:rgba(0,0,0,.14);
+}
+.interrogation-meta div{
+    padding:12px 14px;
+    background:#eee8da;
+    font-size:11px;
+}
+.interrogation-meta strong{
+    display:block;
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    opacity:.55;
+    margin-bottom:4px;
+}
+.interrogation-layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    min-height:560px;
+}
+.interrogation-suspects{
+    padding:22px 16px;
+    background:#ddd5c5;
+    border-right:1px solid rgba(0,0,0,.15);
+}
+.interrogation-suspects h3{
+    font-family:Cinzel,serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    margin:0 0 12px 8px;
+}
+.interrogation-person{
+    width:100%;
+    padding:13px 12px;
+    margin-bottom:7px;
+    text-align:left;
+    border:1px solid rgba(0,0,0,.15);
+    background:#ebe4d5;
+    color:#28251f;
+    cursor:pointer;
+    font-family:Inter,sans-serif;
+}
+.interrogation-person:hover,
+.interrogation-person.active{
+    background:#3a3025;
+    color:#f5eddf;
+}
+.interrogation-person strong{
+    display:block;
+    font-size:12px;
+}
+.interrogation-person small{
+    display:block;
+    margin-top:3px;
+    font-size:9px;
+    opacity:.6;
+}
+.interrogation-main{
+    padding:30px 34px 36px;
+}
+.interrogation-person-header{
+    border-bottom:1px solid rgba(0,0,0,.16);
+    padding-bottom:17px;
+    margin-bottom:20px;
+}
+.interrogation-person-header h3{
+    font-family:Cinzel,serif;
+    font-size:23px;
+}
+.interrogation-person-header p{
+    margin-top:5px;
+    font-size:11px;
+    opacity:.6;
+}
+.interrogation-transcript{
+    font-size:13px;
+    line-height:1.75;
+}
+.interrogation-entry{
+    margin-bottom:19px;
+}
+.interrogation-entry .speaker{
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#746956;
+    margin-bottom:4px;
+}
+.interrogation-entry .speech{
+    padding-left:15px;
+    border-left:2px solid #b7ad9b;
+}
+.interrogation-entry.officer .speech{
+    border-left-color:#51463a;
+}
+.interrogation-note{
+    margin-top:25px;
+    padding:15px 17px;
+    background:#e3dbc9;
+    border:1px solid rgba(0,0,0,.14);
+    font-size:11px;
+    line-height:1.65;
+}
+.interrogation-note strong{
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+.interrogation-close{
+    display:block;
+    margin:0 auto 25px;
+    padding:11px 22px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.3);
+    color:#fff;
+    font-family:Inter,sans-serif;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+@media(max-width:700px){
+    .interrogation-overlay{padding:10px}
+    .interrogation-layout{grid-template-columns:1fr}
+    .interrogation-suspects{border-right:0;border-bottom:1px solid rgba(0,0,0,.15)}
+    .interrogation-meta{grid-template-columns:1fr}
+    .interrogation-main{padding:24px 20px}
+}
+
 /* =========================================================
    TELEFONENS KODLÅS — REALISTISK SMARTPHONE
 ========================================================= */
@@ -2592,7 +2767,7 @@ filter:brightness(0);}</style>
 
         <!-- FÖRHÖR -->
 
-        <div class="paper">
+        <div class="paper" onclick="openInterrogation()">
 
             <h3>Förhör</h3>
 
@@ -2610,7 +2785,7 @@ filter:brightness(0);}</style>
             </p>
 
             <div class="paper-label">
-                Kommer senare
+                Klicka för att öppna
             </div>
 
         </div>
@@ -2676,6 +2851,72 @@ filter:brightness(0);}</style>
 </section>
 
 
+
+
+
+
+<!-- =========================================================
+     FÖRHÖR
+========================================================= -->
+
+<div class="interrogation-overlay" id="interrogationOverlay">
+
+    <div class="interrogation-window">
+
+        <div class="interrogation-top">
+            <h2>FÖRHÖRSPROTOKOLL</h2>
+            <p>Förundersökning · misstänkt dödsfall · fritidsstugan</p>
+
+            <div class="interrogation-meta">
+                <div><strong>Förhörsdatum</strong>24 december</div>
+                <div><strong>Plats</strong>Förhörsrum 2</div>
+                <div><strong>Förhörsledare</strong>Kriminalinspektör L. Andersson</div>
+            </div>
+        </div>
+
+        <div class="interrogation-layout">
+
+            <aside class="interrogation-suspects">
+                <h3>PERSONER</h3>
+
+                <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
+                    <strong>Moa</strong>
+                    <small>Förhör 09:14 · 18 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('benji',this)">
+                    <strong>Benji</strong>
+                    <small>Förhör 09:46 · 14 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('benjamin',this)">
+                    <strong>Benjamin</strong>
+                    <small>Förhör 10:12 · 22 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
+                    <strong>Gustav</strong>
+                    <small>Förhör 10:51 · 16 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('elham',this)">
+                    <strong>Elham</strong>
+                    <small>Förhör 11:23 · 19 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
+                    <strong>Cecilia</strong>
+                    <small>Förhör 12:01 · 17 min</small>
+                </button>
+            </aside>
+
+            <main class="interrogation-main" id="interrogationContent"></main>
+
+        </div>
+    </div>
+
+    <button class="interrogation-close" onclick="closeInterrogation()">Stäng förhör</button>
+</div>
 
 <!-- =========================================================
      FÖRUNDERSÖKNING
@@ -4344,6 +4585,127 @@ function resetPuzzle() {
     ).textContent = "";
 }
 
+
+const interrogationData = {
+moa:{
+    time:"09:14",
+    text:[
+        ["Förhörsledaren","När såg du Benjamin senast?","officer"],
+        ["Moa","Vid köksbordet. Jag tror att klockan var runt 22:30. Han satt kvar när jag gick därifrån.",""],
+        ["Förhörsledaren","Vad gjorde han?","officer"],
+        ["Moa","Han skrev på sin telefon. Han verkade stressad, men jag frågade inte varför.",""],
+        ["Förhörsledaren","Du har tidigare sagt att du gick och lade dig 22:45.","officer"],
+        ["Moa","Ja. Jag gick upp till rummet och låg där en stund. Jag hörde röster nereifrån senare.",""],
+        ["Förhörsledaren","Vilka röster?","officer"],
+        ["Moa","Jag är inte säker. En man och en kvinna. Jag hörde inte vad de sa.",""]
+    ],
+    note:"Tidsuppgiften är osäker. Vittnet skiljer tydligt mellan vad hon såg och vad hon tror att hon hörde."
+},
+benji:{
+    time:"09:46",
+    text:[
+        ["Förhörsledaren","När gick du och lade dig?","officer"],
+        ["Benji","Strax efter elva. Jag var trött och ville bara sova.",""],
+        ["Förhörsledaren","Var du nere efter det?","officer"],
+        ["Benji","Nej. Inte vad jag minns.",""],
+        ["Förhörsledaren","Någon annan har uppgett att en person var kvar i köket efter 23:00.","officer"],
+        ["Benji","Då måste det ha varit någon annan. Jag var på mitt rum.",""],
+        ["Förhörsledaren","Hörde du något från köket?","officer"],
+        ["Benji","Ett ljud, kanske en stol. Men jag tänkte inte på det då.",""]
+    ],
+    note:"Förhöret innehåller inga säkra observationer efter 23:00. Uppgiften om köket bör jämföras med övriga förhör."
+},
+benjamin:{
+    time:"10:12",
+    text:[
+        ["Förhörsledaren","Du och den avlidne hade ett bråk under kvällen. Stämmer det?","officer"],
+        ["Benjamin","Vi hade en diskussion. Det var inte ett bråk.",""],
+        ["Förhörsledaren","Vad handlade den om?","officer"],
+        ["Benjamin","Pengar. Jag ville ha tillbaka något jag hade lånat ut.",""],
+        ["Förhörsledaren","När lämnade du honom?","officer"],
+        ["Benjamin","Lite före elva. Sedan gick jag upp.",""],
+        ["Förhörsledaren","Någon såg dig i hallen senare.","officer"],
+        ["Benjamin","Det kan stämma. Jag gick ner för att hämta vatten.",""],
+        ["Förhörsledaren","Varför nämnde du inte det tidigare?","officer"],
+        ["Benjamin","Jag trodde inte att det var viktigt.",""]
+    ],
+    note:"Benjamin ändrar sin tidslinje efter att han konfronteras med en annan uppgift. Det betyder inte i sig att uppgiften är falsk, men tidslinjen behöver verifieras."
+},
+gustav:{
+    time:"10:51",
+    text:[
+        ["Förhörsledaren","Du uppgav att du gick och lade dig 22:50.","officer"],
+        ["Gustav","Ja.",""],
+        ["Förhörsledaren","Moa säger att hon hörde någon tala i köket efter 23:00. Kan det ha varit du?","officer"],
+        ["Gustav","Nej. Jag sov.",""],
+        ["Förhörsledaren","Hörde du något innan du somnade?","officer"],
+        ["Gustav","Nej. Jag var trött.",""],
+        ["Förhörsledaren","Du ringde Benjamin 23:48. Varför?","officer"],
+        ["Gustav","Jag... jag minns inte att jag ringde honom.",""]
+    ],
+    note:"Telefonuppgiften är konkret och står i konflikt med Gustavs uppgift om att han sov. Kontrollera samtalsloggen."
+},
+elham:{
+    time:"11:23",
+    text:[
+        ["Förhörsledaren","När såg du den avlidne senast?","officer"],
+        ["Elham","I vardagsrummet. Jag tror att det var runt 23:10.",""],
+        ["Förhörsledaren","Varför är du osäker på tiden?","officer"],
+        ["Elham","Jag tittade inte på klockan. Jag minns bara att alla andra hade börjat gå upp.",""],
+        ["Förhörsledaren","Såg du någon annan?","officer"],
+        ["Elham","Benjamin stod i hallen. Han verkade leta efter något.",""],
+        ["Förhörsledaren","Sa han något till dig?","officer"],
+        ["Elham","Nej. Han gick förbi mig.",""]
+    ],
+    note:"Elham placerar Benjamin i hallen omkring 23:10. Uppgiften är relevant eftersom Benjamin själv först uppgav att han gick upp före 23:00."
+},
+cecilia:{
+    time:"12:01",
+    text:[
+        ["Förhörsledaren","Du sa att du var på ditt rum större delen av kvällen.","officer"],
+        ["Cecilia","Ja.",""],
+        ["Förhörsledaren","När gick du senast ut ur rummet?","officer"],
+        ["Cecilia","Strax efter elva. Jag gick på toaletten.",""],
+        ["Förhörsledaren","Såg du någon i hallen?","officer"],
+        ["Cecilia","Jag tror att Benjamin var där. Jag är inte helt säker.",""],
+        ["Förhörsledaren","Hörde du något från vardagsrummet?","officer"],
+        ["Cecilia","Nej. Jag hörde bara dörren till köket stängas.",""]
+    ],
+    note:"Cecilia är osäker på identiteten i hallen. Uppgiften om köksdörren kan däremot jämföras med andra vittnesuppgifter."
+}
+};
+
+function openInterrogation(){
+    const overlay=document.getElementById("interrogationOverlay");
+    if(!overlay)return;
+    overlay.style.display="block";
+    const first=overlay.querySelector(".interrogation-person");
+    showInterrogation("moa",first);
+}
+function closeInterrogation(){
+    const overlay=document.getElementById("interrogationOverlay");
+    if(overlay)overlay.style.display="none";
+}
+function showInterrogation(key,button){
+    const data=interrogationData[key];
+    const content=document.getElementById("interrogationContent");
+    if(!data||!content)return;
+    document.querySelectorAll(".interrogation-person").forEach(b=>b.classList.remove("active"));
+    if(button)button.classList.add("active");
+    content.innerHTML=`
+        <div class="interrogation-person-header">
+            <h3>Förhör med ${key.charAt(0).toUpperCase()+key.slice(1)}</h3>
+            <p>Förhör påbörjat ${data.time} · Protokollutdrag</p>
+        </div>
+        <div class="interrogation-transcript">
+            ${data.text.map(row=>`<div class="interrogation-entry ${row[2]||""}">
+                <div class="speaker">${row[0]}</div>
+                <div class="speech">${row[1]}</div>
+            </div>`).join("")}
+        </div>
+        <div class="interrogation-note"><strong>Utredningsanteckning</strong><br>${data.note}</div>
+    `;
+}
 
 let phoneMapZoom=1;
 function applyPhoneMapTransform(){
