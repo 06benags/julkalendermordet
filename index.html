@@ -2332,6 +2332,7 @@ filter:brightness(0);}
     isolation:isolate;
     touch-action:none;
 }
+.phone-real-map{pointer-events:none;user-select:none;-webkit-user-select:none;}
 .phone-real-map{
     position:absolute;
     inset:-1px;
@@ -4366,7 +4367,7 @@ function applyPhoneMapTransform(){
     map.style.transform="scale("+phoneMapZoom+")";
 }
 function zoomPhoneMap(d){
-    phoneMapZoom=Math.min(2.4,Math.max(1,phoneMapZoom+d*.2));
+    phoneMapZoom=Math.min(1.35,Math.max(1,phoneMapZoom+d*.15));
     applyPhoneMapTransform();
 }
 function locatePhoneMap(){
@@ -4381,7 +4382,7 @@ function mapDirections(){
     const c=document.getElementById("phoneMapCard");
     if(c){
         const p=c.querySelector("p");
-        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41";
+        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41 · Dalarna";
     }
 }
 let phoneCameraStream = null;
@@ -4595,8 +4596,8 @@ function closePhoneApp() {
     <iframe
       class="phone-real-map"
       id="phoneRealMap"
-      title="Karta över Fårö"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=19.16%2C57.955%2C19.24%2C58.005&amp;layer=mapnik"
+      title="Karta över den fiktiva stugan i Dalarna"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=12.96%2C61.68%2C13.12%2C61.77&amp;layer=mapnik"
       loading="eager"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
@@ -4620,7 +4621,7 @@ function closePhoneApp() {
     <div class="map-card" id="phoneMapCard">
       <small>Senaste plats</small>
       <strong>Stugan</strong>
-      <p>Registrerad position · 23:41 · Fårö</p>
+      <p>Registrerad position · 23:41 · Dalarna</p>
       <button type="button" onclick="mapDirections()">Vägbeskrivning</button>
       <button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button>
     </div>
