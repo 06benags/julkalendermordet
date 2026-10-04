@@ -448,6 +448,160 @@ h1 {
    DOKUMENT
 ========================================================= */
 
+/* POLISDOKUMENT – FÖRUNDERSÖKNING */
+.document {
+    width: min(900px, 100%);
+    min-height: 1120px;
+    margin: 12px auto 50px;
+    padding: 54px 62px 70px;
+    background: #f7f7f4;
+    color: #171717;
+    box-shadow: 0 18px 55px rgba(0,0,0,.55);
+    position: relative;
+    border: 1px solid #c9c9c4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.document::before {
+    content: "POLISMYNDIGHETEN";
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1c1c1c;
+}
+
+.document-top {
+    text-align: left;
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.document-top h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    margin-bottom: 5px;
+}
+
+.document-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    opacity: 1;
+}
+
+.document-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 20px 0 28px;
+    padding: 0;
+    border: 1px solid #8d8d88;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.document-info > div {
+    padding: 10px 12px;
+    min-height: 56px;
+    border-right: 1px solid #b5b5b0;
+    border-bottom: 1px solid #b5b5b0;
+}
+
+.document-info > div:nth-child(2n) {
+    border-right: 0;
+}
+
+.document-info > div:nth-last-child(-n+2) {
+    border-bottom: 0;
+}
+
+.document h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #777;
+}
+
+.document p {
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.document-transcript {
+    margin: 8px 0 25px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #a6a6a1;
+    font-family: "Courier New", monospace;
+}
+
+.document-transcript p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.document-timeline {
+    border-left: 3px solid #555;
+    padding-left: 15px;
+    margin: 12px 0 25px;
+}
+
+.document-timeline p {
+    margin-bottom: 7px;
+}
+
+.document-status {
+    margin-top: 30px;
+    padding: 14px 16px;
+    border: 1px solid #777;
+    background: #eeeeeb;
+}
+
+.document-status strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+}
+
+.document-status p {
+    margin: 0;
+}
+
+.document-footer {
+    margin-top: 45px;
+    padding-top: 10px;
+    border-top: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: #555;
+}
+
+.document-stamp {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 5px 9px;
+    border: 1px solid #777;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #444;
+}
+
 .document-overlay {
 
     display: none;
@@ -3262,190 +3416,162 @@ filter:brightness(0);}
      FÖRUNDERSÖKNING
 ========================================================= -->
 
-<div
-    class="document-overlay"
-    id="documentOverlay"
->
+<div class="document-overlay" id="documentOverlay">
 
-    <button
-        class="unified-close"
-        onclick="closeDocument()"
-        aria-label="Stäng"
-    >
-        ×
-    </button>
+    <button class="unified-close" onclick="closeDocument()" aria-label="Stäng">×</button>
 
     <article class="document">
 
         <div class="document-top">
-
-            <h2>FÖRUNDERSÖKNING</h2>
-
-            <div class="document-number">
-                ÄRENDE 24-1224
-            </div>
-
+            <h2>FÖRUNDERSÖKNINGSPROTOKOLL</h2>
+            <div class="document-number">ÄRENDE 24-1224</div>
         </div>
 
         <div class="document-info">
-
-            <div>
-                <strong>Ärendetyp:</strong><br>
-                Misstänkt dödsfall
-            </div>
-
-            <div>
-                <strong>Datum:</strong><br>
-                24 december 2024
-            </div>
-
-            <div>
-                <strong>Plats:</strong><br>
-                Brostugan, Långtjärnsvägen 47<br>
-                796 91 Älvdalen, Dalarnas län
-            </div>
-
-            <div>
-                <strong>Avliden:</strong><br>
-                Benjamin Afsharazad, 20 år
-            </div>
-
+            <div><strong>Ärendetyp</strong><br>Misstänkt dödsfall</div>
+            <div><strong>Datum</strong><br>24 december 2024</div>
+            <div><strong>Plats</strong><br>Brostugan, Långtjärnsvägen 47<br>796 91 Älvdalen</div>
+            <div><strong>Avliden</strong><br>Benjamin Afsharazad, 20 år</div>
+            <div><strong>Polisregion</strong><br>Bergslagen</div>
+            <div><strong>Status</strong><br>Pågående utredning</div>
         </div>
 
-        <h3>BAKGRUND</h3>
+        <h3>1. HÄNDELSERAPPORT</h3>
 
         <p>
-            Den 24 december 2024 inkom ett larmsamtal från
-            Brostugan i Älvdalens kommun. En person hade
-            påträffats livlös i ett av stugans sovrum.
+            Den 24 december 2024 klockan 10:23 inkom ett larmsamtal
+            till SOS Alarm från Gustav Lindqvist, som befann sig i
+            en fritidsstuga på ovan angiven adress tillsammans med
+            fem vänner. Lindqvist uppgav att hans vän Benjamin
+            Afsharazad inte gick att väcka och att han inte andades.
         </p>
 
         <p>
-            Den avlidne identifierades som Benjamin Afsharazad,
-            20 år. Benjamin hade befunnit sig i stugan tillsammans
-            med fem vänner: Gustav Lindqvist, Benji Holm,
-            Moa Brandin, Elham Nouri och Cecilia Isaksson.
+            Av de inledande uppgifterna framgår att sällskapet
+            hade anlänt till stugan den 23 december för att fira
+            jul och uppesittarkväll. Under kvällen åt sällskapet
+            middag och förtärde bland annat glögg, julmust och
+            snacks. Alkohol uppges inte ha förekommit.
         </p>
 
         <p>
-            Sällskapet hade anlänt den 23 december för att fira
-            jul och uppesittarkväll tillsammans. Under kvällen
-            åt sällskapet middag och drack bland annat glögg
-            och julmust. Ingen alkohol förekom enligt de
-            inledande uppgifterna.
+            Benjamin Afsharazad och Gustav Lindqvist gick och lade
+            sig omkring klockan 01:00–02:00. Under natten befann
+            sig samtliga sex personer i stugan.
         </p>
 
-        <h3>HÄNDELSEFÖRLOPP</h3>
+        <h3>2. ANTRÄFFANDE</h3>
 
         <p>
-            Benjamin och Gustav gick och lade sig omkring
-            kl. 01:00–02:00. Övriga personer gick till sina
-            sovplatser under natten. Det finns inga säkra
-            uppgifter om exakt när samtliga personer somnade.
+            Lindqvist uppger att han vaknade omkring klockan 10:00.
+            Efter cirka 20 minuter uppmärksammade han att Afsharazad
+            fortfarande var helt stilla. Lindqvist försökte väcka
+            honom och kontrollerade därefter andningen.
         </p>
 
         <p>
-            Vid cirka kl. 10:00 vaknade Gustav. Efter ungefär
-            20 minuter uppmärksammade han att Benjamin fortfarande
-            var helt stilla. Gustav försökte väcka honom och
-            kontrollerade hans andning.
+            Afsharazad reagerade inte och uppvisade enligt Lindqvist
+            ingen andning. Lindqvist kontaktade SOS Alarm och
+            påbörjade hjärt-lungräddning enligt instruktion.
+        </p>
+
+        <h3>3. RÄDDNINGSPERSONAL OCH POLIS</h3>
+
+        <p>
+            Ambulans anlände till platsen klockan 10:58. HLR
+            övertogs av ambulanspersonal. Benjamin Afsharazad
+            konstaterades avliden på platsen.
         </p>
 
         <p>
-            Benjamin reagerade inte och andades inte. Gustav
-            kontaktade SOS Alarm kl. 10:23 och påbörjade
-            hjärt-lungräddning enligt instruktion från SOS Alarm.
+            Vid den initiala bedömningen noterades inga uppenbara
+            yttre skador. Dödsorsaken kunde inte fastställas på
+            plats.
         </p>
 
-        <h3>SOS-ALARM – TRANSKRIBERING</h3>
+        <p>
+            Polis anlände klockan 11:25. De fem övriga personerna
+            befann sig då fortfarande i stugan. En inledande
+            brottsplatsundersökning genomfördes och relevanta
+            föremål dokumenterades för eventuell fortsatt
+            kriminalteknisk undersökning.
+        </p>
+
+        <h3>4. PERSONER PÅ PLATSEN</h3>
+
+        <p>
+            Förutom den avlidne befann sig följande personer i
+            stugan vid tidpunkten för händelsen:
+        </p>
+
+        <p>
+            Gustav Lindqvist – vän till den avlidne.<br>
+            Benji Holm – vän till den avlidne.<br>
+            Moa Brandin – vän till den avlidne.<br>
+            Elham Nouri – vän till den avlidne.<br>
+            Cecilia Isaksson – vän till den avlidne.
+        </p>
+
+        <h3>5. SAMTALSLOGG – SOS ALARM</h3>
+
+        <div class="document-info" style="grid-template-columns: 1fr 1fr; margin-top:10px; margin-bottom:12px;">
+            <div><strong>Datum</strong><br>24 december 2024</div>
+            <div><strong>Tid</strong><br>10:23</div>
+            <div><strong>Inringare</strong><br>Gustav Lindqvist</div>
+            <div><strong>Ärende</strong><br>Medvetslös person / ingen andning</div>
+        </div>
 
         <div class="document-transcript">
-
             <p><strong>10:23:14 – SOS:</strong> SOS Alarm, vad har inträffat?</p>
-
             <p><strong>10:23:20 – Gustav:</strong> Min kompis... han andas inte. Jag får ingen kontakt med honom.</p>
-
             <p><strong>10:23:27 – SOS:</strong> Var befinner ni er?</p>
-
             <p><strong>10:23:35 – Gustav:</strong> Vi är i en stuga... Brostugan, Långtjärnsvägen 47.</p>
-
             <p><strong>10:23:49 – SOS:</strong> Är han vaken?</p>
-
             <p><strong>10:23:53 – Gustav:</strong> Nej. Jag har försökt väcka honom. Han reagerar inte.</p>
-
             <p><strong>10:24:02 – SOS:</strong> Kontrollera om han andas.</p>
-
             <p><strong>10:24:14 – Gustav:</strong> Nej... nej, han andas inte.</p>
-
             <p><strong>10:24:20 – SOS:</strong> Okej. Vi ska börja med hjärt-lungräddning.</p>
-
         </div>
 
-        <h3>RÄDDNINGSPERSONAL OCH POLIS</h3>
-
-        <p>
-            Ambulans anlände till platsen kl. 10:58.
-            HLR övertogs av ambulanspersonal. Benjamin
-            konstaterades avliden på plats.
-        </p>
-
-        <p>
-            Vid den initiala bedömningen noterades inga
-            uppenbara yttre skador. Någon säker dödsorsak
-            kunde inte fastställas på plats.
-        </p>
-
-        <p>
-            Polis anlände kl. 11:25. De fem övriga personerna
-            befann sig fortfarande i stugan. Platsen spärrades
-            av och en inledande undersökning genomfördes.
-        </p>
-
-        <h3>INITIALA IAKTTAGELSER</h3>
-
-        <p>
-            Benjamin påträffades liggande i sin säng. Inga
-            uppenbara tecken på våld eller kamp noterades vid
-            den första undersökningen.
-        </p>
-
-        <p>
-            I stugan fanns bland annat glas och andra föremål
-            som använts under kvällen. Dessa dokumenterades
-            och omhändertogs för vidare undersökning.
-        </p>
-
-        <p>
-            Vid ärendets inledande skede var dödsorsaken
-            okänd. Dödsfallet bedömdes därför som ett
-            onaturligt och oklart dödsfall och utredningen
-            fortsatte för att fastställa vad som hade hänt.
-        </p>
-
-        <h3>VIKTIGA TIDER</h3>
+        <h3>6. VIKTIGA TIDPUNKTER</h3>
 
         <div class="document-timeline">
-
-            <p><strong>23 dec, kväll</strong> – Sällskapet anländer och firar uppesittarkväll.</p>
-            <p><strong>ca 01:00–02:00</strong> – Benjamin och Gustav går och lägger sig.</p>
-            <p><strong>ca 10:00</strong> – Gustav vaknar.</p>
-            <p><strong>ca 10:20</strong> – Gustav upptäcker att Benjamin inte reagerar.</p>
-            <p><strong>10:23</strong> – 112 rings.</p>
-            <p><strong>10:58</strong> – Ambulans anländer.</p>
-            <p><strong>11:25</strong> – Polis anländer.</p>
-
+            <p><strong>23 dec, kväll:</strong> Sällskapet anländer till stugan och firar uppesittarkväll.</p>
+            <p><strong>ca 01:00–02:00:</strong> Benjamin Afsharazad och Gustav Lindqvist går och lägger sig.</p>
+            <p><strong>ca 10:00:</strong> Gustav Lindqvist vaknar.</p>
+            <p><strong>ca 10:20:</strong> Benjamin Afsharazad upptäcks vara livlös.</p>
+            <p><strong>10:23:</strong> SOS Alarm kontaktas.</p>
+            <p><strong>10:58:</strong> Ambulans anländer.</p>
+            <p><strong>11:25:</strong> Polis anländer.</p>
         </div>
 
+        <h3>7. INLEDANDE BEDÖMNING</h3>
+
+        <p>
+            Vid den inledande dokumentationen kunde någon säker
+            dödsorsak inte fastställas. Det fanns inte heller
+            några uppenbara tecken på yttre våld.
+        </p>
+
+        <p>
+            Mot bakgrund av omständigheterna har dödsfallet
+            dokumenterats som ett oklart och onaturligt dödsfall.
+            Fortsatt utredning krävs för att klarlägga
+            dödsorsaken och händelseförloppet.
+        </p>
+
         <div class="document-status">
-
-            <strong>STATUS VID INLEDANDE DOKUMENTATION</strong>
-
+            <strong>UTREDNINGSSTATUS</strong>
             <p>
-                Dödsorsak ej fastställd.<br>
-                Yttre våld ej konstaterat.<br>
-                Ärendet kvarstår för vidare utredning.
+                Dödsorsak: Ej fastställd vid inledande dokumentation.<br>
+                Brottsmisstanke: Ej fastställd vid platsens första undersökning.<br>
+                Utredning: Pågående.
             </p>
+        </div>
 
+        <div class="document-footer">
+            <span>ÄRENDE 24-1224 · FÖRUNDERSÖKNINGSPROTOKOLL</span>
+            <span>Sida 1</span>
         </div>
 
     </article>
