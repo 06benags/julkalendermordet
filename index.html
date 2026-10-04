@@ -2072,6 +2072,51 @@ filter:brightness(0);}
     backdrop-filter: blur(7px);
     align-items: center;
     justify-content: center;
+    overflow: auto;
+}
+
+.phone-zoom-controls{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    z-index:1200;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:7px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    background:rgba(15,15,15,.82);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+}
+
+.phone-zoom-controls button{
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:10px;
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    font:600 17px Inter,sans-serif;
+    cursor:pointer;
+    transition:background .2s ease, transform .15s ease;
+}
+
+.phone-zoom-controls button:hover{
+    background:rgba(255,255,255,.18);
+}
+
+.phone-zoom-controls button:active{
+    transform:scale(.94);
+}
+
+.phone-zoom-level{
+    min-width:48px;
+    text-align:center;
+    color:rgba(255,255,255,.82);
+    font:500 10px Inter,sans-serif;
+    letter-spacing:.04em;
 }
 
 .phone-overlay.open {
@@ -2081,6 +2126,9 @@ filter:brightness(0);}
 .phone-device {
     width: min(330px, 88vw);
     aspect-ratio: 9 / 18.5;
+    transform:scale(var(--phone-scale, 1));
+    transform-origin:center center;
+    transition:transform .22s ease;
     padding: 10px;
     border: 3px solid #151515;
     border-radius: 38px;
@@ -2991,6 +3039,31 @@ function openPhone() {
 function closePhone() {
     document.getElementById("phoneOverlay").classList.remove("open");
     document.body.style.overflow = "auto";
+}
+
+let phoneZoom = 1;
+
+function setPhoneZoom(value) {
+    phoneZoom = Math.min(1.5, Math.max(1, value));
+
+    const phone = document.querySelector(".phone-device");
+    const label = document.getElementById("phoneZoomLevel");
+
+    if (phone) {
+        phone.style.setProperty("--phone-scale", phoneZoom);
+    }
+
+    if (label) {
+        label.textContent = Math.round(phoneZoom * 100) + "%";
+    }
+}
+
+function changePhoneZoom(amount) {
+    setPhoneZoom(phoneZoom + amount);
+}
+
+function resetPhoneZoom() {
+    setPhoneZoom(1);
 }
 
 let phoneEnteredCode = "";
@@ -4048,6 +4121,13 @@ function closePhoneApp() {
     >
         ×
     </button>
+
+    <div class="phone-zoom-controls" aria-label="Zooma telefonskärmen">
+        <button type="button" onclick="changePhoneZoom(-0.1)" aria-label="Zooma ut">−</button>
+        <span class="phone-zoom-level" id="phoneZoomLevel">100%</span>
+        <button type="button" onclick="changePhoneZoom(0.1)" aria-label="Zooma in">+</button>
+        <button type="button" onclick="resetPhoneZoom()" aria-label="Återställ zoom">↺</button>
+    </div>
 
     <div class="phone-device">
 
