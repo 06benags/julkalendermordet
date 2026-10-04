@@ -4436,6 +4436,15 @@ function openPhoneApp(app) {
     const panel=document.getElementById("phoneApp"+app.charAt(0).toUpperCase()+app.slice(1));
     if(panel) panel.classList.add("open");
 
+    if (app.toLowerCase() === "maps") {
+        const card = document.getElementById("phoneMapCard");
+        if (card) {
+            card.classList.remove("map-card-hidden");
+            const p = card.querySelector("p");
+            if (p) p.textContent = "Registrerad position · 23:41 · Särna, Dalarna";
+        }
+    }
+
     if (app.toLowerCase() === "camera") {
         startPhoneCamera();
     }
