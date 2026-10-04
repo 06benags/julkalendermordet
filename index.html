@@ -4336,6 +4336,16 @@ function hasAny(q, words){
 function gustavResponse(input){
     const q=normalizeSosQuestion(input);
 
+    // Gustavs egna grunduppgifter.
+    if(hasAny(q,["vad heter du","ditt namn","namnet ditt","vem ar du","vem är du","vad kallas du"]))
+        return "Gustav. Gustav Lindqvist.";
+    if(hasAny(q,["hur gammal ar du","hur gammal är du","din alder","din ålder"]))
+        return "Jag är 20 år.";
+    if(hasAny(q,["ar du gustav","är du gustav","heter du gustav"]))
+        return "Ja, Gustav Lindqvist.";
+
+    const q=normalizeSosQuestion(input);
+
     // Gustav ska förstå även korta, konstigt formulerade och vardagliga frågor.
     if(hasAny(q,["vad heter han","hans namn","namnet","vem ar han","vem ar personen","personen heter","killen heter","offer"]))
         return "Han heter Benjamin Afsharazad.";
