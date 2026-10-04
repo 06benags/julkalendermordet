@@ -2526,6 +2526,15 @@ filter:brightness(0);}
     transform:scale(1.45);
     transform-origin:center;
 filter:brightness(0);}</style>
+<style>
+.desktop-real-map-wrap{width:100%;max-width:1150px;margin:0 auto 28px}
+.desktop-real-map{position:relative;width:100%;height:min(52vw,520px);min-height:330px;overflow:hidden;border:1px solid rgba(0,0,0,.25);box-shadow:0 10px 30px rgba(0,0,0,.25);background:#dfe7e4}
+.desktop-real-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;pointer-events:none}
+.desktop-map-pin{position:absolute;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);border-radius:50%;background:#1683e8;border:4px solid #fff;box-shadow:0 0 0 8px rgba(22,131,232,.2),0 2px 6px rgba(0,0,0,.35);z-index:3}
+.desktop-map-pin:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%);background:#fff;border-radius:50%}
+.desktop-map-label{position:absolute;left:calc(50% + 16px);top:calc(50% - 12px);padding:6px 9px;border-radius:7px;background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.2);font:600 10px Inter,sans-serif;color:#222;z-index:4;white-space:nowrap}
+.desktop-map-caption{text-align:center;margin-top:8px;font:500 10px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#3b352d;opacity:.65}
+</style>
 </head>
 
 
@@ -2874,6 +2883,20 @@ filter:brightness(0);}</style>
 
         </div>
 
+
+        <div class="desktop-real-map-wrap">
+            <div class="desktop-real-map">
+                <iframe
+                    title="Riktig karta över stugan i Särna, Dalarna"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=12.82%2C61.59%2C13.30%2C61.86&amp;layer=mapnik"
+                    loading="eager"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="desktop-map-pin" aria-label="Stugan och din position"></div>
+                <div class="desktop-map-label">Stugan · Din position</div>
+            </div>
+            <div class="desktop-map-caption">Särna, Dalarna · registrerad position 23:41</div>
+        </div>
 
         <div class="puzzle-instructions">
 
