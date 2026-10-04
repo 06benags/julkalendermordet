@@ -2377,7 +2377,8 @@ filter:brightness(0);}
     position:absolute;
     z-index:40;
     right:10px;
-    bottom:72px;
+    top:52px;
+    bottom:auto;
     display:flex;
     flex-direction:column;
     gap:5px;
@@ -2391,7 +2392,10 @@ filter:brightness(0);}
     box-shadow:0 2px 9px rgba(0,0,0,.22);
     color:#333;
     font-size:17px;
-    cursor:pointer;
+    cursor:default;
+}
+.map-controls button{
+    pointer-events:none;
 }
 .map-locate{
     position:absolute;
