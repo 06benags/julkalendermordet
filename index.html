@@ -4590,7 +4590,6 @@ function resetPuzzle() {
 const interrogationData = {
 moa:{
     time:"09:14",
-    image:"forhor-moa.jpg",
     text:[
         ["Förhörsledaren","Vi börjar från början. Berätta om gårdagen, från det att du vaknade. Ta det i din egen ordning.","officer"],
         ["Moa","Okej... Jag vaknade ganska sent, strax efter nio tror jag. Jag gick ner och gjorde kaffe. Det var rätt lugnt på morgonen. Benjamin var redan uppe och satt vid köksbordet. Han höll på med sin telefon.",""],
@@ -4615,12 +4614,10 @@ moa:{
         ["Förhörsledaren","Och efter det?","officer"],
         ["Moa","Jag låg i sängen. Jag hörde en dörr slå igen någon gång efter elva. Sen var det tyst. Det var först senare vi förstod att något var fel.",""]
     ],
-    note:"Moa lämnar fler detaljer efter följdfrågor. Hennes tidsuppgifter är ungefärliga och bör jämföras med telefondata och övriga förhör.",
-    photoCaption:"Moa · porträtt för identifiering"
+    note:"Moa lämnar fler detaljer efter följdfrågor. Hennes tidsuppgifter är ungefärliga och bör jämföras med telefondata och övriga förhör."
 },
 benji:{
     time:"09:46",
-    image:"IMG_0655.jpeg",
     text:[
         ["Förhörsledaren","Jag vill att du berättar om hela gårdagen, inte bara timmarna kring dödsfallet.","officer"],
         ["Benji","Vi kom igång sent. Jag sov länge. Frukost blev väl vid tio. Sen hjälpte jag till med ved och sånt.",""],
@@ -4645,12 +4642,10 @@ benji:{
         ["Förhörsledaren","Hörde du något senare?","officer"],
         ["Benji","En stol eller något som föll. Jag tänkte att någon tappat något. Sen gick jag tillbaka till rummet.",""]
     ],
-    note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser.",
-    photoCaption:"Benji · porträtt för identifiering"
+    note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser."
 },
 gustav:{
     time:"10:51",
-    image:"forhor-gustav.jpg",
     text:[
         ["Förhörsledaren","Berätta om dagen från morgonen.","officer"],
         ["Gustav","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
@@ -4673,12 +4668,10 @@ gustav:{
         ["Förhörsledaren","Hörde du något från nedervåningen?","officer"],
         ["Gustav","Nej. Jag sov. Eller... jag tror att jag sov.",""]
     ],
-    note:"Samtalsloggen visar kontakt 23:48 trots Gustavs uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret.",
-    photoCaption:"Gustav · porträtt för identifiering"
+    note:"Samtalsloggen visar kontakt 23:48 trots Gustavs uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret."
 },
 elham:{
     time:"11:23",
-    image:"forhor-elham.jpg",
     text:[
         ["Förhörsledaren","Ta dagen från början. Vad gjorde du?","officer"],
         ["Elham","Jag gick upp tidigt. Cecilia och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
@@ -4701,12 +4694,10 @@ elham:{
         ["Förhörsledaren","Vad hände sedan?","officer"],
         ["Elham","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
     ],
-    note:"Elham ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse.",
-    photoCaption:"Elham · porträtt för identifiering"
+    note:"Elham ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse."
 },
 cecilia:{
     time:"12:01",
-    image:"forhor-cecilia.jpg",
     text:[
         ["Förhörsledaren","Berätta om dagen som du minns den.","officer"],
         ["Cecilia","Jag vaknade runt nio. Elham hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
@@ -4727,8 +4718,7 @@ cecilia:{
         ["Förhörsledaren","När somnade du?","officer"],
         ["Cecilia","Efter midnatt. Jag låg och läste en stund.",""]
     ],
-    note:"Cecilia är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören.",
-    photoCaption:"Cecilia · porträtt för identifiering"
+    note:"Cecilia är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören."
 }
 };
 
@@ -4752,18 +4742,7 @@ function showInterrogation(key,button){
     if(button)button.classList.add("active");
     content.innerHTML=`
         <div class="interrogation-person-header">
-            <div class="interrogation-profile">
-                <div class="interrogation-photo">
-                    <img src="${data.image}" alt="${data.photoCaption}" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')">
-                    <span>FOTO</span>
-                </div>
-                <div>
-                    <h3>Förhör med ${key.charAt(0).toUpperCase()+key.slice(1)}</h3>
-                    <p>${data.role} · Förhör påbörjat ${data.time} · Protokollutdrag</p>
-                </div>
-            </div>
-        </div>
-        <div class="interrogation-transcript">
+            <div class="interrogation-profile"><div class="interrogation-transcript">
             ${data.text.map(row=>`<div class="interrogation-entry ${row[2]||""}">
                 <div class="speaker">${row[0]}</div>
                 <div class="speech">${row[1]}</div>
