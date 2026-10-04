@@ -1352,6 +1352,12 @@ h1 {
 .interrogation-main{
     padding:30px 34px 36px;
 }
+.interrogation-profile{display:flex;align-items:center;gap:18px}
+.interrogation-photo{width:82px;height:104px;flex:0 0 82px;background:#cfc6b5;border:1px solid rgba(0,0,0,.18);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.interrogation-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.interrogation-photo span{display:none;font-size:8px;letter-spacing:.14em;opacity:.45}
+.interrogation-photo.no-photo span{display:block}
+@media(max-width:700px){.interrogation-profile{align-items:flex-start}.interrogation-photo{width:68px;height:88px;flex-basis:68px}}
 .interrogation-person-header{
     border-bottom:1px solid rgba(0,0,0,.16);
     padding-bottom:17px;
@@ -4589,89 +4595,183 @@ function resetPuzzle() {
 const interrogationData = {
 moa:{
     time:"09:14",
+    role:"Vän till sällskapet",
+    image:"forhor-moa.jpg",
     text:[
-        ["Förhörsledaren","När såg du Benjamin senast?","officer"],
-        ["Moa","Vid köksbordet. Jag tror att klockan var runt 22:30. Han satt kvar när jag gick därifrån.",""],
-        ["Förhörsledaren","Vad gjorde han?","officer"],
-        ["Moa","Han skrev på sin telefon. Han verkade stressad, men jag frågade inte varför.",""],
-        ["Förhörsledaren","Du har tidigare sagt att du gick och lade dig 22:45.","officer"],
-        ["Moa","Ja. Jag gick upp till rummet och låg där en stund. Jag hörde röster nereifrån senare.",""],
-        ["Förhörsledaren","Vilka röster?","officer"],
-        ["Moa","Jag är inte säker. En man och en kvinna. Jag hörde inte vad de sa.",""]
+        ["Förhörsledaren","Vi börjar från början. Berätta om gårdagen, från det att du vaknade. Ta det i din egen ordning.","officer"],
+        ["Moa","Okej... Jag vaknade ganska sent, strax efter nio tror jag. Jag gick ner och gjorde kaffe. Det var rätt lugnt på morgonen. Benjamin var redan uppe och satt vid köksbordet. Han höll på med sin telefon.",""],
+        ["Förhörsledaren","Var det något särskilt med honom?","officer"],
+        ["Moa","Han var lite frånvarande. Inte konstigt egentligen, men... ja. Han svarade knappt när jag pratade med honom.",""],
+        ["Förhörsledaren","Vad hände sedan?","officer"],
+        ["Moa","Vi åt frukost tillsammans. Gustav gick ut en stund. Elham och Cecilia började fixa med maten inför kvällen. Jag minns att det regnade nästan hela förmiddagen, så vi var mest inne.",""],
+        ["Förhörsledaren","När märkte du första gången att stämningen förändrades?","officer"],
+        ["Moa","Efter lunch. Benjamin och den avlidne satt inne i vardagsrummet och pratade ganska tyst. Jag hörde inte allt, men jag hörde ordet 'pengar'. Sen blev det tyst när jag kom in.",""],
+        ["Förhörsledaren","Var de osams?","officer"],
+        ["Moa","Jag skulle inte säga osams då. Mer... obekvämt.",""],
+        ["Förhörsledaren","Och eftermiddagen?","officer"],
+        ["Moa","Vi spelade kort ett tag. Vid fem ungefär gick jag och duschade. Sen började alla göra sig i ordning. Middagen åt vi runt halv åtta.",""],
+        ["Förhörsledaren","Hur var middagen?","officer"],
+        ["Moa","Bra först. Sen drack folk lite och pratade mer. Den avlidne och Benjamin hamnade i diskussion igen. Den här gången var det mer spänt. Jag gick ut ur köket för att slippa höra.",""],
+        ["Förhörsledaren","Såg du den avlidne efter middagen?","officer"],
+        ["Moa","Ja. I vardagsrummet vid kanske tio. Han satt ensam och tittade på telefonen. Sen gick jag upp till mitt rum vid kvart i elva.",""],
+        ["Förhörsledaren","Du har tidigare sagt att du inte var nere igen.","officer"],
+        ["Moa","Jag menade att jag inte gick ner för att umgås. Men... jag gick faktiskt ner igen. Kanske tio minuter senare. Jag ville hämta vatten.",""],
+        ["Förhörsledaren","Vad såg du?","officer"],
+        ["Moa","Köket var tomt. Jag hörde röster från vardagsrummet. En man och en kvinna. Jag såg ingen. Sedan gick jag upp igen.",""],
+        ["Förhörsledaren","Och efter det?","officer"],
+        ["Moa","Jag låg i sängen. Jag hörde en dörr slå igen någon gång efter elva. Sen var det tyst. Det var först senare vi förstod att något var fel.",""]
     ],
-    note:"Tidsuppgiften är osäker. Vittnet skiljer tydligt mellan vad hon såg och vad hon tror att hon hörde."
+    note:"Moa lämnar fler detaljer efter följdfrågor. Hennes tidsuppgifter är ungefärliga och bör jämföras med telefondata och övriga förhör.",
+    photoCaption:"Moa · porträtt för identifiering"
 },
 benji:{
     time:"09:46",
+    role:"Vän till sällskapet",
+    image:"forhor-benji.jpg",
     text:[
-        ["Förhörsledaren","När gick du och lade dig?","officer"],
-        ["Benji","Strax efter elva. Jag var trött och ville bara sova.",""],
+        ["Förhörsledaren","Jag vill att du berättar om hela gårdagen, inte bara timmarna kring dödsfallet.","officer"],
+        ["Benji","Vi kom igång sent. Jag sov länge. Frukost blev väl vid tio. Sen hjälpte jag till med ved och sånt.",""],
+        ["Förhörsledaren","Vilka var ute?","officer"],
+        ["Benji","Jag och Gustav först. Benjamin kom ut en stund senare. Vi snackade om allt möjligt. Det var normalt.",""],
+        ["Förhörsledaren","Vad gjorde ni efter lunch?","officer"],
+        ["Benji","Jag spelade kort med Cecilia. Sen satt vi i vardagsrummet. Den avlidne var där ett tag. Han verkade irriterad på något.",""],
+        ["Förhörsledaren","Vet du vad?","officer"],
+        ["Benji","Nej. Jag frågade men han sa att det inte var något.",""],
+        ["Förhörsledaren","När började du dricka?","officer"],
+        ["Benji","Till maten. Inte mycket. Ett par glas bara.",""],
+        ["Förhörsledaren","Vad minns du av kvällen efter tio?","officer"],
+        ["Benji","Vi satt i vardagsrummet. Jag gick till köket flera gånger. Jag minns inte exakt när.",""],
+        ["Förhörsledaren","Du har tidigare sagt att du gick och lade dig strax efter elva.","officer"],
+        ["Benji","Ja, ungefär.",""],
         ["Förhörsledaren","Var du nere efter det?","officer"],
-        ["Benji","Nej. Inte vad jag minns.",""],
-        ["Förhörsledaren","Någon annan har uppgett att en person var kvar i köket efter 23:00.","officer"],
-        ["Benji","Då måste det ha varit någon annan. Jag var på mitt rum.",""],
-        ["Förhörsledaren","Hörde du något från köket?","officer"],
-        ["Benji","Ett ljud, kanske en stol. Men jag tänkte inte på det då.",""]
+        ["Benji","Inte vad jag minns. Eller... jag gick kanske ner en gång. För vatten.",""],
+        ["Förhörsledaren","Var den avlidne där då?","officer"],
+        ["Benji","Jag tror det. Nej, vänta. Jag tror han satt i vardagsrummet.",""],
+        ["Förhörsledaren","Du verkar osäker.","officer"],
+        ["Benji","Ja. Jag var trött. Och jag hade druckit.",""],
+        ["Förhörsledaren","Hörde du något senare?","officer"],
+        ["Benji","En stol eller något som föll. Jag tänkte att någon tappat något. Sen gick jag tillbaka till rummet.",""]
     ],
-    note:"Förhöret innehåller inga säkra observationer efter 23:00. Uppgiften om köket bör jämföras med övriga förhör."
+    note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser.",
+    photoCaption:"Benji · porträtt för identifiering"
 },
 benjamin:{
     time:"10:12",
+    role:"Bekant till den avlidne",
+    image:"forhor-benjamin.jpg",
     text:[
-        ["Förhörsledaren","Du och den avlidne hade ett bråk under kvällen. Stämmer det?","officer"],
-        ["Benjamin","Vi hade en diskussion. Det var inte ett bråk.",""],
-        ["Förhörsledaren","Vad handlade den om?","officer"],
-        ["Benjamin","Pengar. Jag ville ha tillbaka något jag hade lånat ut.",""],
-        ["Förhörsledaren","När lämnade du honom?","officer"],
-        ["Benjamin","Lite före elva. Sedan gick jag upp.",""],
-        ["Förhörsledaren","Någon såg dig i hallen senare.","officer"],
+        ["Förhörsledaren","Vi tar hela dygnet. Börja med morgonen.","officer"],
+        ["Benjamin","Jag vaknade vid åtta eller halv nio. Jag gick ner, åt frukost och sen var jag mest ute med Gustav och Benji.",""],
+        ["Förhörsledaren","Hur var relationen mellan dig och den avlidne?","officer"],
+        ["Benjamin","Bra. Vi var vänner.",""],
+        ["Förhörsledaren","Ni pratade om pengar.","officer"],
+        ["Benjamin","Ja, det gjorde vi. Jag hade lånat honom pengar tidigare.",""],
+        ["Förhörsledaren","När pratade ni om det?","officer"],
+        ["Benjamin","På eftermiddagen. Inget stort.",""],
+        ["Förhörsledaren","Och efter middagen?","officer"],
+        ["Benjamin","Vi pratade igen. Det blev lite hetare, men vi bråkade inte.",""],
+        ["Förhörsledaren","När såg du honom senast?","officer"],
+        ["Benjamin","Strax före elva. Han var i vardagsrummet. Jag gick upp efter det.",""],
+        ["Förhörsledaren","Du har sagt att du gick upp före elva.","officer"],
+        ["Benjamin","Då har jag sagt fel. Jag var stressad när ni frågade första gången.",""],
+        ["Förhörsledaren","Någon såg dig i hallen omkring 23:10.","officer"],
         ["Benjamin","Det kan stämma. Jag gick ner för att hämta vatten.",""],
         ["Förhörsledaren","Varför nämnde du inte det tidigare?","officer"],
-        ["Benjamin","Jag trodde inte att det var viktigt.",""]
+        ["Benjamin","För att jag inte tänkte på det som en viktig del av kvällen.",""],
+        ["Förhörsledaren","Hade du kontakt med honom efter 23:10?","officer"],
+        ["Benjamin","Nej. Inte vad jag minns.",""],
+        ["Förhörsledaren","Ringde eller skrev ni till varandra?","officer"],
+        ["Benjamin","Inte vad jag minns.",""],
+        ["Förhörsledaren","Vad gjorde du sedan?","officer"],
+        ["Benjamin","Jag gick upp och lade mig. Jag tror jag somnade ganska snabbt.",""]
     ],
-    note:"Benjamin ändrar sin tidslinje efter att han konfronteras med en annan uppgift. Det betyder inte i sig att uppgiften är falsk, men tidslinjen behöver verifieras."
+    note:"Benjamin korrigerar sin tidslinje under förhöret. Hans uppgifter bör kontrolleras mot telefonens loggar och övriga personers tidsuppgifter.",
+    photoCaption:"Benjamin · porträtt för identifiering"
 },
 gustav:{
     time:"10:51",
+    role:"Vän till sällskapet",
+    image:"forhor-gustav.jpg",
     text:[
-        ["Förhörsledaren","Du uppgav att du gick och lade dig 22:50.","officer"],
-        ["Gustav","Ja.",""],
-        ["Förhörsledaren","Moa säger att hon hörde någon tala i köket efter 23:00. Kan det ha varit du?","officer"],
-        ["Gustav","Nej. Jag sov.",""],
-        ["Förhörsledaren","Hörde du något innan du somnade?","officer"],
-        ["Gustav","Nej. Jag var trött.",""],
-        ["Förhörsledaren","Du ringde Benjamin 23:48. Varför?","officer"],
-        ["Gustav","Jag... jag minns inte att jag ringde honom.",""]
+        ["Förhörsledaren","Berätta om dagen från morgonen.","officer"],
+        ["Gustav","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
+        ["Förhörsledaren","Var du ensam med någon under dagen?","officer"],
+        ["Gustav","En stund med Benjamin. Vi var ute kanske en timme efter lunch också.",""],
+        ["Förhörsledaren","Hur verkade han?","officer"],
+        ["Gustav","Normal. Lite irriterad, kanske. Men det var han ibland.",""],
+        ["Förhörsledaren","Vad hände under eftermiddagen?","officer"],
+        ["Gustav","Jag sov en stund. Sen spelade vi kort. Jag tror Cecilia vann.",""],
+        ["Förhörsledaren","Och middagen?","officer"],
+        ["Gustav","Helt vanlig. Efteråt satt vi tillsammans. Jag gick och lade mig tidigt, strax före elva.",""],
+        ["Förhörsledaren","När somnade du?","officer"],
+        ["Gustav","Vet inte. Ganska snabbt.",""],
+        ["Förhörsledaren","Du ringde Benjamin 23:48.","officer"],
+        ["Gustav","Gjorde jag?",""],
+        ["Förhörsledaren","Ja. Ett utgående samtal.","officer"],
+        ["Gustav","Då måste jag ha vaknat. Jag minns inte det.",""],
+        ["Förhörsledaren","Pratade du med någon efter det?","officer"],
+        ["Gustav","Nej, inte vad jag minns.",""],
+        ["Förhörsledaren","Hörde du något från nedervåningen?","officer"],
+        ["Gustav","Nej. Jag sov. Eller... jag tror att jag sov.",""]
     ],
-    note:"Telefonuppgiften är konkret och står i konflikt med Gustavs uppgift om att han sov. Kontrollera samtalsloggen."
+    note:"Samtalsloggen visar kontakt 23:48 trots Gustavs uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret.",
+    photoCaption:"Gustav · porträtt för identifiering"
 },
 elham:{
     time:"11:23",
+    role:"Vän till sällskapet",
+    image:"forhor-elham.jpg",
     text:[
+        ["Förhörsledaren","Ta dagen från början. Vad gjorde du?","officer"],
+        ["Elham","Jag gick upp tidigt. Cecilia och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
+        ["Förhörsledaren","Hur var stämningen under dagen?","officer"],
+        ["Elham","Bra. Alla skojade. Det var först senare på kvällen som det blev spänt.",""],
+        ["Förhörsledaren","När såg du den avlidne första gången den dagen?","officer"],
+        ["Elham","Vid frukosten.",""],
+        ["Förhörsledaren","Och senare?","officer"],
+        ["Elham","Han gick mycket mellan vardagsrummet och köket. På eftermiddagen satt han länge med sin telefon.",""],
+        ["Förhörsledaren","Såg du honom prata med Benjamin?","officer"],
+        ["Elham","Ja. Flera gånger. Jag hörde inte alltid vad de sa.",""],
+        ["Förhörsledaren","Hur var middagen?","officer"],
+        ["Elham","Bra tills de började diskutera igen. Jag tror att det handlade om pengar.",""],
+        ["Förhörsledaren","Vad gjorde du efter middagen?","officer"],
+        ["Elham","Jag satt i vardagsrummet. Runt elva gick jag till köket. Benjamin var i hallen då.",""],
+        ["Förhörsledaren","Vad gjorde han?","officer"],
+        ["Elham","Det såg ut som att han letade efter något. Han sa inget till mig.",""],
         ["Förhörsledaren","När såg du den avlidne senast?","officer"],
-        ["Elham","I vardagsrummet. Jag tror att det var runt 23:10.",""],
-        ["Förhörsledaren","Varför är du osäker på tiden?","officer"],
-        ["Elham","Jag tittade inte på klockan. Jag minns bara att alla andra hade börjat gå upp.",""],
-        ["Förhörsledaren","Såg du någon annan?","officer"],
-        ["Elham","Benjamin stod i hallen. Han verkade leta efter något.",""],
-        ["Förhörsledaren","Sa han något till dig?","officer"],
-        ["Elham","Nej. Han gick förbi mig.",""]
+        ["Elham","Runt 23:10, tror jag. Han satt i vardagsrummet.",""],
+        ["Förhörsledaren","Vad hände sedan?","officer"],
+        ["Elham","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
     ],
-    note:"Elham placerar Benjamin i hallen omkring 23:10. Uppgiften är relevant eftersom Benjamin själv först uppgav att han gick upp före 23:00."
+    note:"Elham ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse.",
+    photoCaption:"Elham · porträtt för identifiering"
 },
 cecilia:{
     time:"12:01",
+    role:"Vän till sällskapet",
+    image:"forhor-cecilia.jpg",
     text:[
-        ["Förhörsledaren","Du sa att du var på ditt rum större delen av kvällen.","officer"],
-        ["Cecilia","Ja.",""],
-        ["Förhörsledaren","När gick du senast ut ur rummet?","officer"],
-        ["Cecilia","Strax efter elva. Jag gick på toaletten.",""],
+        ["Förhörsledaren","Berätta om dagen som du minns den.","officer"],
+        ["Cecilia","Jag vaknade runt nio. Elham hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
+        ["Förhörsledaren","Vad gjorde du efter frukosten?","officer"],
+        ["Cecilia","Jag läste en stund. Sen hjälpte jag till med maten. På eftermiddagen spelade jag kort med Benji.",""],
+        ["Förhörsledaren","Såg du något mellan Benjamin och den avlidne?","officer"],
+        ["Cecilia","De pratade flera gånger. Jag tänkte inte så mycket på det förrän på kvällen.",""],
+        ["Förhörsledaren","Vad hände på kvällen?","officer"],
+        ["Cecilia","Efter middagen satt vi alla tillsammans en stund. Sen började folk gå undan. Jag gick upp till mitt rum vid elva ungefär.",""],
+        ["Förhörsledaren","Var du nere igen?","officer"],
+        ["Cecilia","Ja. Jag gick på toaletten strax efter elva.",""],
         ["Förhörsledaren","Såg du någon i hallen?","officer"],
-        ["Cecilia","Jag tror att Benjamin var där. Jag är inte helt säker.",""],
-        ["Förhörsledaren","Hörde du något från vardagsrummet?","officer"],
-        ["Cecilia","Nej. Jag hörde bara dörren till köket stängas.",""]
+        ["Cecilia","Jag tror att jag såg Benjamin. Men det var mörkt och jag såg honom bara bakifrån.",""],
+        ["Förhörsledaren","Hörde du något?","officer"],
+        ["Cecilia","En dörr. Jag tror köksdörren. Sen hörde jag någon gå i trappan.",""],
+        ["Förhörsledaren","Kan du säga vem det var?","officer"],
+        ["Cecilia","Nej. Det kan jag inte.",""],
+        ["Förhörsledaren","När somnade du?","officer"],
+        ["Cecilia","Efter midnatt. Jag låg och läste en stund.",""]
     ],
-    note:"Cecilia är osäker på identiteten i hallen. Uppgiften om köksdörren kan däremot jämföras med andra vittnesuppgifter."
+    note:"Cecilia är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören.",
+    photoCaption:"Cecilia · porträtt för identifiering"
 }
 };
 
@@ -4694,8 +4794,16 @@ function showInterrogation(key,button){
     if(button)button.classList.add("active");
     content.innerHTML=`
         <div class="interrogation-person-header">
-            <h3>Förhör med ${key.charAt(0).toUpperCase()+key.slice(1)}</h3>
-            <p>Förhör påbörjat ${data.time} · Protokollutdrag</p>
+            <div class="interrogation-profile">
+                <div class="interrogation-photo">
+                    <img src="${data.image}" alt="${data.photoCaption}" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')">
+                    <span>FOTO</span>
+                </div>
+                <div>
+                    <h3>Förhör med ${key.charAt(0).toUpperCase()+key.slice(1)}</h3>
+                    <p>${data.role} · Förhör påbörjat ${data.time} · Protokollutdrag</p>
+                </div>
+            </div>
         </div>
         <div class="interrogation-transcript">
             ${data.text.map(row=>`<div class="interrogation-entry ${row[2]||""}">
