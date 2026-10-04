@@ -4428,24 +4428,30 @@ function closePhoneApp() {
 
   <div class="phone-app-panel" id="phoneAppPhotos"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Bilder</strong><span>•••</span></div><div class="ios-app-body photo-grid"><div class="gallery-photo p1">21:37</div><div class="gallery-photo p2">21:52</div><div class="gallery-photo p3">22:04</div><div class="gallery-photo p4">22:17</div><div class="gallery-photo p5">23:11</div><div class="gallery-photo p6">23:42</div><div class="gallery-photo p7">23:58</div><div class="gallery-photo p8">00:06</div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppCamera"><div class="ios-camera"><button onclick="closePhoneApp()" aria-label="Stäng kamera">×</button><video class="camera-view" id="phoneCameraVideo" autoplay playsinl<div class="phone-app-panel" id="phoneAppMaps">
-  <div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kartor</strong><span>⌁</span></div>
-  <div class="ios-map" id="phoneMapSurface">
-    <div class="map-geo" id="phoneMapGeo">
-    <div class="map-sea"></div><div class="map-forest f1"></div><div class="map-forest f2"></div><div class="map-forest f3"></div>
-    <div class="map-road r1 main"></div><div class="map-road r2"></div><div class="map-road r3"></div><div class="map-road r4"></div><div class="map-road r5"></div>
-    <div class="map-building b1"></div><div class="map-building b2"></div><div class="map-building b3"></div><div class="map-building b4"></div><div class="map-building b5"></div>
-    <div class="map-label water l1">Östersjön</div><div class="map-label l2">Fårö</div><div class="map-label l3">Skogen</div><div class="map-label l4">Fårövägen</div>
-    <div class="map-search"><span>⌕</span><span>Sök i Kartor</span></div>
-    <div class="map-gps" title="Din position"></div><div class="map-distance">ca 1,2 km</div>
-    <div class="map-pin" onclick="toggleMapCard()" aria-label="Stugan"></div><div class="map-pin-label" onclick="toggleMapCard()">Stugan</div>
-    <div class="map-controls"><button type="button" onclick="zoomPhoneMap(1)">+</button><button type="button" onclick="zoomPhoneMap(-1)">−</button></div>
-    <button class="map-locate" type="button" onclick="locatePhoneMap()" aria-label="Visa min position">⌾</button>
-    <div class="map-card" id="phoneMapCard"><small>Senaste plats</small><strong>Stugan</strong><p>Registrerad position · 23:41 · Fårö</p><button type="button" onclick="mapDirections()">Vägbeskrivning</button><button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button></div>
+  <div class="phone-app-panel" id="phoneAppCamera">
+  <div class="ios-camera">
+    <button onclick="closePhoneApp()" aria-label="Stäng kamera">×</button>
+    <video class="camera-view" id="phoneCameraVideo" autoplay playsinline muted></video>
+    <div class="camera-message" id="phoneCameraMessage">Kameran startar…</div>
+    <div class="camera-shutter" aria-hidden="true"></div>
   </div>
 </div>
 
-on" onclick="mapDirections()">Vägbeskrivning</button><button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button></div>
+<div class="phone-app-panel" id="phoneAppMaps">
+  <div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kartor</strong><span>⌁</span></div>
+  <div class="ios-map" id="phoneMapSurface">
+    <div class="map-geo" id="phoneMapGeo">
+      <div class="map-sea"></div><div class="map-forest f1"></div><div class="map-forest f2"></div><div class="map-forest f3"></div>
+      <div class="map-road r1 main"></div><div class="map-road r2"></div><div class="map-road r3"></div><div class="map-road r4"></div><div class="map-road r5"></div>
+      <div class="map-building b1"></div><div class="map-building b2"></div><div class="map-building b3"></div><div class="map-building b4"></div><div class="map-building b5"></div>
+      <div class="map-label water l1">Östersjön</div><div class="map-label l2">Fårö</div><div class="map-label l3">Skogen</div><div class="map-label l4">Fårövägen</div>
+      <div class="map-gps" title="Din position"></div><div class="map-distance">ca 1,2 km</div>
+      <div class="map-pin" onclick="toggleMapCard()" aria-label="Stugan"></div><div class="map-pin-label" onclick="toggleMapCard()">Stugan</div>
+    </div>
+    <div class="map-search"><span>⌕</span><span>Sök i Kartor</span></div>
+    <div class="map-controls"><button type="button" onclick="zoomPhoneMap(1)">+</button><button type="button" onclick="zoomPhoneMap(-1)">−</button></div>
+    <button class="map-locate" type="button" onclick="locatePhoneMap()" aria-label="Visa min position">⌾</button>
+    <div class="map-card" id="phoneMapCard"><small>Senaste plats</small><strong>Stugan</strong><p>Registrerad position · 23:41 · Fårö</p><button type="button" onclick="mapDirections()">Vägbeskrivning</button><button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button></div>
   </div>
 </div>
 
