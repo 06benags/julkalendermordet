@@ -268,6 +268,22 @@ h1 {
 }
 
 
+
+/* =========================================================
+   HOVER-ANIMATIONER FÖR ALLT PÅ UTREDNINGSBORDET
+========================================================= */
+.table > *{
+    transition:transform .28s ease, filter .28s ease;
+}
+.table > *:hover{
+    transform:translateY(-7px) scale(1.015);
+    filter:drop-shadow(0 14px 18px rgba(0,0,0,.28));
+}
+/* Behåll de egna rotationerna på pappersarken */
+.table > .paper:nth-child(1):hover{transform:rotate(-4deg) translateY(-7px) scale(1.015);}
+.table > .paper:nth-child(2):hover{transform:rotate(3deg) translateY(-7px) scale(1.015);}
+.table > .paper:nth-child(3):hover{transform:rotate(-2deg) translateY(-7px) scale(1.015);}
+
 /* =========================================================
    BORDET
 ========================================================= */
