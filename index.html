@@ -4250,6 +4250,14 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
+for (let i = 1; i <= 24; i++) {
+    const door = document.createElement("button");
+    door.type = "button";
+    door.className = "door";
+    door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
+    calendar.appendChild(door);
+}
+
 document.querySelectorAll(".door").forEach((door, index) => {
     const day = index + 1;
     const label = door.querySelector(".door-status");
