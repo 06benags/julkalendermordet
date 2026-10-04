@@ -2323,52 +2323,184 @@ filter:brightness(0);}
 .ios-app-header{height:58px;padding:18px 13px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddd;font-size:14px;background:rgba(248,248,250,.96)}.ios-app-header button{border:0;background:none;color:#007aff;font-size:28px;line-height:20px;cursor:pointer}.ios-app-header span{color:#007aff}.ios-app-header.dark{background:#000;color:#fff;border-color:#222}.ios-app-header.dark button{color:#fff}.ios-app-body{height:calc(100% - 58px);padding:12px 13px;overflow:auto;font-size:10px}.ios-search{background:#e9e9ed;border-radius:9px;padding:7px 10px;color:#777;margin-bottom:5px}.ios-row{display:flex;align-items:center;gap:9px;padding:10px 2px;border-bottom:1px solid #ddd;position:relative}.ios-row>div:nth-child(2){min-width:0}.ios-row strong{display:block;font-size:11px}.ios-row small{display:block;color:#777;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:155px}.ios-row time{margin-left:auto;color:#888;font-size:8px}.ios-avatar{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;flex:none}.avatar-moa{background:#a77a9c}.avatar-gustav{background:#506d82}.avatar-elham{background:#c08b58}.avatar-benjamin{background:#555}
 .calendar-body{text-align:center}.calendar-month{font-size:13px;color:#777;margin-top:8px}.calendar-big{font-size:64px;font-weight:200;margin:14px 0}.calendar-event{text-align:left;background:#eaf2ff;border-left:3px solid #3478f6;border-radius:7px;padding:9px;margin:7px 0}.calendar-event strong,.calendar-event small{display:block}.calendar-event small{color:#777;margin-top:2px}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0}.gallery-photo{height:82px;background:#334b52;display:flex;align-items:flex-end;padding:5px;color:#fff;font-size:7px;background-size:cover}.p1{background:linear-gradient(#17222d,#d09a62)}.p2{background:linear-gradient(135deg,#304b60,#1d211f)}.p3{background:linear-gradient(135deg,#815d3f,#202b31)}.p4{background:linear-gradient(#0e1c29,#667c82)}.p5{background:linear-gradient(135deg,#554332,#1d2225)}.p6{background:linear-gradient(#182a38,#a07855)}.p7{background:linear-gradient(135deg,#151a20,#725b45)}.p8{background:linear-gradient(#293c47,#151a18)}
 .ios-map{
-    height:calc(100% - 58px);position:relative;overflow:hidden;background:#dce8d4;color:#172019;
-    font-family:Inter,sans-serif;isolation:isolate;touch-action:none;
+    height:calc(100% - 58px);
+    position:relative;
+    overflow:hidden;
+    background:#d9e2e7;
+    color:#172019;
+    font-family:Inter,sans-serif;
+    isolation:isolate;
+    touch-action:none;
 }
-.ios-map::before{content:"";position:absolute;inset:-15%;background:
-    radial-gradient(ellipse at 78% 18%,rgba(255,255,255,.75) 0 8%,transparent 8.5%),
-    radial-gradient(ellipse at 14% 72%,rgba(255,255,255,.42) 0 11%,transparent 11.5%),
-    linear-gradient(135deg,#e7efdf 0 34%,#d7e6cf 34.2% 58%,#e2ecd9 58.2%);z-index:-3}
-.map-sea{position:absolute;inset:-30% 48% 48% -30%;background:#c9dce4;border-radius:48%;transform:rotate(-18deg);box-shadow:inset 0 0 30px rgba(70,110,130,.08)}
-.map-forest{position:absolute;border-radius:45%;background:
-    radial-gradient(circle at 15% 25%,rgba(77,113,72,.55) 0 2px,transparent 2.5px),
-    radial-gradient(circle at 55% 65%,rgba(77,113,72,.45) 0 2px,transparent 2.5px),
-    radial-gradient(circle at 78% 35%,rgba(77,113,72,.5) 0 2px,transparent 2.5px),#c9ddc1;
-    background-size:22px 19px,25px 23px,19px 21px,auto;opacity:.92}
-.map-forest.f1{width:48%;height:30%;left:-9%;top:5%;transform:rotate(8deg)}
-.map-forest.f2{width:39%;height:28%;right:-7%;top:38%;transform:rotate(-16deg)}
-.map-forest.f3{width:35%;height:23%;left:27%;bottom:-7%;transform:rotate(11deg)}
-.map-road{position:absolute;height:11px;background:#fff;border:1px solid rgba(105,105,105,.22);box-shadow:0 1px 1px rgba(0,0,0,.1);border-radius:8px;transform-origin:center}
-.map-road::after{content:"";position:absolute;inset:4px 0;border-top:1px dashed rgba(145,145,145,.42)}
-.map-road.main{height:15px;background:#f7f7f3}
-.map-road.r1{width:155%;left:-22%;top:46%;transform:rotate(-18deg)}
-.map-road.r2{width:125%;left:-8%;top:67%;transform:rotate(24deg)}
-.map-road.r3{width:82%;left:25%;top:28%;transform:rotate(72deg)}
-.map-road.r4{width:78%;left:-15%;top:17%;transform:rotate(12deg);height:7px}
-.map-road.r5{width:62%;right:-10%;top:57%;transform:rotate(-55deg);height:7px}
-.map-building{position:absolute;width:17px;height:12px;background:#d8c5a8;border:1px solid rgba(80,65,45,.45);box-shadow:0 1px 2px rgba(0,0,0,.16);transform:rotate(-18deg)}
-.map-building::after{content:"";position:absolute;left:2px;right:2px;top:-4px;height:6px;background:#9d765b;transform:skewX(-28deg)}
-.map-building.b1{left:17%;top:35%}.map-building.b2{left:24%;top:58%}.map-building.b3{left:69%;top:27%}.map-building.b4{left:78%;top:70%}.map-building.b5{left:57%;top:75%}
-.map-label{position:absolute;color:rgba(48,70,48,.7);font-size:7px;letter-spacing:.03em;text-shadow:0 1px 0 rgba(255,255,255,.7);white-space:nowrap}
-.map-label.water{color:#688b9b;font-style:italic}
-.map-label.l1{left:9%;top:12%}.map-label.l2{left:70%;top:20%}.map-label.l3{left:39%;top:74%}.map-label.l4{left:15%;top:61%}
-.map-search{position:absolute;z-index:30;left:10px;right:10px;top:9px;height:31px;display:flex;align-items:center;padding:0 12px;border-radius:17px;background:rgba(255,255,255,.94);box-shadow:0 2px 10px rgba(0,0,0,.18);color:#747474;font-size:9px}
+.phone-real-map{
+    position:absolute;
+    inset:-1px;
+    width:calc(100% + 2px);
+    height:calc(100% + 2px);
+    border:0;
+    display:block;
+    background:#d9e2e7;
+    transform-origin:center center;
+    transition:transform .25s ease;
+}
+.map-real-overlay{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:8;
+}
+.map-search{
+    position:absolute;
+    z-index:40;
+    left:10px;
+    right:10px;
+    top:9px;
+    height:31px;
+    display:flex;
+    align-items:center;
+    padding:0 12px;
+    border-radius:17px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 2px 10px rgba(0,0,0,.22);
+    color:#737373;
+    font-size:9px;
+}
 .map-search span:first-child{font-size:11px;margin-right:6px}
-.map-controls{position:absolute;z-index:30;right:10px;bottom:72px;display:flex;flex-direction:column;gap:5px}
-.map-controls button,.map-locate{width:31px;height:31px;border:0;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 2px 9px rgba(0,0,0,.2);color:#333;font-size:17px;cursor:pointer}
-.map-locate{position:absolute;right:10px;bottom:35px;z-index:30;color:#1677d2;font-size:15px}
-.map-gps{position:absolute;left:34%;top:57%;width:15px;height:15px;border-radius:50%;background:#1683e8;border:3px solid #fff;box-shadow:0 0 0 7px rgba(22,131,232,.18),0 2px 5px rgba(0,0,0,.3);z-index:12}
-.map-gps::after{content:"";position:absolute;inset:-11px;border:1px solid rgba(22,131,232,.25);border-radius:50%;animation:mapPulse 2s ease-out infinite}
-@keyframes mapPulse{0%,100%{transform:scale(.75);opacity:.7}70%{transform:scale(1.35);opacity:0}}
-.map-pin{position:absolute;left:61%;top:39%;width:25px;height:25px;transform:translate(-50%,-100%);z-index:20;cursor:pointer;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
-.map-pin::before{content:"";position:absolute;width:24px;height:24px;border-radius:50% 50% 50% 0;background:#e94d4d;transform:rotate(-45deg)}
-.map-pin::after{content:"";position:absolute;left:8px;top:7px;width:7px;height:7px;border-radius:50%;background:#fff}
-.map-pin-label{position:absolute;left:calc(61% + 11px);top:calc(39% - 32px);z-index:21;padding:4px 7px;border-radius:7px;background:rgba(255,255,255,.94);box-shadow:0 2px 7px rgba(0,0,0,.16);font-size:8px;font-weight:600;white-space:nowrap;cursor:pointer}
-.map-card{position:absolute;z-index:40;left:8px;right:8px;bottom:8px;padding:10px 11px;border-radius:13px;background:rgba(255,255,255,.96);box-shadow:0 3px 14px rgba(0,0,0,.2)}
-.map-card small{display:block;color:#777;font-size:7px;margin-bottom:2px}.map-card strong{font-size:12px}.map-card p{font-size:7px;color:#666;margin:2px 0 7px}
-.map-card button{border:0;border-radius:8px;padding:6px 9px;background:#1677d2;color:#fff;font-size:7px;font-weight:600}.map-card .map-detail{background:#eef4fa;color:#1677d2;margin-left:4px}
-.map-distance{position:absolute;left:36%;top:52%;font-size:6px;color:#4f6873;transform:rotate(-4deg)}\n.map-geo{position:absolute;inset:0;transform-origin:center center;transition:transform .2s ease;will-change:transform}.map-card-hidden{display:none !important}
+.map-controls{
+    position:absolute;
+    z-index:40;
+    right:10px;
+    bottom:72px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.map-controls button,.map-locate{
+    width:31px;
+    height:31px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 2px 9px rgba(0,0,0,.22);
+    color:#333;
+    font-size:17px;
+    cursor:pointer;
+}
+.map-locate{
+    position:absolute;
+    right:10px;
+    bottom:35px;
+    z-index:40;
+    color:#1677d2;
+    font-size:15px;
+}
+.map-location{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:18px;
+    height:18px;
+    transform:translate(-50%,-50%);
+    z-index:20;
+}
+.map-location .map-gps{
+    position:absolute;
+    left:0;
+    top:0;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#1683e8;
+    border:3px solid #fff;
+    box-shadow:0 0 0 7px rgba(22,131,232,.18),0 2px 5px rgba(0,0,0,.32);
+}
+.map-location .map-gps::after{
+    content:"";
+    position:absolute;
+    inset:-12px;
+    border:1px solid rgba(22,131,232,.28);
+    border-radius:50%;
+    animation:mapPulse 2s ease-out infinite;
+}
+.map-stuga-pin{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:25px;
+    height:25px;
+    transform:translate(-50%,-100%);
+    z-index:21;
+    cursor:pointer;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.34));
+}
+.map-stuga-pin::before{
+    content:"";
+    position:absolute;
+    width:24px;
+    height:24px;
+    border-radius:50% 50% 50% 0;
+    background:#e94d4d;
+    transform:rotate(-45deg);
+}
+.map-stuga-pin::after{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:7px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#fff;
+}
+.map-pin-label{
+    position:absolute;
+    left:calc(50% + 13px);
+    top:calc(50% - 42px);
+    z-index:22;
+    padding:4px 7px;
+    border-radius:7px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 2px 7px rgba(0,0,0,.18);
+    font-size:8px;
+    font-weight:600;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.map-card{
+    position:absolute;
+    z-index:50;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    padding:10px 11px;
+    border-radius:13px;
+    background:rgba(255,255,255,.97);
+    box-shadow:0 3px 14px rgba(0,0,0,.22);
+}
+.map-card small{display:block;color:#777;font-size:7px;margin-bottom:2px}
+.map-card strong{font-size:12px}
+.map-card p{font-size:7px;color:#666;margin:2px 0 7px}
+.map-card button{border:0;border-radius:8px;padding:6px 9px;background:#1677d2;color:#fff;font-size:7px;font-weight:600}
+.map-card .map-detail{background:#eef4fa;color:#1677d2;margin-left:4px}
+.map-card-hidden{display:none!important}
+.map-location-note{
+    position:absolute;
+    left:50%;
+    top:calc(50% + 14px);
+    transform:translateX(-50%);
+    z-index:19;
+    font-size:6px;
+    color:#176fc4;
+    background:rgba(255,255,255,.86);
+    padding:2px 5px;
+    border-radius:6px;
+    white-space:nowrap;
+    box-shadow:0 1px 4px rgba(0,0,0,.12);
+}
+@keyframes mapPulse{
+    0%,100%{transform:scale(.75);opacity:.7}
+    70%{transform:scale(1.35);opacity:0}
+}
 .ios-dark-body{height:calc(100% - 58px);background:#000;color:#fff;padding:15px}.clock-face{text-align:center;font-size:44px;font-weight:200;margin:55px 0}.alarm-row{border-top:1px solid #333;padding:14px 2px}.alarm-row strong{display:block;font-size:24px;font-weight:300}.alarm-row small{color:#aaa}.weather-head{background:#459ad9;color:#fff;border-color:#459ad9}.weather-head button,.weather-head span{color:#fff}.weather-screen{height:calc(100% - 58px);background:linear-gradient(#3c9cdb,#75bfe7 45%,#e7f2f7);color:#fff;padding:32px 22px}.weather-screen small{font-size:14px}.weather-screen strong{display:block;font-size:72px;font-weight:200;margin-top:12px}.weather-screen span{font-size:17px}.weather-screen p{font-size:10px}.note-card{background:#fff4a3;border-radius:8px;padding:15px;line-height:1.6}.reminder{padding:13px 3px;border-bottom:1px solid #ddd;color:#333}.store-card{height:130px;border-radius:12px;background:linear-gradient(135deg,#6fcbff,#2864e8);color:#fff;padding:15px}.settings-list>div{background:#fff;border-bottom:1px solid #ddd;padding:13px 10px;font-size:10px}.settings-list span{float:right;color:#888}.mail-message{padding:10px}.mail-message small{display:block;color:#777;margin:4px 0 12px}.mail-message p{line-height:1.6}.call-list>div{padding:14px 4px;border-bottom:1px solid #ddd}.call-list strong,.call-list small{display:block}.call-list small{color:#777;margin-top:3px}.ios-browser{padding:15px;text-align:center}.browser-bar{background:#e9e9ed;border-radius:10px;padding:9px;color:#777}.ios-browser h2{margin-top:60px;font-size:18px}.ios-browser p{color:#777;font-size:10px}.spotify-screen{height:calc(100% - 58px);background:#111;color:#fff;padding:25px}.album-art{width:155px;height:155px;margin:10px auto 28px;background:linear-gradient(135deg,#8e1515,#1b0e0e);display:flex;align-items:center;justify-content:center;text-align:center;font-size:28px;font-weight:700}.spotify-screen p{color:#aaa}.ios-camera{position:absolute;inset:0;background:#090909;color:#fff;overflow:hidden}.ios-camera>button{position:absolute;top:15px;left:15px;background:rgba(0,0,0,.35);border:0;color:#fff;font-size:27px;line-height:1;width:38px;height:38px;border-radius:50%;z-index:4;cursor:pointer}.camera-view{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#090909;display:block}.camera-message{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78%;text-align:center;color:rgba(255,255,255,.82);font-size:10px;line-height:1.6;text-shadow:0 1px 5px #000;z-index:3}.camera-shutter{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:62px;height:62px;border:5px solid #fff;border-radius:50%;font-size:0;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.45)}
 .phone-home-button{position:absolute;z-index:30;bottom:2px;left:50%;transform:translateX(-50%);border:0;background:none;color:#fff;font-size:15px;cursor:pointer;opacity:.8}
 .image-app-icon{background:transparent!important;overflow:hidden!important;border:0!important;box-shadow:none!important;padding:0!important}.image-app-icon img{width:100%;height:100%;object-fit:cover;display:block;border-radius:11px}/* Dynamic Island ska alltid ligga över ALLT innehåll i telefonen – även appar och bilder. */
@@ -2377,6 +2509,14 @@ filter:brightness(0);}
     pointer-events:none !important;
 }
 
+.phone-unlocked > .phone-persistent-island{
+    position:absolute !important;
+    top:11px !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    z-index:100000 !important;
+    pointer-events:none !important;
+}
 .phone-dynamic-island{position:absolute;z-index:20;top:11px;left:50%;transform:translateX(-50%);width:104px;height:30px;border-radius:18px;background:linear-gradient(180deg,#050505,#000);box-shadow:0 1px 2px rgba(255,255,255,.08) inset,0 2px 8px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;box-sizing:border-box}.phone-island-camera{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#304b65 0 18%,#111722 38%,#020305 72%);box-shadow:0 0 0 1px rgba(255,255,255,.06)}.phone-island-sensor{width:6px;height:6px;border-radius:50%;background:#070707;margin-left:5px}.phone-battery-image{
     width:38px;
     height:19px;
@@ -4219,19 +4359,31 @@ function resetPuzzle() {
 }
 
 
-let phoneMapZoom=1,phoneMapPanX=0,phoneMapPanY=0;
+let phoneMapZoom=1;
 function applyPhoneMapTransform(){
- const geo=document.getElementById("phoneMapGeo"); if(!geo)return;
- geo.style.transform="translate("+phoneMapPanX+"px,"+phoneMapPanY+"px) scale("+phoneMapZoom+")";
+    const map=document.getElementById("phoneRealMap");
+    if(!map)return;
+    map.style.transform="scale("+phoneMapZoom+")";
 }
 function zoomPhoneMap(d){
- phoneMapZoom=Math.min(2.2,Math.max(1,phoneMapZoom+d*.2));
- if(phoneMapZoom===1){phoneMapPanX=0;phoneMapPanY=0}
- applyPhoneMapTransform();
+    phoneMapZoom=Math.min(2.4,Math.max(1,phoneMapZoom+d*.2));
+    applyPhoneMapTransform();
 }
-function locatePhoneMap(){phoneMapZoom=1.45;phoneMapPanX=35;phoneMapPanY=-30;applyPhoneMapTransform()}
-function toggleMapCard(){const c=document.getElementById("phoneMapCard");if(c)c.classList.toggle("map-card-hidden")}
-function mapDirections(){const c=document.getElementById("phoneMapCard");if(c){const p=c.querySelector("p");if(p)p.textContent="Beräknad gångväg · 14 min · följ Fårövägen"}}
+function locatePhoneMap(){
+    phoneMapZoom=1.35;
+    applyPhoneMapTransform();
+}
+function toggleMapCard(){
+    const c=document.getElementById("phoneMapCard");
+    if(c)c.classList.toggle("map-card-hidden");
+}
+function mapDirections(){
+    const c=document.getElementById("phoneMapCard");
+    if(c){
+        const p=c.querySelector("p");
+        if(p)p.textContent="Du är redan vid stugan · registrerad position 23:41";
+    }
+}
 let phoneCameraStream = null;
 
 async function startPhoneCamera() {
@@ -4393,7 +4545,7 @@ function closePhoneApp() {
                 </div>
 
                 <div class="phone-unlocked" id="phoneUnlocked">
-  <div class="phone-home-wallpaper"><div class="phone-dynamic-island" aria-hidden="true"><span class="phone-island-camera"></span><span class="phone-island-sensor"></span></div></div>
+  <div class="phone-home-wallpaper"></div><div class="phone-dynamic-island phone-persistent-island" aria-hidden="true"><span class="phone-island-camera"></span><span class="phone-island-sensor"></span></div>
   <div class="phone-home-status">
     <span id="phoneHomeTime">--:--</span>
     <span class="phone-home-status-icons"><span>▮▮▮</span><span>⌁</span><img class="phone-battery-image" src="batteri.webp" alt="Batteri"></span>
@@ -4440,18 +4592,38 @@ function closePhoneApp() {
 <div class="phone-app-panel" id="phoneAppMaps">
   <div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Kartor</strong><span>⌁</span></div>
   <div class="ios-map" id="phoneMapSurface">
-    <div class="map-geo" id="phoneMapGeo">
-      <div class="map-sea"></div><div class="map-forest f1"></div><div class="map-forest f2"></div><div class="map-forest f3"></div>
-      <div class="map-road r1 main"></div><div class="map-road r2"></div><div class="map-road r3"></div><div class="map-road r4"></div><div class="map-road r5"></div>
-      <div class="map-building b1"></div><div class="map-building b2"></div><div class="map-building b3"></div><div class="map-building b4"></div><div class="map-building b5"></div>
-      <div class="map-label water l1">Östersjön</div><div class="map-label l2">Fårö</div><div class="map-label l3">Skogen</div><div class="map-label l4">Fårövägen</div>
-      <div class="map-gps" title="Din position"></div><div class="map-distance">ca 1,2 km</div>
-      <div class="map-pin" onclick="toggleMapCard()" aria-label="Stugan"></div><div class="map-pin-label" onclick="toggleMapCard()">Stugan</div>
+    <iframe
+      class="phone-real-map"
+      id="phoneRealMap"
+      title="Karta över Fårö"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=19.16%2C57.955%2C19.24%2C58.005&amp;layer=mapnik"
+      loading="eager"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <div class="map-real-overlay">
+      <div class="map-location" aria-label="Din position">
+        <div class="map-gps"></div>
+      </div>
+      <div class="map-stuga-pin" onclick="toggleMapCard()" aria-label="Stugan"></div>
+      <div class="map-pin-label" onclick="toggleMapCard()">Stugan</div>
+      <div class="map-location-note">Din position · Stugan</div>
     </div>
+
     <div class="map-search"><span>⌕</span><span>Sök i Kartor</span></div>
-    <div class="map-controls"><button type="button" onclick="zoomPhoneMap(1)">+</button><button type="button" onclick="zoomPhoneMap(-1)">−</button></div>
+    <div class="map-controls">
+      <button type="button" onclick="zoomPhoneMap(1)">+</button>
+      <button type="button" onclick="zoomPhoneMap(-1)">−</button>
+    </div>
     <button class="map-locate" type="button" onclick="locatePhoneMap()" aria-label="Visa min position">⌾</button>
-    <div class="map-card" id="phoneMapCard"><small>Senaste plats</small><strong>Stugan</strong><p>Registrerad position · 23:41 · Fårö</p><button type="button" onclick="mapDirections()">Vägbeskrivning</button><button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button></div>
+
+    <div class="map-card" id="phoneMapCard">
+      <small>Senaste plats</small>
+      <strong>Stugan</strong>
+      <p>Registrerad position · 23:41 · Fårö</p>
+      <button type="button" onclick="mapDirections()">Vägbeskrivning</button>
+      <button class="map-detail" type="button" onclick="toggleMapCard()">Detaljer</button>
+    </div>
   </div>
 </div>
 
