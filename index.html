@@ -2373,38 +2373,6 @@ filter:brightness(0);}
     font-size:9px;
 }
 .map-search span:first-child{font-size:11px;margin-right:6px}
-.map-controls{
-    position:absolute;
-    z-index:40;
-    right:10px;
-    top:52px;
-    bottom:auto;
-    display:flex;
-    flex-direction:column;
-    gap:5px;
-}
-.map-controls button,.map-locate{
-    width:31px;
-    height:31px;
-    border:0;
-    border-radius:50%;
-    background:rgba(255,255,255,.96);
-    box-shadow:0 2px 9px rgba(0,0,0,.22);
-    color:#333;
-    font-size:17px;
-    cursor:default;
-}
-.map-controls button{
-    pointer-events:none;
-}
-.map-locate{
-    position:absolute;
-    right:10px;
-    bottom:35px;
-    z-index:40;
-    color:#1677d2;
-    font-size:15px;
-}
 .map-location{
     position:absolute;
     left:50%;
@@ -4619,11 +4587,6 @@ function closePhoneApp() {
 
 
     <div class="map-search"><span>⌕</span><span>Sök i Kartor</span></div>
-    <div class="map-controls">
-      <button type="button" onclick="zoomPhoneMap(1)">+</button>
-      <button type="button" onclick="zoomPhoneMap(-1)">−</button>
-    </div>
-    <button class="map-locate" type="button" onclick="locatePhoneMap()" aria-label="Visa min position">⌾</button>
 
     <div class="map-card" id="phoneMapCard">
       <small>Senaste plats</small>
