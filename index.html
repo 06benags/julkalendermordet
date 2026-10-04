@@ -133,6 +133,18 @@ body::before {
 .sos-location{margin-top:10px;font:11px Arial,sans-serif;letter-spacing:.08em;opacity:.55;}
 .sos-answer{margin-top:42px;padding:15px 30px;border:1px solid rgba(255,255,255,.35);background:#a92e35;color:#fff;font:500 11px Arial,sans-serif;letter-spacing:.15em;cursor:pointer;transition:transform .2s,filter .2s;}
 .sos-answer:hover{transform:translateY(-2px);filter:brightness(1.12);}
+.sos-chat{width:100%;max-width:500px;margin-top:28px;text-align:left;}
+.sos-chat-log{height:270px;overflow-y:auto;padding:4px 2px 14px;display:flex;flex-direction:column;gap:10px;}
+.sos-msg{max-width:86%;padding:10px 13px;border-radius:12px;font:13px/1.55 Arial,sans-serif;}
+.sos-msg.operator{align-self:flex-end;background:#244936;color:#fff;}
+.sos-msg.gustav{align-self:flex-start;background:#202923;color:#f4f1e8;border:1px solid rgba(255,255,255,.08);}
+.sos-chat-input{display:flex;gap:8px;margin-top:10px;}
+.sos-chat-input input{flex:1;min-width:0;padding:13px 14px;border:1px solid rgba(255,255,255,.18);background:#0b100d;color:#fff;outline:none;font:13px Arial,sans-serif;}
+.sos-chat-input input:focus{border-color:rgba(255,255,255,.4);}
+.sos-chat-input button{padding:0 18px;border:1px solid rgba(255,255,255,.25);background:#a92e35;color:#fff;cursor:pointer;font:500 10px Arial,sans-serif;letter-spacing:.12em;}
+.sos-chat-hint{margin-top:9px;font:10px/1.5 Arial,sans-serif;opacity:.42;text-align:center;}
+.sos-end{margin-top:18px;padding:11px 22px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;font:500 10px Arial,sans-serif;letter-spacing:.12em;}
+
 
 /* =========================================================
    STARTSIDA
@@ -4282,12 +4294,86 @@ function answerGustavCall(){
         '<div class="sos-call-icon">112</div>' +
         '<div class="sos-caller">GUSTAV LINDQVIST</div>' +
         '<div class="sos-location">Samtalet är uppkopplat · 10:23:14</div>' +
-        '<div style="margin-top:38px;max-width:430px;font:14px/1.8 Arial,sans-serif;opacity:.9;">' +
-        '<strong style="display:block;margin-bottom:12px;">Gustav:</strong>' +
-        'Min kompis... han andas inte. Jag får ingen kontakt med honom.' +
-        '</div>' +
-        '<button class="sos-answer" type="button" onclick="closeSosCall()">AVSLUTA SAMTAL</button>';
+        '<div class="sos-chat">' +
+            '<div class="sos-chat-log" id="sosChatLog">' +
+                '<div class="sos-msg gustav"><strong>Gustav:</strong><br>Min kompis... han andas inte. Jag får ingen kontakt med honom.</div>' +
+            '</div>' +
+            '<form class="sos-chat-input" onsubmit="sendSosMessage(event)">' +
+                '<input id="sosChatInput" autocomplete="off" placeholder="Skriv som SOS-operatör..." aria-label="Skriv som SOS-operatör">' +
+                '<button type="submit">SKICKA</button>' +
+            '</form>' +
+            '<div class="sos-chat-hint">Du är SOS-operatören. Fråga Gustav vad du behöver veta.</div>' +
+            '<button class="sos-end" type="button" onclick="finishSosCall()">AVSLUTA SAMTAL</button>' +
+        '</div>';
+
+    setTimeout(()=>document.getElementById("sosChatInput")?.focus(),50);
 }
+
+function addSosMessage(who,text){
+    const log=document.getElementById("sosChatLog");
+    if(!log)return;
+    const div=document.createElement("div");
+    div.className="sos-msg "+(who==="Gustav"?"gustav":"operator");
+    div.innerHTML="<strong>"+who+":</strong><br>"+text;
+    log.appendChild(div);
+    log.scrollTop=log.scrollHeight;
+}
+
+function gustavResponse(input){
+    const q=input.toLowerCase();
+
+    if(/var|befinner|adress|plats|stuga|ort|väg/.test(q))
+        return "Vi är i en stuga som heter Brostugan... på Långtjärnsvägen 47, i Älvdalen. Jag vet inte exakt vad orten heter här.";
+    if(/vem|namn|heter han|offer|kompis/.test(q))
+        return "Han heter Benjamin. Benjamin Afsharazad. Han är 20 år.";
+    if(/vaken|medvets|kontakt|reager/.test(q))
+        return "Nej. Jag får ingen reaktion alls. Jag har ropat på honom och försökt väcka honom.";
+    if(/andas|andning/.test(q))
+        return "Nej... jag kan inte känna någon andning. Jag tittar på bröstet men det rör sig inte.";
+    if(/hjärt|hlr|cpr|kompression|bröst/.test(q))
+        return "Okej. Jag försöker. Säg vad jag ska göra.";
+    if(/när|tid|hur länge|upptäck|hittade|vaknade|sov/.test(q))
+        return "Jag vaknade runt tio. Efter kanske tjugo minuter märkte jag att Benjamin fortfarande låg helt stilla.";
+    if(/skad|blod|våld|slagsmål|kniv|vapen/.test(q))
+        return "Jag ser inget blod och jag ser inga tydliga skador. Han ligger i sängen.";
+    if(/ensam|någon annan|andra|folk|vänner|kompisar/.test(q))
+        return "De andra är här i stugan. Jag tror att alla är kvar.";
+    if(/dricka|druck|alkohol|glögg|julmust|vatten/.test(q))
+        return "Vi drack glögg och julmust igår kväll. Ingen alkohol.";
+    if(/dörr|låst|inbrott|någon gick|lämnade|ute/.test(q))
+        return "Jag har inte sett någon lämna stugan. Jag tror dörren var låst, men jag kollade inte själv precis innan.";
+    if(/sjuk|medicin|allerg|sjukdom/.test(q))
+        return "Inte vad jag vet. Benjamin verkade må bra igår kväll.";
+    if(/bråk|konflikt|hot|osams/.test(q))
+        return "Nej, inte vad jag märkte. Allt verkade normalt när vi gick och lade oss.";
+    if(/vad har hänt|vad hände|beskriv|berätta/.test(q))
+        return "Jag vaknade vid tio och Benjamin låg kvar i sängen. Jag trodde först att han sov. Sedan försökte jag väcka honom och fick ingen reaktion. Jag kollade andningen och då... då insåg jag att något var riktigt fel.";
+    return "Jag vet inte... jag är skakis just nu. Fråga mig en sak i taget så ska jag försöka svara.";
+
+}
+
+function sendSosMessage(event){
+    event.preventDefault();
+    const input=document.getElementById("sosChatInput");
+    if(!input)return;
+    const text=input.value.trim();
+    if(!text)return;
+    addSosMessage("SOS-operatören",text);
+    input.value="";
+    setTimeout(()=>{
+        addSosMessage("Gustav",gustavResponse(text));
+        const i=document.getElementById("sosChatInput");
+        if(i)i.focus();
+    },450);
+}
+
+function finishSosCall(){
+    addSosMessage("SOS-operatören","Okej Gustav. Hjälp är på väg. Stanna kvar hos Benjamin och följ instruktionerna.");
+    setTimeout(()=>{
+        closeSosCall();
+    },1200);
+}
+
 
 function closeSosCall(){
     const overlay=document.getElementById("sosOverlay");
