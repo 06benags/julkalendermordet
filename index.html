@@ -144,6 +144,19 @@ body::before {
 .sos-chat-input button{padding:0 18px;border:1px solid rgba(255,255,255,.25);background:#a92e35;color:#fff;cursor:pointer;font:500 10px Arial,sans-serif;letter-spacing:.12em;}
 .sos-chat-hint{margin-top:9px;font:10px/1.5 Arial,sans-serif;opacity:.42;text-align:center;}
 .sos-end{margin-top:18px;padding:11px 22px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;font:500 10px Arial,sans-serif;letter-spacing:.12em;}
+.sos-mission{width:100%;max-width:500px;margin-top:24px;padding:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);text-align:left;}
+.sos-mission-title{font:500 12px Cinzel,serif;letter-spacing:.12em;margin-bottom:5px;}
+.sos-mission-sub{font:10px/1.5 Arial,sans-serif;opacity:.55;margin-bottom:14px;}
+.sos-field{margin:10px 0;}
+.sos-field label{display:block;font:500 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin-bottom:5px;}
+.sos-field input{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid rgba(255,255,255,.15);background:#0b100d;color:#fff;outline:none;font:12px Arial,sans-serif;}
+.sos-field input:focus{border-color:rgba(255,255,255,.4);}
+.sos-dispatch{width:100%;margin-top:12px;padding:13px;border:1px solid rgba(255,255,255,.25);background:#3d4540;color:#fff;cursor:not-allowed;font:500 10px Arial,sans-serif;letter-spacing:.12em;transition:.2s;}
+.sos-dispatch.ready{background:#a92e35;cursor:pointer;}
+.sos-dispatch.ready:hover{filter:brightness(1.12);}
+.sos-mission-status{margin-top:8px;font:10px/1.4 Arial,sans-serif;opacity:.55;text-align:center;min-height:14px;}
+.sos-dispatched{margin-top:16px;padding:14px;border:1px solid rgba(255,255,255,.2);background:#183c2a;font:11px/1.5 Arial,sans-serif;text-align:center;}
+
 
 
 /* =========================================================
@@ -4304,9 +4317,23 @@ function answerGustavCall(){
                 '<input id="sosChatInput" autocomplete="off" value="SOS Alarm, vad har inträffat?" aria-label="Skriv som SOS-operatör">' +
                 '<button type="submit">SKICKA</button>' +
             '</form>' +
-            '<div class="sos-chat-hint">Du är SOS-operatören. Börja samtalet med frågan ovan.</div>' +
+            '<div class="sos-chat-hint">Du är SOS-operatören. Ta reda på vad som hänt, var ni är, vem som ringer och vem som är drabbad.</div>' +
+            '<div class="sos-mission">' +
+                '<div class="sos-mission-title">UPPGIFT · SAMLA LARMUPPGIFTER</div>' +
+                '<div class="sos-mission-sub">Du får skicka hjälp först när du har de viktigaste uppgifterna.</div>' +
+                '<div class="sos-field"><label>Vad har hänt?</label><input id="sosFactIncident" autocomplete="off" placeholder="Beskriv situationen"></div>' +
+                '<div class="sos-field"><label>Var befinner ni er?</label><input id="sosFactLocation" autocomplete="off" placeholder="Plats / adress"></div>' +
+                '<div class="sos-field"><label>Vem ringer?</label><input id="sosFactCaller" autocomplete="off" placeholder="Namn"></div>' +
+                '<div class="sos-field"><label>Vem är drabbad?</label><input id="sosFactVictim" autocomplete="off" placeholder="Namn"></div>' +
+                '<div class="sos-field"><label>Andning / medvetande?</label><input id="sosFactCondition" autocomplete="off" placeholder="Vad vet du?"></div>' +
+                '<div class="sos-field"><label>Finns omedelbar fara?</label><input id="sosFactDanger" autocomplete="off" placeholder="Brand, vapen, annan fara?"></div>' +
+                '<button class="sos-dispatch" id="sosDispatchButton" type="button" onclick="sendRescue()">SKICKA RÄDDNINGSTJÄNSTEN</button>' +
+                '<div class="sos-mission-status" id="sosMissionStatus">Samla uppgifterna genom att prata med den som ringer.</div>' +
+            '</div>' +
             '<button class="sos-end" type="button" onclick="finishSosCall()">AVSLUTA SAMTAL</button>' +
         '</div>';
+    document.querySelectorAll("#sosFactIncident,#sosFactLocation,#sosFactCaller,#sosFactVictim,#sosFactCondition,#sosFactDanger").forEach(el=>el.addEventListener("input",checkSosMission));
+    checkSosMission();
     setTimeout(()=>document.getElementById("sosChatInput")?.focus(),50);
 }
 function addSosMessage(who,text){
@@ -4497,6 +4524,42 @@ async function sendSosMessage(event){
 
     const i=document.getElementById("sosChatInput");
     if(i)i.focus();
+}
+
+function checkSosMission(){
+    const incident=(document.getElementById("sosFactIncident")?.value||"").toLowerCase();
+    const location=(document.getElementById("sosFactLocation")?.value||"").toLowerCase();
+    const caller=(document.getElementById("sosFactCaller")?.value||"").toLowerCase();
+    const victim=(document.getElementById("sosFactVictim")?.value||"").toLowerCase();
+    const condition=(document.getElementById("sosFactCondition")?.value||"").toLowerCase();
+    const danger=(document.getElementById("sosFactDanger")?.value||"").toLowerCase();
+
+    const okIncident=(incident.includes("hittat")||incident.includes("medvets")||incident.includes("livlös")||incident.includes("livlos")||incident.includes("andas"));
+    const okLocation=(location.includes("brostugan") && location.includes("långtjärnsvägen") || location.includes("langtjarnsvagen") || (location.includes("brostugan")&&location.includes("47")));
+    const okCaller=caller.includes("gustav");
+    const okVictim=victim.includes("benjamin");
+    const okCondition=(condition.includes("andas") || condition.includes("andning")) && (condition.includes("inte") || condition.includes("ingen") || condition.includes("saknas") || condition.includes("nej"));
+    const okDanger=(danger.includes("ingen") || danger.includes("nej") || danger.includes("inte"));
+
+    const ready=okIncident&&okLocation&&okCaller&&okVictim&&okCondition&&okDanger;
+    const button=document.getElementById("sosDispatchButton");
+    const status=document.getElementById("sosMissionStatus");
+    if(button)button.classList.toggle("ready",ready);
+    if(status){
+        status.textContent=ready
+            ?"Alla viktiga larmuppgifter är ifyllda. Du kan skicka hjälp."
+            :"Ta reda på vad som hänt, platsen, vem som ringer, vem som är drabbad, andning/medvetande och omedelbar fara.";
+    }
+    return ready;
+}
+
+function sendRescue(){
+    if(!checkSosMission())return;
+    const status=document.getElementById("sosMissionStatus");
+    if(status)status.innerHTML='<div class="sos-dispatched">✓ RÄDDNINGSTJÄNSTEN ÄR LARMAD<br><span style="opacity:.7">Plats och patientuppgifter har skickats vidare.</span></div>';
+    const button=document.getElementById("sosDispatchButton");
+    if(button){button.disabled=true;button.textContent="RÄDDNINGSTJÄNSTEN ÄR LARMAD";}
+    addSosMessage("SOS-operatören","Okej. Jag har adressen och uppgifterna. Hjälp är på väg. Stanna kvar hos Benjamin och följ mina instruktioner.");
 }
 
 function finishSosCall(){
