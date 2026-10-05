@@ -4531,6 +4531,18 @@ async function sendSosMessage(event){
     addSosMessage("SOS-operatören",text);
     input.value="";
 
+    // Första SOS-frågan ska alltid ge ett direkt svar. Den ska inte
+    // vara beroende av Vercel/OpenAI, så den fungerar även från GitHub Pages.
+    const normalizedFirst=normalizeSosQuestion(text);
+    if(hasAny(normalizedFirst,["sos alarm vad har inträffat","sos vad har inträffat","vad har inträffat"])){
+        setTimeout(()=>{
+            addSosMessage("Gustav","Hej… jag… jag har hittat en person här. Han svarar inte. Jag tror inte att han andas. Ni måste komma.");
+            const i=document.getElementById("sosChatInput");
+            if(i)i.focus();
+        },450);
+        return;
+    }
+
     // Försök först med den riktiga AI:n. Om backend inte är ansluten
     // används Gustavs lokala kunskapsbas så att spelet fortfarande fungerar.
     try{
