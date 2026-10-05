@@ -151,6 +151,12 @@ body::before {
 .sos-field label{display:block;font:500 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin-bottom:5px;}
 .sos-field input{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid rgba(255,255,255,.15);background:#0b100d;color:#fff;outline:none;font:12px Arial,sans-serif;}
 .sos-field input:focus{border-color:rgba(255,255,255,.4);}
+.sos-options{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:6px;}
+.sos-option{display:flex;align-items:center;gap:8px;padding:9px 10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);cursor:pointer;font:10px/1.3 Arial,sans-serif;text-align:left;}
+.sos-option input{width:auto;margin:0;accent-color:#b33139;}
+.sos-option:has(input:checked){border-color:rgba(190,55,65,.75);background:rgba(170,45,55,.12);}
+.sos-name-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+@media(max-width:430px){.sos-options{grid-template-columns:1fr;}}
 .sos-dispatch{width:100%;margin-top:12px;padding:13px;border:1px solid rgba(255,255,255,.25);background:#3d4540;color:#fff;cursor:not-allowed;font:500 10px Arial,sans-serif;letter-spacing:.12em;transition:.2s;}
 .sos-dispatch.ready{background:#a92e35;cursor:pointer;}
 .sos-dispatch.ready:hover{filter:brightness(1.12);}
@@ -4321,18 +4327,43 @@ function answerGustavCall(){
             '<div class="sos-mission">' +
                 '<div class="sos-mission-title">UPPGIFT · SAMLA LARMUPPGIFTER</div>' +
                 '<div class="sos-mission-sub">Du får skicka hjälp först när du har de viktigaste uppgifterna.</div>' +
-                '<div class="sos-field"><label>Vad har hänt?</label><input id="sosFactIncident" autocomplete="off" placeholder="Beskriv situationen"></div>' +
-                '<div class="sos-field"><label>Var befinner ni er?</label><input id="sosFactLocation" autocomplete="off" placeholder="Plats / adress"></div>' +
-                '<div class="sos-field"><label>Vem ringer?</label><input id="sosFactCaller" autocomplete="off" placeholder="Namn"></div>' +
-                '<div class="sos-field"><label>Vem är drabbad?</label><input id="sosFactVictim" autocomplete="off" placeholder="Namn"></div>' +
-                '<div class="sos-field"><label>Andning / medvetande?</label><input id="sosFactCondition" autocomplete="off" placeholder="Vad vet du?"></div>' +
-                '<div class="sos-field"><label>Finns omedelbar fara?</label><input id="sosFactDanger" autocomplete="off" placeholder="Brand, vapen, annan fara?"></div>' +
+                '<div class="sos-field"><label>Vad har hänt?</label><div class="sos-options">' +
+                    '<label class="sos-option"><input type="radio" name="incident" value="person"> En person är skadad</label>' +
+                    '<label class="sos-option"><input type="radio" name="incident" value="unconscious"> En person är medvetslös</label>' +
+                    '<label class="sos-option"><input type="radio" name="incident" value="dead"> En person verkar död</label>' +
+                    '<label class="sos-option"><input type="radio" name="incident" value="fire"> Brand i stugan</label>' +
+                '</div></div>' +
+                '<div class="sos-field"><label>Var befinner ni er?</label><div class="sos-options">' +
+                    '<label class="sos-option"><input type="radio" name="location" value="wrong"> En stuga utanför Mora</label>' +
+                    '<label class="sos-option"><input type="radio" name="location" value="right"> Brostugan, Långtjärnsvägen 47, 796 91 Älvdalen</label>' +
+                    '<label class="sos-option"><input type="radio" name="location" value="wrong2"> En stuga utanför Falun</label>' +
+                    '<label class="sos-option"><input type="radio" name="location" value="wrong3"> Sudersand, Fårö</label>' +
+                '</div></div>' +
+                '<div class="sos-field"><label>Vem ringer? · namn och efternamn</label><div class="sos-name-row"><input id="sosFactCallerFirst" autocomplete="off" placeholder="Förnamn"><input id="sosFactCallerLast" autocomplete="off" placeholder="Efternamn"></div></div>' +
+                '<div class="sos-field"><label>Vem är drabbad? · namn och efternamn</label><div class="sos-name-row"><input id="sosFactVictimFirst" autocomplete="off" placeholder="Förnamn"><input id="sosFactVictimLast" autocomplete="off" placeholder="Efternamn"></div></div>' +
+                '<div class="sos-field"><label>Andning / medvetande?</label><div class="sos-options">' +
+                    '<label class="sos-option"><input type="radio" name="condition" value="breathing"> Han andas normalt</label>' +
+                    '<label class="sos-option"><input type="radio" name="condition" value="notbreathing"> Han andas inte</label>' +
+                    '<label class="sos-option"><input type="radio" name="condition" value="unknown"> Jag vet inte</label>' +
+                    '<label class="sos-option"><input type="radio" name="condition" value="conscious"> Han är vaken</label>' +
+                '</div></div>' +
+                '<div class="sos-field"><label>Finns omedelbar fara?</label><div class="sos-options">' +
+                    '<label class="sos-option"><input type="radio" name="danger" value="none"> Nej, ingen synlig fara</label>' +
+                    '<label class="sos-option"><input type="radio" name="danger" value="fire"> Ja, brand</label>' +
+                    '<label class="sos-option"><input type="radio" name="danger" value="weapon"> Ja, vapen eller våld</label>' +
+                '</div></div>' +
+                '<div class="sos-field"><label>Hur många personer finns på plats?</label><div class="sos-options">' +
+                    '<label class="sos-option"><input type="radio" name="people" value="4"> 4 personer</label>' +
+                    '<label class="sos-option"><input type="radio" name="people" value="5"> 5 personer</label>' +
+                    '<label class="sos-option"><input type="radio" name="people" value="6"> 6 personer</label>' +
+                    '<label class="sos-option"><input type="radio" name="people" value="8"> 8 personer</label>' +
+                '</div></div>' +
                 '<button class="sos-dispatch" id="sosDispatchButton" type="button" onclick="sendRescue()">SKICKA RÄDDNINGSTJÄNSTEN</button>' +
                 '<div class="sos-mission-status" id="sosMissionStatus">Samla uppgifterna genom att prata med den som ringer.</div>' +
             '</div>' +
             '<button class="sos-end" type="button" onclick="finishSosCall()">AVSLUTA SAMTAL</button>' +
         '</div>';
-    document.querySelectorAll("#sosFactIncident,#sosFactLocation,#sosFactCaller,#sosFactVictim,#sosFactCondition,#sosFactDanger").forEach(el=>el.addEventListener("input",checkSosMission));
+    document.querySelectorAll(".sos-mission input").forEach(el=>el.addEventListener("input",checkSosMission));
     checkSosMission();
     setTimeout(()=>document.getElementById("sosChatInput")?.focus(),50);
 }
@@ -4527,28 +4558,32 @@ async function sendSosMessage(event){
 }
 
 function checkSosMission(){
-    const incident=(document.getElementById("sosFactIncident")?.value||"").toLowerCase();
-    const location=(document.getElementById("sosFactLocation")?.value||"").toLowerCase();
-    const caller=(document.getElementById("sosFactCaller")?.value||"").toLowerCase();
-    const victim=(document.getElementById("sosFactVictim")?.value||"").toLowerCase();
-    const condition=(document.getElementById("sosFactCondition")?.value||"").toLowerCase();
-    const danger=(document.getElementById("sosFactDanger")?.value||"").toLowerCase();
+    const incident=document.querySelector('input[name="incident"]:checked')?.value;
+    const location=document.querySelector('input[name="location"]:checked')?.value;
+    const callerFirst=(document.getElementById("sosFactCallerFirst")?.value||"").trim().toLowerCase();
+    const callerLast=(document.getElementById("sosFactCallerLast")?.value||"").trim().toLowerCase();
+    const victimFirst=(document.getElementById("sosFactVictimFirst")?.value||"").trim().toLowerCase();
+    const victimLast=(document.getElementById("sosFactVictimLast")?.value||"").trim().toLowerCase();
+    const condition=document.querySelector('input[name="condition"]:checked')?.value;
+    const danger=document.querySelector('input[name="danger"]:checked')?.value;
+    const people=document.querySelector('input[name="people"]:checked')?.value;
 
-    const okIncident=(incident.includes("hittat")||incident.includes("medvets")||incident.includes("livlös")||incident.includes("livlos")||incident.includes("andas"));
-    const okLocation=(location.includes("brostugan") && location.includes("långtjärnsvägen") || location.includes("langtjarnsvagen") || (location.includes("brostugan")&&location.includes("47")));
-    const okCaller=caller.includes("gustav");
-    const okVictim=victim.includes("benjamin");
-    const okCondition=(condition.includes("andas") || condition.includes("andning")) && (condition.includes("inte") || condition.includes("ingen") || condition.includes("saknas") || condition.includes("nej"));
-    const okDanger=(danger.includes("ingen") || danger.includes("nej") || danger.includes("inte"));
+    const okIncident=incident==="unconscious"||incident==="dead";
+    const okLocation=location==="right";
+    const okCaller=callerFirst.includes("gustav")&&callerLast.includes("lindqvist");
+    const okVictim=victimFirst.includes("benjamin")&&victimLast.includes("afsharazad");
+    const okCondition=condition==="notbreathing";
+    const okDanger=danger==="none";
+    const okPeople=people==="6";
 
-    const ready=okIncident&&okLocation&&okCaller&&okVictim&&okCondition&&okDanger;
+    const ready=okIncident&&okLocation&&okCaller&&okVictim&&okCondition&&okDanger&&okPeople;
     const button=document.getElementById("sosDispatchButton");
     const status=document.getElementById("sosMissionStatus");
     if(button)button.classList.toggle("ready",ready);
     if(status){
         status.textContent=ready
             ?"Alla viktiga larmuppgifter är ifyllda. Du kan skicka hjälp."
-            :"Ta reda på vad som hänt, platsen, vem som ringer, vem som är drabbad, andning/medvetande och omedelbar fara.";
+            :"Samla in rätt uppgifter genom samtalet innan du larmar.";
     }
     return ready;
 }
