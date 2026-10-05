@@ -5712,7 +5712,7 @@ function renderSuspect(){const p=suspectPhotos[suspectIndex],img=document.getEle
 function openSuspects(){const o=document.getElementById("suspectsOverlay");if(o){suspectIndex=0;renderSuspect();o.style.display="flex";}}
 function closeSuspects(){const o=document.getElementById("suspectsOverlay");if(o)o.style.display="none";}
 function nextSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex+1)%suspectPhotos.length;renderSuspect();}
-function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex-1+suspectPhotos.length)%suspectPhotos.length;}
+function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex-1+suspectPhotos.length)%suspectPhotos.length;renderSuspect();}
 </script>
 
 <!-- =========================================================
