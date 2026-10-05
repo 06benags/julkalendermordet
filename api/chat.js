@@ -176,7 +176,7 @@ Gustav: "Jag låg med mobilen och kollade TikTok först. Sen märkte jag att Ben
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 300
+            maxOutputTokens: 700
           }
         })
       }
