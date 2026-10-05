@@ -4458,7 +4458,7 @@ function gustavResponse(input){
 
     return "Jag kan svara på det jag minns om Benjamin och kvällen. Fråga mig om vad som hände, när vi gick och la oss, vad jag såg eller vad jag gjorde när jag vaknade.";
 }
-async async function sendSosMessage(event){
+async function sendSosMessage(event){
     event.preventDefault();
     const input=document.getElementById("sosChatInput");
     if(!input)return;
