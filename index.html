@@ -3269,7 +3269,7 @@ filter:brightness(0);}
         </div>
         <div class="sos-call-screen">
             <div class="sos-call-icon">112</div>
-            <div class="sos-caller">GUSTAV LINDQVIST</div>
+            <div class="sos-caller">OKÄND INKOMMANDE</div>
             <div class="sos-location">Inkommande samtal · 1 december 2026</div>
             <button class="sos-answer" type="button" onclick="answerGustavCall()">TA EMOT SAMTAL</button>
         </div>
@@ -4016,7 +4016,7 @@ filter:brightness(0);}
 
 <script>
 /* AI-endpoint fylls i när den säkra backend-funktionen är deployad. */
-window.GUSTAV_AI_ENDPOINT = "https://julkalendermordet-fu3a.vercel.app/api/chat";
+window.GUSTAV_AI_ENDPOINT = "/api/chat";
 
 
 /* =========================================================
@@ -4296,23 +4296,19 @@ function answerGustavCall(){
     const screen=overlay.querySelector(".sos-call-screen");
     screen.innerHTML =
         '<div class="sos-call-icon">112</div>' +
-        '<div class="sos-caller">GUSTAV LINDQVIST</div>' +
+        '<div class="sos-caller">OKÄND INKOMMANDE</div>' +
         '<div class="sos-location">Samtalet är uppkopplat · 10:23:14</div>' +
         '<div class="sos-chat">' +
-            '<div class="sos-chat-log" id="sosChatLog">' +
-                '<div class="sos-msg operator"><strong>SOS-operatören:</strong><br>SOS Alarm, vad har inträffat?</div><div class="sos-msg gustav"><strong>Gustav:</strong><br>Min kompis... han andas inte. Jag får ingen kontakt med honom.</div>' +
-            '</div>' +
+            '<div class="sos-chat-log" id="sosChatLog"></div>' +
             '<form class="sos-chat-input" onsubmit="sendSosMessage(event)">' +
-                '<input id="sosChatInput" autocomplete="off" placeholder="Skriv som SOS-operatör..." aria-label="Skriv som SOS-operatör">' +
+                '<input id="sosChatInput" autocomplete="off" value="SOS Alarm, vad har inträffat?" aria-label="Skriv som SOS-operatör">' +
                 '<button type="submit">SKICKA</button>' +
             '</form>' +
-            '<div class="sos-chat-hint">Du är SOS-operatören. Fråga Gustav vad du behöver veta.</div>' +
+            '<div class="sos-chat-hint">Du är SOS-operatören. Börja samtalet med frågan ovan.</div>' +
             '<button class="sos-end" type="button" onclick="finishSosCall()">AVSLUTA SAMTAL</button>' +
         '</div>';
-
     setTimeout(()=>document.getElementById("sosChatInput")?.focus(),50);
 }
-
 function addSosMessage(who,text){
     const log=document.getElementById("sosChatLog");
     if(!log)return;
@@ -4462,7 +4458,7 @@ function gustavResponse(input){
 
     return "Jag kan svara på det jag minns om Benjamin och kvällen. Fråga mig om vad som hände, när vi gick och la oss, vad jag såg eller vad jag gjorde när jag vaknade.";
 }
-async function sendSosMessage(event){
+async async function sendSosMessage(event){
     event.preventDefault();
     const input=document.getElementById("sosChatInput");
     if(!input)return;
