@@ -4458,9 +4458,9 @@ function gustavResponse(input){
 
     // Frågor som kräver detaljer Gustav inte rimligen känner till.
     if(hasAny(q,["vem gjorde","vem forgiftade","vem hällde","vem hall upp","varfor dog","varför dog","vad dog han av","vilket gift","giftet","vem ar skyldig","vem ar mördaren","vem gjorde det","hur dog han"]))
-        return "Jag vet inte. Jag försöker bara få hjälp till honom just nu.";
+        return "Jag såg inte vem som gjorde det, och jag vet inte vem som hällde upp det sista glaset. Folk gick fram och tillbaka mellan köket och vardagsrummet hela tiden." ;
 
-    return "Jag vet inte... jag är skakis just nu. Fråga mig en sak i taget så ska jag försöka svara.";
+    return "Jag kan svara på det jag minns om Benjamin och kvällen. Fråga mig om vad som hände, när vi gick och la oss, vad jag såg eller vad jag gjorde när jag vaknade.";
 }
 async function sendSosMessage(event){
     event.preventDefault();
