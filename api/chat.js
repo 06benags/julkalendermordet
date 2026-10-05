@@ -1,4 +1,12 @@
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed"
@@ -135,11 +143,11 @@ Gustav: "Jag låg med mobilen och kollade TikTok först. Sen märkte jag att Ben
       if (
         item &&
         typeof item.role === "string" &&
-        typeof item.text === "string"
+        typeof (item.text ?? item.content) === "string"
       ) {
         contents.push({
           role: item.role === "gustav" ? "model" : "user",
-          parts: [{ text: item.text }]
+          parts: [{ text: item.text ?? item.content }]
         });
       }
     }
