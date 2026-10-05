@@ -4367,7 +4367,7 @@ function gustavResponse(input){
 
     // Första SOS-frågan: Gustav ska direkt berätta varför han ringer.
     if(hasAny(q,["sos alarm vad har inträffat","sos vad har inträffat","vad har inträffat"])) {
-        return "Hej… jag… jag har hittat en person här. Han svarar inte. Jag tror… jag tror att han är död. Det är Benjamin, en av mina kompisar.";
+        return "Hej… jag… jag har hittat en person här. Han svarar inte. Jag tror inte att han andas. Ni måste komma.";
     }
 
     // Vanligt samtal.
@@ -4410,7 +4410,7 @@ function gustavResponse(input){
 
     // Plats / orientering
     if(hasAny(q,["var ar ni","vart ar ni","var befinner ni","vart befinner ni","vilken plats","vilken adress","adressen","gps","position","kan ni hitta","hitta er","hitta oss","vart ar stugan","var ar stugan"]))
-        return "Vi är i en stuga. Jag vet inte adressen tyvärr. Kan ni inte se vart min GPS är?";
+        return "Vi är vid Brostugan, Långtjärnsvägen 47, 796 91 Älvdalen. Det är en stuga.";
     if(hasAny(q,["nar kom ni","nar kom ni hit","nar kom ni dit","kom hit nar","anlande","kom hit igar","igarkvall","hur lange har ni varit"]))
         return "Vi kom hit igår. Jag har inte så bra koll på området.";
     if(hasAny(q,["hur ser stugan ut","beskriv stugan","vad ar det for stuga","vad finns utanfor","vad finns i narheten","landmarke","nagot man kan hitta"]))
