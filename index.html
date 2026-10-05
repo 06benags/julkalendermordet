@@ -4016,7 +4016,7 @@ filter:brightness(0);}
 
 <script>
 /* AI-endpoint fylls i när den säkra backend-funktionen är deployad. */
-window.GUSTAV_AI_ENDPOINT = "/api/chat";
+window.GUSTAV_AI_ENDPOINT = "https://julkalendermordet-fu3a.vercel.app/api/chat";
 
 
 /* =========================================================
@@ -4337,6 +4337,11 @@ function hasAny(q, words){
 
 function gustavResponse(input){
     const q=normalizeSosQuestion(input);
+
+    // Första SOS-frågan: Gustav ska direkt berätta varför han ringer.
+    if(hasAny(q,["sos alarm vad har inträffat","sos vad har inträffat","vad har inträffat"])) {
+        return "Hej… jag… jag har hittat en person här. Han svarar inte. Jag tror… jag tror att han är död. Det är Benjamin, en av mina kompisar.";
+    }
 
     // Vanligt samtal.
     if(hasAny(q,["hej","tjena","hallå","hello"]))
