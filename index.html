@@ -5705,7 +5705,7 @@ function closePhoneApp() {
 }
 
 
-const suspectPhotos=[{name:"Benji Holm",image:"IMG_0655.jpeg"}];
+const suspectPhotos=[{name:"Benji Holm",image:"IMG_0655.jpeg"},{name:"Moa Brandin",image:"IMG_0705.jpeg"}];
 let suspectIndex=0;
 function renderSuspect(){const p=suspectPhotos[suspectIndex],img=document.getElementById("suspectViewerImage"),name=document.getElementById("suspectViewerName"),counter=document.getElementById("suspectCounter");if(!p||!img)return;img.src=p.image;img.alt=p.name;if(name)name.textContent=p.name;if(counter)counter.textContent=(suspectIndex+1)+" / "+suspectPhotos.length;}
 function openSuspects(){const o=document.getElementById("suspectsOverlay");if(o){suspectIndex=0;renderSuspect();o.style.display="flex";}}
