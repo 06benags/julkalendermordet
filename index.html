@@ -3392,6 +3392,95 @@ filter:brightness(0);}
     }
 }
 
+
+/* =========================================================
+   REALISTISKT UTREDNINGSBORD – FOTOGRAFERAT RAKT UPPIFRÅN
+   Föremålen ska kännas som fysiska bevis, inte UI-kort.
+========================================================= */
+#investigation {
+    padding: clamp(18px, 4vw, 52px) 0 70px;
+    background: radial-gradient(ellipse at 50% 35%, #21160f 0%, #100b08 72%);
+}
+.table {
+    width: min(1500px, 96%);
+    min-height: 760px;
+    padding: clamp(28px, 4vw, 68px);
+    gap: clamp(24px, 3vw, 52px);
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: #392317;
+    background-image:
+        repeating-linear-gradient(2deg, rgba(19,10,5,.10) 0px, rgba(19,10,5,.10) 2px, transparent 2px, transparent 8px),
+        repeating-linear-gradient(91deg, transparent 0px, rgba(224,173,112,.035) 1px, transparent 3px, transparent 145px),
+        radial-gradient(ellipse at 18% 18%, rgba(190,127,70,.18), transparent 38%),
+        linear-gradient(135deg, #513522, #2a190f 52%, #402819);
+    box-shadow: 0 35px 90px rgba(0,0,0,.72), inset 0 0 0 10px rgba(20,10,5,.12);
+    border: 1px solid rgba(190,145,99,.2);
+    perspective: none;
+}
+.table > .paper {
+    flex: 0 1 300px;
+    width: 300px;
+    height: 390px;
+    min-height: 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(81,59,31,.35);
+    background:
+        radial-gradient(ellipse at 12% 10%, rgba(255,255,255,.45), transparent 44%),
+        linear-gradient(145deg, #f5ecd6, #e0d2b3);
+    box-shadow: 2px 3px 4px rgba(0,0,0,.24), 5px 12px 17px rgba(0,0,0,.34), inset 0 0 24px rgba(115,83,43,.09);
+    transform-origin: center center;
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+.table > .paper:nth-of-type(1) { transform: rotate(-2deg); }
+.table > .paper:nth-of-type(2) { transform: rotate(1.5deg); }
+.table > .paper:nth-of-type(3) { transform: rotate(-1deg); }
+.table > .paper:hover {
+    transform: translateY(-3px) rotate(0deg);
+    box-shadow: 2px 4px 5px rgba(0,0,0,.28), 8px 18px 24px rgba(0,0,0,.4);
+}
+.table > .paper[onclick="openMap()"] .map-paper-preview {
+    height: 150px;
+    margin: 4px 0 16px;
+    border: 1px solid rgba(57,43,26,.75);
+    box-shadow: 0 4px 8px rgba(40,26,12,.32), inset 0 0 0 4px rgba(255,248,222,.32);
+}
+.table > .paper[onclick="openMap()"] .map-paper-preview img {
+    object-fit: contain;
+    background: #e8ddbf;
+    filter: sepia(.38) saturate(.68) contrast(.98) brightness(1.02);
+}
+.table > .photo-stack {
+    filter: drop-shadow(3px 8px 7px rgba(0,0,0,.38));
+}
+.table > .phone-paper {
+    filter: drop-shadow(4px 8px 7px rgba(0,0,0,.42));
+}
+.table > .paper .paper-line {
+    background: rgba(62,47,29,.24);
+}
+.table > .paper .paper-label {
+    letter-spacing: .13em;
+    color: rgba(51,38,23,.62);
+}
+@media (max-width: 700px) {
+    .table {
+        width: 96%;
+        min-height: 0;
+        padding: 28px 14px;
+        gap: 22px 14px;
+    }
+    .table > .paper {
+        flex: 0 1  min(290px, 100%);
+        width: min(290px, 100%);
+        height: 370px;
+    }
+    .table > .paper[onclick="openMap()"] .map-paper-preview {
+        height: 125px;
+    }
+}
+
 </style>
 </head>
 
