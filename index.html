@@ -3217,6 +3217,96 @@ filter:brightness(0);}
 .suspect-viewer-caption{position:relative;margin-top:-39px;padding:0 7px;color:#171512;font-family:Georgia,serif;display:flex;flex-direction:column;gap:4px}.suspect-viewer-caption strong{font-size:20px;font-weight:normal}.suspect-viewer-caption span{font:9px Arial,sans-serif;letter-spacing:.14em;opacity:.5}
 .suspect-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font:31px/36px Georgia,serif;cursor:pointer;z-index:2}.suspect-prev{left:8px}.suspect-next{right:8px}
 .suspect-counter{position:absolute;left:0;right:0;bottom:0;text-align:center;color:rgba(255,255,255,.65);font:10px Arial,sans-serif;letter-spacing:.12em}.suspects-viewer-close{display:none!important}
+
+
+/* =========================================================
+   FÖRUNDERSÖKNING – RENARE PAPPER OCH SÄKER TEXTBRYTNING
+========================================================= */
+.table > .paper:first-child {
+    width: min(280px, 100%);
+    min-height: 330px;
+    height: auto;
+    padding: 30px 24px 58px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background:
+        linear-gradient(90deg, rgba(95,72,38,.045) 1px, transparent 1px),
+        linear-gradient(145deg, #fbf5e6, #e5d9bd);
+    background-size: 100% 100%;
+    border: 1px solid rgba(76,55,28,.2);
+    box-shadow: 0 16px 28px rgba(0,0,0,.38), inset 0 0 22px rgba(110,83,42,.06);
+}
+.table > .paper:first-child h3 {
+    font-size: clamp(19px, 2vw, 22px);
+    line-height: 1.25;
+    letter-spacing: .025em;
+    margin-bottom: 18px;
+    overflow-wrap: anywhere;
+}
+.table > .paper:first-child p {
+    font-size: 12px;
+    line-height: 1.65;
+    margin: 0 0 10px;
+    overflow-wrap: anywhere;
+}
+.table > .paper:first-child .paper-line {
+    flex: 0 0 1px;
+    width: 100%;
+    margin: 10px 0;
+}
+.table > .paper:first-child .paper-label {
+    bottom: 18px;
+    padding: 0 12px;
+    font-size: 9px;
+    letter-spacing: .12em;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* Själva förundersökningen ska hålla sig innanför papprets kanter. */
+.document-overlay {
+    padding: clamp(10px, 3vw, 35px);
+}
+.document-overlay .document {
+    width: min(850px, 100%);
+    min-width: 0;
+    padding: clamp(22px, 5vw, 70px);
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+}
+.document-overlay .document p,
+.document-overlay .document-info > div,
+.document-overlay .document-transcript,
+.document-overlay .document-footer {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+.document-overlay .document-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 600px) {
+    .document-overlay .document-info {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .document-overlay .document-info > div {
+        border-right: 0;
+        border-bottom: 1px solid #b5b5b0;
+    }
+    .document-overlay .document-info > div:last-child {
+        border-bottom: 0;
+    }
+    .document-overlay .document-footer {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
 </style>
 </head>
 
