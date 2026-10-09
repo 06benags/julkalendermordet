@@ -3223,9 +3223,12 @@ filter:brightness(0);}
    FÖRUNDERSÖKNING – RENARE PAPPER OCH SÄKER TEXTBRYTNING
 ========================================================= */
 .table > .paper:first-child {
+    /* A4-format i stående läge: proportionerna 210 × 297 mm */
     width: min(280px, 100%);
-    min-height: 330px;
+    aspect-ratio: 210 / 297;
+    min-height: 0;
     height: auto;
+    box-sizing: border-box;
     padding: 30px 24px 58px;
     overflow-wrap: anywhere;
     word-break: normal;
