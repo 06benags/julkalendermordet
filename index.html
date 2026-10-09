@@ -3223,11 +3223,11 @@ filter:brightness(0);}
    FÖRUNDERSÖKNING – RENARE PAPPER OCH SÄKER TEXTBRYTNING
 ========================================================= */
 .table > .paper:first-child {
-    /* A4-format i stående läge: proportionerna 210 × 297 mm */
-    width: min(280px, 100%);
-    aspect-ratio: 210 / 297;
+    /* Samma yttermått som kortet "Förhör" på bordet */
+    width: 300px;
+    height: 390px;
     min-height: 0;
-    height: auto;
+    aspect-ratio: auto;
     box-sizing: border-box;
     padding: 30px 24px 58px;
     overflow-wrap: anywhere;
@@ -3307,6 +3307,16 @@ filter:brightness(0);}
     .document-overlay .document-footer {
         flex-wrap: wrap;
         gap: 10px;
+    }
+}
+
+/* Första pappret följer samma responsiva storlek som övriga bordskort. */
+@media (max-width: 700px) {
+    .table > .paper:first-child {
+        width: min(100%, 290px);
+        height: 285px;
+        min-height: 0;
+        padding: 25px 20px 48px;
     }
 }
 
