@@ -3320,6 +3320,78 @@ filter:brightness(0);}
     }
 }
 
+
+/* Kartpappret visar en liten, sliten förhandsvisning av den faktiska stugkartan. */
+.table > .paper[onclick="openMap()"] {
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.32), transparent 45%),
+        linear-gradient(145deg, #f3ead2, #d8c9a7);
+    border: 1px solid rgba(79,61,35,.32);
+}
+.table > .paper[onclick="openMap()"] .map-paper-preview {
+    position: relative;
+    width: 100%;
+    height: 112px;
+    margin: 0 0 13px;
+    overflow: hidden;
+    border: 1px solid rgba(63,49,30,.55);
+    background: #d8cba9;
+    box-shadow: 0 3px 7px rgba(47,35,20,.24), inset 0 0 0 3px rgba(255,250,230,.38);
+    transform: rotate(-1deg);
+}
+.table > .paper[onclick="openMap()"] .map-paper-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(.28) saturate(.72) contrast(.94) brightness(1.04);
+    opacity: .96;
+}
+.table > .paper[onclick="openMap()"] .map-paper-pin {
+    position: absolute;
+    left: 59%;
+    top: 43%;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #7d211b;
+    border-radius: 50%;
+    background: rgba(139,35,26,.18);
+    box-shadow: 0 0 0 2px rgba(255,246,221,.7), 0 1px 3px rgba(0,0,0,.35);
+}
+.table > .paper[onclick="openMap()"] .map-paper-pin::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: -5px;
+    width: 1px;
+    height: 17px;
+    background: #7d211b;
+    transform: rotate(45deg);
+}
+.table > .paper[onclick="openMap()"] .map-paper-stamp {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 3px 5px;
+    border: 1px solid rgba(111,39,29,.55);
+    color: rgba(111,39,29,.8);
+    background: rgba(244,231,200,.8);
+    font-size: 7px;
+    line-height: 1;
+    letter-spacing: .12em;
+    transform: rotate(-3deg);
+}
+.table > .paper[onclick="openMap()"] p {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+@media (max-width: 700px) {
+    .table > .paper[onclick="openMap()"] .map-paper-preview {
+        height: 92px;
+    }
+}
+
 </style>
 </head>
 
@@ -3453,6 +3525,12 @@ filter:brightness(0);}
             <h3>Karta</h3>
 
             <div class="paper-line"></div>
+
+            <div class="map-paper-preview" aria-hidden="true">
+                <img src="stugkarta.png" alt="">
+                <span class="map-paper-pin"></span>
+                <span class="map-paper-stamp">BILAGA A</span>
+            </div>
 
             <p>
                 Planritning över fritidsstugan
