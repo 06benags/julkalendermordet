@@ -3205,9 +3205,11 @@ filter:brightness(0);}
 .moa-chat-bubble{max-width:79%;padding:8px 10px;border-radius:15px;font-size:10px;line-height:1.4;overflow-wrap:anywhere}
 .moa-chat-bubble.incoming{align-self:flex-start;background:#e9e9eb;color:#171719;border-bottom-left-radius:5px}
 .moa-chat-bubble.outgoing{align-self:flex-end;background:#1684ff;color:#fff;border-bottom-right-radius:5px}
-.moa-chat-attachment{position:relative;align-self:flex-start;display:block;width:148px;max-width:58%;aspect-ratio:1/1;padding:4px;border:0;background:#1684ff;border-radius:13px;overflow:hidden;cursor:pointer;text-align:left;box-sizing:border-box;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.moa-chat-attachment{position:relative;align-self:flex-start;display:block;width:176px;max-width:68%;aspect-ratio:1/1;padding:3px;border:0;background:#1684ff;border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;box-sizing:border-box;box-shadow:0 2px 5px rgba(0,0,0,.18)}
 .moa-chat-attachment.outgoing-attachment{align-self:flex-end;background:#1684ff}
-.moa-chat-attachment img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:9px;background:#fff}
+.moa-chat-attachment img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 22%;border-radius:11px;background:#fff}
+.moa-chat-attachment .moa-attachment-caption{position:absolute;left:3px;right:3px;bottom:3px;padding:12px 7px 5px;background:linear-gradient(transparent,rgba(0,0,0,.62));color:#fff;font-size:10px;text-shadow:0 1px 2px #000}
+.moa-chat-attachment .moa-attachment-expand{right:8px;top:8px;width:23px;height:23px}
 .moa-attachment-caption{display:block;padding:4px 3px 1px;color:rgba(255,255,255,.9);font-size:8px}
 .moa-attachment-expand{position:absolute;right:7px;top:7px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.52);color:#fff;font-size:13px}
 .dejt-image-lightbox{display:none;position:absolute;inset:0;z-index:100;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:35px 12px 18px;box-sizing:border-box}
@@ -5915,7 +5917,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
     <div class="moa-chat-body" id="moaChatBody">
       <div class="moa-chat-date">iMessage · SMS</div>
       <div class="moa-chat-date">14 augusti</div>
-      <div class="moa-chat-bubble outgoing">Jag såg en person gå på bussen med två olika skor.</div>
+      <div class="moa-chat-bubble outgoing">Jag såg en person på bussen med två olika skor.</div>
       <div class="moa-chat-bubble incoming">Äntligen någon som vågar leva fritt.</div>
       <div class="moa-chat-bubble outgoing">Den ena var en foppatoffel.</div>
       <div class="moa-chat-bubble incoming">Okej, ta tillbaka det jag sa.</div>
@@ -5923,7 +5925,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
       <div class="moa-chat-bubble incoming">Jag blockerar dig i 3–5 arbetsdagar.</div>
       <div class="moa-chat-date">2 september</div>
       <div class="moa-chat-bubble incoming">VIKTIG FRÅGA</div>
-      <div class="moa-chat-bubble outgoing">Om det handlar om att bära en soffa så är jag upptagen.</div>
+      <div class="moa-chat-bubble outgoing">Om det handlar om att bära en soffa är jag upptagen.</div>
       <div class="moa-chat-bubble incoming">Vilken maträtt skulle du kunna äta resten av livet?</div>
       <div class="moa-chat-bubble outgoing">Trodde du hade blivit kidnappad.</div>
       <div class="moa-chat-bubble incoming">Svara ordentligt.</div>
@@ -5931,71 +5933,61 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
       <div class="moa-chat-bubble incoming">Fel. Du får bara äta skalet.</div>
       <div class="moa-chat-bubble outgoing">Då väljer jag att inte leva resten av livet.</div>
       <div class="moa-chat-date">19 oktober</div>
-      <div class="moa-chat-bubble outgoing">Jag behöver hjälp med en sak.</div>
-      <div class="moa-chat-bubble incoming">Har du gjort något olagligt?</div>
-      <div class="moa-chat-bubble outgoing">Nej?</div>
-      <div class="moa-chat-bubble incoming">Du skrev med frågetecken. Misstänkt.</div>
-      <div class="moa-chat-bubble outgoing">Vilken present ska jag köpa till mamma?</div>
-      <div class="moa-chat-bubble incoming">Hur länge har du vetat att julen kommer?</div>
-      <div class="moa-chat-bubble outgoing">Jag tänkte att du kunde hjälpa mig.</div>
-      <div class="moa-chat-bubble incoming">Jag hjälper dig alltid. Men jag dömer dig samtidigt.</div>
+      <div class="moa-chat-bubble incoming">Benji säger att du fortfarande är skyldig honom en filmkväll 😂</div>
+      <div class="moa-chat-bubble outgoing">Han som somnade efter 14 minuter sist?</div>
+      <div class="moa-chat-bubble incoming">Han vilade ögonen.</div>
+      <div class="moa-chat-bubble outgoing">Han snarkade i surroundljud.</div>
+      <div class="moa-chat-bubble incoming">Jag älskar honom men ibland är han en pensionär i en 25-årings kropp.</div>
+      <div class="moa-chat-bubble outgoing">Du får välja film nästa gång. Men inte tre timmar lång.</div>
+      <div class="moa-chat-bubble incoming">Jag lovar ingenting.</div>
       <div class="moa-chat-date">7 november</div>
-      <div class="moa-chat-bubble incoming">Har du kvar bilden från när vi försökte laga pannkakor?</div>
-      <div class="moa-chat-bubble outgoing">Den där du hade mjöl i håret och brandvarnaren i bakgrunden?</div>
-      <div class="moa-chat-bubble incoming">Det var en kontrollerad matlagningssituation.</div>
-      <div class="moa-chat-bubble outgoing">Brandvarnaren höll inte med.</div>
-      <div class="moa-chat-bubble incoming">Skicka den aldrig till någon.</div>
-      <div class="moa-chat-bubble outgoing">Den är min profilbild i tre dagar till.</div>
-      <div class="moa-chat-bubble incoming">BENJAMIN.</div>
-      <div class="moa-chat-bubble outgoing">❤️</div>
+      <div class="moa-chat-bubble outgoing">Vad önskar du dig i julklapp då?</div>
+      <div class="moa-chat-bubble incoming">Att Benji lär sig att vika en handduk utan att det ser ut som en våt tortilla.</div>
+      <div class="moa-chat-bubble outgoing">Rimligt. Jag kan ge honom en kurs.</div>
+      <div class="moa-chat-bubble incoming">Ge honom en handduk först.</div>
       <div class="moa-chat-date">3 december · Resan närmar sig</div>
       <div class="moa-chat-bubble outgoing">Har du börjat packa?</div>
-      <div class="moa-chat-bubble incoming">Jag har lagt fram en tröja.</div>
-      <div class="moa-chat-bubble outgoing">Starkt jobbat. En hel tröja?</div>
-      <div class="moa-chat-bubble incoming">Jag vill inte stressa upp mig.</div>
-      <div class="moa-chat-bubble outgoing">Du packar väl inte kvällen innan?</div>
-      <div class="moa-chat-bubble incoming">Jag packar bäst under press.</div>
-      <div class="moa-chat-bubble outgoing">Du glömde tandborsten sist.</div>
-      <div class="moa-chat-bubble incoming">Jag hade en fingertandborste i necessären.</div>
-      <div class="moa-chat-bubble outgoing">Det var en nagelborste.</div>
-      <div class="moa-chat-bubble incoming">Detaljer.</div>
-      <div class="moa-chat-date">22 december · 18:42</div>
-      <div class="moa-chat-bubble outgoing">Okej, jag måste visa dig en sak. Men lova att inte få panik.</div>
-      <div class="moa-chat-bubble incoming">Det där är exakt vad folk skriver innan man får panik.</div>
-      <div class="moa-chat-bubble outgoing">Har jag missat något?</div>
-      <button class="moa-chat-attachment outgoing-attachment" type="button" onclick="openDejtScreenshot()" aria-label="Öppna bilden som Benjamin skickade">
-        <img src="Dejt-Benji.png" alt="Förhandsvisning av skickad bild" loading="lazy">
-        <span class="moa-attachment-caption">Bild</span><span class="moa-attachment-expand">⤢</span>
-      </button>
-      <div class="moa-chat-bubble incoming">HAHAHA vad är det här 😭 Är det där du??</div>
-      <div class="moa-chat-bubble outgoing">Kan du vara seriös i två sekunder.</div>
-      <div class="moa-chat-bubble incoming">Förlåt 😂 Jag trodde först att det var ett skämt. Är det på riktigt?</div>
-      <div class="moa-chat-bubble outgoing">Ja. Men säg inget till någon, snälla.</div>
-      <div class="moa-chat-bubble incoming">Jag säger inget. Jag lovar. Du behöver inte förklara allt på sms nu.</div>
-      <div class="moa-chat-bubble outgoing">Jag vet inte ens hur jag ska hantera det här.</div>
-      <div class="moa-chat-bubble incoming">Okej. Andas lite. Jag lovar att inte säga något till någon, och jag ska hjälpa dig att lösa det här. Vi tar det lugnt, okej?</div>
-      <div class="moa-chat-bubble outgoing">Tack. Visste att jag kunde säga det till dig.</div>
-      <div class="moa-chat-bubble incoming">Klart du kan. Men du är skyldig mig snacks på resan nu.</div>
-      <div class="moa-chat-bubble outgoing">Det där gick fort.</div>
-      <div class="moa-chat-bubble incoming">Jag är stöttande, inte dum.</div>
+      <div class="moa-chat-bubble incoming">Jag har lagt fram en tröja och en strumpa.</div>
+      <div class="moa-chat-bubble outgoing">Du är i princip klar.</div>
+      <div class="moa-chat-bubble incoming">Benji tycker att jag överpackar.</div>
+      <div class="moa-chat-bubble outgoing">Han tog med tre t-shirts till en helg sist.</div>
+      <div class="moa-chat-bubble incoming">Och lånade mina kläder dag två.</div>
+      <div class="moa-chat-bubble outgoing">Klassiskt Benji.</div>
+      <div class="moa-chat-bubble incoming">Kan du påminna mig om att ta med laddaren? Jag tänker inte dela med honom hela resan.</div>
+      <div class="moa-chat-bubble outgoing">Lägger in det i kalendern: rädda Moas batteri från Benji.</div>
+      <div class="moa-chat-date">22 december · 18:42 · Kvällen före resan</div>
+      <div class="moa-chat-bubble outgoing">Du, en kompis till mig skickade precis en grej. Hon tyckte att hon kände igen någon.</div>
+      <div class="moa-chat-bubble incoming">Okej? Vem då?</div>
+      <div class="moa-chat-bubble outgoing">Jag skickar. Men jag vet inte om det är nåt eller om hon sett fel.</div>
+      <div class="moa-chat-attachment outgoing-attachment" role="button" tabindex="0" onclick="openDejtScreenshot()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDejtScreenshot()}" aria-label="Öppna skärmdumpen från dejtingappen">
+        <img src="Dejt-Benji.png" alt="Skärmdump från en dejtingapp" loading="lazy">
+        <span class="moa-attachment-caption">Skärmdump</span><span class="moa-attachment-expand">⤢</span>
+      </div>
+      <div class="moa-chat-bubble incoming">Vänta. VA?</div>
+      <div class="moa-chat-bubble incoming">Benjamin, det där är ju Benji??</div>
+      <div class="moa-chat-bubble outgoing">Det var det hon också trodde. Hon sa att hon kände igen honom och skickade den till mig.</div>
+      <div class="moa-chat-bubble incoming">Men vad gör han på en dejtingapp? Vi ska ju åka imorgon.</div>
+      <div class="moa-chat-bubble outgoing">Jag vet inte. Jag ville att du skulle få se den innan resan, inte höra det från någon annan.</div>
+      <div class="moa-chat-bubble incoming">Först trodde jag att det var ett skämt. Jag fattar inte ens vad jag ska säga.</div>
+      <div class="moa-chat-bubble outgoing">Jag är ledsen, Moa. Jag önskar att det inte var sant.</div>
+      <div class="moa-chat-bubble incoming">Säg inget till någon annan, snälla. Inte än. Jag måste tänka och jag kommer lösa det här med honom själv.</div>
+      <div class="moa-chat-bubble outgoing">Jag lovar. Det stannar mellan oss.</div>
+      <div class="moa-chat-bubble incoming">Tack. Och försök att inte bete dig konstigt runt honom imorgon, jag vill inte att han ska fatta att jag vet.</div>
+      <div class="moa-chat-bubble outgoing">Jag ska vara helt normal. Min specialitet.</div>
+      <div class="moa-chat-bubble incoming">Du är typ den minst normala personen jag känner 😂</div>
+      <div class="moa-chat-bubble outgoing">Bra. Då märker han ingen skillnad.</div>
       <div class="moa-chat-date">23 december · Resdagen</div>
-      <div class="moa-chat-bubble incoming">Har du laddat ner biljetterna? Det finns typ ingen täckning där vi ska bo.</div>
-      <div class="moa-chat-bubble outgoing">Ja, och jag har laddat ner musik också.</div>
-      <div class="moa-chat-bubble incoming">Har du tagit med laddare?</div>
-      <div class="moa-chat-bubble outgoing">Ja mamma.</div>
-      <div class="moa-chat-bubble incoming">Säg inte mamma till mig när du bokstavligen glömde tandborsten sist.</div>
-      <div class="moa-chat-bubble outgoing">Den här gången har jag två.</div>
-      <div class="moa-chat-bubble incoming">Två tandborstar eller två laddare?</div>
-      <div class="moa-chat-bubble outgoing">Ja.</div>
-      <div class="moa-chat-bubble incoming">Det svaret gör mig mindre trygg.</div>
-      <div class="moa-chat-bubble outgoing">Jag köper kaffe till dig på vägen.</div>
-      <div class="moa-chat-bubble incoming">Okej då. Ta med en extra tröja också, det ska bli svinkallt.</div>
-      <div class="moa-chat-bubble outgoing">Du låter som en reseledare.</div>
-      <div class="moa-chat-bubble incoming">Någon måste hålla ihop den här gruppen.</div>
-      <div class="moa-chat-bubble outgoing">Ses snart ❤️</div>
-      <div class="moa-chat-bubble incoming">Ses snart ❤️ Och Benjamin?</div>
-      <div class="moa-chat-bubble outgoing">Ja?</div>
-      <div class="moa-chat-bubble incoming">Vi löser det. En sak i taget.</div>
+      <div class="moa-chat-bubble incoming">Har du laddat ner biljetterna?</div>
+      <div class="moa-chat-bubble outgoing">Japp. Och offline-musik.</div>
+      <div class="moa-chat-bubble incoming">Laddare?</div>
+      <div class="moa-chat-bubble outgoing">Ja, mamma.</div>
+      <div class="moa-chat-bubble incoming">Säg inte mamma till mig när Benji fortfarande lånar min laddare varje vecka.</div>
+      <div class="moa-chat-bubble outgoing">Jag köper kaffe till dig på vägen. Som kompensation för allt.</div>
+      <div class="moa-chat-bubble incoming">Två kaffe. Och något sött.</div>
+      <div class="moa-chat-bubble outgoing">Utpressning.</div>
+      <div class="moa-chat-bubble incoming">Vänskap ❤️</div>
+      <div class="moa-chat-bubble outgoing">Ses snart. Vi tar en sak i taget.</div>
+      <div class="moa-chat-bubble incoming">❤️ Och tack för att du berättade.</div>
     </div>
     <div class="moa-chat-compose"><span>＋</span><div>SMS</div><span>🎙</span></div>
   </div>
