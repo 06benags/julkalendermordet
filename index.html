@@ -3664,32 +3664,7 @@ body.auth-ready .account-userbar { display: flex; }
     <main
         class="calendar"
         id="calendar"
-    >
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 1"><span class="number">1</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 2"><span class="number">2</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 3"><span class="number">3</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 4"><span class="number">4</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 5"><span class="number">5</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 6"><span class="number">6</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 7"><span class="number">7</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 8"><span class="number">8</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 9"><span class="number">9</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 10"><span class="number">10</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 11"><span class="number">11</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 12"><span class="number">12</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 13"><span class="number">13</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 14"><span class="number">14</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 15"><span class="number">15</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 16"><span class="number">16</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 17"><span class="number">17</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 18"><span class="number">18</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 19"><span class="number">19</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 20"><span class="number">20</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 21"><span class="number">21</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 22"><span class="number">22</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 23"><span class="number">23</span><span class="door-status">ÖPPEN</span></button>
-        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 24"><span class="number">24</span><span class="door-status">ÖPPEN</span></button>
-    </main>
+    ></main>
 
 </div>
 
@@ -3888,19 +3863,9 @@ body.auth-ready .account-userbar { display: flex; }
             <aside class="interrogation-suspects">
                 <h3>PERSONER</h3>
 
-                <button class="interrogation-person active" onclick="showInterrogation('gustav',this)">
-                    <strong>Wilmer Fries</strong>
-                    <small>Förhör 10:51 · 24 min</small>
-                </button>
-
-                <button class="interrogation-person" onclick="showInterrogation('moa',this)">
+                <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
                     <strong>Moa Brandin</strong>
                     <small>Förhör 11:14 · 18 min</small>
-                </button>
-
-                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
-                    <strong>Tindra Popp</strong>
-                    <small>Förhör 11:23 · 17 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('benji',this)">
@@ -3908,9 +3873,19 @@ body.auth-ready .account-userbar { display: flex; }
                     <small>Förhör 12:01 · 21 min</small>
                 </button>
 
+                <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
+                    <strong>Wilmer Fries</strong>
+                    <small>Förhör 10:51 · 24 min</small>
+                </button>
+
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
                     <strong>Embla Ingelman-Sundberg</strong>
                     <small>Förhör 12:43 · 19 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
+                    <strong>Tindra Popp</strong>
+                    <small>Förhör 11:23 · 17 min</small>
                 </button>
             </aside>
 
@@ -4601,7 +4576,13 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
-// Luckorna finns direkt i HTML så att de inte försvinner om annan JavaScript fallerar.
+for (let i = 1; i <= 24; i++) {
+    const door = document.createElement("button");
+    door.type = "button";
+    door.className = "door";
+    door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
+    calendar.appendChild(door);
+}
 
 document.querySelectorAll(".door").forEach((door, index) => {
     const day = index + 1;
@@ -5687,7 +5668,7 @@ function openInterrogation(){
     if(!overlay)return;
     overlay.style.display="block";
     const first=overlay.querySelector(".interrogation-person");
-    showInterrogation("gustav",first)
+    showInterrogation("moa",first);
 }
 function closeInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
@@ -6050,93 +6031,6 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
 
 <!-- Supabase Auth: konton och lösenord lagras säkert hos auth-leverantören, aldrig i localStorage. -->
-<script>
-/* Reservhanterare för klick om huvudskriptet inte fungerar. */
-(function () {
-  document.addEventListener("click", function (event) {
-    const target = event.target && event.target.closest
-      ? event.target.closest(".door, .table .paper, .table .photo-stack, .table .phone-paper, .back-button, .unified-close")
-      : null;
-    if (!target) return;
-
-    // Stängknappar måste fungera även om huvudskriptets funktioner saknas.
-    if (target.classList.contains("unified-close")) {
-      const overlay = target.closest(".document-overlay, .suspects-overlay, .interrogation-overlay, .map-overlay, .phone-overlay");
-      if (overlay) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        overlay.style.display = "none";
-        document.body.style.overflow = "";
-      }
-      return;
-    }
-
-    const action = target.getAttribute("onclick") || "";
-    const match = action.match(/^\s*([A-Za-z_$][\w$]*)\s*\(/);
-    const fnName = match && match[1];
-
-    if (fnName && typeof window[fnName] === "function") {
-      // Kör den riktiga funktionen, men säkra att förhörsinnehållet faktiskt renderas.
-      if (fnName === "openInterrogation") {
-        window[fnName]();
-        const content = document.getElementById("interrogationContent");
-        if (content && !content.textContent.trim()) {
-          try {
-            if (typeof window.showInterrogation === "function") {
-              window.showInterrogation("gustav", document.querySelector(".interrogation-person"));
-            }
-          } catch (_) {}
-        }
-        event.preventDefault();
-        event.stopImmediatePropagation();
-      }
-      return;
-    }
-
-    event.preventDefault();
-    if (target.classList.contains("door")) {
-      const calendarPage = document.getElementById("calendarPage");
-      const investigation = document.getElementById("investigation");
-      if (calendarPage) calendarPage.style.display = "none";
-      if (investigation) investigation.style.display = "block";
-      document.body.classList.add("investigation-active");
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    if (target.classList.contains("back-button")) {
-      const calendarPage = document.getElementById("calendarPage");
-      const investigation = document.getElementById("investigation");
-      if (calendarPage) calendarPage.style.display = "block";
-      if (investigation) investigation.style.display = "none";
-      document.body.classList.remove("investigation-active");
-      window.scrollTo(0, 0);
-      return;
-    }
-
-    const overlayByAction = {
-      openDocument: ["documentOverlay", "block"],
-      openSuspects: ["suspectsOverlay", "flex"],
-      openInterrogation: ["interrogationOverlay", "block"],
-      openMap: ["mapOverlay", "block"],
-      openPhone: ["phoneOverlay", "flex"]
-    };
-    const item = overlayByAction[fnName];
-    if (item) {
-      const overlay = document.getElementById(item[0]);
-      if (overlay) {
-        overlay.style.display = item[1];
-        document.body.style.overflow = "hidden";
-        if (fnName === "openInterrogation") {
-          const content = document.getElementById("interrogationContent");
-          if (content) content.innerHTML = '<div style="padding:24px;color:#29231b;background:#f3ead8">Förhörsprotokollen kunde inte laddas. Ladda om sidan och försök igen.</div>';
-        }
-      }
-    }
-  }, true);
-})();
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function () {
