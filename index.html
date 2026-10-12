@@ -3863,9 +3863,19 @@ body.auth-ready .account-userbar { display: flex; }
             <aside class="interrogation-suspects">
                 <h3>PERSONER</h3>
 
-                <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
+                <button class="interrogation-person active" onclick="showInterrogation('gustav',this)">
+                    <strong>Wilmer Fries</strong>
+                    <small>Förhör 10:51 · 24 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('moa',this)">
                     <strong>Moa Brandin</strong>
                     <small>Förhör 11:14 · 18 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
+                    <strong>Tindra Popp</strong>
+                    <small>Förhör 11:23 · 17 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('benji',this)">
@@ -3873,19 +3883,9 @@ body.auth-ready .account-userbar { display: flex; }
                     <small>Förhör 12:01 · 21 min</small>
                 </button>
 
-                <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
-                    <strong>Wilmer Fries</strong>
-                    <small>Förhör 10:51 · 24 min</small>
-                </button>
-
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
                     <strong>Embla Ingelman-Sundberg</strong>
                     <small>Förhör 12:43 · 19 min</small>
-                </button>
-
-                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
-                    <strong>Tindra Popp</strong>
-                    <small>Förhör 11:23 · 17 min</small>
                 </button>
             </aside>
 
@@ -5668,7 +5668,7 @@ function openInterrogation(){
     if(!overlay)return;
     overlay.style.display="block";
     const first=overlay.querySelector(".interrogation-person");
-    showInterrogation("moa",first);
+    showInterrogation("gustav",first)
 }
 function closeInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
