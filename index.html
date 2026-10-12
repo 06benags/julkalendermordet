@@ -5841,6 +5841,47 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 })();
 </script>
 
+<!-- Återställ klickbarheten på utredningsbordets objekt. -->
+<style>
+  #investigation .table { position: relative; }
+  #investigation .table > .paper,
+  #investigation .table > .photo-stack,
+  #investigation .table > [onclick] {
+    position: relative;
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+</style>
+<script>
+(function () {
+  const table = document.querySelector("#investigation .table");
+  if (!table) return;
+
+  table.addEventListener("click", function (event) {
+    const item = event.target.closest(".paper, .photo-stack");
+    if (!item || !table.contains(item)) return;
+
+    // Använd den avsedda funktionen även om en inline-händelse har slutat fungera.
+    if (item.matches('[onclick="openDocument()"]') && typeof window.openDocument === "function") {
+      event.preventDefault();
+      window.openDocument();
+    } else if (item.matches('[onclick="openInterrogation()"]') && typeof window.openInterrogation === "function") {
+      event.preventDefault();
+      window.openInterrogation();
+    } else if (item.matches('[onclick="openMap()"]') && typeof window.openMap === "function") {
+      event.preventDefault();
+      window.openMap();
+    } else if (item.matches('[onclick="openPhone()"]') && typeof window.openPhone === "function") {
+      event.preventDefault();
+      window.openPhone();
+    } else if (item.matches('[onclick="openSuspects()"]') && typeof window.openSuspects === "function") {
+      event.preventDefault();
+      window.openSuspects();
+    }
+  }, true);
+})();
+</script>
+
 <!-- =========================================================
      MOBILTELEFON
 ========================================================= -->
