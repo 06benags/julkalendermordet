@@ -3206,8 +3206,10 @@ filter:brightness(0);}
 .moa-chat-bubble.incoming{align-self:flex-start;background:#e9e9eb;color:#171719;border-bottom-left-radius:5px}
 .moa-chat-bubble.outgoing{align-self:flex-end;background:#1684ff;color:#fff;border-bottom-right-radius:5px}
 .moa-chat-attachment{align-self:flex-start;width:78%;max-width:235px;padding:5px;background:#e9e9eb;border-radius:12px;overflow:hidden}
+.moa-chat-attachment.outgoing-attachment{align-self:flex-end;background:#1684ff}
 .moa-chat-attachment img{display:block;width:100%;height:auto;max-height:310px;object-fit:contain;object-position:top;border-radius:8px;background:#fff}
 .moa-chat-attachment small{display:block;padding:4px 3px 1px;color:#68686d;font-size:8px}
+.moa-chat-attachment.outgoing-attachment small{color:rgba(255,255,255,.85);text-align:right}
 .moa-chat-compose{height:48px;display:flex;align-items:center;gap:8px;padding:7px 10px;border-top:1px solid #e2e2e7;background:#f8f8fa;color:#8e8e93;font-size:12px}
 .moa-chat-compose>span{font-size:18px}
 .moa-chat-compose div{flex:1;border:1px solid #d4d4d8;border-radius:18px;padding:7px 10px;background:#fff}
@@ -5908,8 +5910,8 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
       <div class="moa-chat-bubble incoming">Benjamin, jag behöver att du är ärlig med mig.</div>
       <div class="moa-chat-bubble outgoing">Jag vet. Vi pratar när vi ses.</div>
       <div class="moa-chat-date">23 december · 18:42</div>
-      <div class="moa-chat-bubble incoming">Har jag missat något?</div>
-      <div class="moa-chat-attachment"><img src="Dejt-Benji.png" alt="Skärmdump skickad från Benjamin till Moa" loading="lazy"><small>Bild · Dejt-Benji.png</small></div>
+      <div class="moa-chat-bubble outgoing">Har jag missat något?</div>
+      <div class="moa-chat-attachment outgoing-attachment"><img src="Dejt-Benji.png" alt="Bild skickad från Benjamins telefon till Moa" loading="lazy"><small>Bild · Dejt-Benji.png</small></div>
       <div class="moa-chat-bubble incoming">Benjamin? Vad är det här?</div>
       <div class="moa-chat-date">Inget svar</div>
     </div>
