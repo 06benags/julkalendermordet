@@ -3865,27 +3865,27 @@ body.auth-ready .account-userbar { display: flex; }
 
                 <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
                     <strong>Moa Brandin</strong>
-                    <small>Förhör 09:14 · 18 min</small>
+                    <small>Förhör 11:14 · 18 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('benji',this)">
                     <strong>Benji Holm</strong>
-                    <small>Förhör 09:46 · 14 min</small>
+                    <small>Förhör 12:01 · 21 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
                     <strong>Wilmer Fries</strong>
-                    <small>Förhör 10:51 · 16 min</small>
+                    <small>Förhör 10:51 · 24 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
                     <strong>Embla Ingelman-Sundberg</strong>
-                    <small>Förhör 11:23 · 19 min</small>
+                    <small>Förhör 12:43 · 19 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
                     <strong>Tindra Popp</strong>
-                    <small>Förhör 12:01 · 17 min</small>
+                    <small>Förhör 11:23 · 17 min</small>
                 </button>
             </aside>
 
@@ -5511,139 +5511,158 @@ function resetPuzzle() {
 
 const interrogationData = {
 moa:{
-    time:"09:14",
+    time:"11:14",
     text:[
-        ["Förhörsledaren","Vi börjar från början. Berätta om gårdagen, från det att du vaknade. Ta det i din egen ordning.","officer"],
-        ["Moa","Okej... Jag vaknade ganska sent, strax efter nio tror jag. Jag gick ner och gjorde kaffe. Det var rätt lugnt på morgonen. Benjamin var redan uppe och satt vid köksbordet. Han höll på med sin telefon.",""],
-        ["Förhörsledaren","Var det något särskilt med honom?","officer"],
-        ["Moa","Han var lite frånvarande. Inte konstigt egentligen, men... ja. Han svarade knappt när jag pratade med honom.",""],
-        ["Förhörsledaren","Vad hände sedan?","officer"],
-        ["Moa","Vi åt frukost tillsammans. Wilmer gick ut en stund. Embla och Tindra började fixa med maten inför kvällen. Jag minns att det regnade nästan hela förmiddagen, så vi var mest inne.",""],
-        ["Förhörsledaren","När märkte du första gången att stämningen förändrades?","officer"],
-        ["Moa","Efter lunch. Benjamin och den avlidne satt inne i vardagsrummet och pratade ganska tyst. Jag hörde inte allt, men jag hörde ordet 'pengar'. Sen blev det tyst när jag kom in.",""],
-        ["Förhörsledaren","Var de osams?","officer"],
-        ["Moa","Jag skulle inte säga osams då. Mer... obekvämt.",""],
-        ["Förhörsledaren","Och eftermiddagen?","officer"],
-        ["Moa","Vi spelade kort ett tag. Vid fem ungefär gick jag och duschade. Sen började alla göra sig i ordning. Middagen åt vi runt halv åtta.",""],
-        ["Förhörsledaren","Hur var middagen?","officer"],
-        ["Moa","Bra först. Sen drack folk lite och pratade mer. Den avlidne och Benjamin hamnade i diskussion igen. Den här gången var det mer spänt. Jag gick ut ur köket för att slippa höra.",""],
-        ["Förhörsledaren","Såg du den avlidne efter middagen?","officer"],
-        ["Moa","Ja. I vardagsrummet vid kanske tio. Han satt ensam och tittade på telefonen. Sen gick jag upp till mitt rum vid kvart i elva.",""],
-        ["Förhörsledaren","Du har tidigare sagt att du inte var nere igen.","officer"],
-        ["Moa","Jag menade att jag inte gick ner för att umgås. Men... jag gick faktiskt ner igen. Kanske tio minuter senare. Jag ville hämta vatten.",""],
-        ["Förhörsledaren","Vad såg du?","officer"],
-        ["Moa","Köket var tomt. Jag hörde röster från vardagsrummet. En man och en kvinna. Jag såg ingen. Sedan gick jag upp igen.",""],
-        ["Förhörsledaren","Och efter det?","officer"],
-        ["Moa","Jag låg i sängen. Jag hörde en dörr slå igen någon gång efter elva. Sen var det tyst. Det var först senare vi förstod att något var fel.",""]
+        ["Förhörsledaren","Berätta från början. Hur reste ni till stugan den 23 december?","officer"],
+        ["Moa","Jag och Benji åkte från Stockholm ungefär klockan nio på morgonen. Vi tog min bil, eller ja, bilen som Benji körde. Vi hade packat kläder och matvaror kvällen innan. Det var tänkt att bli en lugn jul, bara vi sex.",""],
+        ["Förhörsledaren","Vilka åkte i den andra bilen?","officer"],
+        ["Moa","Benjamin körde. Wilmer, Embla och Tindra åkte med honom. Vi hade pratat om att åka tillsammans, men det blev enklare med två bilar eftersom vi hade så mycket packning.",""],
+        ["Förhörsledaren","När kom ni fram?","officer"],
+        ["Moa","Vid sex på kvällen ungefär. Jag minns att det redan började skymma. Vi bar in väskorna och matkassarna direkt. Ingen ville åka någonstans igen, så vi bestämde oss för att laga mat på en gång.",""],
+        ["Förhörsledaren","Vad lagade ni?","officer"],
+        ["Moa","Köttbullar och potatis. Alla hjälpte till. Jag skalade potatis, Benji och Benjamin höll på med köttbullarna, och de andra dukade och fixade i köket. Det var ganska trångt men vi skrattade åt det.",""],
+        ["Förhörsledaren","Du nämner Benjamin och Benji. Hur var stämningen mellan dem?","officer"],
+        ["Moa","Först helt okej. Men under middagen började de prata om pengar. Jag förstod att Benjamin tyckte att Benji hade ljugit för honom om vad ett lån skulle användas till. Benjamin sa något i stil med att pengarna inte var borta bara för att Benji slutade svara på meddelanden.",""],
+        ["Förhörsledaren","Vad svarade Benji?","officer"],
+        ["Moa","Han sa att det inte var så enkelt och att Benjamin inte hade hela bilden. Benjamin blev arg och sa att han hade gett honom flera chanser. Jag minns inte exakt allt, men Benjamin sa att han tänkte berätta för någon hemma om Benji inte rättade till det. Det blev tyst runt bordet.",""],
+        ["Förhörsledaren","Vad handlade pengarna om, såvitt du vet?","officer"],
+        ["Moa","Benjamin hade lånat ut en ganska stor summa till Benji några månader tidigare. Benji hade sagt att det var för att lösa ett akut problem, men Benjamin hade tydligen fått reda på att pengarna gått till att betala en skuld. Jag vet inte vilken skuld. Benji hade inte berättat det för mig heller.",""],
+        ["Förhörsledaren","Hur avbröts diskussionen?","officer"],
+        ["Moa","Någon påminde oss om Bingolotto och att vi faktiskt hade åkt dit för att fira jul. Jag tror att det var Tindra som sa att vi kunde fortsätta bråka efter programmet. Det lättade lite. Ingen bad om ursäkt, men de slutade för stunden.",""],
+        ["Förhörsledaren","Vad gjorde ni sedan?","officer"],
+        ["Moa","Alla gick till vardagsrummet för att titta på Bingolottos uppesittarkväll, förutom Embla och Wilmer som gjorde glögg och tog fram pepparkakor. De kom in efter en stund med muggar till alla. Det blev mysigare igen, men Benji och Benjamin pratade inte särskilt mycket med varandra.",""],
+        ["Förhörsledaren","Såg du Benjamin efter programmet?","officer"],
+        ["Moa","Ja, han var där med oss. Jag minns att han hade sin telefon i handen flera gånger. Jag frågade om han mådde bra och han svarade att han bara ville få julen överstökad utan mer tjafs. Det lät inte som att han var på väg att lämna stugan eller något sådant.",""],
+        ["Förhörsledaren","När gick ni och lade er, och var sov ni?","officer"],
+        ["Moa","Någon gång mellan ett och två på natten. Jag och Benji har varit tillsammans i tre år och sov i det stora rummet på nedervåningen. Benjamin och Wilmer skulle sova i rummet till vänster när man kommer uppför trappan. Embla och Tindra tog rummet till höger.",""],
+        ["Förhörsledaren","Hörde du något under natten?","officer"],
+        ["Moa","Jag var trött och somnade ganska snabbt. Jag kan inte säga att jag sov hela tiden, men jag minns inget tydligt ljud och gick inte upp. Jag såg inte Benjamin efter att vi sagt god natt i vardagsrummet.",""],
+        ["Förhörsledaren","Vad hände på morgonen?","officer"],
+        ["Moa","Jag sov när Wilmer upptäckte honom. Jag vaknade först när jag hörde röster och förstod att något var fel. När jag kom upp eller ut i hallen fick jag veta att Wilmer försökt väcka Benjamin och ringt 112. Jag blev helt skakig. Jag kunde inte förstå att det var sant.",""],
+        ["Förhörsledaren","Var Tindra där då?","officer"],
+        ["Moa","Inte i sovrummet. Hon hade gått ner till köket för att göra tomtegröt eftersom det var julafton. Jag tror att hon hörde Wilmer ropa och kom fram. Ambulansen kom ungefär en halvtimme efter samtalet. När de sa att Benjamin var död började alla gråta eller bara stå helt stilla. Ingen av oss visste vad vi skulle göra.",""]
     ],
-    note:"Moa lämnar fler detaljer efter följdfrågor. Hennes tidsuppgifter är ungefärliga och bör jämföras med telefondata och övriga förhör."
+    note:"Moa bekräftar resan från Stockholm, relationen mellan henne och Benji samt sovrumsfördelningen. Hon uppfattade delar av konflikten om ett lån, men kan inte själv styrka vad pengarna användes till. Hon uppger att hon sov när Benjamin upptäcktes."
 },
 benji:{
-    time:"09:46",
+    time:"12:01",
     text:[
-        ["Förhörsledaren","Jag vill att du berättar om hela gårdagen, inte bara timmarna kring dödsfallet.","officer"],
-        ["Benji","Vi kom igång sent. Jag sov länge. Frukost blev väl vid tio. Sen hjälpte jag till med ved och sånt.",""],
-        ["Förhörsledaren","Vilka var ute?","officer"],
-        ["Benji","Jag och Wilmer först. Benjamin kom ut en stund senare. Vi snackade om allt möjligt. Det var normalt.",""],
-        ["Förhörsledaren","Vad gjorde ni efter lunch?","officer"],
-        ["Benji","Jag spelade kort med Tindra. Sen satt vi i vardagsrummet. Den avlidne var där ett tag. Han verkade irriterad på något.",""],
-        ["Förhörsledaren","Vet du vad?","officer"],
-        ["Benji","Nej. Jag frågade men han sa att det inte var något.",""],
-        ["Förhörsledaren","När började du dricka?","officer"],
-        ["Benji","Till maten. Inte mycket. Ett par glas bara.",""],
-        ["Förhörsledaren","Vad minns du av kvällen efter tio?","officer"],
-        ["Benji","Vi satt i vardagsrummet. Jag gick till köket flera gånger. Jag minns inte exakt när.",""],
-        ["Förhörsledaren","Du har tidigare sagt att du gick och lade dig strax efter elva.","officer"],
-        ["Benji","Ja, ungefär.",""],
-        ["Förhörsledaren","Var du nere efter det?","officer"],
-        ["Benji","Inte vad jag minns. Eller... jag gick kanske ner en gång. För vatten.",""],
-        ["Förhörsledaren","Var den avlidne där då?","officer"],
-        ["Benji","Jag tror det. Nej, vänta. Jag tror han satt i vardagsrummet.",""],
-        ["Förhörsledaren","Du verkar osäker.","officer"],
-        ["Benji","Ja. Jag var trött. Och jag hade druckit.",""],
-        ["Förhörsledaren","Hörde du något senare?","officer"],
-        ["Benji","En stol eller något som föll. Jag tänkte att någon tappat något. Sen gick jag tillbaka till rummet.",""]
+        ["Förhörsledaren","Hur började resan till stugan?","officer"],
+        ["Benji","Moa och jag åkte från Stockholm vid nio ungefär. Jag körde bilen. Vi hade packat mat och grejer dagen innan och tänkte att vi skulle slippa stanna på vägen. Benjamin körde den andra bilen med Wilmer, Embla och Tindra.",""],
+        ["Förhörsledaren","Kom ni fram samtidigt?","officer"],
+        ["Benji","Nästan. Jag tror att vi kom fram vid sex. Vi lastade ur allt och bestämde oss för att laga middag direkt. Ingen hade lust att åka och handla mer.",""],
+        ["Förhörsledaren","Vad åt ni?","officer"],
+        ["Benji","Köttbullar och potatis. Alla hjälpte till på något sätt. Det var rätt trevligt först. Vi stod flera i köket och försökte få plats, och sedan satte vi oss och åt tillsammans.",""],
+        ["Förhörsledaren","Det har framkommit att du och Benjamin grälade under middagen. Vad gällde det?","officer"],
+        ["Benji","Det handlade om pengar. Jag lånade pengar av honom för ett tag sedan och sa att jag behövde lösa en sak. Jag berättade inte allt då. När han fick veta att jag använde en del till att betala en gammal skuld blev han förbannad. Han tyckte att jag hade utnyttjat honom.",""],
+        ["Förhörsledaren","Hade du lovat att betala tillbaka?","officer"],
+        ["Benji","Ja. Det hade jag. Jag hade betalat tillbaka lite, men inte tillräckligt och inte när jag sagt att jag skulle. Jag skäms över det, men jag försökte inte lura honom på alltihop. Jag trodde att jag skulle hinna ordna det innan han fick veta mer.",""],
+        ["Förhörsledaren","Vad sa Benjamin till dig?","officer"],
+        ["Benji","Han sa att han var trött på att täcka upp för mig och att han tänkte berätta för min familj om jag inte tog ansvar. Jag sa att han inte hade rätt att bestämma över mig. Det var dumt sagt. Han svarade att det inte handlade om att bestämma, utan om att jag hade ljugit för honom.",""],
+        ["Förhörsledaren","Blev det fysiskt?","officer"],
+        ["Benji","Nej. Vi höjde rösterna, men vi slog inte varandra. Jag slog handen i bordet en gång, mest för att få honom att sluta prata över mig. Alla blev tysta. Jag märkte att Moa blev obekväm och då ville jag bara att det skulle ta slut.",""],
+        ["Förhörsledaren","Vad avbröt grälet?","officer"],
+        ["Benji","Bingolotto. Någon sa att vi skulle sluta förstöra kvällen. Vi gick till vardagsrummet. Embla och Wilmer stannade i köket för att fixa glögg och pepparkakor. När de kom in satt vi andra redan framför tv:n.",""],
+        ["Förhörsledaren","Pratade du och Benjamin ut efteråt?","officer"],
+        ["Benji","Inte ordentligt. Vi satt i samma rum men det var spänt. Han tittade på mobilen ibland. Jag tänkte att vi kunde prata dagen efter, när vi inte var arga. Jag sa god natt till honom, men vi var inte sams på riktigt.",""],
+        ["Förhörsledaren","När gick du och lade dig?","officer"],
+        ["Benji","Mellan ett och två, skulle jag tro. Moa och jag sov i det stora sovrummet nere. Benjamin och Wilmer sov i rummet till vänster på övervåningen, och Embla och Tindra i det till höger. Jag vet det eftersom vi pratade om vem som skulle ta vilket rum när vi gjorde oss klara.",""],
+        ["Förhörsledaren","Var du uppe igen under natten?","officer"],
+        ["Benji","Jag minns inte att jag gick upp. Jag var vaken en stund efter att vi lagt oss, men jag låg kvar bredvid Moa. Jag kan inte svära på varje minut, men jag har inget minne av att ha varit inne hos Benjamin efter att vi sagt god natt.",""],
+        ["Förhörsledaren","Vad minns du av morgonen?","officer"],
+        ["Benji","Jag sov. Jag vaknade av att det var rörelse i huset och Moa satte sig upp. Först förstod jag inte vad som hände. Sedan fick jag höra att Wilmer hittat Benjamin och ringt 112. Tindra var nere i köket och gjorde tomtegröt när det hände. Jag gick mot övervåningen men blev stoppad innan jag kom nära honom.",""],
+        ["Förhörsledaren","Hur reagerade du när ambulansen kom?","officer"],
+        ["Benji","Jag trodde att de skulle få liv i honom. Jag tänkte inte ens på att han kunde vara död. Ambulansen kom ungefär trettio minuter efter samtalet, och när personalen meddelade att han var död blev allt overkligt. Jag hade bråkat med honom kvällen innan. Det var det enda jag kunde tänka på.",""]
     ],
-    note:"Benji minns den senare delen av kvällen osäkert. Uppgiften om att han gick ner igen behöver jämföras med andras iakttagelser."
+    note:"Benji bekräftar skulden och konfliktens kärna: han hade lånat pengar av Benjamin och inte berättat hela sanningen om vad de skulle användas till. Han förnekar fysiskt våld och uppger att han inte minns någon förflyttning efter läggdags."
 },
 gustav:{
     time:"10:51",
     text:[
-        ["Förhörsledaren","Berätta om dagen från morgonen.","officer"],
-        ["Wilmer","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
-        ["Förhörsledaren","Var du ensam med någon under dagen?","officer"],
-        ["Wilmer","En stund med Benjamin. Vi var ute kanske en timme efter lunch också.",""],
-        ["Förhörsledaren","Hur verkade han?","officer"],
-        ["Wilmer","Normal. Lite irriterad, kanske. Men det var han ibland.",""],
-        ["Förhörsledaren","Vad hände under eftermiddagen?","officer"],
-        ["Wilmer","Jag sov en stund. Sen spelade vi kort. Jag tror Tindra vann.",""],
-        ["Förhörsledaren","Och middagen?","officer"],
-        ["Wilmer","Helt vanlig. Efteråt satt vi tillsammans. Jag gick och lade mig tidigt, strax före elva.",""],
-        ["Förhörsledaren","När somnade du?","officer"],
-        ["Wilmer","Vet inte. Ganska snabbt.",""],
-        ["Förhörsledaren","Du ringde Benjamin 23:48.","officer"],
-        ["Wilmer","Gjorde jag?",""],
-        ["Förhörsledaren","Ja. Ett utgående samtal.","officer"],
-        ["Wilmer","Då måste jag ha vaknat. Jag minns inte det.",""],
-        ["Förhörsledaren","Pratade du med någon efter det?","officer"],
-        ["Wilmer","Nej, inte vad jag minns.",""],
-        ["Förhörsledaren","Hörde du något från nedervåningen?","officer"],
-        ["Wilmer","Nej. Jag sov. Eller... jag tror att jag sov.",""]
+        ["Förhörsledaren","Du var den som hittade Benjamin. Berätta exakt vad du minns från morgonen, så gott du kan.","officer"],
+        ["Wilmer","Jag vaknade vid tio ungefär. Jag vet inte om det var ljud eller bara att jag hade sovit klart. Först tänkte jag inte på något särskilt. Jag vände mig mot Benjamin och märkte att han låg helt stilla. Han brukar åtminstone röra på sig eller mumla när man säger hans namn, men han reagerade inte alls.",""],
+        ["Förhörsledaren","Vad gjorde du då?","officer"],
+        ["Wilmer","Jag sa hans namn och skakade honom försiktigt på axeln. Han svarade inte. Jag försökte igen, hårdare, och då blev jag rädd på riktigt. Han såg inte ut som någon som bara sov tungt. Jag gick inte därifrån för att hämta någon, utan tog telefonen och ringde 112 direkt.",""],
+        ["Förhörsledaren","Minns du ungefär när samtalet skedde?","officer"],
+        ["Wilmer","Strax efter tio. Jag kan inte säga exakt minut utan att titta på samtalslistan. Jag försökte förklara för operatören var vi var och att min kompis inte gick att väcka. Jag var så stressad att jag fick upprepa adressen.",""],
+        ["Förhörsledaren","Var sov ni?","officer"],
+        ["Wilmer","I rummet till vänster när man kom uppför trappan. Jag och Benjamin. Benji och Moa hade det stora sovrummet nere, de har varit tillsammans i tre år. Embla och Tindra sov i rummet till höger på övervåningen.",""],
+        ["Förhörsledaren","När gick ni och lade er?","officer"],
+        ["Wilmer","Mellan ett och två, tror jag. Vi hade tittat på Bingolotto och de andra hade glögg och pepparkakor. Embla och jag hade fixat glöggen, så vi var lite senare in i vardagsrummet än de andra. Efter programmet satt vi kvar och pratade ett tag innan alla började gå och lägga sig.",""],
+        ["Förhörsledaren","Hur kom ni till stugan?","officer"],
+        ["Wilmer","Benjamin körde den andra bilen från Stockholm. Jag, Embla och Tindra åkte med honom. Moa och Benji åkte i den andra bilen, och Benji körde. De hade åkt runt nio på morgonen och vi kom fram ungefär vid sex på kvällen. Vi lastade in matvaror och väskor tillsammans.",""],
+        ["Förhörsledaren","Vad gjorde ni när ni kom fram?","officer"],
+        ["Wilmer","Vi lagade köttbullar och potatis direkt. Alla hjälpte till. Jag skar upp saker och höll på med kastruller, Embla hjälpte också till och de andra gjorde resten. Middagen var ganska vanlig tills Benjamin och Benji började tjafsa om pengar.",""],
+        ["Förhörsledaren","Vad hörde du av diskussionen?","officer"],
+        ["Wilmer","Jag satt inte precis bredvid dem hela tiden, men jag hörde att Benjamin sa att Benji hade ljugit om ett lån. Han sa något om att han inte tänkte låta det vara längre. Benji svarade att Benjamin inte visste allt. Jag uppfattade det som ganska allvarligt, inte som ett vanligt smågräl. Sedan sa någon att vi skulle sätta på Bingolotto och de slutade.",""],
+        ["Förhörsledaren","Såg du dem bråka senare på kvällen?","officer"],
+        ["Wilmer","Inte något stort. Vi gick till vardagsrummet, medan Embla och jag gjorde glögg och tog fram pepparkakor. När vi kom in igen var de tystare. Jag såg Benjamin med telefonen någon gång, men jag vet inte vad han gjorde med den.",""],
+        ["Förhörsledaren","Minns du om Benjamin verkade sjuk innan ni gick och lade er?","officer"],
+        ["Wilmer","Nej, inte vad jag märkte. Han var tystare än vanligt efter bråket, men han pratade med oss och verkade kunna gå omkring som vanligt. Jag såg inget som fick mig att tro att han skulle dö under natten.",""],
+        ["Förhörsledaren","Hörde du något under natten?","officer"],
+        ["Wilmer","Jag minns inget säkert. Jag var trött. Om jag vaknade till så somnade jag om. Jag kan inte säga att jag hörde någon gå i trappan eller öppna en dörr. Jag önskar att jag hade lagt märke till något, men det gjorde jag inte.",""],
+        ["Förhörsledaren","Vad hände efter att du ringt 112?","officer"],
+        ["Wilmer","Jag stannade hos Benjamin tills jag fick instruktioner om att göra annat. De andra sov fortfarande, vad jag förstod. Tindra var redan nere i köket och höll på med tomtegröt till julafton. Hon kom fram när hon hörde att något hade hänt. De andra väcktes efter det. Ambulansen kom ungefär en halvtimme efter mitt samtal. Personalen försökte bedöma läget, men sedan fick vi veta att Benjamin var död. Alla blev chockade. Tindra grät, Benji såg helt tom ut och Moa kunde knappt prata.",""]
     ],
-    note:"Samtalsloggen visar kontakt 23:48 trots Wilmers uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret."
+    note:"Wilmer är den som fann Benjamin livlös omkring klockan 10 och ringde 112. Han anger att ambulansen anlände ungefär 30 minuter senare. Hans uppgifter om natten är begränsade och han kan inte redogöra för vad som skedde efter att han somnat."
 },
 elham:{
-    time:"11:23",
+    time:"12:43",
     text:[
-        ["Förhörsledaren","Ta dagen från början. Vad gjorde du?","officer"],
-        ["Embla","Jag gick upp tidigt. Tindra och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
-        ["Förhörsledaren","Hur var stämningen under dagen?","officer"],
-        ["Embla","Bra. Alla skojade. Det var först senare på kvällen som det blev spänt.",""],
-        ["Förhörsledaren","När såg du den avlidne första gången den dagen?","officer"],
-        ["Embla","Vid frukosten.",""],
-        ["Förhörsledaren","Och senare?","officer"],
-        ["Embla","Han gick mycket mellan vardagsrummet och köket. På eftermiddagen satt han länge med sin telefon.",""],
-        ["Förhörsledaren","Såg du honom prata med Benjamin?","officer"],
-        ["Embla","Ja. Flera gånger. Jag hörde inte alltid vad de sa.",""],
-        ["Förhörsledaren","Hur var middagen?","officer"],
-        ["Embla","Bra tills de började diskutera igen. Jag tror att det handlade om pengar.",""],
-        ["Förhörsledaren","Vad gjorde du efter middagen?","officer"],
-        ["Embla","Jag satt i vardagsrummet. Runt elva gick jag till köket. Benjamin var i hallen då.",""],
-        ["Förhörsledaren","Vad gjorde han?","officer"],
-        ["Embla","Det såg ut som att han letade efter något. Han sa inget till mig.",""],
-        ["Förhörsledaren","När såg du den avlidne senast?","officer"],
-        ["Embla","Runt 23:10, tror jag. Han satt i vardagsrummet.",""],
-        ["Förhörsledaren","Vad hände sedan?","officer"],
-        ["Embla","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
+        ["Förhörsledaren","Berätta om resan och vad ni gjorde när ni kom fram.","officer"],
+        ["Embla","Benjamin körde bilen där jag, Wilmer och Tindra åkte. Moa och Benji tog den andra bilen, med Benji bakom ratten. De åkte från Stockholm ungefär vid nio på morgonen. Vi kom fram vid sex på kvällen, kanske några minuter före eller efter. Vi hade matvaror med oss och bar in allting direkt.",""],
+        ["Förhörsledaren","Vad gjorde ni först?","officer"],
+        ["Embla","Vi började laga mat nästan direkt. Det blev köttbullar och potatis. Alla hjälpte till, även om vi var i vägen för varandra ibland. Jag dukade och hjälpte till med det som behövdes. Vi satt sedan länge och åt och pratade om allt möjligt.",""],
+        ["Förhörsledaren","Du uppfattade en konflikt under middagen?","officer"],
+        ["Embla","Ja. Benjamin tog upp något om pengar som han tyckte att Benji hade ljugit om. Jag hörde inte början, så jag vet inte exakt vad som först utlöste det. Men jag hörde Benjamin säga att han hade litat på Benji och att han inte tänkte låtsas som ingenting längre.",""],
+        ["Förhörsledaren","Vad svarade Benji?","officer"],
+        ["Embla","Han sa att Benjamin gjorde det värre än det var och att han skulle betala tillbaka. Benjamin svarade ungefär att det inte bara handlade om pengarna utan om att Benji hade ljugit. Jag tyckte att det lät som att det här hade pågått ett tag. De var båda arga, men jag såg inget fysiskt våld.",""],
+        ["Förhörsledaren","Hur tog de andra det?","officer"],
+        ["Embla","Det blev obekvämt. Jag försökte fortsätta med maten och inte stirra på dem. Sedan började vi prata om Bingolotto och någon föreslog att vi skulle gå in till vardagsrummet. Det kändes som att alla ville få kvällen tillbaka på rätt spår.",""],
+        ["Förhörsledaren","Var du kvar i köket?","officer"],
+        ["Embla","Ja, Wilmer och jag stannade för att värma glögg och ta fram pepparkakor. De andra gick till vardagsrummet och satte på Bingolotto. När vi kom in med muggarna satt alla tillsammans. Det blev rätt mysigt igen, men Benjamin och Benji var inte lika avslappnade som tidigare.",""],
+        ["Förhörsledaren","Pratade du med Benjamin efter det?","officer"],
+        ["Embla","Inte något långt samtal. Jag frågade om han ville ha mer glögg, och han sa nej tack. Han kollade på telefonen några gånger och verkade fundera på något. Jag frågade om bråket, men han sa att det inte var något jag behövde lägga mig i. Jag lät det vara.",""],
+        ["Förhörsledaren","När gick ni och lade er?","officer"],
+        ["Embla","Efter ett någon gång, kanske närmare två. Jag och Tindra sov i rummet till höger på övervåningen. Wilmer och Benjamin sov i rummet till vänster. Moa och Benji tog det stora rummet nere eftersom de är ett par och har varit tillsammans i tre år.",""],
+        ["Förhörsledaren","Såg du någon efter att du gått upp?","officer"],
+        ["Embla","Jag var inne i vårt rum och gjorde mig i ordning. Jag kan ha hört någon röra sig i huset, men jag kan inte säga när eller vem. Jag gick inte ner igen vad jag minns. Tindra låg också i rummet, men jag vet inte exakt när hon somnade.",""],
+        ["Förhörsledaren","Vad gjorde du på morgonen?","officer"],
+        ["Embla","Jag sov. Jag blev väckt av att det var folk i rörelse och röster från trappan. Jag förstod inte direkt vad som hänt. Tindra var inte i rummet då. Sen fick jag veta att hon varit i köket och gjort tomtegröt till julafton när Wilmer upptäckte Benjamin.",""],
+        ["Förhörsledaren","Hur reagerade du när du fick veta att Benjamin var död?","officer"],
+        ["Embla","Jag trodde först att jag hade missförstått. Jag gick mot hallen men kunde inte förmå mig att gå in i rummet. Wilmer hade ringt 112 och ambulansen kom ungefär trettio minuter senare. När vi fick veta att Benjamin inte gick att rädda blev alla helt förstörda. Det var en så vanlig kväll kvällen innan. Det går inte ihop i huvudet.",""]
     ],
-    note:"Embla ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse."
+    note:"Embla bekräftar resan, måltiden, glöggen och sovrumsfördelningen. Hon hörde delar av konflikten men saknade kunskap om hela bakgrunden. Hon kan inte identifiera några säkra ljud eller rörelser under natten."
 },
 cecilia:{
-    time:"12:01",
+    time:"11:23",
     text:[
-        ["Förhörsledaren","Berätta om dagen som du minns den.","officer"],
-        ["Tindra","Jag vaknade runt nio. Embla hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
-        ["Förhörsledaren","Vad gjorde du efter frukosten?","officer"],
-        ["Tindra","Jag läste en stund. Sen hjälpte jag till med maten. På eftermiddagen spelade jag kort med Benji.",""],
-        ["Förhörsledaren","Såg du något mellan Benjamin och den avlidne?","officer"],
-        ["Tindra","De pratade flera gånger. Jag tänkte inte så mycket på det förrän på kvällen.",""],
-        ["Förhörsledaren","Vad hände på kvällen?","officer"],
-        ["Tindra","Efter middagen satt vi alla tillsammans en stund. Sen började folk gå undan. Jag gick upp till mitt rum vid elva ungefär.",""],
-        ["Förhörsledaren","Var du nere igen?","officer"],
-        ["Tindra","Ja. Jag gick på toaletten strax efter elva.",""],
-        ["Förhörsledaren","Såg du någon i hallen?","officer"],
-        ["Tindra","Jag tror att jag såg Benjamin. Men det var mörkt och jag såg honom bara bakifrån.",""],
-        ["Förhörsledaren","Hörde du något?","officer"],
-        ["Tindra","En dörr. Jag tror köksdörren. Sen hörde jag någon gå i trappan.",""],
-        ["Förhörsledaren","Kan du säga vem det var?","officer"],
-        ["Tindra","Nej. Det kan jag inte.",""],
-        ["Förhörsledaren","När somnade du?","officer"],
-        ["Tindra","Efter midnatt. Jag låg och läste en stund.",""]
+        ["Förhörsledaren","Vad minns du från den 23 december? Börja gärna med resan.","officer"],
+        ["Tindra","Jag åkte med Benjamin, Embla och Wilmer i bilen som Benjamin körde. Moa och Benji åkte i den andra bilen från Stockholm, Benji körde den. De åkte vid nio ungefär och vi kom fram runt sex på kvällen. Vi hade mat med oss, så vi behövde inte handla när vi kom fram.",""],
+        ["Förhörsledaren","Vad hände när ni kom till stugan?","officer"],
+        ["Tindra","Vi bar in väskorna och matkassarna och började laga mat direkt. Det blev köttbullar och potatis. Alla hjälpte till och sedan satte vi oss och åt tillsammans. Jag minns att vi pratade om julen och vad vi skulle göra dagen efter.",""],
+        ["Förhörsledaren","Du nämnde i ett tidigare samtal att det blev dålig stämning vid bordet.","officer"],
+        ["Tindra","Ja, Benjamin och Benji började prata om pengar. Jag hörde Benjamin säga att han inte tänkte fortsätta låtsas att allt var okej. Benji sa att han skulle betala tillbaka och att Benjamin inte behövde dra in andra i det. Jag vet inte hur mycket pengar det handlade om, men det lät som mer än en liten skuld.",""],
+        ["Förhörsledaren","Vad tror du att konflikten handlade om?","officer"],
+        ["Tindra","Jag kan bara säga vad jag hörde. Det verkade som att Benjamin hade lånat ut pengar och att Benji inte varit ärlig med vad de skulle användas till. Jag vet inte vad skulden var eller om någon annan var inblandad. Jag frågade inte, för det kändes privat.",""],
+        ["Förhörsledaren","Hur slutade diskussionen?","officer"],
+        ["Tindra","Vi började prata om Bingolotto och gick till vardagsrummet. Embla och Wilmer stannade i köket och fixade glögg och pepparkakor. När de kom in satt vi andra redan framför tv:n. Vi försökte ha en vanlig kväll. Jag minns att Benjamin var tystare än tidigare, men han var med oss.",""],
+        ["Förhörsledaren","När gick du och lade dig?","officer"],
+        ["Tindra","Efter ett någon gång, kanske närmare två. Jag och Embla sov i rummet till höger på övervåningen. Wilmer och Benjamin hade rummet till vänster. Moa och Benji sov i det stora rummet på nedervåningen. De har varit tillsammans i tre år, så det var självklart att de tog det rummet.",""],
+        ["Förhörsledaren","Gick du ner igen under natten?","officer"],
+        ["Tindra","Jag minns inte att jag gick ner efter att jag lagt mig. Jag var trött och somnade, men jag vaknade till någon gång. Jag kan inte säga om jag hörde en dörr eller om det var något jag drömde. Jag vill inte säga att jag såg någon när jag inte är säker.",""],
+        ["Förhörsledaren","Varför var du i köket på morgonen?","officer"],
+        ["Tindra","Det var julafton och jag tänkte göra tomtegröt till alla. Jag gick ner omkring tio, tror jag. Jag började ta fram kastrullen och mjölken. Jag var ensam i köket när jag började. Jag hade inte förstått att något var fel, för huset var tyst och jag trodde de andra sov.",""],
+        ["Förhörsledaren","Vad hände sedan?","officer"],
+        ["Tindra","Jag hörde Wilmer ropa något uppifrån och sedan hörde jag att han pratade i telefon. Jag gick ut från köket och försökte förstå vad som hände. Han hade hittat Benjamin i sängen och försökt väcka honom, men Benjamin reagerade inte. Wilmer ringde 112. Jag såg att han var rädd på ett sätt jag aldrig sett förut.",""],
+        ["Förhörsledaren","Var de andra vakna då?","officer"],
+        ["Tindra","Inte vad jag vet. Moa och Benji sov fortfarande där nere och Embla var i vårt rum. De vaknade när vi började röra oss och prata. Ambulansen kom ungefär en halvtimme efter att Wilmer ringt. Vi väntade på att någon skulle säga att Benjamin skulle klara sig, men ambulanspersonalen meddelade att han var död.",""],
+        ["Förhörsledaren","Hur reagerade ni?","officer"],
+        ["Tindra","Alla blev chockade. Jag grät och kunde inte sluta tänka på att jag höll på att göra julgröt bara några minuter innan. Moa såg ut som om hon inte kunde stå upp, och Benji sa nästan ingenting. Wilmer var helt skärrad. Ingen av oss kunde förstå hur någon som varit med oss kvällen innan plötsligt var borta.",""]
     ],
-    note:"Tindra är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören."
+    note:"Tindra var i köket och förberedde tomtegröt när Wilmer upptäckte Benjamin. Hon bekräftar tidpunkten för ankomsten och delar av konflikten, men saknar säker kunskap om vad som skedde under natten."
 }
 };
-
 const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Wilmer Fries",elham:"Embla Ingelman-Sundberg",cecilia:"Tindra Popp"};
 function openInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
