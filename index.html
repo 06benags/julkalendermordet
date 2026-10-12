@@ -3637,7 +3637,7 @@ body.auth-ready .account-userbar { display: flex; }
 
 <div id="lockedDoorOverlay" class="locked-door-overlay" onclick="closeLockedDoor()">
     <div class="locked-door-card" onclick="event.stopPropagation()">
-        <div class="locked-door-kicker">JULMORDET · 2026</div>
+        <div class="locked-door-kicker">JULMORDET · 2014</div>
         <div id="lockedDoorText"></div>
         <button type="button" onclick="closeLockedDoor()">Stäng</button>
     </div>
@@ -3834,7 +3834,7 @@ body.auth-ready .account-userbar { display: flex; }
       <img id="suspectViewerImage" src="IMG_0655.jpeg" alt="Benji Holm">
       <div class="suspect-viewer-caption">
         <strong id="suspectViewerName">Benji Holm</strong>
-        <span id="suspectViewerMeta">PERSONBILD · 1 DECEMBER</span>
+        <span id="suspectViewerMeta">PERSONBILD · 24 DECEMBER 2014</span>
       </div>
     </div>
     <button class="suspect-nav suspect-next" onclick="nextSuspect()" aria-label="Nästa">›</button>
@@ -3852,7 +3852,7 @@ body.auth-ready .account-userbar { display: flex; }
             <p>Förundersökning · misstänkt dödsfall · fritidsstugan</p>
 
             <div class="interrogation-meta">
-                <div><strong>Förhörsdatum</strong>1 december</div>
+                <div><strong>Förhörsdatum</strong>24 december 2014</div>
                 <div><strong>Plats</strong>Stugan · Förhör enskilt</div>
                 <div><strong>Förhörsledare</strong>Kriminalinspektör L. Andersson</div>
             </div>
@@ -4358,10 +4358,8 @@ function updatePhoneTime() {
         "september", "oktober", "november", "december"
     ];
 
-    const currentDate =
-        weekdays[now.getDay()] + " " +
-        now.getDate() + " " +
-        months[now.getMonth()];
+    // Telefonen visar datumet från ärendet, inte dagens verkliga datum.
+    const currentDate = "Onsdag 24 december 2014";
 
     if (tableTime) {
         tableTime.textContent = currentTime;
@@ -5950,7 +5948,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppWeather"><div class="ios-app-header weather-head"><button onclick="closePhoneApp()">‹</button><strong>Väder</strong><span>•••</span></div><div class="weather-screen"><small>Dalarna</small><strong>-4°</strong><span>Mulet</span><p>Vind 5 m/s · N</p></div></div>
 
-  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>30/11</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
+  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
 
   <div class="phone-app-panel" id="phoneAppReminders"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Påminnelser</strong><span>＋</span></div><div class="ios-app-body"><div class="reminder">○ Prata med Moa</div><div class="reminder">○ Kolla kameran</div><div class="reminder">○ Ring Gustav</div></div></div>
 
@@ -5960,11 +5958,11 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppMail"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Mail</strong><span>✎</span></div><div class="ios-app-body"><div class="mail-message"><strong>Vi måste prata</strong><small>Från: Moa · 20:11</small><p>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</p></div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>30 nov 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>30 nov 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>30 nov · 23:52 · Missat samtal</small></div></div></div>
+  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>23 dec 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>23 dec 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>23 dec · 23:52 · Missat samtal</small></div></div></div>
 
   <div class="phone-app-panel" id="phoneAppSafari"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Safari</strong><span>＋</span></div><div class="ios-browser"><div class="browser-bar">sök eller skriv webbplats</div><h2>Ingen anslutning</h2><p>Det finns ingen internetanslutning.</p></div></div>
 
-  <div class="phone-app-panel" id="phoneAppSpotify"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Spotify</strong><span>•••</span></div><div class="spotify-screen"><div class="album-art">JUL<br>2026</div><strong>Senast spelade</strong><p>Christmas Classics</p></div></div>
+  <div class="phone-app-panel" id="phoneAppSpotify"><div class="ios-app-header dark"><button onclick="closePhoneApp()">‹</button><strong>Spotify</strong><span>•••</span></div><div class="spotify-screen"><div class="album-art">JUL<br>2014</div><strong>Senast spelade</strong><p>Christmas Classics</p></div></div>
 
   <div class="phone-app-panel" id="phoneAppWhatsApp"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>WhatsApp</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Senast online 20:41</small></div></div></div></div>
 
