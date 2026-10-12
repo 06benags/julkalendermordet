@@ -6050,6 +6050,62 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
 
 <!-- Supabase Auth: konton och lösenord lagras säkert hos auth-leverantören, aldrig i localStorage. -->
+<script>
+/* Reservhanterare för klick om huvudskriptet av någon anledning inte laddas. */
+(function () {
+  document.addEventListener("click", function (event) {
+    const target = event.target && event.target.closest
+      ? event.target.closest(".door, .table .paper, .table .photo-stack, .table .phone-paper, .back-button")
+      : null;
+    if (!target) return;
+
+    const action = target.getAttribute("onclick") || "";
+    const match = action.match(/^\s*([A-Za-z_$][\w$]*)\s*\(/);
+    const fnName = match && match[1];
+
+    // Låt den vanliga funktionen sköta klicket när den finns.
+    if (fnName && typeof window[fnName] === "function") return;
+
+    event.preventDefault();
+    if (target.classList.contains("door")) {
+      const calendarPage = document.getElementById("calendarPage");
+      const investigation = document.getElementById("investigation");
+      if (calendarPage) calendarPage.style.display = "none";
+      if (investigation) investigation.style.display = "block";
+      document.body.classList.add("investigation-active");
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    if (target.classList.contains("back-button")) {
+      const calendarPage = document.getElementById("calendarPage");
+      const investigation = document.getElementById("investigation");
+      if (calendarPage) calendarPage.style.display = "block";
+      if (investigation) investigation.style.display = "none";
+      document.body.classList.remove("investigation-active");
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    const overlayByAction = {
+      openDocument: ["documentOverlay", "block"],
+      openSuspects: ["suspectsOverlay", "flex"],
+      openInterrogation: ["interrogationOverlay", "flex"],
+      openMap: ["mapOverlay", "flex"],
+      openPhone: ["phoneOverlay", "flex"]
+    };
+    const item = overlayByAction[fnName];
+    if (item) {
+      const overlay = document.getElementById(item[0]);
+      if (overlay) {
+        overlay.style.display = item[1];
+        document.body.style.overflow = "hidden";
+      }
+    }
+  }, true);
+})();
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function () {
