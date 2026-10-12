@@ -3849,11 +3849,11 @@ body.auth-ready .account-userbar { display: flex; }
 
         <div class="interrogation-top">
             <h2>FÖRHÖRSPROTOKOLL</h2>
-            <p>Förundersökning · misstänkt dödsfall · fritidsstugan</p>
+            <p>Förhör på plats · julafton · direkt efter att Benjamin konstaterats död</p>
 
             <div class="interrogation-meta">
                 <div><strong>Förhörsdatum</strong>24 december 2014</div>
-                <div><strong>Plats</strong>Stugan · Förhör enskilt</div>
+                <div><strong>Plats</strong>I stugan · enskilda samtal på plats</div>
                 <div><strong>Förhörsledare</strong>Kriminalinspektör L. Andersson</div>
             </div>
         </div>
@@ -3863,9 +3863,19 @@ body.auth-ready .account-userbar { display: flex; }
             <aside class="interrogation-suspects">
                 <h3>PERSONER</h3>
 
-                <button class="interrogation-person active" onclick="showInterrogation('moa',this)">
+                <button class="interrogation-person active" onclick="showInterrogation('gustav',this)">
+                    <strong>Wilmer Fries</strong>
+                    <small>Förhör 10:51 · 24 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('moa',this)">
                     <strong>Moa Brandin</strong>
                     <small>Förhör 11:14 · 18 min</small>
+                </button>
+
+                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
+                    <strong>Tindra Popp</strong>
+                    <small>Förhör 11:23 · 17 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('benji',this)">
@@ -3873,19 +3883,9 @@ body.auth-ready .account-userbar { display: flex; }
                     <small>Förhör 12:01 · 21 min</small>
                 </button>
 
-                <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
-                    <strong>Wilmer Fries</strong>
-                    <small>Förhör 10:51 · 24 min</small>
-                </button>
-
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
                     <strong>Embla Ingelman-Sundberg</strong>
                     <small>Förhör 12:43 · 19 min</small>
-                </button>
-
-                <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
-                    <strong>Tindra Popp</strong>
-                    <small>Förhör 11:23 · 17 min</small>
                 </button>
             </aside>
 
@@ -5540,7 +5540,7 @@ moa:{
         ["Förhörsledaren","Vad hände på morgonen?","officer"],
         ["Moa","Jag sov när Wilmer upptäckte honom. Jag vaknade först när jag hörde röster och förstod att något var fel. När jag kom upp eller ut i hallen fick jag veta att Wilmer försökt väcka Benjamin och ringt 112. Jag blev helt skakig. Jag kunde inte förstå att det var sant.",""],
         ["Förhörsledaren","Var Tindra där då?","officer"],
-        ["Moa","Inte i sovrummet. Hon hade gått ner till köket för att göra tomtegröt eftersom det var julafton. Jag tror att hon hörde Wilmer ropa och kom fram. Ambulansen kom ungefär en halvtimme efter samtalet. När de sa att Benjamin var död började alla gråta eller bara stå helt stilla. Ingen av oss visste vad vi skulle göra.",""]
+        ["Moa","Inte i sovrummet. Hon hade gått ner till köket för att göra tomtegröt eftersom det var julafton. Jag tror att hon hörde Wilmer ropa och kom fram. När ambulanspersonalen konstaterade att Benjamin var död blev jag helt skakig. Jag kunde inte förstå att det var sant. Ingen av oss visste vad vi skulle göra.",""]
     ],
     note:"Moa bekräftar resan från Stockholm, relationen mellan henne och Benji samt sovrumsfördelningen. Hon uppfattade delar av konflikten om ett lån, men kan inte själv styrka vad pengarna användes till. Hon uppger att hon sov när Benjamin upptäcktes."
 },
@@ -5572,7 +5572,7 @@ benji:{
         ["Förhörsledaren","Vad minns du av morgonen?","officer"],
         ["Benji","Jag sov. Jag vaknade av att det var rörelse i huset och Moa satte sig upp. Först förstod jag inte vad som hände. Sedan fick jag höra att Wilmer hittat Benjamin och ringt 112. Tindra var nere i köket och gjorde tomtegröt när det hände. Jag gick mot övervåningen men blev stoppad innan jag kom nära honom.",""],
         ["Förhörsledaren","Hur reagerade du när ambulansen kom?","officer"],
-        ["Benji","Jag trodde att de skulle få liv i honom. Jag tänkte inte ens på att han kunde vara död. Ambulansen kom ungefär trettio minuter efter samtalet, och när personalen meddelade att han var död blev allt overkligt. Jag hade bråkat med honom kvällen innan. Det var det enda jag kunde tänka på.",""]
+        ["Benji","Jag trodde att de skulle få liv i honom. Jag tänkte inte ens på att han kunde vara död. När ambulanspersonalen konstaterade att Benjamin var död blev allt overkligt. Jag hade bråkat med honom kvällen innan. Det var det enda jag kunde tänka på.",""]
     ],
     note:"Benji bekräftar skulden och konfliktens kärna: han hade lånat pengar av Benjamin och inte berättat hela sanningen om vad de skulle användas till. Han förnekar fysiskt våld och uppger att han inte minns någon förflyttning efter läggdags."
 },
@@ -5602,7 +5602,7 @@ gustav:{
         ["Förhörsledaren","Hörde du något under natten?","officer"],
         ["Wilmer","Jag minns inget säkert. Jag var trött. Om jag vaknade till så somnade jag om. Jag kan inte säga att jag hörde någon gå i trappan eller öppna en dörr. Jag önskar att jag hade lagt märke till något, men det gjorde jag inte.",""],
         ["Förhörsledaren","Vad hände efter att du ringt 112?","officer"],
-        ["Wilmer","Jag stannade hos Benjamin tills jag fick instruktioner om att göra annat. De andra sov fortfarande, vad jag förstod. Tindra var redan nere i köket och höll på med tomtegröt till julafton. Hon kom fram när hon hörde att något hade hänt. De andra väcktes efter det. Ambulansen kom ungefär en halvtimme efter mitt samtal. Personalen försökte bedöma läget, men sedan fick vi veta att Benjamin var död. Alla blev chockade. Tindra grät, Benji såg helt tom ut och Moa kunde knappt prata.",""]
+        ["Wilmer","Jag stannade hos Benjamin tills jag fick instruktioner om att göra annat. De andra sov fortfarande, vad jag förstod. Tindra var redan nere i köket och höll på med tomtegröt till julafton. Hon kom fram när hon hörde att något hade hänt. De andra väcktes efter det. Ambulanspersonalen arbetade med att bedöma läget och meddelade sedan att Benjamin var död. Alla blev chockade. Tindra grät, Benji såg helt tom ut och Moa kunde knappt prata.",""]
     ],
     note:"Wilmer är den som fann Benjamin livlös omkring klockan 10 och ringde 112. Han anger att ambulansen anlände ungefär 30 minuter senare. Hans uppgifter om natten är begränsade och han kan inte redogöra för vad som skedde efter att han somnat."
 },
@@ -5630,7 +5630,7 @@ elham:{
         ["Förhörsledaren","Vad gjorde du på morgonen?","officer"],
         ["Embla","Jag sov. Jag blev väckt av att det var folk i rörelse och röster från trappan. Jag förstod inte direkt vad som hänt. Tindra var inte i rummet då. Sen fick jag veta att hon varit i köket och gjort tomtegröt till julafton när Wilmer upptäckte Benjamin.",""],
         ["Förhörsledaren","Hur reagerade du när du fick veta att Benjamin var död?","officer"],
-        ["Embla","Jag trodde först att jag hade missförstått. Jag gick mot hallen men kunde inte förmå mig att gå in i rummet. Wilmer hade ringt 112 och ambulansen kom ungefär trettio minuter senare. När vi fick veta att Benjamin inte gick att rädda blev alla helt förstörda. Det var en så vanlig kväll kvällen innan. Det går inte ihop i huvudet.",""]
+        ["Embla","Jag trodde först att jag hade missförstått. Jag gick mot hallen men kunde inte förmå mig att gå in i rummet. Wilmer hade ringt 112. När ambulanspersonalen konstaterade att Benjamin var död blev alla helt förstörda. Det var en så vanlig kväll kvällen innan. Det går inte ihop i huvudet.",""]
     ],
     note:"Embla bekräftar resan, måltiden, glöggen och sovrumsfördelningen. Hon hörde delar av konflikten men saknade kunskap om hela bakgrunden. Hon kan inte identifiera några säkra ljud eller rörelser under natten."
 },
@@ -5656,11 +5656,11 @@ cecilia:{
         ["Förhörsledaren","Vad hände sedan?","officer"],
         ["Tindra","Jag hörde Wilmer ropa något uppifrån och sedan hörde jag att han pratade i telefon. Jag gick ut från köket och försökte förstå vad som hände. Han hade hittat Benjamin i sängen och försökt väcka honom, men Benjamin reagerade inte. Wilmer ringde 112. Jag såg att han var rädd på ett sätt jag aldrig sett förut.",""],
         ["Förhörsledaren","Var de andra vakna då?","officer"],
-        ["Tindra","Inte vad jag vet. Moa och Benji sov fortfarande där nere och Embla var i vårt rum. De vaknade när vi började röra oss och prata. Ambulansen kom ungefär en halvtimme efter att Wilmer ringt. Vi väntade på att någon skulle säga att Benjamin skulle klara sig, men ambulanspersonalen meddelade att han var död.",""],
+        ["Tindra","Inte vad jag vet. Moa och Benji sov fortfarande där nere och Embla var i vårt rum. De vaknade när vi började röra oss och prata. Ambulanspersonalen undersökte Benjamin och meddelade att han var död. Jag hade hoppats att någon skulle säga att han skulle klara sig.",""],
         ["Förhörsledaren","Hur reagerade ni?","officer"],
         ["Tindra","Alla blev chockade. Jag grät och kunde inte sluta tänka på att jag höll på att göra julgröt bara några minuter innan. Moa såg ut som om hon inte kunde stå upp, och Benji sa nästan ingenting. Wilmer var helt skärrad. Ingen av oss kunde förstå hur någon som varit med oss kvällen innan plötsligt var borta.",""]
     ],
-    note:"Tindra var i köket och förberedde tomtegröt när Wilmer upptäckte Benjamin. Hon bekräftar tidpunkten för ankomsten och delar av konflikten, men saknar säker kunskap om vad som skedde under natten."
+    note:"Tindra berättar på plats kort efter dödsbeskedet. Hon beskriver att hon gjorde tomtegröt när hon hörde Wilmer ropa och ringde efter hjälp. Hon känner inte till vad som hände under natten."
 }
 };
 const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Wilmer Fries",elham:"Embla Ingelman-Sundberg",cecilia:"Tindra Popp"};
@@ -5669,7 +5669,7 @@ function openInterrogation(){
     if(!overlay)return;
     overlay.style.display="block";
     const first=overlay.querySelector(".interrogation-person");
-    showInterrogation("moa",first);
+    showInterrogation("gustav",first);
 }
 function closeInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
