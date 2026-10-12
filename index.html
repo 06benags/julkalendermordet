@@ -3205,11 +3205,15 @@ filter:brightness(0);}
 .moa-chat-bubble{max-width:79%;padding:8px 10px;border-radius:15px;font-size:10px;line-height:1.4;overflow-wrap:anywhere}
 .moa-chat-bubble.incoming{align-self:flex-start;background:#e9e9eb;color:#171719;border-bottom-left-radius:5px}
 .moa-chat-bubble.outgoing{align-self:flex-end;background:#1684ff;color:#fff;border-bottom-right-radius:5px}
-.moa-chat-attachment{align-self:flex-start;width:78%;max-width:235px;padding:5px;background:#e9e9eb;border-radius:12px;overflow:hidden}
+.moa-chat-attachment{position:relative;align-self:flex-start;display:block;width:46%;max-width:128px;min-width:90px;padding:4px;border:0;background:#e9e9eb;border-radius:12px;overflow:hidden;cursor:pointer;text-align:left}
 .moa-chat-attachment.outgoing-attachment{align-self:flex-end;background:#1684ff}
-.moa-chat-attachment img{display:block;width:100%;height:auto;max-height:310px;object-fit:contain;object-position:top;border-radius:8px;background:#fff}
-.moa-chat-attachment small{display:block;padding:4px 3px 1px;color:#68686d;font-size:8px}
-.moa-chat-attachment.outgoing-attachment small{color:rgba(255,255,255,.85);text-align:right}
+.moa-chat-attachment img{display:block;width:100%;height:88px;object-fit:cover;object-position:top;border-radius:8px;background:#fff}
+.moa-attachment-caption{display:block;padding:4px 3px 1px;color:rgba(255,255,255,.9);font-size:8px}
+.moa-attachment-expand{position:absolute;right:7px;top:7px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.52);color:#fff;font-size:13px}
+.dejt-image-lightbox{display:none;position:absolute;inset:0;z-index:100;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:35px 12px 18px;box-sizing:border-box}
+.dejt-image-lightbox.open{display:flex}
+.dejt-image-lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:4px}
+.dejt-image-lightbox button{position:absolute;top:8px;right:10px;border:0;background:rgba(80,80,80,.85);color:#fff;border-radius:50%;width:28px;height:28px;font-size:20px;cursor:pointer}
 .moa-chat-compose{height:48px;display:flex;align-items:center;gap:8px;padding:7px 10px;border-top:1px solid #e2e2e7;background:#f8f8fa;color:#8e8e93;font-size:12px}
 .moa-chat-compose>span{font-size:18px}
 .moa-chat-compose div{flex:1;border:1px solid #d4d4d8;border-radius:18px;padding:7px 10px;background:#fff}
@@ -5762,6 +5766,14 @@ function openMoaConversation() {
         if (body) body.scrollTop = body.scrollHeight;
     }
 }
+function openDejtScreenshot() {
+    const lightbox = document.getElementById("dejtImageLightbox");
+    if (lightbox) lightbox.classList.add("open");
+}
+function closeDejtScreenshot() {
+    const lightbox = document.getElementById("dejtImageLightbox");
+    if (lightbox) lightbox.classList.remove("open");
+}
 function closeMoaConversation() {
     const panel = document.getElementById("phoneAppMoaConversation");
     if (panel) panel.classList.remove("open");
@@ -5911,12 +5923,28 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
       <div class="moa-chat-bubble outgoing">Jag vet. Vi pratar när vi ses.</div>
       <div class="moa-chat-date">23 december · 18:42</div>
       <div class="moa-chat-bubble outgoing">Har jag missat något?</div>
-      <div class="moa-chat-attachment outgoing-attachment"><img src="Dejt-Benji.png" alt="Bild skickad från Benjamins telefon till Moa" loading="lazy"><small>Bild · Dejt-Benji.png</small></div>
+      <button class="moa-chat-attachment outgoing-attachment" type="button" onclick="openDejtScreenshot()" aria-label="Öppna bilden som Benjamin skickade">
+        <img src="Dejt-Benji.png" alt="Förhandsvisning av skickad bild" loading="lazy">
+        <span class="moa-attachment-caption">Bild</span><span class="moa-attachment-expand">⤢</span>
+      </button>
       <div class="moa-chat-bubble incoming">Benjamin? Vad är det här?</div>
+      <div class="moa-chat-bubble outgoing">Kan du svara mig?</div>
+      <div class="moa-chat-bubble incoming">Jag förstår inte varför du skickar det här nu.</div>
+      <div class="moa-chat-bubble outgoing">Jag vet inte vad jag ska säga.</div>
+      <div class="moa-chat-bubble incoming">Är det här något du tänkte berätta för mig?</div>
+      <div class="moa-chat-bubble outgoing">Moa, snälla. Jag kan förklara.</div>
+      <div class="moa-chat-bubble incoming">Du har sagt så förut, Benjamin.</div>
+      <div class="moa-chat-bubble outgoing">Jag vet. Men det är inte som du tror.</div>
+      <div class="moa-chat-bubble incoming">Jag behöver vara ifred en stund.</div>
+      <div class="moa-chat-date">23 december · 19:06</div>
+      <div class="moa-chat-bubble outgoing">Snälla, läs det jag skriver.</div>
+      <div class="moa-chat-bubble incoming">Inte nu.</div>
       <div class="moa-chat-date">Inget svar</div>
     </div>
     <div class="moa-chat-compose"><span>＋</span><div>SMS</div><span>🎙</span></div>
   </div>
+  <div class="dejt-image-lightbox" id="dejtImageLightbox" onclick="if(event.target===this)closeDejtScreenshot()"><button type="button" onclick="closeDejtScreenshot()" aria-label="Stäng bild">×</button><img src="Dejt-Benji.png" alt="Hela skärmdumpen från dejtingprofilen"></div>
+
   <div class="phone-app-panel" id="phoneAppCalendar"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong></strong><span>＋</span></div><div class="ios-app-body" style="padding:0;background:#000;display:flex;align-items:center;justify-content:center;"><img src="IMG_0653.jpeg" alt="IMG_0653" style="width:100%;height:100%;object-fit:contain;display:block;"></div></div>
 
   <div class="phone-app-panel" id="phoneAppPhotos"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Bilder</strong><span>•••</span></div><div class="ios-app-body photo-grid"><div class="gallery-photo p1">21:37</div><div class="gallery-photo p2">21:52</div><div class="gallery-photo p3">22:04</div><div class="gallery-photo p4">22:17</div><div class="gallery-photo p5">23:11</div><div class="gallery-photo p6">23:42</div><div class="gallery-photo p7">23:58</div><div class="gallery-photo p8">00:06</div></div></div>
