@@ -3664,7 +3664,32 @@ body.auth-ready .account-userbar { display: flex; }
     <main
         class="calendar"
         id="calendar"
-    ></main>
+    >
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 1"><span class="number">1</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 2"><span class="number">2</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 3"><span class="number">3</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 4"><span class="number">4</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 5"><span class="number">5</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 6"><span class="number">6</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 7"><span class="number">7</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 8"><span class="number">8</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 9"><span class="number">9</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 10"><span class="number">10</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 11"><span class="number">11</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 12"><span class="number">12</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 13"><span class="number">13</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 14"><span class="number">14</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 15"><span class="number">15</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 16"><span class="number">16</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 17"><span class="number">17</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 18"><span class="number">18</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 19"><span class="number">19</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 20"><span class="number">20</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 21"><span class="number">21</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 22"><span class="number">22</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 23"><span class="number">23</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation()" aria-label="Öppna lucka 24"><span class="number">24</span><span class="door-status">ÖPPEN</span></button>
+    </main>
 
 </div>
 
@@ -4576,13 +4601,7 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
-for (let i = 1; i <= 24; i++) {
-    const door = document.createElement("button");
-    door.type = "button";
-    door.className = "door";
-    door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
-    calendar.appendChild(door);
-}
+// Luckorna finns direkt i HTML så att de inte försvinner om annan JavaScript fallerar.
 
 document.querySelectorAll(".door").forEach((door, index) => {
     const day = index + 1;
