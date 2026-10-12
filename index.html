@@ -3874,17 +3874,17 @@ body.auth-ready .account-userbar { display: flex; }
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('gustav',this)">
-                    <strong>Gustav Lindqvist</strong>
+                    <strong>Wilmer Fries</strong>
                     <small>Förhör 10:51 · 16 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('elham',this)">
-                    <strong>Elham Nouri</strong>
+                    <strong>Embla Ingelman-Sundberg</strong>
                     <small>Förhör 11:23 · 19 min</small>
                 </button>
 
                 <button class="interrogation-person" onclick="showInterrogation('cecilia',this)">
-                    <strong>Cecilia Isaksson</strong>
+                    <strong>Tindra Popp</strong>
                     <small>Förhör 12:01 · 17 min</small>
                 </button>
             </aside>
@@ -4138,26 +4138,26 @@ body.auth-ready .account-userbar { display: flex; }
 
 
             <div
-                id="roomName-Gustav"
+                id="roomName-Wilmer"
                 class="room-name room-name-gustav"
             >
-                Gustav
+                Wilmer
             </div>
 
 
             <div
-                id="roomName-Elham"
+                id="roomName-Embla"
                 class="room-name room-name-elham"
             >
-                Elham
+                Embla
             </div>
 
 
             <div
-                id="roomName-Cecilia"
+                id="roomName-Tindra"
                 class="room-name room-name-cecilia"
             >
-                Cecilia
+                Tindra
             </div>
 
 
@@ -4190,26 +4190,26 @@ body.auth-ready .account-userbar { display: flex; }
 
 
             <div
-                id="bedName-Gustav"
+                id="bedName-Wilmer"
                 class="bed-name bed-gustav"
             >
-                Gustav
+                Wilmer
             </div>
 
 
             <div
-                id="bedName-Elham"
+                id="bedName-Embla"
                 class="bed-name bed-elham"
             >
-                Elham
+                Embla
             </div>
 
 
             <div
-                id="bedName-Cecilia"
+                id="bedName-Tindra"
                 class="bed-name bed-cecilia"
             >
-                Cecilia
+                Tindra
             </div>
 
         </div>
@@ -4260,30 +4260,30 @@ body.auth-ready .account-userbar { display: flex; }
                 <button
                     type="button"
                     class="person"
-                    data-person="Elham"
-                    onclick="selectPerson('Elham')"
+                    data-person="Embla"
+                    onclick="selectPerson('Embla')"
                 >
-                    Elham
+                    Embla
                 </button>
 
 
                 <button
                     type="button"
                     class="person"
-                    data-person="Gustav"
-                    onclick="selectPerson('Gustav')"
+                    data-person="Wilmer"
+                    onclick="selectPerson('Wilmer')"
                 >
-                    Gustav
+                    Wilmer
                 </button>
 
 
                 <button
                     type="button"
                     class="person"
-                    data-person="Cecilia"
-                    onclick="selectPerson('Cecilia')"
+                    data-person="Tindra"
+                    onclick="selectPerson('Tindra')"
                 >
-                    Cecilia
+                    Tindra
                 </button>
 
             </div>
@@ -4730,10 +4730,10 @@ let roomPlacements = {
    Moa + Benji
 
    Sovrum 2:
-   Benjamin + Gustav
+   Benjamin + Wilmer
 
    Sovrum 3:
-   Elham + Cecilia
+   Embla + Tindra
 ========================================================= */
 
 const correctRooms = {
@@ -4745,12 +4745,12 @@ const correctRooms = {
 
     room2: [
         "Benjamin",
-        "Gustav"
+        "Wilmer"
     ],
 
     room3: [
-        "Elham",
-        "Cecilia"
+        "Embla",
+        "Tindra"
     ]
 
 };
@@ -5518,7 +5518,7 @@ moa:{
         ["Förhörsledaren","Var det något särskilt med honom?","officer"],
         ["Moa","Han var lite frånvarande. Inte konstigt egentligen, men... ja. Han svarade knappt när jag pratade med honom.",""],
         ["Förhörsledaren","Vad hände sedan?","officer"],
-        ["Moa","Vi åt frukost tillsammans. Gustav gick ut en stund. Elham och Cecilia började fixa med maten inför kvällen. Jag minns att det regnade nästan hela förmiddagen, så vi var mest inne.",""],
+        ["Moa","Vi åt frukost tillsammans. Wilmer gick ut en stund. Embla och Tindra började fixa med maten inför kvällen. Jag minns att det regnade nästan hela förmiddagen, så vi var mest inne.",""],
         ["Förhörsledaren","När märkte du första gången att stämningen förändrades?","officer"],
         ["Moa","Efter lunch. Benjamin och den avlidne satt inne i vardagsrummet och pratade ganska tyst. Jag hörde inte allt, men jag hörde ordet 'pengar'. Sen blev det tyst när jag kom in.",""],
         ["Förhörsledaren","Var de osams?","officer"],
@@ -5544,9 +5544,9 @@ benji:{
         ["Förhörsledaren","Jag vill att du berättar om hela gårdagen, inte bara timmarna kring dödsfallet.","officer"],
         ["Benji","Vi kom igång sent. Jag sov länge. Frukost blev väl vid tio. Sen hjälpte jag till med ved och sånt.",""],
         ["Förhörsledaren","Vilka var ute?","officer"],
-        ["Benji","Jag och Gustav först. Benjamin kom ut en stund senare. Vi snackade om allt möjligt. Det var normalt.",""],
+        ["Benji","Jag och Wilmer först. Benjamin kom ut en stund senare. Vi snackade om allt möjligt. Det var normalt.",""],
         ["Förhörsledaren","Vad gjorde ni efter lunch?","officer"],
-        ["Benji","Jag spelade kort med Cecilia. Sen satt vi i vardagsrummet. Den avlidne var där ett tag. Han verkade irriterad på något.",""],
+        ["Benji","Jag spelade kort med Tindra. Sen satt vi i vardagsrummet. Den avlidne var där ett tag. Han verkade irriterad på något.",""],
         ["Förhörsledaren","Vet du vad?","officer"],
         ["Benji","Nej. Jag frågade men han sa att det inte var något.",""],
         ["Förhörsledaren","När började du dricka?","officer"],
@@ -5570,81 +5570,81 @@ gustav:{
     time:"10:51",
     text:[
         ["Förhörsledaren","Berätta om dagen från morgonen.","officer"],
-        ["Gustav","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
+        ["Wilmer","Jag vaknade runt åtta. Jag och Benji gick ut och hämtade ved. Sen blev det frukost.",""],
         ["Förhörsledaren","Var du ensam med någon under dagen?","officer"],
-        ["Gustav","En stund med Benjamin. Vi var ute kanske en timme efter lunch också.",""],
+        ["Wilmer","En stund med Benjamin. Vi var ute kanske en timme efter lunch också.",""],
         ["Förhörsledaren","Hur verkade han?","officer"],
-        ["Gustav","Normal. Lite irriterad, kanske. Men det var han ibland.",""],
+        ["Wilmer","Normal. Lite irriterad, kanske. Men det var han ibland.",""],
         ["Förhörsledaren","Vad hände under eftermiddagen?","officer"],
-        ["Gustav","Jag sov en stund. Sen spelade vi kort. Jag tror Cecilia vann.",""],
+        ["Wilmer","Jag sov en stund. Sen spelade vi kort. Jag tror Tindra vann.",""],
         ["Förhörsledaren","Och middagen?","officer"],
-        ["Gustav","Helt vanlig. Efteråt satt vi tillsammans. Jag gick och lade mig tidigt, strax före elva.",""],
+        ["Wilmer","Helt vanlig. Efteråt satt vi tillsammans. Jag gick och lade mig tidigt, strax före elva.",""],
         ["Förhörsledaren","När somnade du?","officer"],
-        ["Gustav","Vet inte. Ganska snabbt.",""],
+        ["Wilmer","Vet inte. Ganska snabbt.",""],
         ["Förhörsledaren","Du ringde Benjamin 23:48.","officer"],
-        ["Gustav","Gjorde jag?",""],
+        ["Wilmer","Gjorde jag?",""],
         ["Förhörsledaren","Ja. Ett utgående samtal.","officer"],
-        ["Gustav","Då måste jag ha vaknat. Jag minns inte det.",""],
+        ["Wilmer","Då måste jag ha vaknat. Jag minns inte det.",""],
         ["Förhörsledaren","Pratade du med någon efter det?","officer"],
-        ["Gustav","Nej, inte vad jag minns.",""],
+        ["Wilmer","Nej, inte vad jag minns.",""],
         ["Förhörsledaren","Hörde du något från nedervåningen?","officer"],
-        ["Gustav","Nej. Jag sov. Eller... jag tror att jag sov.",""]
+        ["Wilmer","Nej. Jag sov. Eller... jag tror att jag sov.",""]
     ],
-    note:"Samtalsloggen visar kontakt 23:48 trots Gustavs uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret."
+    note:"Samtalsloggen visar kontakt 23:48 trots Wilmers uppgift om att han sov. Själva samtalets innehåll framgår inte av förhöret."
 },
 elham:{
     time:"11:23",
     text:[
         ["Förhörsledaren","Ta dagen från början. Vad gjorde du?","officer"],
-        ["Elham","Jag gick upp tidigt. Cecilia och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
+        ["Embla","Jag gick upp tidigt. Tindra och jag gjorde frukost. Sen städade vi lite och började förbereda middagen.",""],
         ["Förhörsledaren","Hur var stämningen under dagen?","officer"],
-        ["Elham","Bra. Alla skojade. Det var först senare på kvällen som det blev spänt.",""],
+        ["Embla","Bra. Alla skojade. Det var först senare på kvällen som det blev spänt.",""],
         ["Förhörsledaren","När såg du den avlidne första gången den dagen?","officer"],
-        ["Elham","Vid frukosten.",""],
+        ["Embla","Vid frukosten.",""],
         ["Förhörsledaren","Och senare?","officer"],
-        ["Elham","Han gick mycket mellan vardagsrummet och köket. På eftermiddagen satt han länge med sin telefon.",""],
+        ["Embla","Han gick mycket mellan vardagsrummet och köket. På eftermiddagen satt han länge med sin telefon.",""],
         ["Förhörsledaren","Såg du honom prata med Benjamin?","officer"],
-        ["Elham","Ja. Flera gånger. Jag hörde inte alltid vad de sa.",""],
+        ["Embla","Ja. Flera gånger. Jag hörde inte alltid vad de sa.",""],
         ["Förhörsledaren","Hur var middagen?","officer"],
-        ["Elham","Bra tills de började diskutera igen. Jag tror att det handlade om pengar.",""],
+        ["Embla","Bra tills de började diskutera igen. Jag tror att det handlade om pengar.",""],
         ["Förhörsledaren","Vad gjorde du efter middagen?","officer"],
-        ["Elham","Jag satt i vardagsrummet. Runt elva gick jag till köket. Benjamin var i hallen då.",""],
+        ["Embla","Jag satt i vardagsrummet. Runt elva gick jag till köket. Benjamin var i hallen då.",""],
         ["Förhörsledaren","Vad gjorde han?","officer"],
-        ["Elham","Det såg ut som att han letade efter något. Han sa inget till mig.",""],
+        ["Embla","Det såg ut som att han letade efter något. Han sa inget till mig.",""],
         ["Förhörsledaren","När såg du den avlidne senast?","officer"],
-        ["Elham","Runt 23:10, tror jag. Han satt i vardagsrummet.",""],
+        ["Embla","Runt 23:10, tror jag. Han satt i vardagsrummet.",""],
         ["Förhörsledaren","Vad hände sedan?","officer"],
-        ["Elham","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
+        ["Embla","Jag gick upp. Jag hörde röster en stund senare, men kunde inte urskilja orden.",""]
     ],
-    note:"Elham ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse."
+    note:"Embla ger en relativt sammanhängande tidslinje men flera tider är uppskattningar. Hennes observation av Benjamin i hallen är central för att kontrollera hans egen berättelse."
 },
 cecilia:{
     time:"12:01",
     text:[
         ["Förhörsledaren","Berätta om dagen som du minns den.","officer"],
-        ["Cecilia","Jag vaknade runt nio. Elham hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
+        ["Tindra","Jag vaknade runt nio. Embla hade redan börjat med frukosten. Vi åt länge och sen blev det en ganska vanlig dag.",""],
         ["Förhörsledaren","Vad gjorde du efter frukosten?","officer"],
-        ["Cecilia","Jag läste en stund. Sen hjälpte jag till med maten. På eftermiddagen spelade jag kort med Benji.",""],
+        ["Tindra","Jag läste en stund. Sen hjälpte jag till med maten. På eftermiddagen spelade jag kort med Benji.",""],
         ["Förhörsledaren","Såg du något mellan Benjamin och den avlidne?","officer"],
-        ["Cecilia","De pratade flera gånger. Jag tänkte inte så mycket på det förrän på kvällen.",""],
+        ["Tindra","De pratade flera gånger. Jag tänkte inte så mycket på det förrän på kvällen.",""],
         ["Förhörsledaren","Vad hände på kvällen?","officer"],
-        ["Cecilia","Efter middagen satt vi alla tillsammans en stund. Sen började folk gå undan. Jag gick upp till mitt rum vid elva ungefär.",""],
+        ["Tindra","Efter middagen satt vi alla tillsammans en stund. Sen började folk gå undan. Jag gick upp till mitt rum vid elva ungefär.",""],
         ["Förhörsledaren","Var du nere igen?","officer"],
-        ["Cecilia","Ja. Jag gick på toaletten strax efter elva.",""],
+        ["Tindra","Ja. Jag gick på toaletten strax efter elva.",""],
         ["Förhörsledaren","Såg du någon i hallen?","officer"],
-        ["Cecilia","Jag tror att jag såg Benjamin. Men det var mörkt och jag såg honom bara bakifrån.",""],
+        ["Tindra","Jag tror att jag såg Benjamin. Men det var mörkt och jag såg honom bara bakifrån.",""],
         ["Förhörsledaren","Hörde du något?","officer"],
-        ["Cecilia","En dörr. Jag tror köksdörren. Sen hörde jag någon gå i trappan.",""],
+        ["Tindra","En dörr. Jag tror köksdörren. Sen hörde jag någon gå i trappan.",""],
         ["Förhörsledaren","Kan du säga vem det var?","officer"],
-        ["Cecilia","Nej. Det kan jag inte.",""],
+        ["Tindra","Nej. Det kan jag inte.",""],
         ["Förhörsledaren","När somnade du?","officer"],
-        ["Cecilia","Efter midnatt. Jag låg och läste en stund.",""]
+        ["Tindra","Efter midnatt. Jag låg och läste en stund.",""]
     ],
-    note:"Cecilia är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören."
+    note:"Tindra är försiktig med sådant hon inte kan identifiera säkert. Hennes uppgift om köksdörren och trappan kan jämföras med de övriga förhören."
 }
 };
 
-const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Gustav Lindqvist",elham:"Elham Nouri",cecilia:"Cecilia Isaksson"};
+const interrogationNames={moa:"Moa Brandin",benji:"Benji Holm",gustav:"Wilmer Fries",elham:"Embla Ingelman-Sundberg",cecilia:"Tindra Popp"};
 function openInterrogation(){
     const overlay=document.getElementById("interrogationOverlay");
     if(!overlay)return;
@@ -5905,7 +5905,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
     <button class="ios-app" onclick="openPhoneApp('YouTube')"><span class="ios-icon image-app-icon"><img src="youtubeapp.webp" alt="YouTube"></span></button>
   </div>
 
-  <div class="phone-app-panel" id="phoneAppMessages"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Meddelanden</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-search">Sök</div><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Är du vaken? Vi måste prata...</small></div><time>20:41</time></div><div class="ios-row"><div class="ios-avatar avatar-gustav">G</div><div><strong>Gustav</strong><small>Säg vad som hände? Ring mig.</small></div><time>19:58</time></div><div class="ios-row"><div class="ios-avatar avatar-elham">E</div><div><strong>Elham</strong><small>Du måste kolla bilden jag skickade.</small></div><time>18:22</time></div><div class="ios-row"><div class="ios-avatar avatar-benjamin">B</div><div><strong>Benjamin</strong><small>Träffas vid stugan ikväll? Viktigt.</small></div><time>14:37</time></div></div></div>
+  <div class="phone-app-panel" id="phoneAppMessages"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Meddelanden</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-search">Sök</div><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Är du vaken? Vi måste prata...</small></div><time>20:41</time></div><div class="ios-row"><div class="ios-avatar avatar-gustav">G</div><div><strong>Wilmer</strong><small>Säg vad som hände? Ring mig.</small></div><time>19:58</time></div><div class="ios-row"><div class="ios-avatar avatar-elham">E</div><div><strong>Embla</strong><small>Du måste kolla bilden jag skickade.</small></div><time>18:22</time></div><div class="ios-row"><div class="ios-avatar avatar-benjamin">B</div><div><strong>Benjamin</strong><small>Träffas vid stugan ikväll? Viktigt.</small></div><time>14:37</time></div></div></div>
 
   <div class="phone-app-panel" id="phoneAppCalendar"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong></strong><span>＋</span></div><div class="ios-app-body" style="padding:0;background:#000;display:flex;align-items:center;justify-content:center;"><img src="IMG_0653.jpeg" alt="IMG_0653" style="width:100%;height:100%;object-fit:contain;display:block;"></div></div>
 
@@ -5948,9 +5948,9 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppWeather"><div class="ios-app-header weather-head"><button onclick="closePhoneApp()">‹</button><strong>Väder</strong><span>•••</span></div><div class="weather-screen"><small>Dalarna</small><strong>-4°</strong><span>Mulet</span><p>Vind 5 m/s · N</p></div></div>
 
-  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Gustav säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
+  <div class="phone-app-panel" id="phoneAppNotes"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Anteckningar</strong><span>✎</span></div><div class="ios-app-body"><div class="note-card"><strong>23/12</strong><br><br>Det är något som inte stämmer.<br><br>Wilmer säger att han gick och lade sig tidigt. Jag tror honom inte.<br><br>Prata med Moa innan vi åker.</div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppReminders"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Påminnelser</strong><span>＋</span></div><div class="ios-app-body"><div class="reminder">○ Prata med Moa</div><div class="reminder">○ Kolla kameran</div><div class="reminder">○ Ring Gustav</div></div></div>
+  <div class="phone-app-panel" id="phoneAppReminders"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Påminnelser</strong><span>＋</span></div><div class="ios-app-body"><div class="reminder">○ Prata med Moa</div><div class="reminder">○ Kolla kameran</div><div class="reminder">○ Ring Wilmer</div></div></div>
 
   <div class="phone-app-panel" id="phoneAppAppStore"><div class="ios-app-body" style="padding:0;background:#fff;position:relative;overflow:hidden;height:100%;"><img src="IMG_0654.jpeg" alt="App Store" style="position:absolute;top:95px;left:0;width:100%;height:calc(100% - 95px);object-fit:cover;display:block;"></div></div>
 
@@ -5958,7 +5958,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppMail"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Mail</strong><span>✎</span></div><div class="ios-app-body"><div class="mail-message"><strong>Vi måste prata</strong><small>Från: Moa · 20:11</small><p>Jag vill inte ta det framför de andra. Vi pratar när alla har gått och lagt sig.</p></div></div></div>
 
-  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Gustav</strong><small>23 dec 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>23 dec 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>23 dec · 23:52 · Missat samtal</small></div></div></div>
+  <div class="phone-app-panel" id="phoneAppPhone"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Telefon</strong><span>＋</span></div><div class="ios-app-body call-list"><div><strong>Wilmer</strong><small>23 dec 23:48 · Missat samtal</small></div><div><strong>Moa</strong><small>23 dec 22:16 · Utgående</small></div><div><strong>Okänt nummer</strong><small>23 dec · 23:52 · Missat samtal</small></div></div></div>
 
   <div class="phone-app-panel" id="phoneAppSafari"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Safari</strong><span>＋</span></div><div class="ios-browser"><div class="browser-bar">sök eller skriv webbplats</div><h2>Ingen anslutning</h2><p>Det finns ingen internetanslutning.</p></div></div>
 
