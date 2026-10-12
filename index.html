@@ -3192,6 +3192,26 @@ filter:brightness(0);}
     .suspect-next{right:-1px !important;}
 }
 
+
+/* Moas SMS-konversation */
+.messages-contact{cursor:pointer;user-select:none}
+.messages-contact:active{background:#e8e8ed}
+.moa-chat-header{height:64px!important;padding:10px 13px!important}
+.moa-chat-contact{display:flex;align-items:center;gap:8px;flex:1;justify-content:center;font-size:12px}
+.moa-chat-contact .ios-avatar{width:29px;height:29px;font-size:12px}
+.moa-chat-header>span{color:#007aff}
+.moa-chat-body{height:calc(100% - 112px);overflow-y:auto;padding:12px 10px 18px;background:#fff;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin}
+.moa-chat-date{text-align:center;color:#8e8e93;font-size:9px;margin:7px 0 4px}
+.moa-chat-bubble{max-width:79%;padding:8px 10px;border-radius:15px;font-size:10px;line-height:1.4;overflow-wrap:anywhere}
+.moa-chat-bubble.incoming{align-self:flex-start;background:#e9e9eb;color:#171719;border-bottom-left-radius:5px}
+.moa-chat-bubble.outgoing{align-self:flex-end;background:#1684ff;color:#fff;border-bottom-right-radius:5px}
+.moa-chat-attachment{align-self:flex-start;width:78%;max-width:235px;padding:5px;background:#e9e9eb;border-radius:12px;overflow:hidden}
+.moa-chat-attachment img{display:block;width:100%;height:auto;max-height:310px;object-fit:contain;object-position:top;border-radius:8px;background:#fff}
+.moa-chat-attachment small{display:block;padding:4px 3px 1px;color:#68686d;font-size:8px}
+.moa-chat-compose{height:48px;display:flex;align-items:center;gap:8px;padding:7px 10px;border-top:1px solid #e2e2e7;background:#f8f8fa;color:#8e8e93;font-size:12px}
+.moa-chat-compose>span{font-size:18px}
+.moa-chat-compose div{flex:1;border:1px solid #d4d4d8;border-radius:18px;padding:7px 10px;background:#fff}
+
 </style>
 <style>
 .desktop-real-map-wrap{width:100%;max-width:1150px;margin:0 auto 28px}
@@ -5730,6 +5750,23 @@ function openPhoneApp(app) {
     }
 }
 
+
+function openMoaConversation() {
+    document.querySelectorAll(".phone-app-panel").forEach(p => p.classList.remove("open"));
+    const panel = document.getElementById("phoneAppMoaConversation");
+    if (panel) {
+        panel.classList.add("open");
+        const body = document.getElementById("moaChatBody");
+        if (body) body.scrollTop = body.scrollHeight;
+    }
+}
+function closeMoaConversation() {
+    const panel = document.getElementById("phoneAppMoaConversation");
+    if (panel) panel.classList.remove("open");
+    const list = document.getElementById("phoneAppMessages");
+    if (list) list.classList.add("open");
+}
+
 function closePhoneApp() {
     document.querySelectorAll(".phone-app-panel").forEach(p=>p.classList.remove("open"));
     stopPhoneCamera();
@@ -5856,8 +5893,28 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
     <button class="ios-app" onclick="openPhoneApp('YouTube')"><span class="ios-icon image-app-icon"><img src="youtubeapp.webp" alt="YouTube"></span></button>
   </div>
 
-  <div class="phone-app-panel" id="phoneAppMessages"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Meddelanden</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-search">Sök</div><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Är du vaken? Vi måste prata...</small></div><time>20:41</time></div><div class="ios-row"><div class="ios-avatar avatar-gustav">G</div><div><strong>Wilmer</strong><small>Säg vad som hände? Ring mig.</small></div><time>19:58</time></div><div class="ios-row"><div class="ios-avatar avatar-elham">E</div><div><strong>Embla</strong><small>Du måste kolla bilden jag skickade.</small></div><time>18:22</time></div><div class="ios-row"><div class="ios-avatar avatar-benjamin">B</div><div><strong>Benjamin</strong><small>Träffas vid stugan ikväll? Viktigt.</small></div><time>14:37</time></div></div></div>
+  <div class="phone-app-panel" id="phoneAppMessages"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Meddelanden</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-search">Sök</div><div class="ios-row messages-contact" role="button" tabindex="0" onclick="openMoaConversation()"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Har jag missat något?</small></div><time>20:41</time></div><div class="ios-row"><div class="ios-avatar avatar-gustav">G</div><div><strong>Wilmer</strong><small>Säg vad som hände? Ring mig.</small></div><time>19:58</time></div><div class="ios-row"><div class="ios-avatar avatar-elham">E</div><div><strong>Embla</strong><small>Du måste kolla bilden jag skickade.</small></div><time>18:22</time></div><div class="ios-row"><div class="ios-avatar avatar-benjamin">B</div><div><strong>Benjamin</strong><small>Träffas vid stugan ikväll? Viktigt.</small></div><time>14:37</time></div></div></div>
 
+  
+  <div class="phone-app-panel" id="phoneAppMoaConversation">
+    <div class="ios-app-header moa-chat-header"><button onclick="closeMoaConversation()">‹</button><div class="moa-chat-contact"><div class="ios-avatar avatar-moa">M</div><strong>Moa</strong></div><span>ⓘ</span></div>
+    <div class="moa-chat-body" id="moaChatBody">
+      <div class="moa-chat-date">iMessage · SMS</div>
+      <div class="moa-chat-date">23 december</div>
+      <div class="moa-chat-bubble incoming">Moa, är du vaken?</div>
+      <div class="moa-chat-bubble outgoing">Ja. Vad är det?</div>
+      <div class="moa-chat-bubble incoming">Jag vet inte riktigt hur jag ska säga det här.</div>
+      <div class="moa-chat-date">Tidigare idag</div>
+      <div class="moa-chat-bubble incoming">Benjamin, jag behöver att du är ärlig med mig.</div>
+      <div class="moa-chat-bubble outgoing">Jag vet. Vi pratar när vi ses.</div>
+      <div class="moa-chat-date">23 december · 18:42</div>
+      <div class="moa-chat-bubble incoming">Har jag missat något?</div>
+      <div class="moa-chat-attachment"><img src="Dejt-Benji.png" alt="Skärmdump skickad från Benjamin till Moa" loading="lazy"><small>Bild · Dejt-Benji.png</small></div>
+      <div class="moa-chat-bubble incoming">Benjamin? Vad är det här?</div>
+      <div class="moa-chat-date">Inget svar</div>
+    </div>
+    <div class="moa-chat-compose"><span>＋</span><div>SMS</div><span>🎙</span></div>
+  </div>
   <div class="phone-app-panel" id="phoneAppCalendar"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong></strong><span>＋</span></div><div class="ios-app-body" style="padding:0;background:#000;display:flex;align-items:center;justify-content:center;"><img src="IMG_0653.jpeg" alt="IMG_0653" style="width:100%;height:100%;object-fit:contain;display:block;"></div></div>
 
   <div class="phone-app-panel" id="phoneAppPhotos"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>Bilder</strong><span>•••</span></div><div class="ios-app-body photo-grid"><div class="gallery-photo p1">21:37</div><div class="gallery-photo p2">21:52</div><div class="gallery-photo p3">22:04</div><div class="gallery-photo p4">22:17</div><div class="gallery-photo p5">23:11</div><div class="gallery-photo p6">23:42</div><div class="gallery-photo p7">23:58</div><div class="gallery-photo p8">00:06</div></div></div>
