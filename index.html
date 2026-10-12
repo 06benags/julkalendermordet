@@ -6051,20 +6051,47 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
 <!-- Supabase Auth: konton och lösenord lagras säkert hos auth-leverantören, aldrig i localStorage. -->
 <script>
-/* Reservhanterare för klick om huvudskriptet av någon anledning inte laddas. */
+/* Reservhanterare för klick om huvudskriptet inte fungerar. */
 (function () {
   document.addEventListener("click", function (event) {
     const target = event.target && event.target.closest
-      ? event.target.closest(".door, .table .paper, .table .photo-stack, .table .phone-paper, .back-button")
+      ? event.target.closest(".door, .table .paper, .table .photo-stack, .table .phone-paper, .back-button, .unified-close")
       : null;
     if (!target) return;
+
+    // Stängknappar måste fungera även om huvudskriptets funktioner saknas.
+    if (target.classList.contains("unified-close")) {
+      const overlay = target.closest(".document-overlay, .suspects-overlay, .interrogation-overlay, .map-overlay, .phone-overlay");
+      if (overlay) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        overlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+      return;
+    }
 
     const action = target.getAttribute("onclick") || "";
     const match = action.match(/^\s*([A-Za-z_$][\w$]*)\s*\(/);
     const fnName = match && match[1];
 
-    // Låt den vanliga funktionen sköta klicket när den finns.
-    if (fnName && typeof window[fnName] === "function") return;
+    if (fnName && typeof window[fnName] === "function") {
+      // Kör den riktiga funktionen, men säkra att förhörsinnehållet faktiskt renderas.
+      if (fnName === "openInterrogation") {
+        window[fnName]();
+        const content = document.getElementById("interrogationContent");
+        if (content && !content.textContent.trim()) {
+          try {
+            if (typeof window.showInterrogation === "function") {
+              window.showInterrogation("gustav", document.querySelector(".interrogation-person"));
+            }
+          } catch (_) {}
+        }
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+      return;
+    }
 
     event.preventDefault();
     if (target.classList.contains("door")) {
@@ -6090,8 +6117,8 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
     const overlayByAction = {
       openDocument: ["documentOverlay", "block"],
       openSuspects: ["suspectsOverlay", "flex"],
-      openInterrogation: ["interrogationOverlay", "flex"],
-      openMap: ["mapOverlay", "flex"],
+      openInterrogation: ["interrogationOverlay", "block"],
+      openMap: ["mapOverlay", "block"],
       openPhone: ["phoneOverlay", "flex"]
     };
     const item = overlayByAction[fnName];
@@ -6100,6 +6127,10 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
       if (overlay) {
         overlay.style.display = item[1];
         document.body.style.overflow = "hidden";
+        if (fnName === "openInterrogation") {
+          const content = document.getElementById("interrogationContent");
+          if (content) content.innerHTML = '<div style="padding:24px;color:#29231b;background:#f3ead8">Förhörsprotokollen kunde inte laddas. Ladda om sidan och försök igen.</div>';
+        }
       }
     }
   }, true);
