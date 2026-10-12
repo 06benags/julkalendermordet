@@ -5812,6 +5812,35 @@ function nextSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectInde
 function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspectIndex-1+suspectPhotos.length)%suspectPhotos.length;renderSuspect();}
 </script>
 
+<!-- Säkerhetsnät: kalenderluckorna ska fortfarande visas om ett annat skript på sidan fallerar. -->
+<script>
+(function () {
+  const calendar = document.getElementById("calendar");
+  if (!calendar || calendar.querySelector(".door")) return;
+
+  for (let day = 1; day <= 24; day++) {
+    const door = document.createElement("button");
+    door.type = "button";
+    door.className = "door";
+    door.innerHTML = '<span class="number">' + day + '</span><span class="door-status">ÖPPEN</span>';
+    door.setAttribute("aria-label", "Öppna lucka " + day);
+    door.addEventListener("click", function () {
+      if (typeof window.openInvestigation === "function") {
+        window.openInvestigation();
+      } else {
+        const calendarPage = document.getElementById("calendarPage");
+        const investigation = document.getElementById("investigation");
+        if (calendarPage) calendarPage.style.display = "none";
+        if (investigation) investigation.style.display = "block";
+        document.body.classList.add("investigation-active");
+        window.scrollTo(0, 0);
+      }
+    });
+    calendar.appendChild(door);
+  }
+})();
+</script>
+
 <!-- =========================================================
      MOBILTELEFON
 ========================================================= -->
