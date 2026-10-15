@@ -4069,6 +4069,37 @@ body.auth-ready .account-userbar { display: flex; }
   margin-top: 8px !important;
 }
 
+
+/* Låsskärm: centrera innehållet som en sammanhållen grupp och dölj nätverk/batteri. */
+.phone-lock-topbar .phone-lock-5g,
+.phone-lock-topbar .phone-lock-battery-image {
+  display: none !important;
+}
+.phone-lock-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 18px 6px 18px !important;
+  transform: translateY(14px) !important;
+}
+.phone-lock-content.unlocked {
+  transform: none !important;
+}
+.phone-lock-header {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+.phone-lock-header .phone-big-time {
+  margin: 0 auto !important;
+}
+.phone-lock-header .phone-date {
+  margin-top: 8px !important;
+}
+.phone-passcode {
+  margin-top: 5px !important;
+}
+
 </style>
 
 </head>
