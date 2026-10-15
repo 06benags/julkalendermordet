@@ -4292,6 +4292,12 @@ body.auth-ready .account-userbar { display: flex; }
 }
 
 
+/* Kalendern placeras över dekorativa lager och kan alltid ta emot tryck. */
+#calendarPage { position: relative !important; z-index: 1000001 !important; }
+#calendar { position: relative !important; z-index: 1000001 !important; }
+#calendar .door { position: relative !important; z-index: 1000002 !important; pointer-events: auto !important; cursor: pointer !important; touch-action: manipulation !important; }
+#accountGate { display: none !important; pointer-events: none !important; }
+
 /* Tvinga bort inloggningsspärrens CSS-regler som annars döljer kalendern. */
 body.auth-required #accountGate { display: none !important; pointer-events: none !important; }
 body.auth-required #calendarPage { display: block !important; visibility: visible !important; pointer-events: auto !important; }
@@ -5299,11 +5305,27 @@ for (let i = 1; i <= 24; i++) {
 
 document.querySelectorAll(".door").forEach((door, index) => {
     const day = index + 1;
+    door.dataset.day = String(day);
+    door.type = "button";
+    door.style.position = "relative";
+    door.style.zIndex = "1000002";
+    door.style.pointerEvents = "auto";
+    door.style.touchAction = "manipulation";
     const label = door.querySelector(".door-status");
     if (label) label.textContent = "ÖPPEN";
     door.setAttribute("aria-disabled", "false");
     door.onclick = () => openInvestigation(day);
 });
+
+/* Extra säker klickhantering för mobil: fånga tryck även om en annan regel skriver över onclick. */
+document.addEventListener("click", function (event) {
+    const door = event.target && event.target.closest ? event.target.closest("#calendar .door") : null;
+    if (!door) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const day = Number(door.dataset.day || door.querySelector(".number")?.textContent);
+    if (Number.isInteger(day) && day >= 1 && day <= 24) openInvestigation(day);
+}, true);
 
 /* =========================================================
    ÖPPNA UTREDNING
