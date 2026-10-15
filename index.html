@@ -3915,12 +3915,13 @@ body.auth-ready .account-userbar { display: flex; }
 <style id="iphone-2014-override">
 /* iPhone 5s i silver från 2014 – behåll den ursprungliga bakgrundsbilden. */
 .phone-device{
-  width:min(292px,84vw)!important;
-  aspect-ratio:0.474 / 1!important;
-  height:auto!important;
+  width:min(280px,82vw)!important;
+  height:min(560px,76vh)!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
   display:block!important;
   box-sizing:border-box!important;
-  padding:54px 9px 67px!important;
+  padding:0!important;
   position:relative!important;
   border:1px solid #b8b8b8!important;
   border-radius:43px!important;
@@ -3931,8 +3932,9 @@ body.auth-ready .account-userbar { display: flex; }
   overflow:visible!important;
 }
 .phone-device-screen{
-  position:relative!important;
-  width:100%!important;height:100%!important;min-height:0!important;
+  position:absolute!important;
+  top:49px!important;right:9px!important;bottom:59px!important;left:9px!important;
+  width:auto!important;height:auto!important;min-height:0!important;
   border-radius:2px!important;
   overflow:hidden!important;
   background:#111!important;
@@ -4009,10 +4011,11 @@ body.auth-ready .account-userbar { display: flex; }
 .phone-app-panel{border-radius:0!important}
 .ios-app-header{font-family:Helvetica,Arial,sans-serif!important}
 @media(max-width:600px){
-  .phone-device{width:min(280px,82vw)!important}
-  .phone-home-apps{margin-top:24px!important;gap:11px 4px!important;grid-template-columns:repeat(4,minmax(0,42px))!important}
-  .ios-app{width:42px!important}
-  .ios-icon{width:40px!important;height:40px!important}
+  .phone-device{width:min(260px,78vw)!important;height:min(530px,74vh)!important}
+  .phone-device-screen{top:47px!important;bottom:56px!important;left:8px!important;right:8px!important}
+  .phone-home-apps{margin-top:20px!important;gap:10px 4px!important;grid-template-columns:repeat(4,minmax(0,40px))!important}
+  .ios-app{width:40px!important}
+  .ios-icon{width:38px!important;height:38px!important}
 }
 </style>
 
