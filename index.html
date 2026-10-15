@@ -409,6 +409,11 @@ h1 {
 }
 
 
+/* Lucka 1 visar endast förundersökningspappret på bordet. */
+#investigation.day-one-only .table > :not(.paper:first-child) {
+    display: none !important;
+}
+
 /* =========================================================
    PAPPER
 ========================================================= */
@@ -4870,26 +4875,24 @@ document.querySelectorAll(".door").forEach((door, index) => {
     const label = door.querySelector(".door-status");
     if (label) label.textContent = "ÖPPEN";
     door.setAttribute("aria-disabled", "false");
-    door.onclick = () => openInvestigation();
+    door.onclick = () => openInvestigation(day);
 });
 
 /* =========================================================
    ÖPPNA UTREDNING
 ========================================================= */
 
-function openInvestigation() {
+function openInvestigation(day) {
 
     document.getElementById(
         "calendarPage"
     ).style.display = "none";
 
-
-    document.getElementById(
-        "investigation"
-    ).style.display = "block";
+    const investigation = document.getElementById("investigation");
+    investigation.classList.toggle("day-one-only", day === 1);
+    investigation.style.display = "block";
 
     document.body.classList.add("investigation-active");
-
 
     window.scrollTo(0, 0);
 }
