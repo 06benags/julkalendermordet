@@ -4117,6 +4117,14 @@ body.auth-ready .account-userbar { display: flex; }
   color: transparent !important;
 }
 
+
+/* Hemknappen ska ligga ovanpå öppna appar; apparnas vänsterpilar döljs. */
+.phone-home-button { position: absolute !important; z-index: 20 !important; }
+.ios-app-header button[onclick="closePhoneApp()"] {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 </style>
 
 </head>
