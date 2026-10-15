@@ -4291,6 +4291,11 @@ body.auth-ready .account-userbar { display: flex; }
   opacity: 1 !important;
 }
 
+
+/* Säkerställ att kalendern och luckorna alltid visas även om inloggningsstatus fastnar. */
+#calendarPage { display: block !important; visibility: visible !important; }
+#calendar { display: grid !important; visibility: visible !important; }
+#calendar .door { display: flex !important; visibility: visible !important; opacity: 1 !important; }
 </style>
 
 </head>
@@ -4328,7 +4333,32 @@ body.auth-ready .account-userbar { display: flex; }
     <main
         class="calendar"
         id="calendar"
-    ></main>
+    >
+        <button type="button" class="door" onclick="openInvestigation(1)"><span class="number">1</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(2)"><span class="number">2</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(3)"><span class="number">3</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(4)"><span class="number">4</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(5)"><span class="number">5</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(6)"><span class="number">6</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(7)"><span class="number">7</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(8)"><span class="number">8</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(9)"><span class="number">9</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(10)"><span class="number">10</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(11)"><span class="number">11</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(12)"><span class="number">12</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(13)"><span class="number">13</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(14)"><span class="number">14</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(15)"><span class="number">15</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(16)"><span class="number">16</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(17)"><span class="number">17</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(18)"><span class="number">18</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(19)"><span class="number">19</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(20)"><span class="number">20</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(21)"><span class="number">21</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(22)"><span class="number">22</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(23)"><span class="number">23</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(24)"><span class="number">24</span><span class="door-status">ÖPPEN</span></button>
+    </main>
 
 </div>
 
@@ -5244,12 +5274,14 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
+if (calendar && calendar.querySelectorAll(".door").length === 0) {
 for (let i = 1; i <= 24; i++) {
     const door = document.createElement("button");
     door.type = "button";
     door.className = "door";
     door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
     calendar.appendChild(door);
+}
 }
 
 document.querySelectorAll(".door").forEach((door, index) => {
