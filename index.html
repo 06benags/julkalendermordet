@@ -4185,6 +4185,28 @@ body.auth-ready .account-userbar { display: flex; }
   background: transparent !important;
 }
 
+
+/* Fysiska hemknappen sitter på metallramen UNDER skärmen. */
+.phone-home-button {
+  top: auto !important;
+  bottom: -48px !important;
+  left: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  z-index: 2000 !important;
+}
+.phone-device::after { pointer-events: none !important; }
+.phone-device { overflow: visible !important; }
+.phone-device-screen { overflow: hidden !important; }
+/* Mörkare låsknappar med tydligare kontur mot bakgrundsbilden. */
+.phone-key {
+  background: linear-gradient(180deg, rgba(18,18,22,.82), rgba(5,5,8,.72)) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.3) !important;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.12), 0 2px 5px rgba(0,0,0,.38) !important;
+}
+.phone-key small { color: rgba(255,255,255,.78) !important; opacity: 1 !important; }
+
 </style>
 
 </head>
