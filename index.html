@@ -31,44 +31,59 @@ body {
 
 
 /* =========================================================
-   SNÖ
+   SNÖ – individuella flingor i olika storlekar och hastigheter
 ========================================================= */
 
-body::before {
-    content: "";
-
+#snowfall {
     position: fixed;
     inset: 0;
-
+    overflow: hidden;
     pointer-events: none;
-
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px),
-        radial-gradient(circle, rgba(255,255,255,.7) 1.5px, transparent 2.5px);
-
-    background-size:
-        80px 80px,
-        140px 140px;
-
-    animation: snow 18s linear infinite;
-
-    opacity: .45;
-
     z-index: 999;
+    contain: strict;
 }
 
-@keyframes snow {
+.snowflake {
+    position: absolute;
+    top: -10vh;
+    left: var(--flake-left);
+    color: rgba(255,255,255,.88);
+    font-family: Arial, sans-serif;
+    font-size: var(--flake-size);
+    line-height: 1;
+    opacity: var(--flake-opacity);
+    text-shadow: 0 0 5px rgba(255,255,255,.4);
+    user-select: none;
+    will-change: transform;
+    animation: snow-fall var(--fall-duration) var(--fall-delay) linear infinite;
+}
 
-    from {
-        background-position:
-            0 0,
-            40px 0;
+.snowflake.depth-blur {
+    filter: blur(.7px);
+    color: rgba(235,245,255,.78);
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translate3d(0, -12vh, 0) rotate(0deg);
     }
+    25% {
+        transform: translate3d(calc(var(--flake-drift) * .35), 20vh, 0) rotate(90deg);
+    }
+    50% {
+        transform: translate3d(calc(var(--flake-drift) * -.15), 52vh, 0) rotate(190deg);
+    }
+    75% {
+        transform: translate3d(calc(var(--flake-drift) * .55), 82vh, 0) rotate(280deg);
+    }
+    100% {
+        transform: translate3d(var(--flake-drift), 112vh, 0) rotate(360deg);
+    }
+}
 
-    to {
-        background-position:
-            80px 500px,
-            -40px 600px;
+@media (prefers-reduced-motion: reduce) {
+    .snowflake {
+        animation-duration: 35s;
     }
 }
 
@@ -3893,6 +3908,7 @@ body.auth-ready .account-userbar { display: flex; }
 
 
 <body>
+<div id="snowfall" aria-hidden="true"></div>
 
 <div id="lockedDoorOverlay" class="locked-door-overlay" onclick="closeLockedDoor()">
     <div class="locked-door-card" onclick="event.stopPropagation()">
@@ -6540,6 +6556,33 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
     if (session && session.user) enterGame(session.user);
     else requireLogin();
   });
+})();
+</script>
+
+
+<script>
+/* Slumpa fram snöflingor så att snöfallet inte ser ut som ett upprepat rutmönster. */
+(function createSnowfall() {
+    const layer = document.getElementById("snowfall");
+    if (!layer) return;
+
+    const symbols = ["❄", "❅", "❆"];
+    const count = window.matchMedia("(max-width: 600px)").matches ? 55 : 105;
+    const random = (min, max) => Math.random() * (max - min) + min;
+
+    for (let i = 0; i < count; i++) {
+        const flake = document.createElement("span");
+        flake.className = "snowflake" + (Math.random() < 0.28 ? " depth-blur" : "");
+        flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        flake.style.setProperty("--flake-left", random(0, 100).toFixed(2) + "%");
+        flake.style.setProperty("--flake-size", random(7, 23).toFixed(1) + "px");
+        flake.style.setProperty("--flake-opacity", random(0.2, 0.82).toFixed(2));
+        flake.style.setProperty("--fall-duration", random(9, 25).toFixed(1) + "s");
+        flake.style.setProperty("--fall-delay", (-random(0, 25)).toFixed(1) + "s");
+        flake.style.setProperty("--flake-drift", random(-85, 85).toFixed(1) + "px");
+        flake.style.top = random(-10, 100).toFixed(1) + "vh";
+        layer.appendChild(flake);
+    }
 })();
 </script>
 
