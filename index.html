@@ -5332,6 +5332,11 @@ document.addEventListener("click", function (event) {
 ========================================================= */
 
 function openInvestigation(day) {
+    // Ta bort inloggningsspärren innan utredningen visas; CSS gömmer annars
+    // #investigation med !important även när display sätts till block.
+    document.body.classList.remove("auth-required");
+    const accountGate = document.getElementById("accountGate");
+    if (accountGate) accountGate.style.display = "none";
 
     document.getElementById(
         "calendarPage"
