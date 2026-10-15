@@ -4100,6 +4100,23 @@ body.auth-ready .account-userbar { display: flex; }
   margin-top: 5px !important;
 }
 
+
+/* Små finjusteringar av iPhone 5s */
+.phone-device::after {
+  width: 36px !important;
+  height: 36px !important;
+}
+.phone-lock-content {
+  transform: translateY(7px) !important;
+}
+.phone-lock-content.unlocked {
+  transform: none !important;
+}
+.phone-home-button {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
 </style>
 
 </head>
@@ -6569,7 +6586,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   <div class="phone-app-panel" id="phoneAppWhatsApp"><div class="ios-app-header"><button onclick="closePhoneApp()">‹</button><strong>WhatsApp</strong><span>✎</span></div><div class="ios-app-body"><div class="ios-row"><div class="ios-avatar avatar-moa">M</div><div><strong>Moa</strong><small>Senast online 20:41</small></div></div></div></div>
 
-  <button class="phone-home-button" onclick="closePhoneApp()">⌄</button>
+  <button class="phone-home-button" type="button" aria-label="Hemskärm" onclick="closePhoneApp()" title="Hemskärm"></button>
 </div>
 
             </div>
