@@ -6896,7 +6896,9 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
   client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
   });
-  requireLogin();
+  // Kalendern ska vara synlig även för utloggade besökare.
+  document.body.classList.remove("auth-required");
+  gate.style.display = "none";
   setMode("login");
 
   loginTab.addEventListener("click", () => setMode("login"));
@@ -6954,7 +6956,12 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   client.auth.onAuthStateChange((_event, session) => {
     if (session && session.user) enterGame(session.user);
-    else requireLogin();
+    else {
+      // Utloggning ska inte gömma kalenderluckorna.
+      document.body.classList.remove("auth-required");
+      document.body.classList.remove("auth-ready");
+      gate.style.display = "none";
+    }
   });
 })();
 </script>
