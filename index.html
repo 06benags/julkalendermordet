@@ -4173,6 +4173,18 @@ body.auth-ready .account-userbar { display: flex; }
   pointer-events: auto !important;
 }
 
+
+/* Samma ursprungliga bakgrundsbild på både låsskärm och hemskärm. */
+.phone-device-screen {
+  background-image: url("bakgrundsbild.jfif") !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.phone-lock-content:not(.unlocked) {
+  background: transparent !important;
+}
+
 </style>
 
 </head>
