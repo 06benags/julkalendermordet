@@ -4292,6 +4292,13 @@ body.auth-ready .account-userbar { display: flex; }
 }
 
 
+/* Tvinga bort inloggningsspärrens CSS-regler som annars döljer kalendern. */
+body.auth-required #accountGate { display: none !important; pointer-events: none !important; }
+body.auth-required #calendarPage { display: block !important; visibility: visible !important; pointer-events: auto !important; }
+body.auth-required #investigation { display: none !important; }
+body.auth-required #calendar { display: grid !important; visibility: visible !important; pointer-events: auto !important; }
+body.auth-required #calendar .door { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+
 /* Kalendern ska vara klickbar: dölja inloggningsöverlägget som annars ligger ovanpå luckorna. */
 #accountGate { display: none !important; pointer-events: none !important; }
 #snowfall { pointer-events: none !important; }
