@@ -3679,79 +3679,190 @@ body.auth-ready .account-userbar { display: flex; }
 .print-action:hover { background: #fff8e9; }
 
 @media print {
-    @page { size: A4; margin: 14mm; }
-
-    html, body {
-        background: #fff !important;
-        color: #111 !important;
-        overflow: visible !important;
-        min-height: 0 !important;
-        height: auto !important;
+    /* Alla utskrifter använder A4 med samma säkra marginaler. */
+    @page {
+        size: A4 portrait;
+        margin: 12mm;
     }
 
-    body * { visibility: hidden !important; }
+    html,
+    body {
+        width: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        background: #fff !important;
+        color: #171717 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
 
     .print-active,
-    .print-active * { visibility: visible !important; }
+    .print-active * {
+        visibility: visible !important;
+    }
 
+    /* Overlayn blir ett vanligt dokumentflöde i stället för en helskärmsruta. */
     .print-active {
         display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
+        position: static !important;
+        inset: auto !important;
         width: auto !important;
         height: auto !important;
+        min-width: 0 !important;
         min-height: 0 !important;
+        max-width: none !important;
         max-height: none !important;
         overflow: visible !important;
         margin: 0 !important;
         padding: 0 !important;
         border: 0 !important;
         border-radius: 0 !important;
-        background: #fff !important;
-        color: #111 !important;
+        background: transparent !important;
+        color: #171717 !important;
         box-shadow: none !important;
-        z-index: 999999 !important;
+        backdrop-filter: none !important;
+        z-index: auto !important;
     }
 
     .print-active .unified-close,
     .print-active .print-action,
     .print-active .interrogation-suspects,
-    .print-active .puzzle-instructions,
     .print-active .room {
         display: none !important;
     }
 
-    .print-active .document,
-    .print-active .interrogation-window,
-    .print-active .map-window {
+    /* Förundersökningen: A4-bredd och papperets ursprungliga uttryck. */
+    .print-active .document {
+        display: block !important;
+        box-sizing: border-box !important;
         width: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
         max-width: none !important;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 12mm !important;
+        overflow: visible !important;
+        border: 1px solid #c9c9c4 !important;
+        border-radius: 0 !important;
+        background: #f7f7f4 !important;
+        color: #171717 !important;
+        box-shadow: none !important;
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+        break-inside: auto !important;
+    }
+
+    .print-active .document-top h2 {
+        font-size: 18pt !important;
+    }
+
+    .print-active .document p,
+    .print-active .document-info,
+    .print-active .document-footer {
+        color: #171717 !important;
+    }
+
+    .print-active .document p,
+    .print-active .document h3,
+    .print-active .document-info > div,
+    .print-active .document-status,
+    .print-active .document-footer {
+        break-inside: avoid;
+    }
+
+    /* Förhör: skriv ut det valda förhöret i läsbar A4-layout. */
+    .print-active .interrogation-window {
+        display: block !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: none !important;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        border: 1px solid rgba(0,0,0,.18) !important;
+        border-radius: 0 !important;
+        background: #eee8da !important;
+        color: #28251f !important;
+        box-shadow: none !important;
+        break-inside: auto !important;
+    }
+
+    .print-active .interrogation-top {
+        break-inside: avoid;
+        background: #e6dfd0 !important;
+    }
+
+    .print-active .interrogation-layout {
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    .print-active .interrogation-main,
+    .print-active .interrogation-transcript {
+        display: block !important;
+        width: 100% !important;
         height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
         overflow: visible !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        background: #fff !important;
-        color: #111 !important;
+        color: #28251f !important;
     }
 
-    .print-active .interrogation-layout { display: block !important; }
-    .print-active .interrogation-main,
-    .print-active .interrogation-transcript {
-        height: auto !important;
+    .print-active .interrogation-entry {
+        break-inside: avoid;
+    }
+
+    /* Karta: håll hela kartbilden på en sida om den får plats. */
+    .print-active .map-window {
+        display: block !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: none !important;
         max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 8mm !important;
         overflow: visible !important;
+        border: 1px solid #c9bea7 !important;
+        border-radius: 0 !important;
+        background: #f4eddb !important;
+        color: #25221d !important;
+        box-shadow: none !important;
+        break-inside: auto !important;
+    }
+
+    .print-active .puzzle-instructions {
+        display: block !important;
+        color: #25221d !important;
+        break-inside: avoid;
     }
 
     .print-active .map-container {
+        position: relative !important;
+        box-sizing: border-box !important;
         width: 100% !important;
         height: auto !important;
         max-height: none !important;
         overflow: visible !important;
+        margin: 0 auto !important;
         break-inside: avoid;
     }
 
@@ -3759,17 +3870,22 @@ body.auth-ready .account-userbar { display: flex; }
         display: block !important;
         width: 100% !important;
         height: auto !important;
-        max-height: none !important;
+        max-height: 225mm !important;
         object-fit: contain !important;
     }
 
-    .print-active .document p,
-    .print-active .interrogation-main,
-    .print-active .map-header {
-        color: #111 !important;
+    .print-active .map-header,
+    .print-active .map-header h2,
+    .print-active .map-header p {
+        color: #25221d !important;
+        break-inside: avoid;
     }
 
-    .print-active .document-footer { color: #444 !important; }
+    /* Undvik att webbläsaren klipper text mellan utskriftssidor. */
+    .print-active p {
+        orphans: 3;
+        widows: 3;
+    }
 }
 
 </style>
