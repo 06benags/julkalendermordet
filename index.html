@@ -3913,76 +3913,106 @@ body.auth-ready .account-userbar { display: flex; }
 </style>
 
 <style id="iphone-2014-override">
-/* Julmordet: iPhone 5s / iOS 7–8, december 2014 */
+/* iPhone 5s i silver från 2014 – behåll den ursprungliga bakgrundsbilden. */
 .phone-device{
-  width:min(300px,86vw)!important;
-  aspect-ratio:9 / 16.4!important;
-  display:flex!important;
-  flex-direction:column!important;
-  padding:9px 9px 61px!important;
+  width:min(292px,84vw)!important;
+  aspect-ratio:0.474 / 1!important;
+  height:auto!important;
+  display:block!important;
   box-sizing:border-box!important;
-  border:3px solid #777!important;
-  border-radius:39px!important;
-  background:linear-gradient(135deg,#e7e7e7,#777 22%,#222 45%,#999 75%,#333)!important;
-  box-shadow:0 28px 80px rgba(0,0,0,.72),inset 0 0 0 2px #111!important;
+  padding:54px 9px 67px!important;
   position:relative!important;
-}
-.phone-device::before{
-  content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);
-  width:38px;height:5px;border-radius:8px;background:#151515;z-index:10;
-}
-.phone-device::after{
-  content:"";position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
-  width:39px;height:39px;border-radius:50%;
-  border:2px solid #151515;
-  background:radial-gradient(circle at 35% 30%,#333,#090909 68%);
-  box-shadow:inset 0 0 0 2px #777;
+  border:1px solid #b8b8b8!important;
+  border-radius:43px!important;
+  background:linear-gradient(105deg,#777 0%,#e5e5e5 4%,#aaa 8%,#f5f5f5 14%,#9a9a9a 19%,#d4d4d4 50%,#777 82%,#eee 95%,#666 100%)!important;
+  box-shadow:0 32px 85px rgba(0,0,0,.78),0 7px 18px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.72),inset 0 0 0 4px #777!important;
+  transform:translate(var(--phone-x, 0px),var(--phone-y, 0px)) scale(var(--phone-scale,1))!important;
+  transform-origin:center center!important;
+  overflow:visible!important;
 }
 .phone-device-screen{
-  width:100%!important;height:auto!important;min-height:0!important;flex:1 1 auto!important;
-  box-sizing:border-box!important;border-radius:27px!important;
-  background:linear-gradient(160deg,#9ed8f4 0%,#5ba5d7 35%,#3c70ad 65%,#23446f 100%)!important;
+  position:relative!important;
+  width:100%!important;height:100%!important;min-height:0!important;
+  border-radius:2px!important;
+  overflow:hidden!important;
+  background:#111!important;
+  border:1px solid #111!important;
+  box-shadow:0 0 0 1px rgba(0,0,0,.75)!important;
 }
-.phone-lock-topbar{height:34px!important}
+.phone-device::before{
+  content:"";position:absolute;top:23px;left:50%;transform:translateX(-50%);
+  width:39px;height:5px;border-radius:5px;
+  background:linear-gradient(#080808,#292929);z-index:15;
+  box-shadow:0 1px 0 rgba(255,255,255,.45);
+}
+.phone-device::after{
+  content:"";position:absolute;bottom:9px;left:50%;transform:translateX(-50%);
+  width:43px;height:43px;border-radius:50%;z-index:15;
+  border:2px solid #777;
+  background:radial-gradient(circle at 34% 28%,#555,#161616 48%,#050505 80%);
+  box-shadow:inset 0 0 0 2px #111,0 0 0 1px rgba(255,255,255,.45);
+}
+/* Kameralins, hemknappens ring och fysiska knappar på skalets kanter. */
+.iphone-front-camera{
+  position:absolute;top:20px;left:calc(50% - 47px);width:8px;height:8px;
+  border-radius:50%;z-index:16;background:radial-gradient(circle at 35% 30%,#36556a 0 1px,#111 2px,#050505 100%);
+  box-shadow:0 0 0 1px #777,0 1px 1px rgba(0,0,0,.5);pointer-events:none;
+}
+.iphone-side-button{
+  position:absolute;z-index:16;width:3px;border-radius:2px;
+  background:linear-gradient(90deg,#555,#ddd,#777);
+  box-shadow:0 0 1px #222;pointer-events:none;
+}
+.iphone-side-button.volume-up{left:-3px;top:108px;height:25px}
+.iphone-side-button.volume-down{left:-3px;top:146px;height:25px}
+.iphone-side-button.silent{left:-3px;top:75px;height:15px}
+.iphone-side-button.power{right:-3px;top:112px;height:42px}
+.phone-lock-topbar{
+  height:27px!important;min-height:27px!important;
+  padding:5px 9px 0!important;
+  background:transparent!important;
+}
 .phone-lock-topbar .phone-dynamic-island{display:none!important}
 .phone-lock-5g{
-  display:block!important;top:12px!important;right:48px!important;
-  color:#fff!important;font-size:10px!important;font-weight:700!important;
+  display:block!important;top:6px!important;right:38px!important;
+  color:#fff!important;font-size:9px!important;font-weight:600!important;
+  letter-spacing:0!important;
 }
-.phone-lock-battery-image{filter:none!important;transform:scale(1.05)!important}
-.phone-lock-header{margin-top:25px!important}
-.phone-big-time{font-family:Helvetica,Arial,sans-serif!important;font-weight:300!important;letter-spacing:-.04em!important}
-.phone-lock-content{overflow:auto!important}
+.phone-lock-battery-image{filter:none!important;transform:scale(.9)!important}
+.phone-lock-header{margin-top:19px!important}
+.phone-big-time{font-family:Helvetica,Arial,sans-serif!important;font-weight:200!important;letter-spacing:-.055em!important}
+.phone-lock-content{overflow:hidden!important}
 .phone-unlocked{
-  border-radius:27px!important;
-  background:linear-gradient(160deg,#8bd5f5,#398bc9 45%,#234e8b)!important;
+  border-radius:0!important;
+  background:transparent!important;
 }
 .phone-home-wallpaper{
-  background:linear-gradient(155deg,#9de0f8 0%,#57a7e2 38%,#3978bd 66%,#224579 100%)!important;
+  /* Detta är den befintliga, egna bakgrundsbilden – inte en ersättningsgradient. */
+  background: url("bakgrundsbild.jfif") center center / cover no-repeat!important;
   opacity:1!important;
 }
 .phone-home-status{
   display:flex!important;justify-content:space-between!important;align-items:center!important;
-  padding:12px 13px 0!important;color:#fff!important;font-size:11px!important;
-  text-shadow:0 1px 2px rgba(0,0,0,.45)!important;
+  padding:9px 10px 0!important;color:#fff!important;font-size:10px!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.75)!important;
 }
-.phone-home-status #phoneHomeTime{color:#fff!important;top:0!important;font-size:11px!important}
-.phone-home-status-icons{display:flex!important;gap:5px!important;align-items:center!important;color:#fff!important}
-.phone-home-status-icons .phone-battery-image{width:21px!important;height:12px!important;object-fit:contain!important;filter:brightness(0) invert(1)!important}
-.phone-home-apps{margin-top:32px!important;gap:13px 7px!important;grid-template-columns:repeat(4,minmax(0,48px))!important}
-.ios-app{width:48px!important;color:#fff!important;font-family:Helvetica,Arial,sans-serif!important}
-.ios-icon{width:46px!important;height:46px!important;border-radius:10px!important;overflow:hidden!important;box-shadow:0 1px 3px rgba(0,0,0,.35)!important}
+.phone-home-status #phoneHomeTime{color:#fff!important;top:0!important;font-size:10px!important}
+.phone-home-status-icons{display:flex!important;gap:4px!important;align-items:center!important;color:#fff!important}
+.phone-home-status-icons .phone-battery-image{width:18px!important;height:11px!important;object-fit:contain!important;filter:brightness(0) invert(1)!important}
+.phone-home-apps{margin-top:27px!important;gap:14px 6px!important;grid-template-columns:repeat(4,minmax(0,45px))!important}
+.ios-app{width:45px!important;color:#fff!important;font-family:Helvetica,Arial,sans-serif!important}
+.ios-icon{width:43px!important;height:43px!important;border-radius:9px!important;overflow:hidden!important;box-shadow:0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.12)!important}
 .ios-icon img{width:100%!important;height:100%!important;object-fit:cover!important}
-.ios-app b{font-size:8px!important;font-weight:400!important;text-shadow:0 1px 2px rgba(0,0,0,.65)!important}
-.ios-dock{margin-top:auto!important;background:rgba(235,245,255,.35)!important;border-radius:15px!important;backdrop-filter:blur(5px)!important}
+.ios-app b{font-size:7.5px!important;font-weight:400!important;text-shadow:0 1px 2px rgba(0,0,0,.9)!important}
+.ios-dock{margin-top:auto!important;background:rgba(245,245,245,.36)!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:13px!important;backdrop-filter:blur(9px)!important}
 .phone-home-button{display:none!important}
-.phone-app-panel{border-radius:27px!important}
+.phone-app-panel{border-radius:0!important}
 .ios-app-header{font-family:Helvetica,Arial,sans-serif!important}
 @media(max-width:600px){
-  .phone-device{width:min(290px,82vw)!important}
-  .phone-home-apps{margin-top:25px!important;gap:11px 5px!important;grid-template-columns:repeat(4,minmax(0,44px))!important}
-  .ios-app{width:44px!important}
-  .ios-icon{width:42px!important;height:42px!important}
+  .phone-device{width:min(280px,82vw)!important}
+  .phone-home-apps{margin-top:24px!important;gap:11px 4px!important;grid-template-columns:repeat(4,minmax(0,42px))!important}
+  .ios-app{width:42px!important}
+  .ios-icon{width:40px!important;height:40px!important}
 }
 </style>
 
@@ -6181,6 +6211,7 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
     <div class="phone-zoom-stage" id="phoneZoomStage">
         <div class="phone-device">
+        <span class="iphone-front-camera" aria-hidden="true"></span><span class="iphone-side-button silent" aria-hidden="true"></span><span class="iphone-side-button volume-up" aria-hidden="true"></span><span class="iphone-side-button volume-down" aria-hidden="true"></span><span class="iphone-side-button power" aria-hidden="true"></span>
 
         <div class="phone-device-screen">
 
