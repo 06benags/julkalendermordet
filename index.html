@@ -4292,6 +4292,12 @@ body.auth-ready .account-userbar { display: flex; }
 }
 
 
+/* Kalendern ska vara klickbar: dölja inloggningsöverlägget som annars ligger ovanpå luckorna. */
+#accountGate { display: none !important; pointer-events: none !important; }
+#snowfall { pointer-events: none !important; }
+#calendarPage { position: relative; z-index: 2; pointer-events: auto !important; }
+#calendar, #calendar .door { pointer-events: auto !important; touch-action: manipulation; }
+
 /* Säkerställ att kalendern och luckorna alltid visas även om inloggningsstatus fastnar. */
 #calendarPage { display: block !important; visibility: visible !important; }
 #calendar { display: grid !important; visibility: visible !important; }
