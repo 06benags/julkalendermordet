@@ -5990,7 +5990,11 @@ function checkPuzzle() {
         document.getElementById(
             "puzzleMessage"
         ).textContent =
-            "Rätt. Sovplatserna är fastställda.";
+            "Rätt. Sovplatserna är fastställda. Lucka 2 öppnas tidigast den 2 december.";
+
+        if (activeInvestigationDay === 1) {
+            markDaySolved(1);
+        }
 
         // Den befintliga sovplatsuppgiften räknas som klar för lucka 1.
         // Övriga dagar får sina egna uppgifter i nästa utvecklingssteg.
