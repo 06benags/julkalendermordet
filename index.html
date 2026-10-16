@@ -233,8 +233,20 @@ h1 {
         0 0 25px rgba(255,220,170,.12);
 }
 
-/* Alla 24 luckor är öppna från början. Luckorna representerar
-   24 kronologiska steg i samma utredning. */
+.door.locked {
+    filter: saturate(.45);
+    opacity: .72;
+    cursor: not-allowed;
+}
+
+.door.locked:hover {
+    transform: none;
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.18);
+}
+
+/* Luckorna öppnas i takt med decemberdagarna. */
 
 .door-status {
     position: absolute;
