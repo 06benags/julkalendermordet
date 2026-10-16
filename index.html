@@ -4980,16 +4980,54 @@ function checkPhoneCode() {
 const calendar = document.getElementById("calendar");
 
 /*
-    Under december öppnas en ny lucka per kalenderdag.
-    Tidigare luckor förblir öppna så att man kan komma ikapp.
-    Utanför december är kalendern tillgänglig som arkiv/förhandsvisning.
+    En lucka blir tillgänglig först när:
+    1. kalenderdagen har kommit, och
+    2. föregående dags uppgift är löst.
+
+    Tidigare dagar går alltid att komma ikapp med. Lösningar sparas
+    i webbläsaren så att framstegen finns kvar när sidan öppnas igen.
 */
+const solvedDaysStorageKey = "julmordet-solved-days";
+let activeInvestigationDay = 1;
+
+function getSolvedDays() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(solvedDaysStorageKey) || "[]");
+        return Array.isArray(saved) ? saved.filter(day =>
+            Number.isInteger(day) && day >= 1 && day <= 24
+        ) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function isDaySolved(day) {
+    return getSolvedDays().includes(day);
+}
+
+function markDaySolved(day) {
+    const solvedDays = new Set(getSolvedDays());
+    solvedDays.add(day);
+    localStorage.setItem(solvedDaysStorageKey, JSON.stringify([...solvedDays].sort((a, b) => a - b)));
+    refreshCalendarDoors();
+}
+
 function getAvailableAdventDay() {
     const now = new Date();
     if (now.getMonth() === 11) {
-        return now.getDate();
+        return Math.min(now.getDate(), 24);
     }
+    // Utanför december kan kalendern testas, men uppgifterna måste
+    // fortfarande lösas i ordning.
     return 24;
+}
+
+function canOpenDay(day) {
+    if (day > getAvailableAdventDay()) return false;
+    for (let previousDay = 1; previousDay < day; previousDay++) {
+        if (!isDaySolved(previousDay)) return false;
+    }
+    return true;
 }
 
 function showLockedDoor(day) {
@@ -4997,10 +5035,26 @@ function showLockedDoor(day) {
     const text = document.getElementById("lockedDoorText");
     if (!overlay || !text) return;
 
+    const availableDate = day > getAvailableAdventDay();
+    const previousUnsolved = [];
+    for (let previousDay = 1; previousDay < day; previousDay++) {
+        if (!isDaySolved(previousDay)) previousUnsolved.push(previousDay);
+    }
+
+    let explanation;
+    if (availableDate) {
+        explanation = "Den här luckan öppnas den " + day +
+            " december. Även om du löser dagens uppgift i förväg måste du vänta till rätt datum.";
+    } else if (previousUnsolved.length) {
+        explanation = "Lös först uppgiften i lucka " + previousUnsolved[0] +
+            ". Du kan alltid gå tillbaka och komma ikapp.";
+    } else {
+        explanation = "Den här luckan är inte tillgänglig ännu.";
+    }
+
     text.innerHTML =
         '<strong>Lucka ' + day + ' är låst</strong>' +
-        '<p>Den här luckan öppnas den ' + day +
-        ' december. Tidigare luckor finns kvar om du behöver komma ikapp.</p>';
+        '<p>' + explanation + '</p>';
 
     overlay.style.display = "flex";
 }
@@ -5011,24 +5065,24 @@ function closeLockedDoor() {
 }
 
 function refreshCalendarDoors() {
-    const availableDay = getAvailableAdventDay();
-
     document.querySelectorAll(".door").forEach((door, index) => {
         const day = index + 1;
         const label = door.querySelector(".door-status");
-        const isAvailable = day <= availableDay;
+        const isAvailable = canOpenDay(day);
+        const isSolved = isDaySolved(day);
 
         door.classList.toggle("locked", !isAvailable);
+        door.classList.toggle("solved", isSolved);
         door.setAttribute("aria-disabled", String(!isAvailable));
         door.setAttribute("aria-label",
-            "Lucka " + day + (isAvailable ? ", öppen" : ", låst"));
+            "Lucka " + day + (isSolved ? ", löst" : isAvailable ? ", tillgänglig" : ", låst"));
 
         if (label) {
-            label.textContent = isAvailable ? "ÖPPEN" : "LÅST";
+            label.textContent = isSolved ? "LÖST" : isAvailable ? "ÖPPEN" : "LÅST";
         }
 
         door.onclick = () => {
-            if (!isAvailable) {
+            if (!canOpenDay(day)) {
                 showLockedDoor(day);
                 return;
             }
@@ -5053,10 +5107,12 @@ refreshCalendarDoors();
 
 function openInvestigation(day) {
 
-    if (day > getAvailableAdventDay()) {
+    if (!canOpenDay(day)) {
         showLockedDoor(day);
         return;
     }
+
+    activeInvestigationDay = day;
 
     document.getElementById(
         "calendarPage"
@@ -5871,6 +5927,11 @@ function checkPuzzle() {
         ).textContent =
             "Rätt. Sovplatserna är fastställda.";
 
+        // Den befintliga sovplatsuppgiften räknas som klar för lucka 1.
+        // Övriga dagar får sina egna uppgifter i nästa utvecklingssteg.
+        if (activeInvestigationDay === 1) {
+            markDaySolved(1);
+        }
 
         return;
     }
