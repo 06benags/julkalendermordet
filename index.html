@@ -4987,7 +4987,7 @@ const calendar = document.getElementById("calendar");
     Tidigare dagar går alltid att komma ikapp med. Lösningar sparas
     i webbläsaren så att framstegen finns kvar när sidan öppnas igen.
 */
-const solvedDaysStorageKey = "julmordet-solved-days";
+const solvedDaysStorageKey = "julmordet-solved-days-" + new Date().getFullYear();
 let activeInvestigationDay = 1;
 
 function getSolvedDays() {
@@ -5017,9 +5017,9 @@ function getAvailableAdventDay() {
     if (now.getMonth() === 11) {
         return Math.min(now.getDate(), 24);
     }
-    // Utanför december kan kalendern testas, men uppgifterna måste
-    // fortfarande lösas i ordning.
-    return 24;
+    // Utanför december går det att förhandsgranska lucka 1,
+    // men lucka 2 kan aldrig öppnas före den 2 december.
+    return 1;
 }
 
 function canOpenDay(day) {
