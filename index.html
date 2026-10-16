@@ -3915,15 +3915,15 @@ body.auth-ready .account-userbar { display: flex; }
 <style id="iphone-2014-override">
 /* iPhone 5s i silver från 2014 – behåll den ursprungliga bakgrundsbilden. */
 .phone-device{
-  width:min(292px,84vw)!important;
-  aspect-ratio:0.474 / 1!important;
+  width:min(300px,84vw)!important;
+  aspect-ratio:0.485 / 1!important;
   height:auto!important;
   display:block!important;
   box-sizing:border-box!important;
-  padding:54px 9px 67px!important;
+  padding:48px 9px 58px!important;
   position:relative!important;
   border:1px solid #b8b8b8!important;
-  border-radius:43px!important;
+  border-radius:38px!important;
   background:linear-gradient(105deg,#777 0%,#e5e5e5 4%,#aaa 8%,#f5f5f5 14%,#9a9a9a 19%,#d4d4d4 50%,#777 82%,#eee 95%,#666 100%)!important;
   box-shadow:0 32px 85px rgba(0,0,0,.78),0 7px 18px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.72),inset 0 0 0 4px #777!important;
   transform:translate(var(--phone-x, 0px),var(--phone-y, 0px)) scale(var(--phone-scale,1))!important;
@@ -3933,9 +3933,9 @@ body.auth-ready .account-userbar { display: flex; }
 .phone-device-screen{
   position:relative!important;
   width:100%!important;height:100%!important;min-height:0!important;
-  border-radius:2px!important;
+  border-radius:4px!important;
   overflow:hidden!important;
-  background:#111!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28)),url("bakgrundsbild.jfif") center center / cover no-repeat!important;
   border:1px solid #111!important;
   box-shadow:0 0 0 1px rgba(0,0,0,.75)!important;
 }
@@ -4047,17 +4047,7 @@ body.auth-ready .account-userbar { display: flex; }
   letter-spacing: -.2px !important;
   text-shadow: 0 1px 2px rgba(0,0,0,.35) !important;
 }
-.phone-lock-topbar::after {
-  content: attr(data-time) !important;
-  position: absolute !important;
-  top: 8px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  color: #fff !important;
-  font: 600 9px/12px "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-variant-numeric: tabular-nums !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,.35) !important;
-}
+.phone-lock-topbar::after { content: none !important; display: none !important; }
 .phone-lock-battery-image {
   display: block !important;
   position: absolute !important;
