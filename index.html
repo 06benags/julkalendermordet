@@ -421,9 +421,60 @@ h1 {
 }
 
 
-/* Lucka 1 visar endast förundersökningspappret på bordet. */
-#investigation.day-one-only .table > :not(.paper:first-child) {
+/* Lucka 1 visar bara förundersökningspappret och dagens uppgift. */
+#investigation.day-one-only .table > :not(.paper:first-child):not(.day-one-task) {
     display: none !important;
+}
+
+.day-one-task {
+    width: 250px;
+    min-height: 330px;
+    box-sizing: border-box;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    color: #30251c;
+    background: linear-gradient(145deg, #f3ead8, #e3d4b9);
+    border: 1px solid rgba(255,255,255,.45);
+    box-shadow: 0 18px 35px rgba(0,0,0,.28);
+    cursor: default;
+}
+
+.day-one-task .task-kicker {
+    font-size: 10px;
+    letter-spacing: .16em;
+    opacity: .65;
+}
+
+.day-one-task h3 {
+    margin: 0;
+    font-family: Cinzel, Georgia, serif;
+    font-size: 21px;
+    line-height: 1.25;
+}
+
+.day-one-task p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.day-one-task button {
+    margin-top: auto;
+    padding: 12px 14px;
+    border: 0;
+    background: #31543d;
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+    letter-spacing: .04em;
+    cursor: pointer;
+}
+
+.day-one-task button:hover {
+    background: #223d2c;
 }
 
 /* =========================================================
@@ -4115,6 +4166,20 @@ body.auth-ready .account-userbar { display: flex; }
 
         </div>
 
+        <div class="day-one-task">
+            <div class="task-kicker">LUCKA 1 · UTREDNINGSUPPGIFT</div>
+            <h3>Vem sov var?</h3>
+            <p>
+                Sex personer övernattade i stugan. För att kunna kontrollera
+                deras berättelser måste du först fastställa vem som sov i vilket rum.
+            </p>
+            <p>
+                Granska uppgifterna i ärendet och placera alla sex personer i
+                de tre sovrummen. Varje rum har plats för två personer.
+            </p>
+            <button type="button" onclick="openMap()">Börja uppgiften</button>
+        </div>
+
 
         <!-- FÖRHÖR -->
 
@@ -5235,7 +5300,7 @@ let selectedPerson = null;
     Om pusslet är löst låser vi det.
 */
 
-let puzzleSolved = false;
+let puzzleSolved = isDaySolved(1);
 
 
 /*
