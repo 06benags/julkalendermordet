@@ -7065,5 +7065,49 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 })();
 </script>
 
+
+<script>
+/* Fristående reservlösning för kalendern. Körs efter alla andra skript och återkopplar luckorna. */
+(function () {
+  function openInvestigationDirect(day) {
+    var calendarPage = document.getElementById("calendarPage");
+    var investigation = document.getElementById("investigation");
+    var gate = document.getElementById("accountGate");
+    if (!investigation || !calendarPage) return;
+    document.body.classList.remove("auth-required");
+    if (gate) gate.style.display = "none";
+    calendarPage.style.setProperty("display", "none", "important");
+    investigation.classList.toggle("day-one-only", Number(day) === 1);
+    investigation.style.setProperty("display", "block", "important");
+    investigation.style.setProperty("visibility", "visible", "important");
+    document.body.classList.add("investigation-active");
+    window.scrollTo(0, 0);
+  }
+  window.openInvestigation = openInvestigationDirect;
+  function wireDoors() {
+    var doors = document.querySelectorAll("#calendar .door");
+    doors.forEach(function (door, index) {
+      var day = index + 1;
+      door.onclick = null;
+      door.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        openInvestigationDirect(day);
+      }, true);
+      door.addEventListener("touchend", function (event) {
+        event.preventDefault();
+        openInvestigationDirect(day);
+      }, { passive: false });
+      door.style.setProperty("pointer-events", "auto", "important");
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wireDoors, { once: true });
+  } else {
+    wireDoors();
+  }
+})();
+</script>
+
 </body>
 </html>
