@@ -4291,6 +4291,30 @@ body.auth-ready .account-userbar { display: flex; }
   opacity: 1 !important;
 }
 
+
+/* Kalendern placeras över dekorativa lager och kan alltid ta emot tryck. */
+#calendarPage { position: relative !important; z-index: 1000001 !important; }
+#calendar { position: relative !important; z-index: 1000001 !important; }
+#calendar .door { position: relative !important; z-index: 1000002 !important; pointer-events: auto !important; cursor: pointer !important; touch-action: manipulation !important; }
+#accountGate { display: none !important; pointer-events: none !important; }
+
+/* Tvinga bort inloggningsspärrens CSS-regler som annars döljer kalendern. */
+body.auth-required #accountGate { display: none !important; pointer-events: none !important; }
+body.auth-required #calendarPage { display: block !important; visibility: visible !important; pointer-events: auto !important; }
+body.auth-required #investigation { display: none !important; }
+body.auth-required #calendar { display: grid !important; visibility: visible !important; pointer-events: auto !important; }
+body.auth-required #calendar .door { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+
+/* Kalendern ska vara klickbar: dölja inloggningsöverlägget som annars ligger ovanpå luckorna. */
+#accountGate { display: none !important; pointer-events: none !important; }
+#snowfall { pointer-events: none !important; }
+#calendarPage { position: relative; z-index: 2; pointer-events: auto !important; }
+#calendar, #calendar .door { pointer-events: auto !important; touch-action: manipulation; }
+
+/* Säkerställ att kalendern och luckorna alltid visas även om inloggningsstatus fastnar. */
+#calendarPage { display: block !important; visibility: visible !important; }
+#calendar { display: grid !important; visibility: visible !important; }
+#calendar .door { display: flex !important; visibility: visible !important; opacity: 1 !important; }
 </style>
 
 </head>
@@ -4328,7 +4352,32 @@ body.auth-ready .account-userbar { display: flex; }
     <main
         class="calendar"
         id="calendar"
-    ></main>
+    >
+        <button type="button" class="door" onclick="openInvestigation(1)"><span class="number">1</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(2)"><span class="number">2</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(3)"><span class="number">3</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(4)"><span class="number">4</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(5)"><span class="number">5</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(6)"><span class="number">6</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(7)"><span class="number">7</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(8)"><span class="number">8</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(9)"><span class="number">9</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(10)"><span class="number">10</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(11)"><span class="number">11</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(12)"><span class="number">12</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(13)"><span class="number">13</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(14)"><span class="number">14</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(15)"><span class="number">15</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(16)"><span class="number">16</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(17)"><span class="number">17</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(18)"><span class="number">18</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(19)"><span class="number">19</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(20)"><span class="number">20</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(21)"><span class="number">21</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(22)"><span class="number">22</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(23)"><span class="number">23</span><span class="door-status">ÖPPEN</span></button>
+        <button type="button" class="door" onclick="openInvestigation(24)"><span class="number">24</span><span class="door-status">ÖPPEN</span></button>
+    </main>
 
 </div>
 
@@ -5244,6 +5293,7 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
+if (calendar && calendar.querySelectorAll(".door").length === 0) {
 for (let i = 1; i <= 24; i++) {
     const door = document.createElement("button");
     door.type = "button";
@@ -5251,20 +5301,42 @@ for (let i = 1; i <= 24; i++) {
     door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
     calendar.appendChild(door);
 }
+}
 
 document.querySelectorAll(".door").forEach((door, index) => {
     const day = index + 1;
+    door.dataset.day = String(day);
+    door.type = "button";
+    door.style.position = "relative";
+    door.style.zIndex = "1000002";
+    door.style.pointerEvents = "auto";
+    door.style.touchAction = "manipulation";
     const label = door.querySelector(".door-status");
     if (label) label.textContent = "ÖPPEN";
     door.setAttribute("aria-disabled", "false");
     door.onclick = () => openInvestigation(day);
 });
 
+/* Extra säker klickhantering för mobil: fånga tryck även om en annan regel skriver över onclick. */
+document.addEventListener("click", function (event) {
+    const door = event.target && event.target.closest ? event.target.closest("#calendar .door") : null;
+    if (!door) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const day = Number(door.dataset.day || door.querySelector(".number")?.textContent);
+    if (Number.isInteger(day) && day >= 1 && day <= 24) openInvestigation(day);
+}, true);
+
 /* =========================================================
    ÖPPNA UTREDNING
 ========================================================= */
 
 function openInvestigation(day) {
+    // Ta bort inloggningsspärren innan utredningen visas; CSS gömmer annars
+    // #investigation med !important även när display sätts till block.
+    document.body.classList.remove("auth-required");
+    const accountGate = document.getElementById("accountGate");
+    if (accountGate) accountGate.style.display = "none";
 
     document.getElementById(
         "calendarPage"
@@ -6896,7 +6968,9 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
   client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
   });
-  requireLogin();
+  // Kalendern ska vara synlig även för utloggade besökare.
+  document.body.classList.remove("auth-required");
+  gate.style.display = "none";
   setMode("login");
 
   loginTab.addEventListener("click", () => setMode("login"));
@@ -6954,7 +7028,12 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
 
   client.auth.onAuthStateChange((_event, session) => {
     if (session && session.user) enterGame(session.user);
-    else requireLogin();
+    else {
+      // Utloggning ska inte gömma kalenderluckorna.
+      document.body.classList.remove("auth-required");
+      document.body.classList.remove("auth-ready");
+      gate.style.display = "none";
+    }
   });
 })();
 </script>
@@ -6983,6 +7062,50 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
         flake.style.top = random(-10, 100).toFixed(1) + "vh";
         layer.appendChild(flake);
     }
+})();
+</script>
+
+
+<script>
+/* Fristående reservlösning för kalendern. Körs efter alla andra skript och återkopplar luckorna. */
+(function () {
+  function openInvestigationDirect(day) {
+    var calendarPage = document.getElementById("calendarPage");
+    var investigation = document.getElementById("investigation");
+    var gate = document.getElementById("accountGate");
+    if (!investigation || !calendarPage) return;
+    document.body.classList.remove("auth-required");
+    if (gate) gate.style.display = "none";
+    calendarPage.style.setProperty("display", "none", "important");
+    investigation.classList.toggle("day-one-only", Number(day) === 1);
+    investigation.style.setProperty("display", "block", "important");
+    investigation.style.setProperty("visibility", "visible", "important");
+    document.body.classList.add("investigation-active");
+    window.scrollTo(0, 0);
+  }
+  window.openInvestigation = openInvestigationDirect;
+  function wireDoors() {
+    var doors = document.querySelectorAll("#calendar .door");
+    doors.forEach(function (door, index) {
+      var day = index + 1;
+      door.onclick = null;
+      door.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        openInvestigationDirect(day);
+      }, true);
+      door.addEventListener("touchend", function (event) {
+        event.preventDefault();
+        openInvestigationDirect(day);
+      }, { passive: false });
+      door.style.setProperty("pointer-events", "auto", "important");
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wireDoors, { once: true });
+  } else {
+    wireDoors();
+  }
 })();
 </script>
 
