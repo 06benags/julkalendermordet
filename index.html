@@ -4137,6 +4137,40 @@ body.auth-ready .account-userbar { display: flex; }
 }
 .phone-key:active { background: rgba(255,255,255,.28) !important; }
 .phone-passcode-error { color: #fff !important; font-size: 11px !important; }
+
+/* iOS 8 lock screen: show the clock and slide-to-unlock first; passcode appears after interaction. */
+.iphone-slide-unlock {
+  position: absolute !important;
+  left: 12px !important;
+  right: 12px !important;
+  bottom: 18px !important;
+  width: calc(100% - 24px) !important;
+  min-height: 38px !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg,rgba(255,255,255,.17),rgba(255,255,255,.04)) !important;
+  color: rgba(255,255,255,.92) !important;
+  font: 300 13px/1 "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.65) !important;
+  letter-spacing: .1px !important;
+  z-index: 10 !important;
+  cursor: pointer !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.18) !important;
+}
+.iphone-slide-unlock span {
+  position: absolute !important;
+  right: 12px !important;
+  top: 3px !important;
+  font-size: 28px !important;
+  font-weight: 200 !important;
+  opacity: .85 !important;
+}
+.phone-passcode { display: none !important; }
+.phone-lock-content.passcode-visible .iphone-slide-unlock { display: none !important; }
+.phone-lock-content.passcode-visible .phone-passcode { display: block !important; }
+.phone-lock-content.passcode-visible .phone-locked-text { display: block !important; }
+.phone-lock-content.passcode-visible { justify-content: center !important; }
+.phone-lock-content.unlocked .iphone-slide-unlock { display: none !important; }
 @media (max-height: 720px) {
   .phone-lock-content { padding-top: 12px !important; padding-bottom: 12px !important; }
   .phone-lock-header { margin-bottom: 12px !important; }
@@ -4906,6 +4940,11 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updatePhoneTime, 1000);
 });
 
+function showPhonePasscode() {
+    const lockContent = document.getElementById("phoneLockContent");
+    if (lockContent) lockContent.classList.add("passcode-visible");
+}
+
 function openPhone() {
     updatePhoneTime();
 
@@ -4913,7 +4952,7 @@ function openPhone() {
 
     const lockContent = document.getElementById("phoneLockContent");
     if (lockContent) {
-        lockContent.classList.remove("unlocked", "shake");
+        lockContent.classList.remove("unlocked", "shake", "passcode-visible");
     }
 
     hidePhoneCodeError();
@@ -6355,6 +6394,8 @@ function previousSuspect(){if(!suspectPhotos.length)return;suspectIndex=(suspect
                     <div class="phone-big-time" id="phoneBigTime">--:--</div>
                     <div class="phone-date" id="phoneDate">--</div>
                 </div>
+
+                <button type="button" class="iphone-slide-unlock" id="iphoneSlideUnlock" onclick="showPhonePasscode()">Dra för att låsa upp <span aria-hidden="true">›</span></button>
 
                     <div class="phone-locked-text">
                     Ange lösenord
