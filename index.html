@@ -4967,27 +4967,84 @@ function checkPhoneCode() {
 
 const calendar = document.getElementById("calendar");
 
+/*
+    Under december öppnas en ny lucka per kalenderdag.
+    Tidigare luckor förblir öppna så att man kan komma ikapp.
+    Utanför december är kalendern tillgänglig som arkiv/förhandsvisning.
+*/
+function getAvailableAdventDay() {
+    const now = new Date();
+    if (now.getMonth() === 11) {
+        return now.getDate();
+    }
+    return 24;
+}
+
+function showLockedDoor(day) {
+    const overlay = document.getElementById("lockedDoorOverlay");
+    const text = document.getElementById("lockedDoorText");
+    if (!overlay || !text) return;
+
+    text.innerHTML =
+        '<strong>Lucka ' + day + ' är låst</strong>' +
+        '<p>Den här luckan öppnas den ' + day +
+        ' december. Tidigare luckor finns kvar om du behöver komma ikapp.</p>';
+
+    overlay.style.display = "flex";
+}
+
+function closeLockedDoor() {
+    const overlay = document.getElementById("lockedDoorOverlay");
+    if (overlay) overlay.style.display = "none";
+}
+
+function refreshCalendarDoors() {
+    const availableDay = getAvailableAdventDay();
+
+    document.querySelectorAll(".door").forEach((door, index) => {
+        const day = index + 1;
+        const label = door.querySelector(".door-status");
+        const isAvailable = day <= availableDay;
+
+        door.classList.toggle("locked", !isAvailable);
+        door.setAttribute("aria-disabled", String(!isAvailable));
+        door.setAttribute("aria-label",
+            "Lucka " + day + (isAvailable ? ", öppen" : ", låst"));
+
+        if (label) {
+            label.textContent = isAvailable ? "ÖPPEN" : "LÅST";
+        }
+
+        door.onclick = () => {
+            if (!isAvailable) {
+                showLockedDoor(day);
+                return;
+            }
+            openInvestigation(day);
+        };
+    });
+}
+
 for (let i = 1; i <= 24; i++) {
     const door = document.createElement("button");
     door.type = "button";
     door.className = "door";
-    door.innerHTML = '<span class="number">' + i + '</span><span class="door-status">ÖPPEN</span>';
+    door.innerHTML = '<span class="number">' + i + '</span><span class="door-status"></span>';
     calendar.appendChild(door);
 }
 
-document.querySelectorAll(".door").forEach((door, index) => {
-    const day = index + 1;
-    const label = door.querySelector(".door-status");
-    if (label) label.textContent = "ÖPPEN";
-    door.setAttribute("aria-disabled", "false");
-    door.onclick = () => openInvestigation(day);
-});
+refreshCalendarDoors();
 
 /* =========================================================
    ÖPPNA UTREDNING
 ========================================================= */
 
 function openInvestigation(day) {
+
+    if (day > getAvailableAdventDay()) {
+        showLockedDoor(day);
+        return;
+    }
 
     document.getElementById(
         "calendarPage"
