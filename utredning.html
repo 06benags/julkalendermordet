@@ -44,6 +44,9 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .board-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 20px;background:#101b14;border-bottom:1px solid #bda36b}
 .board-kicker{font-size:9px;letter-spacing:.24em;color:#d9bd7a;text-transform:uppercase}
 .board-title{font-family:Cinzel,Georgia,serif;font-size:clamp(18px,3vw,28px);letter-spacing:.07em;margin-top:5px}
+.protocol-preview-link{display:inline-block;flex:none;max-width:245px;padding:10px 13px;border:1px solid #d9bd7a;border-radius:3px;color:#fff5db;text-decoration:none;text-align:center;font-size:11px;line-height:1.45;background:#26392b;transition:background .2s,color .2s}
+.protocol-preview-link:hover,.protocol-preview-link:focus-visible{background:#e7ca86;color:#101b14;outline:2px solid #fff0bf;outline-offset:2px}
+@media(max-width:600px){.board-top{align-items:flex-start;flex-wrap:wrap}.protocol-preview-link{max-width:none;font-size:10px;padding:8px 10px}}
 .close{border:1px solid #d9bd7a;color:#fff5db;background:#27392a;border-radius:50%;width:40px;height:40px;font-size:24px;cursor:pointer;flex:none}
 .board-intro{padding:15px 20px 0;color:#e5d7b5;font-size:12px;line-height:1.6}
 .corkboard{margin:17px;padding:clamp(14px,3vw,28px);background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);border:8px solid #3c291d;box-shadow:inset 0 0 22px #2a160e99;border-radius:4px;position:relative}
@@ -359,7 +362,7 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
  <section class="board-shell">
   <div class="board-top">
    <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h1 class="board-title" id="boardTitle">Utredningstavla</h1></div>
-   
+   <a class="protocol-preview-link" href="protokoll-alternativ.html">Visa nytt förundersökningsprotokoll ↗</a>
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div>
