@@ -95,27 +95,29 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
  .protocol-paper.expanded .protocol-document{box-sizing:border-box!important;width:210mm!important;height:297mm!important;min-height:297mm!important;margin:0!important;padding:64px 62px 48px!important;overflow:hidden!important;background:#fff!important}
 }
 
-.official-protocol{width:100%;min-height:100%;box-sizing:border-box;padding:38px 42px 34px;background:linear-gradient(145deg,#f4eddb,#e4dac1);color:#25221d;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.65;box-shadow:0 2px 8px #0002}
-.official-heading{display:block;text-align:center;border-bottom:1px solid #0004;padding:0 0 20px;margin:0 0 24px}
-.official-crest{display:none}
-.official-title h2{font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:500;letter-spacing:.04em;line-height:1.2;margin:0 0 8px}
-.official-title span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
-.official-case-number{display:block;text-align:center;margin-top:12px;border:0;border-top:1px solid #0002;padding:8px 0 0}
-.official-case-number span{font-size:9px;letter-spacing:.18em;text-transform:uppercase}
-.official-case-number strong{display:block;font-size:12px;font-weight:600;letter-spacing:.08em}
-.official-fields{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 25px;padding:0;border:1px solid #0003}
-.official-field{min-height:0;padding:12px 14px;border:0;border-right:1px solid #0002;border-bottom:1px solid #0002}
+.official-protocol{width:100%;min-height:100%;box-sizing:border-box;padding:24px 28px 22px;background:linear-gradient(145deg,#f5efdf,#e9dfc8);color:#28251f;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.55;box-shadow:0 2px 8px #0002}
+.official-heading{display:flex;align-items:center;gap:12px;text-align:left;border-bottom:1px solid #0004;padding:0 0 14px;margin:0 0 16px}
+.official-crest{display:flex;flex:0 0 40px;width:40px;height:44px;font-size:7px}
+.official-title{flex:1;min-width:0}
+.official-title h2{font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:600;letter-spacing:.025em;line-height:1.2;margin:0 0 5px}
+.official-title span{font-size:8px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.official-case-number{display:block;flex:0 0 auto;text-align:right;margin:0;border:0;padding:0}
+.official-case-number span{font-size:7px;letter-spacing:.1em;text-transform:uppercase}
+.official-case-number strong{display:block;font-size:10px;font-weight:600;letter-spacing:.04em}
+.official-fields{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:14px 0 18px;padding:0;border:1px solid #0003}
+.official-field{min-height:0;padding:8px 10px;border:0;border-right:1px solid #0002;border-bottom:1px solid #0002;min-width:0}
 .official-field:nth-child(2n){border-right:0}
 .official-field.wide{grid-column:1/-1;border-right:0}
-.official-field label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;opacity:.65;margin-bottom:4px}
-.official-field strong{font-size:12px;font-weight:500;line-height:1.45}
-.official-field p{font-size:12px;line-height:1.7;margin:0 0 12px}
-.official-field.wide:has(p)>label{font-size:11px;letter-spacing:.14em;opacity:1;border-bottom:1px solid #0002;padding-bottom:7px;margin-bottom:12px}
-.official-signatures{margin-top:22px;border-top:1px solid #0003;border-bottom:1px solid #0003}
-.official-signatures>div{padding:12px 14px}
-.official-signatures label{font-size:9px;text-transform:uppercase;letter-spacing:.1em}
-.official-signatures strong{font-size:11px}
-.official-footer{margin-top:16px;border-top:1px solid #0002;padding-top:10px;font-size:8px;letter-spacing:.1em}
+.official-field label{font-size:7px;text-transform:uppercase;letter-spacing:.09em;opacity:.65;margin-bottom:3px}
+.official-field strong{font-size:10px;font-weight:500;line-height:1.4}
+.official-field p{font-size:10px;line-height:1.55;margin:0 0 9px}
+.official-field p:last-child{margin-bottom:0}
+.official-field.wide:has(p)>label{font-size:9px;letter-spacing:.1em;opacity:1;border-bottom:1px solid #0002;padding-bottom:5px;margin-bottom:8px}
+.official-signatures{margin-top:16px;border-top:1px solid #0003;border-bottom:1px solid #0003}
+.official-signatures>div{padding:8px 10px}
+.official-signatures label{font-size:7px;text-transform:uppercase;letter-spacing:.09em}
+.official-signatures strong{font-size:9px;font-weight:500}
+.official-footer{margin-top:10px;border-top:1px solid #0002;padding-top:7px;font-size:7px;letter-spacing:.08em}
 @media(max-width:600px){.official-protocol{padding:24px 18px}.official-title h2{font-size:19px}.official-field{padding:9px}.official-field p{font-size:11px}}
 
 .official-heading{display:grid;grid-template-columns:54px 1fr;gap:8px 12px;align-items:center;padding-bottom:12px;border-bottom:2px solid #202020;margin-bottom:10px}
