@@ -214,9 +214,12 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 .puzzle-close,.uv-controls button,.puzzle-unlock button{border:1px solid #8d805e;background:#171f1b;color:#e9e1ce;padding:9px 12px;cursor:pointer}
 .puzzle-instructions{font-size:13px;line-height:1.6;color:#bcb7a6;margin:12px 0}
 .uv-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #231b15;background:radial-gradient(ellipse at 45% 48%,#43352a 0%,#2b211a 46%,#110e0c 100%);box-shadow:inset 0 0 45px #000e,0 8px 25px #0009;isolation:isolate}
-.uv-desk:before{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 24%,#0005 76%,#000c 120%)}
-.room-vignette{position:absolute;inset:0;z-index:19;pointer-events:none;background:linear-gradient(90deg,#0006,transparent 30%,transparent 70%,#0006);mix-blend-mode:multiply}
-.uv-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:linear-gradient(135deg,#ded8c6,#f0ead8 45%,#d8d0bb);color:#29271f;border:1px solid #b7aa8c;box-shadow:2px 7px 20px #000b;transform-origin:center center;user-select:none;overflow:hidden;font-family:"Special Elite",Georgia,serif}
+.uv-desk:before{content:"";position:absolute;inset:0;z-index:16;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 24%,#0005 76%,#000c 120%)}
+.room-vignette{position:absolute;inset:0;z-index:15;pointer-events:none;background:linear-gradient(90deg,#0006,transparent 30%,transparent 70%,#0006);mix-blend-mode:multiply}
+.uv-sheet{position:absolute;z-index:4;width:25%;height:66%;min-width:175px;max-width:280px;padding:14px 12px;background:linear-gradient(135deg,#ded8c6,#f0ead8 45%,#d8d0bb);color:#29271f;border:1px solid #b7aa8c;box-shadow:2px 7px 20px #000b;transform-origin:center center;user-select:none;overflow:hidden;font-family:"Special Elite",Georgia,serif}
+.uv-sheet.clutter{z-index:2;width:22%;height:57%;min-width:145px;max-width:230px;padding:11px 9px;filter:brightness(.78)}
+.uv-sheet.clutter h3{font-size:11px}.uv-sheet.clutter p{font-size:8px}
+.uv-report{z-index:5}.uv-call{z-index:4}
 .sheet-agency{font:700 9px Arial,sans-serif;border-bottom:2px solid #25323b;padding-bottom:8px;margin-bottom:8px}
 .sheet-agency span{float:right;font-weight:400}
 .sheet-type{font:700 8px Arial,sans-serif;letter-spacing:.04em;margin:10px 0}
@@ -224,8 +227,8 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 .uv-sheet h3{font:700 13px Georgia,serif;margin:12px 0 8px}
 .uv-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
 .sheet-foot{position:absolute;bottom:12px;left:12px;right:12px;border-top:1px solid #b7aa8c;padding-top:6px;font:7px Arial,sans-serif;color:#75694f}
-.uv-secret{position:absolute;left:50%;top:72%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:1px solid #6652bc;color:#6652bc;background:transparent;font:800 18px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 7px #b5a7ff;transition:opacity .12s;pointer-events:none}
-.uv-desk.over-report .uv-secret{opacity:.95}
+.uv-secret{position:absolute;z-index:18;left:50%;top:72%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:1px solid #6652bc;color:#6652bc;background:transparent;font:800 18px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 7px #b5a7ff;transition:opacity .12s;pointer-events:none}
+.uv-desk.over-report .uv-secret{opacity:.95;filter:drop-shadow(0 0 5px #b5a7ff)}
 .uv-light-pool{position:absolute;z-index:7;width:145px;height:145px;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;border-radius:50%;opacity:0;background:radial-gradient(circle,#9d8aff30 0%,#8874ff20 25%,#7460ff0b 48%,transparent 70%);mix-blend-mode:screen}
 .uv-desk.lamp-on .uv-light-pool{opacity:1}
 .uv-beam{position:absolute;z-index:8;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;border-top:42px solid transparent;border-bottom:42px solid transparent;border-left:150px solid #8874ff16;filter:blur(8px);transform-origin:left center}
@@ -284,6 +287,12 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
    <article class="uv-sheet uv-call" data-sheet="call" style="left:38%;top:17%;transform:rotate(3deg)">
     <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA 1 · 112-SAMTAL</div><h3>Utskrift av inkommet larmsamtal</h3><div class="sheet-line">Mottaget: 08.32 · 24 december 2014</div><p><b>SOS:</b> SOS Alarm, vad har inträffat?</p><p><b>WILMER:</b> Min kompis vaknar inte. Det är vitt skum runt munnen på honom!</p><p><b>SOS:</b> Vilken adress är du på?</p><p><b>WILMER:</b> Skogsvägen 17, i Vargmyren.</p><div class="sheet-foot">BILAGA B · SAMMANSTÄLLD DIALOG</div>
    </article>
+   <article class="uv-sheet clutter" style="left:2%;top:43%;transform:rotate(7deg)"><div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">FÖRHÖRSANTECKNING</div><h3>Vittnesförhör · utdrag</h3><p>Uppgifter har lämnats om kvällens förlopp. Tiderna är ungefärliga och ska jämföras med övriga förhör.</p><div class="sheet-line">Bilaga C · sida 2</div></article>
+   <article class="uv-sheet clutter" style="left:25%;top:39%;transform:rotate(-5deg)"><div class="sheet-agency">TEKNISK UNDERSÖKNING <span>BEVIS 08</span></div><div class="sheet-type">SPÅRANALYS</div><h3>Laboratorieanteckning</h3><p>Föremålet har dokumenterats och skickats vidare för analys. Resultatet ska bedömas tillsammans med övriga fynd.</p><div class="sheet-line">Registrerat · 24/12</div></article>
+   <article class="uv-sheet clutter" style="left:56%;top:5%;transform:rotate(-6deg)"><div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA D</div><h3>Inventarielista</h3><p>Personliga tillhörigheter och föremål från stugan har dokumenterats. Förekomst på plats fastställer inte vem som hanterat föremålet.</p><div class="sheet-line">Sida 1 · arbetskopia</div></article>
+   <article class="uv-sheet clutter" style="left:74%;top:39%;transform:rotate(5deg)"><div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">TIDSLINJE</div><h3>Preliminär sammanställning</h3><p>Kl. 00.15 · TV-kvällen avslutas<br>Kl. 01.00 · Läggdags börjar<br>Kl. 08.32 · Larmsamtal</p><div class="sheet-line">Ej slutligt fastställd</div></article>
+   <article class="uv-sheet clutter" style="left:4%;top:5%;transform:rotate(-4deg)"><div class="sheet-agency">ARKIVKOPIA <span>2102</span></div><div class="sheet-type">KOMPLETTERING</div><h3>Ärendeanteckning</h3><p>Materialet har sammanställts i ärendet. Kontrollera diarienummer och bilagehänvisning vid arkivering.</p><div class="sheet-line">Intern arbetskopia</div></article>
+   <article class="uv-sheet clutter" style="left:57%;top:48%;transform:rotate(-3deg)"><div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA F</div><h3>Notering om föremål</h3><p>Föremål från vardagsrummet har fotograferats. Ingen slutsats om hantering kan dras av fotografiet ensamt.</p><div class="sheet-line">Fotobilaga · 03</div></article>
    <div class="uv-light-pool" id="uvLightPool" aria-hidden="true"></div>
    <div class="uv-beam" id="uvBeam" aria-hidden="true"></div>
    <div class="uv-lamp" id="uvLamp" role="button" tabindex="0" aria-label="Ta tag i UV-lampan och dra den över papperen" aria-pressed="false"><span class="lamp-handle"></span><span class="lamp-head"><span class="lamp-led"></span></span><span class="lamp-label">UV-365</span></div>
@@ -387,7 +396,7 @@ function updateUVReveal(){
  const x=d.left+p.x,y=d.top+p.y;
  const over=x>secret.left+5&&x<secret.right-5&&y>secret.top+3&&y<secret.bottom-3;
  puzzleDesk.classList.toggle('over-report',on&&over);
- document.getElementById('uvStatus').textContent=!on?'Ta tag i lampan och dra den över handlingarna. Ljuset tänds automatiskt.':over?'Du ser fluorescerande skrift på protokollet: ARKIV 2102.':'UV-ljuset sveper över papperen. Leta efter en dold anteckning på förundersökningsprotokollet.';
+ document.getElementById('uvStatus').textContent=!on?'Ta tag i lampan och dra den över alla handlingar. Ljuset tänds automatiskt.':over?'Ljuset träffar en fluorescerande anteckning: ARKIV 2102.':'Granska papperen noggrant. Koden syns bara när UV-ljuset träffar själva anteckningen.';
 }
 lamp.addEventListener('pointerdown',e=>{
  if(e.button!==0&&e.pointerType==='mouse')return;
@@ -411,7 +420,7 @@ document.getElementById('resetUV').addEventListener('click',()=>{
 });
 document.getElementById('submitPuzzleCode').addEventListener('click',()=>{
  const status=document.getElementById('puzzleUnlockStatus');
- if(!puzzleDesk.classList.contains('lamp-on')||!puzzleDesk.classList.contains('over-report')){status.textContent='Låt lampan tändas och rikta ljuskäglan direkt mot förundersökningsprotokollet först.';return}
+ if(!puzzleDesk.classList.contains('lamp-on')||!puzzleDesk.classList.contains('over-report')){status.textContent='Koden är fortfarande dold. Rikta ljuspunkten direkt mot den fluorescerande texten.';return}
  if(document.getElementById('puzzleCode').value.trim()==='2102'){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
  else{status.textContent='Fel kod. Läs den fluorescerande texten i ljuskäglan.'}
 });
