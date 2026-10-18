@@ -93,6 +93,22 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
  .paper.expanded.protocol-paper{position:static!important;display:block!important;transform:none!important;width:210mm!important;height:297mm!important;min-width:210mm!important;max-width:210mm!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;margin:0!important;border:0!important;box-shadow:none!important;padding:0!important;page-break-inside:avoid!important;break-inside:avoid!important;cursor:default!important}
  .protocol-paper.expanded .protocol-document{box-sizing:border-box!important;width:210mm!important;height:297mm!important;min-height:297mm!important;margin:0!important;padding:64px 62px 48px!important;overflow:hidden!important;background:#fff!important}
 }
+
+/* På korkväggen visas polisbilagorna som vanliga bevislappar; öppnade dokument behåller A4-layouten. */
+.protocol-paper:not(.expanded){aspect-ratio:auto;height:230px;min-height:230px;max-height:230px;overflow:hidden;padding:0;background:#f4edda;border:0;outline:0;box-shadow:2px 5px 10px #21150d88;transform:rotate(var(--tilt,0deg))}
+.protocol-paper:not(.expanded):after{content:"FÖRUNDERSÖKNING";top:9px;left:-7px}
+.protocol-paper:not(.expanded) .protocol-document{height:100%;min-height:0;overflow:hidden;padding:15px 13px 12px;background:#f4edda}
+.protocol-paper:not(.expanded) .protocol-agency{padding:0 0 6px;border-bottom:1px solid #b6a98b}
+.protocol-paper:not(.expanded) .protocol-agency-name{font-size:8px;letter-spacing:.03em;color:#25251e}
+.protocol-paper:not(.expanded) .protocol-region{font-size:5px;margin-top:2px;color:#746c5c}
+.protocol-paper:not(.expanded) .protocol-document-type{font-size:5px;top:0;color:#746c5c}
+.protocol-paper:not(.expanded) .protocol-register,.protocol-paper:not(.expanded) .protocol-confidential,.protocol-paper:not(.expanded) .protocol-subtitle,.protocol-paper:not(.expanded) .protocol-section-heading,.protocol-paper:not(.expanded) .protocol-signoff,.protocol-paper:not(.expanded) .protocol-footer{display:none}
+.protocol-paper:not(.expanded) .protocol-document h3{font-family:Cinzel,Georgia,serif;font-size:10px;line-height:1.35;margin:9px 0 7px;padding:0 0 6px;border-bottom:1px solid #b6a98b;color:#25251e}
+.protocol-paper:not(.expanded) .protocol-document p{font-family:"Special Elite",Georgia,serif;font-size:7px;line-height:1.5;margin:0 0 5px;text-align:left;color:#25251e}
+.protocol-paper:not(.expanded) .protocol-document p:not(:first-of-type){display:none}
+.call-paper:not(.expanded):after{content:"112-SAMTAL";background:#263b2b}
+.call-paper:not(.expanded) .protocol-document h3{font-size:9px}
+
 .protocol-paper:before{display:none}
 .protocol-document{min-height:100%;background:#fff;padding:24px 22px 18px;font-family:Arial,Helvetica,sans-serif;color:#171a1c}
 .protocol-agency{position:relative;padding:0 0 12px;border-bottom:2px solid #25323b}
