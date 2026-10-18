@@ -4,16 +4,16 @@
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 40%,#39434a 0,#171c20 58%,#080a0c 100%);font-family:Arial,Helvetica,sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;padding:64px 18px 48px}
 .label{position:fixed;top:16px;left:18px;font-size:10px;letter-spacing:2px;color:#bbc6ce}.label b{display:block;color:#fff;font-size:11px;margin-bottom:4px}
-.device{width:min(340px,86vw);aspect-ratio:0.49;padding:8px 8px 9px;border-radius:42px;background:linear-gradient(100deg,#d5d6d6 0%,#777b7d 3%,#f0f0ee 8%,#b9bcbd 12%,#e2e3e2 87%,#86898a 94%,#d8d9d8 100%);border:1px solid #777b7c;box-shadow:0 32px 70px #000c,inset 0 0 0 1px #ffffffaa;position:relative}
-.device:before{content:"";position:absolute;inset:3px;border-radius:39px;border:1px solid #fafafa;pointer-events:none}
-.screen{height:100%;border-radius:34px;overflow:hidden;position:relative;background:#f5f5f7;color:#171719;border:1px solid #27292b}
-.ear{position:absolute;top:15px;left:calc(50% - 27px);width:54px;height:6px;border-radius:6px;background:linear-gradient(#181a1b,#343638);z-index:5;box-shadow:inset 0 1px 2px #000}
-.cam{position:absolute;top:13px;left:calc(50% - 53px);width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#45617d,#101b2b 65%);border:2px solid #383a3b;z-index:5}
-.sensor{position:absolute;top:17px;left:calc(50% + 37px);width:5px;height:5px;border-radius:50%;background:#303234;z-index:5}
-.home{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:35px;height:35px;border-radius:50%;border:2px solid #a3a5a5;background:radial-gradient(circle,#17191b 0%,#090a0b 65%,#424446 100%);box-shadow:0 0 0 1px #333;z-index:5;cursor:pointer}
+.device{width:min(286px,76vw);aspect-ratio:0.49;padding:13px 10px 14px;border-radius:36px;background:linear-gradient(100deg,#d5d6d6 0%,#777b7d 3%,#f0f0ee 8%,#b9bcbd 12%,#e2e3e2 87%,#86898a 94%,#d8d9d8 100%);border:1px solid #777b7c;box-shadow:0 32px 70px #000c,inset 0 0 0 1px #ffffffaa;position:relative}
+.device:before{content:"";position:absolute;inset:3px;border-radius:33px;border:1px solid #fafafa;pointer-events:none}
+.screen{height:calc(100% - 31px);margin-top:7px;border-radius:25px;overflow:hidden;position:relative;background:#f5f5f7;color:#171719;border:1px solid #27292b}
+.ear{position:absolute;top:11px;left:calc(50% - 23px);width:46px;height:5px;border-radius:6px;background:linear-gradient(#181a1b,#343638);z-index:5;box-shadow:inset 0 1px 2px #000}
+.cam{position:absolute;top:9px;left:calc(50% - 45px);width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#45617d,#101b2b 65%);border:2px solid #383a3b;z-index:5}
+.sensor{position:absolute;top:12px;left:calc(50% + 31px);width:5px;height:5px;border-radius:50%;background:#303234;z-index:5}
+.home{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:27px;height:27px;border-radius:50%;border:2px solid #a3a5a5;background:radial-gradient(circle,#17191b 0%,#090a0b 65%,#424446 100%);box-shadow:0 0 0 1px #333;z-index:5;cursor:pointer}
 .home:after{content:"";position:absolute;inset:9px;border:1px solid #777;border-radius:4px}
 .side{position:absolute;width:3px;background:linear-gradient(90deg,#7c8081,#f5f5f3,#a0a2a3);border:1px solid #8b8e8e;z-index:6}
-.side.mute{left:-3px;top:91px;height:19px;border-radius:2px 0 0 2px}.side.vol1{left:-3px;top:126px;height:29px;border-radius:2px 0 0 2px}.side.vol2{left:-3px;top:164px;height:29px;border-radius:2px 0 0 2px}.side.power{right:-3px;top:113px;height:48px;border-radius:0 2px 2px 0}
+.side.mute{left:-3px;top:77px;height:16px;border-radius:2px 0 0 2px}.side.vol1{left:-3px;top:106px;height:24px;border-radius:2px 0 0 2px}.side.vol2{left:-3px;top:138px;height:24px;border-radius:2px 0 0 2px}.side.power{right:-3px;top:96px;height:39px;border-radius:0 2px 2px 0}
 .page{position:absolute;inset:0;display:none}.page.active{display:block}
 .status{height:22px;padding:5px 10px 0;display:flex;justify-content:space-between;font-size:10px;font-weight:bold}
 .lock{background:linear-gradient(165deg,#29465d 0%,#7999aa 38%,#b8c9cb 58%,#344c5c 100%);color:#fff}.lock:after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:42%;background:#203c4a;clip-path:polygon(0 60%,22% 24%,38% 55%,55% 5%,72% 52%,88% 20%,100% 55%,100% 100%,0 100%)}
@@ -25,7 +25,7 @@ body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 40%,#39
 .dock{position:absolute;bottom:14px;left:9px;right:9px;height:66px;border-radius:15px;background:#e8eff080;display:flex;justify-content:space-around;align-items:center}.dock .icon{width:40px;height:40px}
 .appview{background:#f5f5f7;color:#111}.status{font-variant-numeric:tabular-nums}.nav{background:#f7f7f9;height:48px;border-bottom:1px solid #ccc;text-align:center;padding:17px 6px 0;font-size:15px;font-weight:bold}.row:active,.key:active{background:#d9e8f5}.app:active{opacity:.7}
 .back{position:absolute;top:29px;left:9px;background:none;border:0;color:#087df1;font-size:12px;cursor:pointer}.list{position:absolute;top:70px;bottom:0;left:0;right:0;overflow:auto;background:#f5f5f7}.row{display:block;width:100%;padding:12px;text-align:left;background:white;border:0;border-bottom:1px solid #ddd;font-size:12px;color:#111;line-height:1.4;cursor:pointer}.row small{display:block;color:#777;margin-top:4px}.detail{padding:13px;font-size:12px;line-height:1.5}.bubble{padding:8px 10px;border-radius:15px;max-width:83%;margin:8px 0;background:#e3e3e8;color:#111}.bubble.out{margin-left:auto;background:#51c65a;color:white}.backlink{position:fixed;bottom:9px;color:#c1cbd2;font-size:11px;text-decoration:none}
-@media(max-height:700px){.device{width:min(290px,72vw)}}
+@media(max-height:700px){.device{width:min(260px,68vw)}}
 </style></head><body>
 <div class="label"><b>BESLAG 14-B</b>BENJAMIN AFSHARAZAD · MOBILTELEFON</div>
 <main class="device"><span class="side mute"></span><span class="side vol1"></span><span class="side vol2"></span><span class="side power"></span><div class="ear"></div><div class="cam"></div><div class="sensor"></div><div class="screen">
