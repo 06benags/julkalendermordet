@@ -366,7 +366,7 @@ function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria
 document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
 puzzle.addEventListener('click',e=>{if(e.target===puzzle)closePuzzle()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle()});
-const toggleUV=document.getElementById('toggleUV'), lamp=document.querySelector('.uv-lamp'), report=document.querySelector('[data-sheet="report]');
+const toggleUV=document.getElementById('toggleUV'), lamp=document.querySelector('.uv-lamp'), report=document.querySelector('[data-sheet="report"]');
 let lampDrag=null;
 function lampIsOverReport(){
  if(!lamp||!report)return false;
