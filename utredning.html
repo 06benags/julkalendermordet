@@ -399,7 +399,7 @@ const calendar=document.getElementById('calendar');
 for(let day=1;day<=24;day++){const door=document.createElement('button');door.type='button';door.className='door';door.setAttribute('aria-label','Öppna lucka '+day+' – utredningsakt');door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span><span class="door-label">December</span>';door.addEventListener('click',()=>{window.location.href='utredning.html?dag='+day});calendar.appendChild(door)}
 
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)window.location.href='utredning.html?dag='+(n-1)});
-document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
+document.getElementById('nextCase').addEventListener('click',()=>{});
 
 const puzzle=document.getElementById('paperPuzzle');
 function openPuzzle(){puzzle.classList.add('open');puzzle.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
@@ -417,7 +417,7 @@ function finishKeyTest(slot,button,ghost){
  keyAttempts++;attemptCounter.textContent='FÖRSÖK: '+keyAttempts;
  resetKeyAppearance();button.classList.add('selected');cabinetLock.classList.remove('lock-jiggle','lock-open');
  if(slot===6){
-  cabinetOpened=true;button.classList.add('correct');cabinetLock.classList.add('lock-open');document.querySelector('.filing-cabinet').classList.add('cabinet-open');keySuccess.classList.add('visible');keyStatus.textContent='Rätt nyckel. Du känner hur mekanismen släpper.';keyStatusLight.className='key-status-light success';document.getElementById('nextCase').disabled=false;document.getElementById('nextCase').textContent='Öppna dag 2 →';document.querySelectorAll('.key-choice').forEach(k=>k.disabled=true);
+  cabinetOpened=true;button.classList.add('correct');cabinetLock.classList.add('lock-open');document.querySelector('.filing-cabinet').classList.add('cabinet-open');keySuccess.classList.add('visible');keyStatus.textContent='Rätt nyckel. Du känner hur mekanismen släpper.';keyStatusLight.className='key-status-light success';document.getElementById('nextCase').disabled=true;document.getElementById('nextCase').textContent='Nästa akt är låst';document.querySelectorAll('.key-choice').forEach(k=>k.disabled=true);
  }else{
   button.classList.add('wrong');cabinetLock.classList.add('lock-jiggle');keyStatus.textContent='Metallen skrapar mot låset, men nyckeln passar inte. Dra tillbaka den och prova en annan.';keyStatusLight.className='key-status-light error';setTimeout(()=>cabinetLock.classList.remove('lock-jiggle'),450);
  }
