@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Förundersökning – layoutförslag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#202629;--muted:#5c6569;--line:#b8bec1;--paper:#fff;--bg:#e8ebec;--accent:#244b3a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Arial,Helvetica,sans-serif}
+.topbar{background:#17271f;color:#fff;padding:24px max(20px,calc((100% - 1100px)/2));border-bottom:3px solid #c8ad70}
+.topbar small{letter-spacing:.16em;text-transform:uppercase;color:#d8c28e;font-size:10px}.topbar h1{font-size:24px;font-weight:500;margin:6px 0}.topbar p{margin:0;color:#d8ded9;font-size:13px}
+main{max-width:1100px;margin:24px auto;padding:0 18px 48px}
+.options{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.options button{border:1px solid #8e9992;background:#f8f9f8;padding:11px 15px;color:#29332e;font:600 12px Arial;cursor:pointer;border-radius:3px}
+.options button[aria-selected=true]{background:#244b3a;color:white;border-color:#244b3a}
+.hint{font-size:12px;color:#505a55;margin:0 0 18px}
+.sheet{width:min(100%,794px);min-height:1123px;margin:0 auto;background:var(--paper);box-shadow:0 5px 25px #18251b20;padding:58px 62px 42px;position:relative}
+.sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:2px solid var(--ink);padding-bottom:17px}
+.brand{font-size:13px;font-weight:700;letter-spacing:.08em}.subbrand{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:.05em}
+.doc-type{text-align:right;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#41494d}
+.doc-type strong{display:block;font-size:12px;letter-spacing:0;color:var(--ink);margin-top:5px}
+.casebar{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--line);margin:0 0 28px}
+.casebar div{padding:11px 12px 11px 0}.casebar div+div{padding-left:14px;border-left:1px solid var(--line)}
+.label{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.value{font-size:12px;font-weight:600}
+h2{font-size:19px;line-height:1.25;font-weight:600;margin:0 0 7px}
+.lead{font-size:12px;color:#444d50;margin:0 0 24px}
+.section{margin:22px 0 0}.section h3{font-size:11px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--line);padding-bottom:6px;margin:0 0 10px}
+.section p{font-size:11px;line-height:1.7;margin:0 0 10px}
+.fields{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:18px}
+.field{padding:10px 11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:60px}.field.wide{grid-column:1/-1}
+.field .value{font-size:11px;font-weight:500;line-height:1.5}
+.timeline{border-left:2px solid #aab4ae;margin:12px 0 0 5px;padding-left:15px}
+.event{position:relative;margin:0 0 14px;font-size:11px;line-height:1.55}
+.event:before{content:"";position:absolute;left:-21px;top:5px;width:8px;height:8px;border-radius:50%;background:#244b3a;border:2px solid #fff;box-shadow:0 0 0 1px #244b3a}
+.event time{font-weight:700;display:inline-block;min-width:62px}
+.signatures{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:42px}
+.sign{border-top:1px solid #7e878b;padding-top:7px;font-size:10px;color:var(--muted)}.sign strong{display:block;color:var(--ink);font-weight:500;margin-top:4px}
+.foot{position:absolute;bottom:25px;left:62px;right:62px;border-top:1px solid var(--line);padding-top:8px;display:flex;justify-content:space-between;gap:12px;font-size:8px;color:#687176;letter-spacing:.04em}
+.stamp{display:inline-block;border:1px solid #8d9992;padding:4px 7px;font-size:8px;letter-spacing:.08em;color:#53645a;margin:0 0 16px}
+body[data-layout="2"] .sheet{font-family:Georgia,'Times New Roman',serif;padding-top:64px}
+body[data-layout="2"] .sheet-head{border-bottom:1px solid #7f8587}
+body[data-layout="2"] .brand{font-size:12px;letter-spacing:.02em}
+body[data-layout="2"] h2{font-family:Georgia,serif;font-size:23px;font-weight:500}
+body[data-layout="2"] .casebar{background:#f5f6f6;border:1px solid #d9ddde;padding:0 12px}
+body[data-layout="2"] .section h3{font-family:Arial,sans-serif;background:#f1f3f3;padding:7px 8px;border:0}
+body[data-layout="2"] .section p{font-size:12px;line-height:1.8}
+body[data-layout="2"] .field{background:#fcfcfc}
+body[data-layout="3"] .sheet{padding:42px 46px 42px}
+body[data-layout="3"] .sheet-head{border:0;padding-bottom:8px}
+body[data-layout="3"] .doc-type{display:none}
+body[data-layout="3"] .brand{font-size:16px;letter-spacing:0}
+body[data-layout="3"] .subbrand{font-size:11px}
+body[data-layout="3"] .casebar{background:#f2f4f3;border-top:2px solid #244b3a;border-bottom:0;padding:8px 14px}
+body[data-layout="3"] .casebar div{padding:8px}
+body[data-layout="3"] .casebar div+div{border-left:1px solid #cbd1ce}
+body[data-layout="3"] h2{font-size:22px}
+body[data-layout="3"] .lead{font-size:13px}
+body[data-layout="3"] .section h3{color:#244b3a;border-bottom:2px solid #244b3a}
+body[data-layout="3"] .fields{border:0;gap:7px}
+body[data-layout="3"] .field{background:#f4f6f5;border:0;min-height:0;padding:11px}
+body[data-layout="3"] .field.wide{grid-column:1/-1}
+body[data-layout="3"] .foot{left:46px;right:46px}
+@media(max-width:650px){main{padding:0 10px 28px}.sheet{min-height:0;padding:28px 22px 70px}.sheet-head{gap:10px}.doc-type{font-size:8px}.casebar{grid-template-columns:1fr}.casebar div,.casebar div+div{padding:8px 0;border-left:0;border-bottom:1px solid var(--line)}.casebar div:last-child{border-bottom:0}.fields{grid-template-columns:1fr}.field.wide{grid-column:auto}.signatures{gap:16px}.foot{left:22px;right:22px;bottom:16px}body[data-layout="3"] .sheet{padding:26px 20px 70px}}
+@media print{body{background:white}.topbar,.options,.hint{display:none!important}main{max-width:none;margin:0;padding:0}.sheet{width:210mm;min-height:297mm;box-shadow:none;margin:0;padding:20mm 18mm 18mm}body[data-layout="2"] .sheet{padding-top:22mm}body[data-layout="3"] .sheet{padding:16mm 15mm 18mm}.foot{left:18mm;right:18mm;bottom:12mm}}
+</style>
+</head>
+<body data-layout="1">
+<header class="topbar"><small>Julmordet · dokumentverkstad</small><h1>Förundersökningsprotokoll</h1><p>Tre realistiska layoutförslag – välj mellan dem för att jämföra samma innehåll.</p></header>
+<main>
+<div class="options" role="tablist" aria-label="Välj dokumentlayout">
+<button role="tab" aria-selected="true" data-layout="1">Alternativ 1 · Myndighetsstandard</button>
+<button role="tab" aria-selected="false" data-layout="2">Alternativ 2 · Formellt protokoll</button>
+<button role="tab" aria-selected="false" data-layout="3">Alternativ 3 · Modern utredningsakt</button>
+</div>
+<p class="hint">Förhandsvisningen är ett fiktivt dokument för mysteriet. Välj ett alternativ ovan. Innehållet är samma, men typografi och disposition ändras.</p>
+<article class="sheet" id="sheet">
+<div class="sheet-head"><div><div class="brand" id="brand">POLISMYNDIGHETEN</div><div class="subbrand">Polisdistrikt Vargmyren · Utredningsgruppen</div></div><div class="doc-type">Inledande handling<strong>Förundersökningsprotokoll</strong></div></div>
+<div class="casebar"><div><span class="label">Ärendenummer</span><span class="value">2102-K12345-14</span></div><div><span class="label">Upprättat</span><span class="value">24 december 2014</span></div><div><span class="label">Status</span><span class="value">Inledande utredning</span></div></div>
+<div class="stamp" id="stamp">FIKTIVT UTREDNINGSMATERIAL</div>
+<h2>Misstänkt dödsfall – Benjamin Afsharazad</h2>
+<p class="lead">Inledande sammanställning av uppgifter från platsen och det inkomna larmsamtalet.</p>
+<div class="fields">
+<div class="field"><span class="label">Avliden</span><span class="value">Benjamin Afsharazad</span></div>
+<div class="field"><span class="label">Brottsrubricering</span><span class="value">Misstanke om mord</span></div>
+<div class="field wide"><span class="label">Plats</span><span class="value">Skogsvägen 17, 827 94 Vargmyren</span></div>
+<div class="field wide"><span class="label">Närvarande i stugan</span><span class="value">Wilmer Fries, Benji Holm, Moa Brandin, Embla Ingelman-Sundberg och Tindra Popp.</span></div>
+</div>
+<section class="section"><h3>01 · Sammanfattning</h3><p>Den 24 december 2014 kl. 08.32 inkom larmsamtal från Wilmer Fries. Han uppgav att han funnit Benjamin Afsharazad livlös i en säng i stugan. Skum syntes runt den avlidnes mun. Ambulans anlände kl. 09.11 och polis kl. 09.37.</p><p>Vid den inledande dokumentationen var dödsorsaken och det fullständiga händelseförloppet inte slutligt fastställda. Uppgifterna nedan återger vad som då var känt och ska inte betraktas som slutliga slutsatser.</p></section>
+<section class="section"><h3>02 · Inledande tidslinje</h3><div class="timeline">
+<div class="event"><time>23 dec · 19.00</time> Sällskapet äter middag i stugan.</div>
+<div class="event"><time>Sen kväll</time> Sällskapet ser Bingolottos Uppesittarkväll och umgås därefter.</div>
+<div class="event"><time>01.00–02.00</time> De närvarande går till sängs vid olika tidpunkter.</div>
+<div class="event"><time>03.00–05.00</time> Wilmer uppger att han vaknat av ett ljud och sett en oidentifierad silhuett lämna Benjamins rum. Tindra uppger att hon hört ett ensamt ljud under ungefär samma tidsintervall.</div>
+<div class="event"><time>08.32</time> SOS Alarm tar emot samtal från Wilmer Fries.</div>
+<div class="event"><time>09.11 / 09.37</time> Ambulans respektive polis anländer till adressen.</div>
+</div></section>
+<section class="section"><h3>03 · Åtgärder och fortsatt handläggning</h3><p>Platsen och relevanta föremål ska dokumenteras och undersökas. Samtliga personer som vistades i stugan ska höras. Uppgifter från teknisk undersökning, rättsmedicinsk bedömning och fortsatta förhör redovisas i separata handlingar när de föreligger.</p></section>
+<div class="signatures"><div class="sign">Upprättat av<strong>Utredningsgruppen · Vargmyren</strong></div><div class="sign">Handling<strong>Inledande sammanställning · 1 av 1</strong></div></div>
+<div class="foot"><span>2102-K12345-14 · VARGMYREN</span><span>FIKTIVT UTREDNINGSMATERIAL</span><span id="page">SIDA 1 / 1</span></div>
+</article>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('[data-layout]')];
+buttons.forEach(button=>button.addEventListener('click',()=>{
+ const layout=button.dataset.layout;
+ document.body.dataset.layout=layout;
+ buttons.forEach(b=>b.setAttribute('aria-selected',String(b===button)));
+ const stamp=document.getElementById('stamp');
+ const brand=document.getElementById('brand');
+ if(layout==='1'){stamp.style.display='inline-block';brand.textContent='POLISMYNDIGHETEN'}
+ if(layout==='2'){stamp.style.display='none';brand.textContent='Polismyndigheten'}
+ if(layout==='3'){stamp.style.display='inline-block';brand.textContent='Polismyndigheten / Vargmyren'}
+}));
+</script>
+</body>
+</html>
