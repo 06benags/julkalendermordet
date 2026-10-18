@@ -56,6 +56,11 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .paper.expanded h3{font-size:clamp(22px,3vw,34px);margin:16px 0}
 
 .protocol-paper{background:#fff;border:1px solid #d4d4d4;box-shadow:2px 5px 10px #21150d88;color:#171a1c;font-family:Arial,Helvetica,sans-serif;padding:0}
+.protocol-paper:not(.expanded){outline:3px solid #e7ca86;outline-offset:2px;box-shadow:0 0 0 5px #18271e,3px 7px 14px #21150dcc}
+.protocol-paper:not(.expanded):after{content:"FÖRUNDERSÖKNING";position:absolute;top:9px;left:-7px;z-index:5;background:#1c3024;color:#fff7e5;border:1px solid #e7ca86;padding:6px 8px;font:700 7px Arial,Helvetica,sans-serif;letter-spacing:.08em;box-shadow:1px 2px 4px #0006;transform:rotate(-2deg)}
+.protocol-paper:not(.expanded):hover{outline-color:#fff0bf;box-shadow:0 0 0 5px #18271e,0 10px 20px #21150dcc}
+.protocol-paper:not(.expanded):focus-visible{outline:3px solid #fff0bf;outline-offset:4px}
+.protocol-paper:not(.expanded) .protocol-document{padding-top:25px}
 .protocol-paper:not(.expanded){aspect-ratio:210/297;min-height:0;height:auto;overflow:hidden;transform:rotate(var(--tilt,0deg));}
 .protocol-paper:not(.expanded) .protocol-document{height:100%;min-height:0;overflow:hidden;padding:8px 7px 5px}
 .protocol-paper:not(.expanded) .protocol-agency-name{font-size:6px}
