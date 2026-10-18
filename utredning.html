@@ -255,6 +255,38 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 
 /* Drag-and-drop: nyckeln måste fysiskt nå låset */
 .key-choice{touch-action:none;user-select:none}.key-choice.drag-origin{opacity:.32}.dragging-key{position:fixed;z-index:10000;width:70px;height:32px;pointer-events:none;filter:drop-shadow(2px 7px 5px #000d);transform:rotate(-5deg);transition:filter .12s}.dragging-key i{position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;border:5px solid #bdb69b;background:radial-gradient(circle,#22271f 0 35%,#8a8a73 42%,#454b3d 75%);box-shadow:inset 0 1px 2px #fff5}.dragging-key b{position:absolute;left:18px;top:10px;width:50px;height:5px;background:linear-gradient(#d4c9a7,#777764 50%,#343b30);border:1px solid #a7a187}.dragging-key:after{content:'';position:absolute;right:2px;top:14px;width:5px;height:8px;background:#a8a187;box-shadow:-15px 0 #a8a187}.dragging-key.key-inserting{transition:left .18s ease,top .18s ease,transform .18s;transform:rotate(0deg) scale(.72)}.dragging-key.key-returning{transition:left .18s ease,top .18s ease,opacity .18s;opacity:0}.cabinet-lock{cursor:crosshair}.cabinet-lock.lock-target{filter:drop-shadow(0 0 8px #d7c58b);transform:scale(1.12)}.lock-target .lock-plate{border-color:#e0cf9a;box-shadow:0 0 14px #c8b87b66,inset 0 0 4px #fff6}
+
+/* Fotorealistiskare arkivmiljö: åldrat stål, damm, repor och riktad belysning */
+.archive-scene{background:linear-gradient(180deg,#101713 0%,#25251e 48%,#120e0b 100%);isolation:isolate}
+.archive-scene:before{content:'';position:absolute;z-index:8;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 30%,transparent 20%,#0002 62%,#000b 100%),repeating-linear-gradient(0deg,#ffffff03 0 1px,transparent 1px 4px);mix-blend-mode:multiply}
+.archive-wall{background:repeating-linear-gradient(90deg,transparent 0 82px,#0003 83px 85px),repeating-linear-gradient(0deg,transparent 0 57px,#ffffff04 58px 59px),linear-gradient(110deg,#242a23,#111713 62%,#292920);box-shadow:inset 0 -18px 28px #0008}
+.wall-label{border:1px solid #8b846344;background:#14191488;padding:9px 12px;text-shadow:0 1px #000;box-shadow:0 4px 12px #0005}
+.filing-cabinet{filter:drop-shadow(18px 24px 17px #000b)}
+.cabinet-top{background:linear-gradient(100deg,#647165,#39473a 17%,#29392d 52%,#18251c 100%);border-color:#718073 #18251c #111a13 #829080;box-shadow:inset 0 2px 3px #ffffff26,inset 0 -3px 6px #0007;position:relative}
+.cabinet-top:after{content:'';position:absolute;left:10px;right:10px;bottom:3px;height:1px;background:#c1c8b31c}
+.cabinet-body{background:linear-gradient(90deg,#1a281e,#465548 5%,#334435 18%,#2b3b2e 56%,#1a291f 94%,#101911);border-color:#6d7b6e #1a281e #101811 #7e8c7e}
+.cabinet-body:after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(112deg,transparent 0 31px,#d4ddce08 32px,#00000008 33px 35px);mix-blend-mode:screen}
+.cabinet-drawer{background:linear-gradient(180deg,#617061 0%,#465848 9%,#354737 38%,#2a3a2d 78%,#17251b 100%);border-color:#819080 #18261c #111a13 #7d8b7b;box-shadow:inset 0 2px 3px #ffffff2b,inset 0 -4px 7px #0008,0 1px 1px #0009;transition:transform .45s cubic-bezier(.2,.75,.25,1)}
+.cabinet-drawer:after{content:'';position:absolute;left:2%;right:2%;top:5px;height:1px;background:#d4ddce23}
+.cabinet-drawer i{background:linear-gradient(#c6c5ac 0%,#777e6b 22%,#414b3e 53%,#1c261d 100%);border-color:#b0b49a #202a21 #111710 #9aa38f;box-shadow:inset 0 1px 2px #fff5,0 2px 3px #0009}
+.cabinet-lock{filter:drop-shadow(1px 3px 2px #0009)}
+.lock-plate{background:linear-gradient(115deg,#b0ae93 0%,#747b68 18%,#3d493b 48%,#222b22 76%,#7b8068 100%);border-color:#b8b69a #232b22 #161e17 #a3a68c;box-shadow:0 2px 4px #0009,inset 0 1px 2px #fff5,inset 0 -2px 3px #0008}
+.lock-cylinder{background:radial-gradient(circle at 30% 25%,#c8c3a8 0%,#777e69 25%,#414b3e 48%,#1d261e 76%);border-color:#20291f;box-shadow:inset 0 1px 2px #fff6,0 1px 2px #000a}
+.lock-cylinder i{box-shadow:0 0 2px #000}
+.archive-desk{background:repeating-linear-gradient(4deg,transparent 0 23px,#b58c5b18 24px,#0003 26px 28px),repeating-linear-gradient(90deg,#0002 0 60px,#c59a6420 61px,#0002 64px),linear-gradient(#4a3828,#302219 22%,#1b130e 100%);box-shadow:inset 0 10px 22px #0009,inset 0 1px #c4a47755}
+.key-tray{background:linear-gradient(145deg,#55564a,#303329 48%,#1c211a);border-color:#88836b #262a21 #11150f #797660;box-shadow:0 8px 16px #000b,inset 0 1px 2px #fff3,inset 0 -3px 5px #0007}
+.key-choice{background:linear-gradient(145deg,#45473b 0%,#2a2e25 42%,#171c16 100%);border-color:#6c6d5b #282d24 #11160f #686957;box-shadow:inset 0 1px 2px #ffffff10,0 2px 4px #0006}
+.key-choice:hover,.key-choice:focus-visible{background:linear-gradient(145deg,#5a5b4a,#30372b);box-shadow:inset 0 1px 3px #ffffff1c,0 4px 7px #0008}
+.physical-key i,.dragging-key i{border-color:#c2b99b #777b65 #6c705b #d0c7aa;background:radial-gradient(circle,#242920 0 35%,#a09b7e 42%,#505646 75%);box-shadow:inset 0 1px 2px #fff6,0 1px 1px #000a}
+.physical-key b,.dragging-key b{background:linear-gradient(#d7cba9 0%,#989377 25%,#666b57 56%,#343c30 100%);border-color:#d1c6a4 #555c49 #30372c #c0b897;box-shadow:inset 0 1px #fff4}
+.key-caption{color:#d2c7a5bb;text-shadow:0 1px 2px #000}
+.key-number{color:#d5ccb080}
+.key-status-row{background:linear-gradient(90deg,#0c100d55,transparent);padding-left:7px;padding-right:7px}
+.key-status-light{box-shadow:0 0 0 3px #887c5c16,0 0 7px #887c5c55}
+.key-status-light.error{box-shadow:0 0 0 3px #b65d4d20,0 0 9px #b65d4d77}
+.key-status-light.success{box-shadow:0 0 0 3px #b6c58b20,0 0 12px #b6c58b99}
+.key-success{background:linear-gradient(100deg,#29382a,#182219);box-shadow:inset 0 1px #d4e0bc14,0 4px 12px #0004}
+@media(prefers-reduced-motion:reduce){.cabinet-drawer,.filing-cabinet,.key-choice,.dragging-key{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body class="case-page">
