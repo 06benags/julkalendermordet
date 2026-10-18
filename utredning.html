@@ -49,6 +49,22 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .corkboard{margin:17px;padding:clamp(14px,3vw,28px);background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);border:8px solid #3c291d;box-shadow:inset 0 0 22px #2a160e99;border-radius:4px;position:relative}
 .evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start}
 .paper{position:relative;min-height:210px;padding:18px 15px 16px;background:#f4edda;color:#25251e;box-shadow:2px 5px 10px #21150d88;transform:rotate(var(--tilt,0deg));font-family:"Special Elite",Georgia,serif}
+.paper{cursor:zoom-in;transition:transform .22s ease,box-shadow .22s ease}
+.paper:hover{box-shadow:3px 10px 24px #0009}
+.paper:focus-visible{outline:3px solid #e7ca86;outline-offset:4px}
+.paper.expanded{position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%) rotate(0deg)!important;width:min(794px,calc(100vw - 28px));height:min(1123px,calc(100dvh - 36px));max-height:calc(100dvh - 36px);overflow:auto;padding:clamp(24px,5vw,64px);box-shadow:0 25px 100px #000c;border:1px solid #d8cdb2;cursor:zoom-out;font-size:clamp(14px,1.7vw,18px)}
+.paper.expanded h3{font-size:clamp(22px,3vw,34px);margin:16px 0}
+.paper.expanded p{font-size:clamp(14px,1.7vw,18px);line-height:1.8}
+.paper.expanded .paper-meta{font-size:12px;letter-spacing:.12em}
+.paper.expanded .pin{display:none}
+.paper.expanded .photo{margin:24px auto;max-width:100%}
+.paper.expanded .photo-caption{font-size:13px;line-height:1.6}
+.paper-lightbox{position:fixed;inset:0;z-index:99;background:#030805df;backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:18px}
+.paper-lightbox.open{display:flex}
+body.paper-open{overflow:hidden}
+.paper-lightbox-hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;color:#fff4d7;font:12px Inter,Arial,sans-serif;pointer-events:none}
+@media(max-width:600px){.paper.expanded{width:calc(100vw - 20px);height:calc(100dvh - 24px);padding:28px 22px}.paper.expanded .stamp{right:18px;bottom:18px}}
+
 .paper:before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:#d7c7a5}
 .paper h3{font-family:Cinzel,Georgia,serif;font-size:13px;line-height:1.4;border-bottom:1px solid #b6a98b;padding:7px 0 9px;margin-bottom:10px}
 .paper p,.paper li{font-size:11px;line-height:1.55}
@@ -91,7 +107,8 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
    
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
-  <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div></div>
+  <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div>
+  <div class="paper-lightbox" id="paperLightbox" aria-hidden="true"><div class="paper-lightbox-hint">Klicka på pappret eller tryck Esc för att stänga</div></div></div>
   <div class="case-note" id="caseNote"></div>
   <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div><div class="back-to-calendar"><a href="index.html">← Tillbaka till luckorna</a></div>
  </section>
@@ -148,6 +165,10 @@ function renderCase(index){
   if(index===0&&i===2){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('cabin')+'</div><p class="photo-caption"><b>FOTO A</b> · Stugan vid Skogsvägen 17, Vargmyren. Illustrativ rekonstruktion.</p>'}
   else if(index===7&&i===1){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('glass')+'</div><p class="photo-caption"><b>FOTO B</b> · Glöggeglas. Illustrativ bevisbild.</p>'}
   else{article.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(i===0?'<span class="stamp">UTREDNING</span>':'')}
+  article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-label','Öppna dokumentet '+d[0]);article.setAttribute('aria-expanded','false');
+  const openPaper=()=>{if(article.classList.contains('expanded'))return;const lightbox=document.getElementById('paperLightbox');lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');article.classList.add('expanded');article.setAttribute('aria-expanded','true');document.body.classList.add('paper-open');article.focus()};
+  article.addEventListener('click',openPaper);
+  article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPaper()}});
   grid.appendChild(article);
  });
 }
@@ -159,6 +180,10 @@ for(let day=1;day<=24;day++){const door=document.createElement('button');door.ty
 
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)window.location.href='utredning.html?dag='+(n-1)});
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
+const paperLightbox=document.getElementById('paperLightbox');
+function closeExpandedPaper(){const expanded=document.querySelector('.paper.expanded');if(!expanded)return;expanded.classList.remove('expanded');expanded.setAttribute('aria-expanded','false');paperLightbox.classList.remove('open');paperLightbox.setAttribute('aria-hidden','true');document.body.classList.remove('paper-open');expanded.focus()}
+paperLightbox.addEventListener('click',closeExpandedPaper);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeExpandedPaper()});
 
 if(performance.getEntriesByType('navigation')[0]?.type==='reload'){window.location.replace('index.html')}else{const requestedDay=Math.min(24,Math.max(1,Number(new URLSearchParams(window.location.search).get('dag'))||1));renderCase(requestedDay-1)}
 
