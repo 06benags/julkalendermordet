@@ -56,6 +56,47 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .paper.expanded h3{font-size:clamp(22px,3vw,34px);margin:16px 0}
 
 .protocol-paper{background:#fff;border:1px solid #d4d4d4;box-shadow:2px 5px 10px #21150d88;color:#171a1c;font-family:Arial,Helvetica,sans-serif;padding:0}
+.protocol-paper:not(.expanded){aspect-ratio:210/297;min-height:0;height:auto;overflow:hidden;transform:rotate(var(--tilt,0deg));}
+.protocol-paper:not(.expanded) .protocol-document{height:100%;min-height:0;overflow:hidden;padding:8px 7px 5px}
+.protocol-paper:not(.expanded) .protocol-agency-name{font-size:6px}
+.protocol-paper:not(.expanded) .protocol-region,.protocol-paper:not(.expanded) .protocol-document-type{font-size:4px}
+.protocol-paper:not(.expanded) .protocol-register{gap:3px 4px;margin:5px 0;padding:4px}
+.protocol-paper:not(.expanded) .protocol-register span{font-size:3.5px}
+.protocol-paper:not(.expanded) .protocol-register strong{font-size:4px}
+.protocol-paper:not(.expanded) .protocol-confidential{font-size:3.5px;margin:5px 0;padding:3px 0}
+.protocol-paper:not(.expanded) h3{font-size:6px;margin:0 0 3px}
+.protocol-paper:not(.expanded) .protocol-subtitle{font-size:4px;margin:0 0 5px;padding-bottom:4px}
+.protocol-paper:not(.expanded) p{font-size:4px;line-height:1.45;margin-bottom:4px}
+.protocol-paper:not(.expanded) .protocol-signoff{margin-top:6px;padding-top:4px;font-size:3.5px}
+.protocol-paper:not(.expanded) .protocol-signoff strong{font-size:4px}
+.protocol-paper:not(.expanded) .protocol-footer{font-size:3px;margin-top:5px;padding-top:3px}
+.print-document{position:fixed;z-index:102;top:18px;right:20px;border:1px solid #e7ca86;border-radius:4px;padding:11px 16px;background:#18271e;color:#fff7e5;font:600 13px Arial,sans-serif;letter-spacing:.02em;cursor:pointer;box-shadow:0 4px 18px #0006}
+.print-document:hover{background:#e7ca86;color:#18271e}
+@media(max-width:600px){.print-document{top:8px;right:8px;padding:9px 11px;font-size:12px}}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ body,html{width:210mm!important;min-width:0!important;min-height:297mm!important;height:auto!important;background:#fff!important;overflow:visible!important}
+ body *{visibility:hidden!important}
+ body.paper-open .paper-lightbox,body.paper-open .paper-lightbox *{visibility:visible!important}
+ body.paper-open .paper.expanded.protocol-paper,body.paper-open .paper.expanded.protocol-paper *{visibility:visible!important}
+ .paper-lightbox{display:none!important;position:static!important;inset:auto!important;background:#fff!important;padding:0!important;backdrop-filter:none!important}
+ body.paper-open .paper-lightbox{display:block!important}
+ .paper-lightbox-hint,.print-document,#snowfall,header,footer,.board-top,.board-intro,.corkboard,.case-note,.board-bottom,.back-to-calendar{display:none!important}
+ .paper.expanded.protocol-paper{position:static!important;display:block!important;transform:none!important;width:210mm!important;height:297mm!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;margin:0!important;border:0!important;box-shadow:none!important;padding:0!important;page-break-inside:avoid!important}
+ .protocol-paper.expanded .protocol-document{width:210mm!important;height:297mm!important;min-height:297mm!important;padding:18mm 17mm 14mm!important;overflow:hidden!important}
+ .protocol-paper.expanded p{font-size:11pt!important;line-height:1.65!important;margin-bottom:14pt!important}
+ .protocol-paper.expanded h3{font-size:18pt!important}
+ .protocol-paper.expanded .protocol-agency-name{font-size:13pt!important}
+ .protocol-paper.expanded .protocol-region{font-size:9pt!important}
+ .protocol-paper.expanded .protocol-document-type{font-size:8pt!important}
+ .protocol-paper.expanded .protocol-register span{font-size:7pt!important}
+ .protocol-paper.expanded .protocol-register strong{font-size:9pt!important}
+ .protocol-paper.expanded .protocol-confidential{font-size:7pt!important}
+ .protocol-paper.expanded .protocol-subtitle{font-size:9pt!important}
+ .protocol-paper.expanded .protocol-signoff{font-size:7pt!important}
+ .protocol-paper.expanded .protocol-signoff strong{font-size:8pt!important}
+ .protocol-paper.expanded .protocol-footer{font-size:6pt!important}
+}
 .protocol-paper:before{display:none}
 .protocol-document{min-height:100%;background:#fff;padding:24px 22px 18px;font-family:Arial,Helvetica,sans-serif;color:#171a1c}
 .protocol-agency{position:relative;padding:0 0 12px;border-bottom:2px solid #25323b}
@@ -151,7 +192,7 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div>
-  <div class="paper-lightbox" id="paperLightbox" aria-hidden="true"><div class="paper-lightbox-hint">Klicka på pappret eller tryck Esc för att stänga</div></div></div>
+  <div class="paper-lightbox" id="paperLightbox" aria-hidden="true"><button type="button" class="print-document" id="printDocument" aria-label="Skriv ut dokumentet">Skriv ut A4 ↗</button><div class="paper-lightbox-hint">Klicka på pappret eller tryck Esc för att stänga</div></div></div>
   <div class="case-note" id="caseNote"></div>
   <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div><div class="back-to-calendar"><a href="index.html">← Tillbaka till luckorna</a></div>
  </section>
@@ -205,7 +246,7 @@ function renderCase(index){
  grid.innerHTML='';
  c.docs.forEach((d,i)=>{
   const article=document.createElement('article');article.className='paper';article.style.setProperty('--tilt',((i%2===0?-1:1)*(1+(index+i)%3*.35))+'deg');
-  if(index===0&&i===0){article.classList.add('protocol-paper');article.innerHTML='<div class="protocol-document"><div class="protocol-agency"><div class="protocol-agency-name">POLISMYNDIGHETEN</div><div class="protocol-region">Fiktiva polisregionen · Vargmyren</div><div class="protocol-document-type">UTREDNINGSHANDLING</div></div><div class="protocol-register"><div><span>Diarienummer</span><strong>2014-K12345</strong></div><div><span>Upprättad</span><strong>2014-12-24</strong></div><div><span>Handling</span><strong>Förundersökningsprotokoll</strong></div></div><div class="protocol-confidential">FÖRUNDERSÖKNING · ARBETSHANDLING</div><h3>FÖRUNDERSÖKNINGSPROTOKOLL</h3><div class="protocol-subtitle">Misstänkt mord · Benjamin Afsharazad · Vargmyren</div><p>Den 24 december 2014 klockan 08:32 inkom ett larmsamtal från Wilmer Fries. Fries uppgav att han anträffat Benjamin Afsharazad livlös i dennes säng. Enligt uppgifterna vid anmälningstillfället hade Afsharazad skum kring munnen.</p><p>Ambulans anlände till platsen klockan 09:11. Mot bakgrund av omständigheterna kring dödsfallet uppkom misstanke om förgiftning. Polis anlände klockan 09:37 och inledde utredningsåtgärder vid fritidsbostaden på Skogsvägen 17 i Vargmyren.</p><p>Vid den aktuella tidpunkten vistades sex personer i stugan: Benjamin Afsharazad, Wilmer Fries, Benji Holm, Moa Brandin, Embla Ingelman-Sundberg och Tindra Popp. Sällskapet hade anlänt under kvällen den 23 december. Enligt tillgängliga uppgifter hade samtliga befunnit sig i stugan under den efterföljande natten.</p><p>En brottsplatsundersökning genomfördes i syfte att dokumentera förhållandena på platsen och säkra spår som kunde vara av betydelse för utredningen. De fem personer som vistats i stugan tillsammans med den avlidne hördes om sina iakttagelser och förehavanden under den aktuella kvällen och natten.</p><p>Dödsfallet utreds som misstänkt mord. Dödsorsaken har fastställts till förgiftning, men omständigheterna kring förgiftningen, däribland hur och när det giftiga ämnet tillfördes den avlidne, är föremål för fortsatt utredning.</p><p>Vid protokollets upprättande har det inte kunnat fastställas vem eller vilka som ligger bakom dödsfallet.</p><div class="protocol-signoff"><div><span>Upprättad för utredningen</span><strong>Utredningsenheten · Vargmyren</strong></div><div class="protocol-page-number">Sida 1 av 1</div></div><div class="protocol-footer">2014-K12345 <span>·</span> Förundersökningsprotokoll <span>·</span> Fiktivt ärende</div></div>'}
+  if(index===0&&i===0){article.classList.add('protocol-paper');article.innerHTML='<div class="protocol-document"><div class="protocol-agency"><div class="protocol-agency-name">POLISMYNDIGHETEN</div><div class="protocol-region">Polisregion · Vargmyren</div><div class="protocol-document-type">UTREDNINGSHANDLING</div></div><div class="protocol-register"><div><span>Diarienummer</span><strong>2014-K12345</strong></div><div><span>Upprättad</span><strong>2014-12-24</strong></div><div><span>Handling</span><strong>Förundersökningsprotokoll</strong></div></div><div class="protocol-confidential">FÖRUNDERSÖKNING · ARBETSHANDLING</div><h3>FÖRUNDERSÖKNINGSPROTOKOLL</h3><div class="protocol-subtitle">Misstänkt mord · Benjamin Afsharazad · Vargmyren</div><p>Den 24 december 2014 klockan 08:32 inkom ett larmsamtal från Wilmer Fries. Fries uppgav att han anträffat Benjamin Afsharazad livlös i dennes säng. Enligt uppgifterna vid anmälningstillfället hade Afsharazad skum kring munnen.</p><p>Ambulans anlände till platsen klockan 09:11. Mot bakgrund av omständigheterna kring dödsfallet uppkom misstanke om förgiftning. Polis anlände klockan 09:37 och inledde utredningsåtgärder vid fritidsbostaden på Skogsvägen 17 i Vargmyren.</p><p>Vid den aktuella tidpunkten vistades sex personer i stugan: Benjamin Afsharazad, Wilmer Fries, Benji Holm, Moa Brandin, Embla Ingelman-Sundberg och Tindra Popp. Sällskapet hade anlänt under kvällen den 23 december. Enligt tillgängliga uppgifter hade samtliga befunnit sig i stugan under den efterföljande natten.</p><p>En brottsplatsundersökning genomfördes i syfte att dokumentera förhållandena på platsen och säkra spår som kunde vara av betydelse för utredningen. De fem personer som vistats i stugan tillsammans med den avlidne hördes om sina iakttagelser och förehavanden under den aktuella kvällen och natten.</p><p>Dödsfallet utreds som misstänkt mord. Dödsorsaken har fastställts till förgiftning, men omständigheterna kring förgiftningen, däribland hur och när det giftiga ämnet tillfördes den avlidne, är föremål för fortsatt utredning.</p><p>Vid protokollets upprättande har det inte kunnat fastställas vem eller vilka som ligger bakom dödsfallet.</p><div class="protocol-signoff"><div><span>Upprättad för utredningen</span><strong>Utredningsenheten · Vargmyren</strong></div><div class="protocol-page-number">Sida 1 av 1</div></div><div class="protocol-footer">2014-K12345 <span>·</span> Förundersökningsprotokoll</div></div>'}
   else if(index===0&&i===2){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('cabin')+'</div><p class="photo-caption"><b>FOTO A</b> · Stugan vid Skogsvägen 17, Vargmyren. Illustrativ rekonstruktion.</p>'}
   else if(index===7&&i===1){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('glass')+'</div><p class="photo-caption"><b>FOTO B</b> · Glöggeglas. Illustrativ bevisbild.</p>'}
   else{article.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(i===0?'<span class="stamp">UTREDNING</span>':'')}
@@ -226,6 +267,7 @@ document.getElementById('prevCase').addEventListener('click',()=>{const n=Number
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
 const paperLightbox=document.getElementById('paperLightbox');
 function closeExpandedPaper(){const expanded=document.querySelector('.paper.expanded');if(!expanded)return;expanded.classList.remove('expanded');expanded.setAttribute('aria-expanded','false');paperLightbox.classList.remove('open');paperLightbox.setAttribute('aria-hidden','true');document.body.classList.remove('paper-open');expanded.focus()}
+document.getElementById('printDocument').addEventListener('click',e=>{e.stopPropagation();const expanded=document.querySelector('.paper.expanded');if(expanded&&expanded.classList.contains('protocol-paper'))window.print()});
 paperLightbox.addEventListener('click',closeExpandedPaper);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeExpandedPaper()});
 
