@@ -154,7 +154,9 @@ for(let day=1;day<=24;day++){const door=document.createElement('button');door.ty
 document.getElementById('closeModal').addEventListener('click',closeCase);
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)window.location.href='utredning.html?dag='+(n-1)});
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
-modal.addEventListener('click',e=>{if(e.target===modal)closeCase()});\nconst requestedDay=Math.min(24,Math.max(1,Number(new URLSearchParams(window.location.search).get('dag'))||1));\nrenderCase(requestedDay-1);
+modal.addEventListener('click',e=>{if(e.target===modal)closeCase()});
+const requestedDay=Math.min(24,Math.max(1,Number(new URLSearchParams(window.location.search).get('dag'))||1));
+renderCase(requestedDay-1);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCase()});
 </script>
 </body>
