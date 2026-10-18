@@ -223,11 +223,11 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 .uv-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
 .sheet-foot{position:absolute;bottom:12px;left:12px;right:12px;border-top:1px solid #b7aa8c;padding-top:6px;font:7px Arial,sans-serif;color:#75694f}
 .uv-secret{position:absolute;left:50%;top:65%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:2px solid #4c32b6;color:#4c32b6;background:#f4edda;font:800 19px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 8px #8c7bff;transition:opacity .25s,box-shadow .25s}
-.uv-desk.uv-on .uv-secret{opacity:1;box-shadow:0 0 12px #8c7bff,0 0 28px #8c7bff}
+.uv-desk.uv-on.over-report .uv-secret{opacity:1;box-shadow:0 0 12px #8c7bff,0 0 28px #8c7bff}
 .uv-beam{display:none;position:absolute;z-index:8;left:8%;top:5%;width:45%;height:80%;pointer-events:none;background:radial-gradient(ellipse at 35% 48%,#a99aff55 0%,#8268ff22 36%,transparent 70%);mix-blend-mode:screen}
-.uv-desk.uv-on .uv-beam{display:block;animation:uvPulse 2s ease-in-out infinite alternate}
+.uv-desk.uv-on .uv-beam{display:block;animation:uvPulse 2s ease-in-out infinite alternate}.uv-desk.uv-on.over-report .uv-beam{background:radial-gradient(ellipse at 35% 48%,#a99aff88 0%,#8268ff35 36%,transparent 70%)}
 @keyframes uvPulse{from{opacity:.65}to{opacity:1}}
-.uv-lamp{position:absolute;z-index:12;right:7%;bottom:7%;width:170px;height:65px;transform:rotate(-28deg);filter:drop-shadow(2px 7px 5px #0008);pointer-events:none}
+.uv-lamp{position:absolute;z-index:12;right:7%;bottom:7%;width:170px;height:65px;transform:rotate(-28deg);filter:drop-shadow(2px 7px 5px #0008);cursor:grab;touch-action:none;user-select:none}.uv-lamp:active{cursor:grabbing}
 .lamp-handle{position:absolute;left:0;top:20px;width:105px;height:31px;border-radius:8px 3px 3px 8px;background:linear-gradient(#333a45,#15191e 55%,#080a0d);border:1px solid #727b83}
 .lamp-head{position:absolute;right:0;top:7px;width:73px;height:57px;border-radius:12px 24px 24px 12px;background:linear-gradient(135deg,#606b77,#202833 55%,#10151b);border:2px solid #8d96a0;display:flex;align-items:center;justify-content:flex-end;padding-right:7px}
 .lamp-head span{width:18px;height:37px;border-radius:50%;background:#c6baff;box-shadow:0 0 8px #a89aff}
@@ -366,25 +366,57 @@ function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria
 document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
 puzzle.addEventListener('click',e=>{if(e.target===puzzle)closePuzzle()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle()});
-const toggleUV=document.getElementById('toggleUV');
+const toggleUV=document.getElementById('toggleUV'), lamp=document.querySelector('.uv-lamp'), report=document.querySelector('[data-sheet="report]');
+let lampDrag=null;
+function lampIsOverReport(){
+ if(!lamp||!report)return false;
+ const l=lamp.getBoundingClientRect(),r=report.getBoundingClientRect();
+ const x=l.left+l.width*.78,y=l.top+l.height*.45;
+ return x>r.left&&x<r.right&&y>r.top&&y<r.bottom;
+}
+function updateUVReveal(){
+ const on=puzzleDesk.classList.contains('uv-on'),over=lampIsOverReport();
+ puzzleDesk.classList.toggle('over-report',on&&over);
+ document.getElementById('uvStatus').textContent=!on
+  ?'UV-lampan är släckt. Tänd den och dra sedan lampan över förundersökningsprotokollet.'
+  :over?'Den dolda skriften lyser fram: ARKIV 2102.':'UV-lampan är tänd. Dra lampan över förundersökningsprotokollet för att hitta dold skrift.';
+}
 toggleUV.addEventListener('click',()=>{
  const on=!puzzleDesk.classList.contains('uv-on');
  puzzleDesk.classList.toggle('uv-on',on);
  toggleUV.setAttribute('aria-pressed',String(on));
  toggleUV.textContent=on?'☼ Släck UV-lampan':'☼ Tänd UV-lampan';
- document.getElementById('uvStatus').textContent=on?'Under UV-ljuset framträder dold skrift på förundersökningsprotokollet: ARKIV 2102.':'UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.';
+ updateUVReveal();
 });
+lamp.addEventListener('pointerdown',e=>{
+ if(e.button!==0&&e.pointerType==='mouse')return;
+ e.preventDefault();
+ const desk=puzzleDesk.getBoundingClientRect(),l=lamp.getBoundingClientRect();
+ lampDrag={x:e.clientX,y:e.clientY,left:lamp.offsetLeft,top:lamp.offsetTop,desk};
+ lamp.style.right='auto';lamp.style.bottom='auto';lamp.style.left=lampDrag.left+'px';lamp.style.top=lampDrag.top+'px';
+ lamp.setPointerCapture(e.pointerId);
+});
+lamp.addEventListener('pointermove',e=>{
+ if(!lampDrag)return;
+ const dx=e.clientX-lampDrag.x,dy=e.clientY-lampDrag.y;
+ const maxX=puzzleDesk.clientWidth-lamp.offsetWidth,maxY=puzzleDesk.clientHeight-lamp.offsetHeight;
+ lamp.style.left=Math.max(-20,Math.min(maxX,lampDrag.left+dx))+'px';
+ lamp.style.top=Math.max(-20,Math.min(maxY,lampDrag.top+dy))+'px';
+ updateUVReveal();
+});
+function stopLampDrag(){lampDrag=null;updateUVReveal()}
+lamp.addEventListener('pointerup',stopLampDrag);lamp.addEventListener('pointercancel',stopLampDrag);
 document.getElementById('resetUV').addEventListener('click',()=>{
- puzzleDesk.classList.remove('uv-on');toggleUV.setAttribute('aria-pressed','false');toggleUV.textContent='☼ Tänd UV-lampan';
- document.getElementById('uvStatus').textContent='UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.';
+ puzzleDesk.classList.remove('uv-on','over-report');toggleUV.setAttribute('aria-pressed','false');toggleUV.textContent='☼ Tänd UV-lampan';
+ lamp.style.left='';lamp.style.top='';lamp.style.right='7%';lamp.style.bottom='7%';
  document.getElementById('puzzleCode').value='';document.getElementById('puzzleUnlockStatus').textContent='';
- document.getElementById('nextCase').disabled=true;
+ document.getElementById('nextCase').disabled=true;updateUVReveal();
 });
 document.getElementById('submitPuzzleCode').addEventListener('click',()=>{
  const status=document.getElementById('puzzleUnlockStatus');
- if(!puzzleDesk.classList.contains('uv-on')){status.textContent='Tänd UV-lampan och undersök förundersökningsprotokollet först.';return}
+ if(!puzzleDesk.classList.contains('uv-on')||!puzzleDesk.classList.contains('over-report')){status.textContent='Tänd UV-lampan och lys direkt på förundersökningsprotokollet först.';return}
  if(document.getElementById('puzzleCode').value.trim()==='2102'){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
- else{status.textContent='Fel kod. Läs den dolda texten på förundersökningsprotokollet.'}
+ else{status.textContent='Fel kod. Läs den dolda texten som framträder under UV-ljuset.'}
 });
 document.getElementById('puzzleCode').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('submitPuzzleCode').click()});
 
