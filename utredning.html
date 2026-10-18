@@ -38,6 +38,9 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .modal{position:relative;z-index:1;display:block;width:100%;min-height:100vh;padding:0;background:transparent;backdrop-filter:none}
 .modal.open{display:block}
 .board-shell{width:100%;min-height:100vh;margin:0;overflow:visible;border:0;border-radius:0;box-shadow:none;background:#19251b}
+.back-to-calendar{display:flex;justify-content:center;padding:28px 16px 34px;background:#101b14;border-top:1px solid #bda36b}
+.back-to-calendar a{display:inline-block;color:#e7ca86;text-decoration:none;border:1px solid #bda36b;border-radius:4px;padding:12px 22px;font-family:Cinzel,Georgia,serif;letter-spacing:.06em;transition:background .2s,color .2s}
+.back-to-calendar a:hover{background:#e7ca86;color:#101b14}
 .board-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 20px;background:#101b14;border-bottom:1px solid #bda36b}
 .board-kicker{font-size:9px;letter-spacing:.24em;color:#d9bd7a;text-transform:uppercase}
 .board-title{font-family:Cinzel,Georgia,serif;font-size:clamp(18px,3vw,28px);letter-spacing:.07em;margin-top:5px}
@@ -82,13 +85,13 @@ body.case-page header,body.case-page footer{display:none}\n.modal{display:flex;b
 <main class="modal" id="caseModal" aria-labelledby="boardTitle">
  <section class="board-shell">
   <div class="board-top">
-   <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h2 class="board-title" id="boardTitle">Utredningstavla</h2></div>
-   <button class="close" id="closeModal" aria-label="Tillbaka till kalendern" title="Tillbaka till kalendern" style="width:auto;height:auto;border-radius:4px;padding:10px 14px;font-size:13px">← Kalendern</button>
+   <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h1 class="board-title" id="boardTitle">Utredningstavla</h1></div>
+   
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div></div>
   <div class="case-note" id="caseNote"></div>
-  <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div>
+  <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div><div class="back-to-calendar"><a href="index.html">← Tillbaka till luckorna</a></div>
  </section>
 </main>
 
@@ -151,13 +154,13 @@ function openCase(index){renderCase(index);modal.classList.add('open');document.
 function closeCase(){window.location.href='index.html'}
 const calendar=document.getElementById('calendar');
 for(let day=1;day<=24;day++){const door=document.createElement('button');door.type='button';door.className='door';door.setAttribute('aria-label','Öppna lucka '+day+' – utredningsakt');door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span><span class="door-label">December</span>';door.addEventListener('click',()=>{window.location.href='utredning.html?dag='+day});calendar.appendChild(door)}
-document.getElementById('closeModal').addEventListener('click',closeCase);
+
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)window.location.href='utredning.html?dag='+(n-1)});
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
-modal.addEventListener('click',e=>{if(e.target===modal)closeCase()});
+
 const requestedDay=Math.min(24,Math.max(1,Number(new URLSearchParams(window.location.search).get('dag'))||1));
 renderCase(requestedDay-1);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCase()});
+
 </script>
 </body>
 </html>
