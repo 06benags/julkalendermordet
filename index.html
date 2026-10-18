@@ -38,10 +38,7 @@ h1{font-family:Cinzel,Georgia,serif;font-size:clamp(39px,7vw,76px);font-weight:5
 .door.locked:before{z-index:1;border-color:#d6c79b55;inset:6px}
 .door.locked:hover,.door.locked:focus-visible{transform:none;filter:saturate(.7) brightness(.8);box-shadow:0 9px 18px #0006,inset 0 1px 0 #ffffff22;outline:none}
 .door.locked .number{position:relative;z-index:2;color:#d8d0bd;text-shadow:0 2px 5px #000a}
-.door .lock-mark{position:absolute;left:50%;bottom:34px;z-index:3;width:19px;height:15px;transform:translateX(-50%);border:1px solid #f2dca5;border-radius:3px;background:linear-gradient(145deg,#d9bd7a,#8d6b35);box-shadow:0 2px 5px #0008}
-.door .lock-mark:before{content:"";position:absolute;left:4px;top:-9px;width:9px;height:9px;border:2px solid #d9bd7a;border-bottom:0;border-radius:7px 7px 0 0}
-.door .lock-mark:after{content:"";position:absolute;left:7px;top:4px;width:3px;height:5px;border-radius:2px;background:#3b2b18}
-.door.locked .door-label{bottom:11px;color:#e0d2ad;font-size:7px;letter-spacing:.18em;opacity:.95}
+.door.locked .door-label{bottom:13px;color:#e0d2ad;font-size:7px;letter-spacing:.18em;opacity:.95}
 .door.locked .corner,.door.locked .star{z-index:2;color:#d9c58f;opacity:.58}
 .door:not(.locked) .lock-mark{display:none}
 footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;font-size:9px;letter-spacing:.22em;z-index:1}
@@ -161,7 +158,7 @@ const modal=document.getElementById('caseModal');
 function openCase(index){renderCase(index);modal.classList.add('open');document.body.style.overflow='hidden';document.getElementById('closeModal').focus()}
 function closeCase(){modal.classList.remove('open');document.body.style.overflow=''}
 const calendar=document.getElementById('calendar');
-for(let day=1;day<=24;day++){const door=document.createElement('button');door.type='button';door.className='door'+(day===1?'':' locked');door.setAttribute('aria-label',day===1?'Öppna lucka 1 – utredningsakt':'Lucka '+day+' är låst');if(day>1)door.disabled=true;door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span>'+(day===1?'':'<span class="lock-mark" aria-hidden="true"></span>')+'<span class="door-label">'+(day===1?'Öppna':'Låst')+'</span>';if(day===1)door.addEventListener('click',()=>{window.location.href='utredning.html?dag=1'});calendar.appendChild(door)}
+for(let day=1;day<=24;day++){const door=document.createElement('button');door.type='button';door.className='door'+(day===1?'':' locked');door.setAttribute('aria-label',day===1?'Öppna lucka 1 – utredningsakt':'Lucka '+day+' är låst');if(day>1)door.disabled=true;door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span>'+''+'<span class="door-label">'+(day===1?'Öppna':'Låst')+'</span>';if(day===1)door.addEventListener('click',()=>{window.location.href='utredning.html?dag=1'});calendar.appendChild(door)}
 document.getElementById('closeModal').addEventListener('click',closeCase);
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)renderCase(n-2)});
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)renderCase(n-1)});
