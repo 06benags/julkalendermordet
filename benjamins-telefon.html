@@ -64,8 +64,8 @@ function showBenjiThread(){const msgs=[
 ["22 augusti 2014","Benji","Haha, jo! Det var en hemlighet haha. Är fattig nu"],
 ["22 augusti 2014","Benjamin","Förstår det, glöm inte att du måste betala tillbaka dock!"],
 ["22 augusti 2014","Benji","Nejdå, det kommer!"],
-["6 september 2014","Benji","Moa köpte ett par byxor till mig häromdagen. Hon sa att det var hennes sätt att betala tillbaka för allt du bjudit på."],
-["6 september 2014","Benjamin","Haha, ja hon nämnde det. Du kan väl börja med att betala tillbaka till mig istället för att låta henne stå för saker?"],
+
+
 ["6 september 2014","Benji","Jag vet, det löser sig. Vill ju också kunna köpa saker till henne."],
 ["24 oktober 2014","Benjamin","Tjoo, allt bra?"],
 ["24 oktober 2014","Benji","Ja, själv då?"],
@@ -87,7 +87,7 @@ function showBenjiThread(){const msgs=[
 ["1 december 2014","Benjamin","Du har sagt det några gånger nu."],
 ["1 december 2014","Benji","Jag vet. Förlåt."],
 ["10 december 2014","Benji","Vad ska jag packa till stugan? Tänkte ta med lite snacks också."],
-["10 december 2014","Benjamin","Varma kläder, snacks och kanske ett gott humör 😄 Men Benji, jag menar allvar med pengarna."],
+["10 december 2014","Benjamin","Varma kläder och snacks. Men Benji, jag menar allvar med pengarna."],
 ["10 december 2014","Benji","Jag vet, Benjamin. Jag ska försöka lösa det innan vi åker."],
 ["10 december 2014","Benjamin","Okej. Jag hoppas det."]
 ];let html='<div class="chat-wrap"><div class="chat-head"><button type="button" class="contact-back" onclick="backToMessages()">‹ Tillbaka</button></div><div class="chat-scroll" id="chatScroll">';let day='';msgs.forEach(m=>{if(m[0]!==day){html+='<div class="chat-date">'+m[0]+'</div>';day=m[0]}html+='<p class="bubble'+(m[1]==='Benjamin'?' out':'')+'">'+m[2]+'</p>'});html+='</div><div class="chat-compose"><span class="chat-plus">＋</span><div class="chat-input">SMS</div><span class="chat-mic">◉</span></div></div>';detail('Benji Holm',html);const sc=document.getElementById('chatScroll');if(sc)sc.scrollTop=sc.scrollHeight}
