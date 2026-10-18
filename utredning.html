@@ -446,7 +446,7 @@ document.getElementById('printDocument').addEventListener('click',e=>{e.stopProp
 paperLightbox.addEventListener('click',closeExpandedPaper);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeExpandedPaper()});
 
-if(performance.getEntriesByType('navigation')[0]?.type==='reload'){window.location.replace('index.html')}else{const requestedDay=Math.min(24,Math.max(1,Number(new URLSearchParams(window.location.search).get('dag'))||1));renderCase(requestedDay-1)}
+const requestedDay=Number(new URLSearchParams(window.location.search).get('dag'))||1;if(requestedDay!==1){window.location.replace('index.html')}else{renderCase(0)}
 
 </script>
 </body>
