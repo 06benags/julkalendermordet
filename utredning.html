@@ -206,15 +206,17 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 
 .note-puzzle-trigger{cursor:pointer}
 .note-puzzle-trigger .note-open-hint{display:block;margin-top:16px;padding-top:8px;border-top:1px solid #b6a98b;font:10px Inter,Arial,sans-serif;color:#75694f}
-.puzzle-overlay{display:none;position:fixed;inset:0;z-index:300;background:#07110de8;backdrop-filter:blur(5px);padding:clamp(8px,2vw,24px);overflow:auto}
+.puzzle-overlay{display:none;position:fixed;inset:0;z-index:300;background:#020604f2;backdrop-filter:blur(7px);padding:clamp(8px,2vw,24px);overflow:auto}
 .puzzle-overlay.open{display:flex;align-items:center;justify-content:center}
-.puzzle-window{width:min(1120px,100%);background:#17271e;border:1px solid #b69b60;box-shadow:0 24px 80px #000b;padding:clamp(12px,2vw,24px);color:#fff7e5}
+.puzzle-window{width:min(1120px,100%);background:linear-gradient(145deg,#111a17,#080d0b);border:1px solid #65583d;box-shadow:0 24px 80px #000e;padding:clamp(12px,2vw,24px);color:#e8e1d0}
 .puzzle-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.puzzle-head h2{font:500 clamp(20px,3vw,30px) Cinzel,Georgia,serif}
-.puzzle-close,.uv-controls button,.puzzle-unlock button{border:1px solid #bca66e;background:#20382a;color:#fff7e5;padding:9px 12px;cursor:pointer}
-.puzzle-instructions{font-size:13px;line-height:1.6;color:#e4d9bd;margin:12px 0}
-.uv-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #3c291d;background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);box-shadow:inset 0 0 22px #2a160e99}
-.uv-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:#f4edda;color:#25251e;border:1px solid #b7aa8c;box-shadow:2px 6px 15px #21150dcc;transform-origin:center center;user-select:none;overflow:hidden;font-family:"Special Elite",Georgia,serif}
+.puzzle-head h2{font:500 clamp(20px,3vw,30px) Cinzel,Georgia,serif;color:#e9d5a0}
+.puzzle-close,.uv-controls button,.puzzle-unlock button{border:1px solid #8d805e;background:#171f1b;color:#e9e1ce;padding:9px 12px;cursor:pointer}
+.puzzle-instructions{font-size:13px;line-height:1.6;color:#bcb7a6;margin:12px 0}
+.uv-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #231b15;background:radial-gradient(ellipse at 45% 48%,#43352a 0%,#2b211a 46%,#110e0c 100%);box-shadow:inset 0 0 45px #000e,0 8px 25px #0009;isolation:isolate}
+.uv-desk:before{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 24%,#0005 76%,#000c 120%)}
+.room-vignette{position:absolute;inset:0;z-index:19;pointer-events:none;background:linear-gradient(90deg,#0006,transparent 30%,transparent 70%,#0006);mix-blend-mode:multiply}
+.uv-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:linear-gradient(135deg,#ded8c6,#f0ead8 45%,#d8d0bb);color:#29271f;border:1px solid #b7aa8c;box-shadow:2px 7px 20px #000b;transform-origin:center center;user-select:none;overflow:hidden;font-family:"Special Elite",Georgia,serif}
 .sheet-agency{font:700 9px Arial,sans-serif;border-bottom:2px solid #25323b;padding-bottom:8px;margin-bottom:8px}
 .sheet-agency span{float:right;font-weight:400}
 .sheet-type{font:700 8px Arial,sans-serif;letter-spacing:.04em;margin:10px 0}
@@ -222,25 +224,29 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 .uv-sheet h3{font:700 13px Georgia,serif;margin:12px 0 8px}
 .uv-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
 .sheet-foot{position:absolute;bottom:12px;left:12px;right:12px;border-top:1px solid #b7aa8c;padding-top:6px;font:7px Arial,sans-serif;color:#75694f}
-.uv-secret{position:absolute;left:50%;top:65%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:2px solid #4c32b6;color:#4c32b6;background:#f4edda;font:800 19px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 8px #8c7bff;transition:opacity .25s,box-shadow .25s}
-.uv-desk.uv-on.over-report .uv-secret{opacity:1;box-shadow:0 0 12px #8c7bff,0 0 28px #8c7bff}
-.uv-beam{display:none;position:absolute;z-index:8;left:8%;top:5%;width:45%;height:80%;pointer-events:none;background:radial-gradient(ellipse at 35% 48%,#a99aff55 0%,#8268ff22 36%,transparent 70%);mix-blend-mode:screen}
-.uv-desk.uv-on .uv-beam{display:block;animation:uvPulse 2s ease-in-out infinite alternate}.uv-desk.uv-on.over-report .uv-beam{background:radial-gradient(ellipse at 35% 48%,#a99aff88 0%,#8268ff35 36%,transparent 70%)}
-@keyframes uvPulse{from{opacity:.65}to{opacity:1}}
-.uv-lamp{position:absolute;z-index:12;right:7%;bottom:7%;width:170px;height:65px;transform:rotate(-28deg);filter:drop-shadow(2px 7px 5px #0008);cursor:grab;touch-action:none;user-select:none}.uv-lamp:active{cursor:grabbing}
-.lamp-handle{position:absolute;left:0;top:20px;width:105px;height:31px;border-radius:8px 3px 3px 8px;background:linear-gradient(#333a45,#15191e 55%,#080a0d);border:1px solid #727b83}
+.uv-secret{position:absolute;left:50%;top:72%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:1px solid #6652bc;color:#6652bc;background:transparent;font:800 18px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 7px #b5a7ff;transition:opacity .12s;pointer-events:none}
+.uv-desk.over-report .uv-secret{opacity:.95}
+.uv-light-pool{position:absolute;z-index:7;width:260px;height:260px;left:0;top:0;transform:translate(-50%,-50%);pointer-events:none;border-radius:50%;opacity:0;background:radial-gradient(circle,#9d8aff30 0%,#8874ff20 25%,#7460ff0b 48%,transparent 70%);mix-blend-mode:screen}
+.uv-desk.lamp-on .uv-light-pool{opacity:1}
+.uv-beam{position:absolute;z-index:8;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;border-top:115px solid transparent;border-bottom:115px solid transparent;border-left:360px solid #8874ff12;filter:blur(8px);transform-origin:left center}
+.uv-desk.lamp-on .uv-beam{opacity:1}
+.uv-lamp{position:absolute;z-index:25;right:7%;bottom:7%;width:170px;height:65px;transform:rotate(-28deg);filter:drop-shadow(2px 7px 5px #000d);cursor:grab;touch-action:none;user-select:none;outline:none}
+.uv-lamp:focus-visible{filter:drop-shadow(0 0 8px #b4a5ff)}
+.uv-lamp:active{cursor:grabbing}
+.lamp-handle{position:absolute;left:0;top:20px;width:105px;height:31px;border-radius:8px 3px 3px 8px;background:linear-gradient(#333a45,#15191e 55%,#080a0d);border:1px solid #727b83;box-shadow:inset 0 1px 2px #ffffff25}
 .lamp-head{position:absolute;right:0;top:7px;width:73px;height:57px;border-radius:12px 24px 24px 12px;background:linear-gradient(135deg,#606b77,#202833 55%,#10151b);border:2px solid #8d96a0;display:flex;align-items:center;justify-content:flex-end;padding-right:7px}
-.lamp-head span{width:18px;height:37px;border-radius:50%;background:#c6baff;box-shadow:0 0 8px #a89aff}
-.lamp-label{position:absolute;left:29px;top:28px;color:#e7ca86;font:700 9px Arial,sans-serif;letter-spacing:.12em}
-.uv-desk.uv-on .lamp-head span{background:#b4a5ff;box-shadow:0 0 10px #a89aff,0 0 25px #8268ff}
+.lamp-led{width:18px;height:37px;border-radius:50%;background:#786b9f;box-shadow:inset 0 0 6px #171226}
+.uv-desk.lamp-on .lamp-led{background:#c9baff;box-shadow:0 0 7px #c3b3ff,0 0 20px #8268ff,0 0 34px #8268ff88}
+.lamp-label{position:absolute;left:29px;top:28px;color:#e7ca86;font:700 8px Arial,sans-serif;letter-spacing:.08em}
+.desk-hint{position:absolute;z-index:21;right:10px;top:10px;color:#c7b991aa;font:8px Arial,sans-serif;letter-spacing:.16em;pointer-events:none}
 .uv-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0}
-.uv-controls span{font-size:12px;color:#e7ca86;flex:1 1 260px}
+.uv-controls span{font-size:12px;color:#d7c89e;flex:1 1 260px}
 .uv-controls button{font-size:11px}
-.puzzle-unlock{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #53634f;padding-top:12px}
+.puzzle-unlock{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #353d33;padding-top:12px}
 .puzzle-unlock label{font-size:12px}
-.puzzle-unlock input{width:90px;background:#fff7e5;color:#17271e;border:1px solid #bca66e;padding:10px;font:700 16px monospace;letter-spacing:.15em}
-.puzzle-unlock span{flex-basis:100%;font-size:12px;color:#e7ca86}
-@media(max-width:700px){.uv-desk{height:56vh;min-height:390px}.uv-sheet{width:56%;min-width:0;height:65%;padding:9px 7px}.uv-sheet h3{font-size:11px}.uv-sheet p{font-size:8px}.sheet-agency{font-size:7px}.sheet-line{font-size:7px}.uv-secret{font-size:15px}.uv-lamp{transform:rotate(-28deg) scale(.72);transform-origin:bottom right;right:4%;bottom:4%}.uv-controls{align-items:flex-start}}
+.puzzle-unlock input{width:90px;background:#e9e2d0;color:#17271e;border:1px solid #8d805e;padding:10px;font:700 16px monospace;letter-spacing:.15em}
+.puzzle-unlock span{flex-basis:100%;font-size:12px;color:#d7c89e}
+@media(max-width:700px){.uv-desk{height:56vh;min-height:390px}.uv-sheet{width:56%;min-width:0;height:65%;padding:9px 7px}.uv-sheet h3{font-size:11px}.uv-sheet p{font-size:8px}.sheet-agency{font-size:7px}.sheet-line{font-size:7px}.uv-secret{font-size:14px}.uv-light-pool{width:200px;height:200px}.uv-beam{border-top-width:80px;border-bottom-width:80px;border-left-width:260px}.uv-lamp{transform:rotate(-28deg) scale(.72);transform-origin:bottom right;right:4%;bottom:4%}.uv-controls{align-items:flex-start}}
 </style>
 </head>
 <body class="case-page">
@@ -269,18 +275,21 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 <div class="puzzle-overlay" id="paperPuzzle" aria-hidden="true">
  <section class="puzzle-window" role="dialog" aria-modal="true" aria-labelledby="puzzleTitle">
   <div class="puzzle-head"><div><div class="board-kicker">Utredningsakt 01 · Bilagegranskning</div><h2 id="puzzleTitle">Utredarnotering</h2></div><button type="button" id="closePuzzle" class="puzzle-close">Stäng ✕</button></div>
-  <p class="puzzle-instructions">Två handlingar och en UV-lampa har lagts fram för granskning. Tänd lampan och för ljuset över förundersökningsprotokollet. Osynlig skrift kan framträda under UV-ljus.</p>
+  <p class="puzzle-instructions">Rummet är mörkt. Ta tag i UV-lampan och dra den över handlingarna. Ljuset tänds när du lyfter lampan — men den dolda texten syns bara när ljuskäglan träffar rätt del av förundersökningsprotokollet.</p>
   <div class="uv-desk" id="puzzleDesk">
+   <div class="room-vignette" aria-hidden="true"></div>
    <article class="uv-sheet uv-report" data-sheet="report" style="left:5%;top:7%;transform:rotate(-2deg)">
-    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">INLEDANDE TJÄNSTEANTECKNING</div><div class="sheet-line">Diarienummer: 2102-K12345-14</div><div class="sheet-line">Datum: 2014-12-24</div><h3>Förundersökningsprotokoll</h3><p>Benjamin Afsharazad anträffades livlös i sin säng. Dödsorsaken är ännu inte fastställd. Uppgifterna ska kompletteras med teknisk undersökning och förhör.</p><div class="uv-secret" id="uvSecret">ARKIV 2102</div><div class="sheet-foot">BILAGA A · SIDA 1</div>
+    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">INLEDANDE TJÄNSTEANTECKNING</div><div class="sheet-line">Diarienummer: 2102-K12345-14</div><div class="sheet-line">Datum: 2014-12-24</div><h3>Förundersökningsprotokoll</h3><p>Benjamin Afsharazad anträffades livlös i sin säng. Dödsorsaken är ännu inte fastställd. Uppgifterna ska kompletteras med teknisk undersökning och förhör.</p><p>Handlingarna har arkiverats i enlighet med gällande rutin. Vid komplettering ska diarienumret anges.</p><div class="uv-secret" id="uvSecret">ARKIV 2102</div><div class="sheet-foot">BILAGA A · SIDA 1</div>
    </article>
    <article class="uv-sheet uv-call" data-sheet="call" style="left:38%;top:17%;transform:rotate(3deg)">
     <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA 1 · 112-SAMTAL</div><h3>Utskrift av inkommet larmsamtal</h3><div class="sheet-line">Mottaget: 08.32 · 24 december 2014</div><p><b>SOS:</b> SOS Alarm, vad har inträffat?</p><p><b>WILMER:</b> Min kompis vaknar inte. Det är vitt skum runt munnen på honom!</p><p><b>SOS:</b> Vilken adress är du på?</p><p><b>WILMER:</b> Skogsvägen 17, i Vargmyren.</p><div class="sheet-foot">BILAGA B · SAMMANSTÄLLD DIALOG</div>
    </article>
+   <div class="uv-light-pool" id="uvLightPool" aria-hidden="true"></div>
    <div class="uv-beam" id="uvBeam" aria-hidden="true"></div>
-   <div class="uv-lamp" aria-label="UV-lampa"><span class="lamp-handle"></span><span class="lamp-head"><span></span></span><span class="lamp-label">UV</span></div>
+   <div class="uv-lamp" id="uvLamp" role="button" tabindex="0" aria-label="Ta tag i UV-lampan och dra den över papperen" aria-pressed="false"><span class="lamp-handle"></span><span class="lamp-head"><span class="lamp-led"></span></span><span class="lamp-label">UV-365</span></div>
+   <div class="desk-hint">DRA LAMPAN · 365 NM</div>
   </div>
-  <div class="uv-controls"><span id="uvStatus" aria-live="polite">UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.</span><button type="button" id="toggleUV" aria-pressed="false">☼ Tänd UV-lampan</button><button type="button" id="resetUV">Återställ</button></div>
+  <div class="uv-controls"><span id="uvStatus" aria-live="polite">Ta tag i lampan och dra den över protokollet.</span><button type="button" id="resetUV">Återställ</button></div>
   <div class="puzzle-unlock"><label for="puzzleCode">Kod till bevisarkivet</label><input id="puzzleCode" inputmode="numeric" maxlength="4" placeholder="••••"><button type="button" id="submitPuzzleCode">Lås upp</button><span id="puzzleUnlockStatus" aria-live="polite"></span></div>
  </section>
 </div>
@@ -366,60 +375,45 @@ function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria
 document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
 puzzle.addEventListener('click',e=>{if(e.target===puzzle)closePuzzle()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle()});
-const toggleUV=document.getElementById('toggleUV'), lamp=document.querySelector('.uv-lamp'), report=document.querySelector('[data-sheet="report"]');
+const lamp=document.getElementById('uvLamp'),report=document.querySelector('[data-sheet="report"]'),lightPool=document.getElementById('uvLightPool'),beam=document.getElementById('uvBeam');
 let lampDrag=null;
-function lampIsOverReport(){
- if(!lamp||!report)return false;
- const l=lamp.getBoundingClientRect(),r=report.getBoundingClientRect();
- const x=l.left+l.width*.78,y=l.top+l.height*.45;
- return x>r.left&&x<r.right&&y>r.top&&y<r.bottom;
-}
+function lampPoint(){const l=lamp.getBoundingClientRect(),d=puzzleDesk.getBoundingClientRect();return{x:l.left+l.width*.86-d.left,y:l.top+l.height*.5-d.top}}
 function updateUVReveal(){
- const on=puzzleDesk.classList.contains('uv-on'),over=lampIsOverReport();
+ const on=puzzleDesk.classList.contains('lamp-on'),p=lampPoint(),r=report.getBoundingClientRect(),d=puzzleDesk.getBoundingClientRect();
+ lightPool.style.left=p.x+'px';lightPool.style.top=p.y+'px';
+ beam.style.left=p.x+'px';beam.style.top=p.y+'px';beam.style.transform='rotate(0deg)';
+ const x=d.left+p.x,y=d.top+p.y;
+ const over=x>r.left&&x<r.right&&y>r.top&&y<r.bottom;
  puzzleDesk.classList.toggle('over-report',on&&over);
- document.getElementById('uvStatus').textContent=!on
-  ?'UV-lampan är släckt. Tänd den och dra sedan lampan över förundersökningsprotokollet.'
-  :over?'Den dolda skriften lyser fram: ARKIV 2102.':'UV-lampan är tänd. Dra lampan över förundersökningsprotokollet för att hitta dold skrift.';
+ document.getElementById('uvStatus').textContent=!on?'Ta tag i lampan och dra den över handlingarna. Ljuset tänds automatiskt.':over?'Du ser fluorescerande skrift på protokollet: ARKIV 2102.':'UV-ljuset sveper över papperen. Leta efter en dold anteckning på förundersökningsprotokollet.';
 }
-toggleUV.addEventListener('click',()=>{
- const on=!puzzleDesk.classList.contains('uv-on');
- puzzleDesk.classList.toggle('uv-on',on);
- toggleUV.setAttribute('aria-pressed',String(on));
- toggleUV.textContent=on?'☼ Släck UV-lampan':'☼ Tänd UV-lampan';
- updateUVReveal();
-});
 lamp.addEventListener('pointerdown',e=>{
  if(e.button!==0&&e.pointerType==='mouse')return;
- e.preventDefault();
- const desk=puzzleDesk.getBoundingClientRect(),l=lamp.getBoundingClientRect();
- lampDrag={x:e.clientX,y:e.clientY,left:lamp.offsetLeft,top:lamp.offsetTop,desk};
+ e.preventDefault();puzzleDesk.classList.add('lamp-on');lamp.setAttribute('aria-pressed','true');
+ const d=puzzleDesk.getBoundingClientRect(),l=lamp.getBoundingClientRect();
+ lampDrag={x:e.clientX,y:e.clientY,left:l.left-d.left,top:l.top-d.top};
  lamp.style.right='auto';lamp.style.bottom='auto';lamp.style.left=lampDrag.left+'px';lamp.style.top=lampDrag.top+'px';
- lamp.setPointerCapture(e.pointerId);
+ lamp.setPointerCapture(e.pointerId);updateUVReveal();
 });
 lamp.addEventListener('pointermove',e=>{
  if(!lampDrag)return;
- const dx=e.clientX-lampDrag.x,dy=e.clientY-lampDrag.y;
- const maxX=puzzleDesk.clientWidth-lamp.offsetWidth,maxY=puzzleDesk.clientHeight-lamp.offsetHeight;
- lamp.style.left=Math.max(-20,Math.min(maxX,lampDrag.left+dx))+'px';
- lamp.style.top=Math.max(-20,Math.min(maxY,lampDrag.top+dy))+'px';
- updateUVReveal();
+ const dx=e.clientX-lampDrag.x,dy=e.clientY-lampDrag.y,maxX=puzzleDesk.clientWidth-lamp.offsetWidth,maxY=puzzleDesk.clientHeight-lamp.offsetHeight;
+ lamp.style.left=Math.max(-20,Math.min(maxX,lampDrag.left+dx))+'px';lamp.style.top=Math.max(-20,Math.min(maxY,lampDrag.top+dy))+'px';updateUVReveal();
 });
-function stopLampDrag(){lampDrag=null;updateUVReveal()}
-lamp.addEventListener('pointerup',stopLampDrag);lamp.addEventListener('pointercancel',stopLampDrag);
+function stopLamp(){lampDrag=null;updateUVReveal()}
+lamp.addEventListener('pointerup',stopLamp);lamp.addEventListener('pointercancel',stopLamp);
+lamp.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();puzzleDesk.classList.toggle('lamp-on');lamp.setAttribute('aria-pressed',String(puzzleDesk.classList.contains('lamp-on')));updateUVReveal()}});
 document.getElementById('resetUV').addEventListener('click',()=>{
- puzzleDesk.classList.remove('uv-on','over-report');toggleUV.setAttribute('aria-pressed','false');toggleUV.textContent='☼ Tänd UV-lampan';
- lamp.style.left='';lamp.style.top='';lamp.style.right='7%';lamp.style.bottom='7%';
- document.getElementById('puzzleCode').value='';document.getElementById('puzzleUnlockStatus').textContent='';
- document.getElementById('nextCase').disabled=true;updateUVReveal();
+ puzzleDesk.classList.remove('lamp-on','over-report');lamp.setAttribute('aria-pressed','false');lamp.style.left='';lamp.style.top='';lamp.style.right='7%';lamp.style.bottom='7%';
+ document.getElementById('puzzleCode').value='';document.getElementById('puzzleUnlockStatus').textContent='';document.getElementById('nextCase').disabled=true;updateUVReveal();
 });
 document.getElementById('submitPuzzleCode').addEventListener('click',()=>{
  const status=document.getElementById('puzzleUnlockStatus');
- if(!puzzleDesk.classList.contains('uv-on')||!puzzleDesk.classList.contains('over-report')){status.textContent='Tänd UV-lampan och lys direkt på förundersökningsprotokollet först.';return}
+ if(!puzzleDesk.classList.contains('lamp-on')||!puzzleDesk.classList.contains('over-report')){status.textContent='Låt lampan tändas och rikta ljuskäglan direkt mot förundersökningsprotokollet först.';return}
  if(document.getElementById('puzzleCode').value.trim()==='2102'){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
- else{status.textContent='Fel kod. Läs den dolda texten som framträder under UV-ljuset.'}
+ else{status.textContent='Fel kod. Läs den fluorescerande texten i ljuskäglan.'}
 });
 document.getElementById('puzzleCode').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('submitPuzzleCode').click()});
-
 const paperLightbox=document.getElementById('paperLightbox');
 function closeExpandedPaper(){const expanded=document.querySelector('.paper.expanded');if(!expanded)return;expanded.classList.remove('expanded');if(expanded.classList.contains('mini-protocol'))expanded.classList.remove('protocol-paper');expanded.setAttribute('aria-expanded','false');paperLightbox.classList.remove('open');paperLightbox.setAttribute('aria-hidden','true');document.body.classList.remove('paper-open');expanded.focus()}
 document.getElementById('printDocument').addEventListener('click',e=>{e.stopPropagation();const expanded=document.querySelector('.paper.expanded');if(expanded&&expanded.classList.contains('protocol-paper'))window.print()});
