@@ -35,9 +35,9 @@ h1{font-family:Cinzel,Georgia,serif;font-size:clamp(39px,7vw,76px);font-weight:5
 .door:nth-child(even){background:linear-gradient(145deg,#4b8055 0%,#285438 48%,#183c2a 100%);border-color:#a9c58b}
 footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;font-size:9px;letter-spacing:.22em;z-index:1}
 /* Utredningsbord */
-.modal{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:#050b08d9;backdrop-filter:blur(7px)}
-.modal.open{display:flex}
-.board-shell{width:min(1200px,100%);max-height:94vh;overflow:auto;border:1px solid #bda36b;border-radius:8px;box-shadow:0 25px 90px #000b;background:#19251b}
+.modal{position:relative;z-index:1;display:block;width:100%;min-height:100vh;padding:24px 16px;background:transparent;backdrop-filter:none}
+.modal.open{display:block}
+.board-shell{width:min(1200px,100%);min-height:calc(100vh - 48px);margin:0 auto;overflow:visible;border:1px solid #bda36b;border-radius:8px;box-shadow:0 25px 90px #000b;background:#19251b}
 .board-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 20px;background:#101b14;border-bottom:1px solid #bda36b}
 .board-kicker{font-size:9px;letter-spacing:.24em;color:#d9bd7a;text-transform:uppercase}
 .board-title{font-family:Cinzel,Georgia,serif;font-size:clamp(18px,3vw,28px);letter-spacing:.07em;margin-top:5px}
@@ -79,11 +79,11 @@ body.case-page header,body.case-page main,body.case-page footer{display:none}\n.
 <main><div class="calendar" id="calendar" aria-label="Adventskalender med 24 luckor"></div></main>
 <footer>ETT FIKTIVT KRIMINALFALL &nbsp;·&nbsp; VARGMYREN &nbsp;·&nbsp; DECEMBER 2014</footer>
 
-<div class="modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="boardTitle">
+<main class="modal" id="caseModal" aria-labelledby="boardTitle">
  <section class="board-shell">
   <div class="board-top">
    <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h2 class="board-title" id="boardTitle">Utredningstavla</h2></div>
-   <button class="close" id="closeModal" aria-label="Stäng utredningstavlan">×</button>
+   <button class="close" id="closeModal" aria-label="Tillbaka till kalendern" title="Tillbaka till kalendern">←</button>
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div></div>
