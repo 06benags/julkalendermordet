@@ -211,34 +211,36 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 .puzzle-window{width:min(1120px,100%);background:#17271e;border:1px solid #b69b60;box-shadow:0 24px 80px #000b;padding:clamp(12px,2vw,24px);color:#fff7e5}
 .puzzle-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .puzzle-head h2{font:500 clamp(20px,3vw,30px) Cinzel,Georgia,serif}
-.puzzle-close,.puzzle-controls button,.puzzle-unlock button{border:1px solid #bca66e;background:#20382a;color:#fff7e5;padding:9px 12px;cursor:pointer}
+.puzzle-close,.uv-controls button,.puzzle-unlock button{border:1px solid #bca66e;background:#20382a;color:#fff7e5;padding:9px 12px;cursor:pointer}
 .puzzle-instructions{font-size:13px;line-height:1.6;color:#e4d9bd;margin:12px 0}
-.puzzle-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #3c291d;background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);box-shadow:inset 0 0 22px #2a160e99}
-.puzzle-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:#f4edda;color:#25251e;border:1px solid #b7aa8c;box-shadow:2px 6px 15px #21150dcc;transform-origin:center center;touch-action:none;user-select:none;cursor:grab;overflow:hidden;font-family:"Special Elite",Georgia,serif}
-.puzzle-sheet:active{cursor:grabbing}
+.uv-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #3c291d;background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);box-shadow:inset 0 0 22px #2a160e99}
+.uv-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:#f4edda;color:#25251e;border:1px solid #b7aa8c;box-shadow:2px 6px 15px #21150dcc;transform-origin:center center;user-select:none;overflow:hidden;font-family:"Special Elite",Georgia,serif}
 .sheet-agency{font:700 9px Arial,sans-serif;border-bottom:2px solid #25323b;padding-bottom:8px;margin-bottom:8px}
 .sheet-agency span{float:right;font-weight:400}
 .sheet-type{font:700 8px Arial,sans-serif;letter-spacing:.04em;margin:10px 0}
 .sheet-line{font:8px Arial,sans-serif;border-bottom:1px solid #c8bda3;padding:5px 0}
-.puzzle-sheet h3{font:700 13px Georgia,serif;margin:12px 0 8px}
-.puzzle-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
+.uv-sheet h3{font:700 13px Georgia,serif;margin:12px 0 8px}
+.uv-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
 .sheet-foot{position:absolute;bottom:12px;left:12px;right:12px;border-top:1px solid #b7aa8c;padding-top:6px;font:7px Arial,sans-serif;color:#75694f}
-.report-code{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font:700 24px "Courier New",monospace;letter-spacing:.18em;color:#25251e;background:#f4edda;padding:3px 6px;white-space:nowrap}
-.puzzle-mask{background:#e8dfc9;z-index:5}
-.mask-caption{text-align:center;font:700 10px Arial,sans-serif;line-height:1.5;color:#5c503a}
-.mask-caption span{font-weight:400;font-size:8px}
-.mask-hole{position:absolute;left:30%;top:43%;width:40%;height:13%;background:transparent;border:1px dashed #8b7b58;box-shadow:0 0 0 1200px #e8dfc9;pointer-events:none}
-.mask-bottom{position:absolute;left:8%;right:8%;bottom:12px;border-top:1px solid #b5a783;padding-top:6px;text-align:center;font:7px Arial,sans-serif;color:#75694f}
-.puzzle-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0}
-.puzzle-controls span{font-size:12px;color:#e7ca86}
-.puzzle-controls div{display:flex;gap:6px;flex-wrap:wrap}
-.puzzle-controls button{font-size:11px}
+.uv-secret{position:absolute;left:50%;top:65%;transform:translate(-50%,-50%) rotate(-2deg);padding:5px 8px;border:2px solid #4c32b6;color:#4c32b6;background:#f4edda;font:800 19px "Courier New",monospace;letter-spacing:.13em;white-space:nowrap;opacity:0;text-shadow:0 0 8px #8c7bff;transition:opacity .25s,box-shadow .25s}
+.uv-desk.uv-on .uv-secret{opacity:1;box-shadow:0 0 12px #8c7bff,0 0 28px #8c7bff}
+.uv-beam{display:none;position:absolute;z-index:8;left:8%;top:5%;width:45%;height:80%;pointer-events:none;background:radial-gradient(ellipse at 35% 48%,#a99aff55 0%,#8268ff22 36%,transparent 70%);mix-blend-mode:screen}
+.uv-desk.uv-on .uv-beam{display:block;animation:uvPulse 2s ease-in-out infinite alternate}
+@keyframes uvPulse{from{opacity:.65}to{opacity:1}}
+.uv-lamp{position:absolute;z-index:12;right:7%;bottom:7%;width:170px;height:65px;transform:rotate(-28deg);filter:drop-shadow(2px 7px 5px #0008);pointer-events:none}
+.lamp-handle{position:absolute;left:0;top:20px;width:105px;height:31px;border-radius:8px 3px 3px 8px;background:linear-gradient(#333a45,#15191e 55%,#080a0d);border:1px solid #727b83}
+.lamp-head{position:absolute;right:0;top:7px;width:73px;height:57px;border-radius:12px 24px 24px 12px;background:linear-gradient(135deg,#606b77,#202833 55%,#10151b);border:2px solid #8d96a0;display:flex;align-items:center;justify-content:flex-end;padding-right:7px}
+.lamp-head span{width:18px;height:37px;border-radius:50%;background:#c6baff;box-shadow:0 0 8px #a89aff}
+.lamp-label{position:absolute;left:29px;top:28px;color:#e7ca86;font:700 9px Arial,sans-serif;letter-spacing:.12em}
+.uv-desk.uv-on .lamp-head span{background:#b4a5ff;box-shadow:0 0 10px #a89aff,0 0 25px #8268ff}
+.uv-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0}
+.uv-controls span{font-size:12px;color:#e7ca86;flex:1 1 260px}
+.uv-controls button{font-size:11px}
 .puzzle-unlock{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #53634f;padding-top:12px}
 .puzzle-unlock label{font-size:12px}
 .puzzle-unlock input{width:90px;background:#fff7e5;color:#17271e;border:1px solid #bca66e;padding:10px;font:700 16px monospace;letter-spacing:.15em}
 .puzzle-unlock span{flex-basis:100%;font-size:12px;color:#e7ca86}
-@media(max-width:700px){.puzzle-desk{height:56vh;min-height:390px}.puzzle-sheet{width:56%;min-width:0;height:65%;padding:9px 7px}.puzzle-sheet h3{font-size:11px}.puzzle-sheet p{font-size:8px}.sheet-agency{font-size:7px}.sheet-line{font-size:7px}.report-code{font-size:18px}.puzzle-controls{align-items:flex-start}.puzzle-unlock{align-items:flex-start}}
-
+@media(max-width:700px){.uv-desk{height:56vh;min-height:390px}.uv-sheet{width:56%;min-width:0;height:65%;padding:9px 7px}.uv-sheet h3{font-size:11px}.uv-sheet p{font-size:8px}.sheet-agency{font-size:7px}.sheet-line{font-size:7px}.uv-secret{font-size:15px}.uv-lamp{transform:rotate(-28deg) scale(.72);transform-origin:bottom right;right:4%;bottom:4%}.uv-controls{align-items:flex-start}}
 </style>
 </head>
 <body class="case-page">
@@ -267,19 +269,18 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
 <div class="puzzle-overlay" id="paperPuzzle" aria-hidden="true">
  <section class="puzzle-window" role="dialog" aria-modal="true" aria-labelledby="puzzleTitle">
   <div class="puzzle-head"><div><div class="board-kicker">Utredningsakt 01 · Bilagegranskning</div><h2 id="puzzleTitle">Utredarnotering</h2></div><button type="button" id="closePuzzle" class="puzzle-close">Stäng ✕</button></div>
-  <p class="puzzle-instructions">Tre papper. Lägg mallen ovanpå rätt handling. Dra papperen för att flytta dem och använd vridknapparna för att justera vinkeln. Koden ska gå att läsa genom hålet.</p>
-  <div class="puzzle-desk" id="puzzleDesk">
-   <article class="puzzle-sheet puzzle-report" data-sheet="report" style="left:4%;top:8%;transform:rotate(-4deg)">
-    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">INLEDANDE TJÄNSTEANTECKNING</div><div class="sheet-line">Diarienummer: 2102-K12345-14</div><div class="sheet-line">Datum: 2014-12-24</div><h3>Förundersökningsprotokoll</h3><p>Benjamin Afsharazad anträffades livlös i sin säng. Dödsorsaken är ännu inte fastställd. Uppgifterna ska kompletteras med teknisk undersökning och förhör.</p><div class="report-code">2102</div><div class="sheet-foot">BILAGA A · SIDA 1</div>
+  <p class="puzzle-instructions">Två handlingar och en UV-lampa har lagts fram för granskning. Tänd lampan och för ljuset över förundersökningsprotokollet. Osynlig skrift kan framträda under UV-ljus.</p>
+  <div class="uv-desk" id="puzzleDesk">
+   <article class="uv-sheet uv-report" data-sheet="report" style="left:5%;top:7%;transform:rotate(-2deg)">
+    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">INLEDANDE TJÄNSTEANTECKNING</div><div class="sheet-line">Diarienummer: 2102-K12345-14</div><div class="sheet-line">Datum: 2014-12-24</div><h3>Förundersökningsprotokoll</h3><p>Benjamin Afsharazad anträffades livlös i sin säng. Dödsorsaken är ännu inte fastställd. Uppgifterna ska kompletteras med teknisk undersökning och förhör.</p><div class="uv-secret" id="uvSecret">ARKIV 2102</div><div class="sheet-foot">BILAGA A · SIDA 1</div>
    </article>
-   <article class="puzzle-sheet puzzle-call" data-sheet="call" style="left:35%;top:18%;transform:rotate(5deg)">
+   <article class="uv-sheet uv-call" data-sheet="call" style="left:38%;top:17%;transform:rotate(3deg)">
     <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA 1 · 112-SAMTAL</div><h3>Utskrift av inkommet larmsamtal</h3><div class="sheet-line">Mottaget: 08.32 · 24 december 2014</div><p><b>SOS:</b> SOS Alarm, vad har inträffat?</p><p><b>WILMER:</b> Min kompis vaknar inte. Det är vitt skum runt munnen på honom!</p><p><b>SOS:</b> Vilken adress är du på?</p><p><b>WILMER:</b> Skogsvägen 17, i Vargmyren.</p><div class="sheet-foot">BILAGA B · SAMMANSTÄLLD DIALOG</div>
    </article>
-   <article class="puzzle-sheet puzzle-mask" data-sheet="mask" style="left:57%;top:47%;transform:rotate(8deg)">
-    <div class="mask-caption">GRANSKNINGSMALL<br><span>Rikta in med dokumentets kant</span></div><div class="mask-hole" aria-hidden="true"></div><div class="mask-bottom">ARKIVKONTROLL · VARGMYREN</div>
-   </article>
+   <div class="uv-beam" id="uvBeam" aria-hidden="true"></div>
+   <div class="uv-lamp" aria-label="UV-lampa"><span class="lamp-handle"></span><span class="lamp-head"><span></span></span><span class="lamp-label">UV</span></div>
   </div>
-  <div class="puzzle-controls"><span id="puzzleStatus" aria-live="polite">Tips: mallen ska läggas över förundersökningsprotokollet.</span><div><button type="button" data-rotate="-5">↶ Vrid −5°</button><button type="button" data-rotate="5">Vrid +5° ↷</button><button type="button" id="resetPuzzle">Återställ papper</button></div></div>
+  <div class="uv-controls"><span id="uvStatus" aria-live="polite">UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.</span><button type="button" id="toggleUV" aria-pressed="false">☼ Tänd UV-lampan</button><button type="button" id="resetUV">Återställ</button></div>
   <div class="puzzle-unlock"><label for="puzzleCode">Kod till bevisarkivet</label><input id="puzzleCode" inputmode="numeric" maxlength="4" placeholder="••••"><button type="button" id="submitPuzzleCode">Lås upp</button><span id="puzzleUnlockStatus" aria-live="polite"></span></div>
  </section>
 </div>
@@ -330,7 +331,7 @@ function renderCase(index){
  document.getElementById('caseNote').textContent=c.note;
  document.getElementById('caseCounter').textContent='AKT '+String(index+1).padStart(2,'0')+' AV 24';
  document.getElementById('prevCase').disabled=index===0;
- document.getElementById('nextCase').disabled=index===23;
+ document.getElementById('nextCase').disabled=index===23||index===0;
  document.getElementById('nextCase').textContent='Nästa akt →';
  grid.innerHTML='';
  c.docs.forEach((d,i)=>{
@@ -360,54 +361,30 @@ document.getElementById('prevCase').addEventListener('click',()=>{const n=Number
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
 
 const puzzle=document.getElementById('paperPuzzle'), puzzleDesk=document.getElementById('puzzleDesk');
-let activeSheet=null,selectedSheet=null,dragInfo=null,rotations={report:-4,call:5,mask:8};
 function openPuzzle(){puzzle.classList.add('open');puzzle.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
 function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria-hidden','true');document.body.style.overflow='';}
 document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
 puzzle.addEventListener('click',e=>{if(e.target===puzzle)closePuzzle()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle();if((e.key==='r'||e.key==='R')&&activeSheet&&puzzle.classList.contains('open'))rotateSheet(activeSheet,5)});
-function setRotation(sheet,deg){rotations[sheet.dataset.sheet]=deg;sheet.style.transform='rotate('+deg+'deg)';checkAlignment()}
-function rotateSheet(sheet,delta){setRotation(sheet,(rotations[sheet.dataset.sheet]||0)+delta)}
-function checkAlignment(){
- const mask=document.querySelector('[data-sheet="mask"]'),report=document.querySelector('[data-sheet="report"]');
- if(!mask||!report)return;
- const a=mask.getBoundingClientRect(),b=report.getBoundingClientRect();
- const near=Math.abs((a.left+a.right-b.left-b.right)/2)<18&&Math.abs((a.top+a.bottom-b.top-b.bottom)/2)<18;
- const angle=Math.abs(((rotations.mask-rotations.report+180)%360+360)%360-180)<4;
- document.getElementById('puzzleStatus').textContent=near&&angle?'Mallen ligger rätt. Läs av siffrorna genom fönstret.':'Flytta och vrid papperen. Jämför kanter och rikta in fönstret.';
- mask.classList.toggle('aligned',near&&angle);
-}
-document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{
- sheet.addEventListener('pointerdown',e=>{
-  if(e.button!==0&&e.pointerType==='mouse')return;
-  e.preventDefault();activeSheet=sheet;selectedSheet=sheet;
-  const desk=puzzleDesk.getBoundingClientRect();
-  dragInfo={x:e.clientX,y:e.clientY,left:parseFloat(sheet.style.left)||0,top:parseFloat(sheet.style.top)||0,desk};
-  sheet.style.zIndex=String(10+Date.now()%1000);sheet.setPointerCapture(e.pointerId);
- });
- sheet.addEventListener('pointermove',e=>{
-  if(!dragInfo||activeSheet!==sheet)return;
-  const dx=(e.clientX-dragInfo.x)/dragInfo.desk.width*100,dy=(e.clientY-dragInfo.y)/dragInfo.desk.height*100;
-  sheet.style.left=Math.max(-10,Math.min(80,dragInfo.left+dx))+'%';sheet.style.top=Math.max(-5,Math.min(60,dragInfo.top+dy))+'%';checkAlignment();
- });
- const end=()=>{if(activeSheet===sheet){dragInfo=null;activeSheet=null;checkAlignment()}};
- sheet.addEventListener('pointerup',end);sheet.addEventListener('pointercancel',end);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle()});
+const toggleUV=document.getElementById('toggleUV');
+toggleUV.addEventListener('click',()=>{
+ const on=!puzzleDesk.classList.contains('uv-on');
+ puzzleDesk.classList.toggle('uv-on',on);
+ toggleUV.setAttribute('aria-pressed',String(on));
+ toggleUV.textContent=on?'☼ Släck UV-lampan':'☼ Tänd UV-lampan';
+ document.getElementById('uvStatus').textContent=on?'Under UV-ljuset framträder dold skrift på förundersökningsprotokollet: ARKIV 2102.':'UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.';
 });
-document.querySelectorAll('[data-rotate]').forEach(button=>button.addEventListener('click',()=>{
- const sheet=selectedSheet||document.querySelector('[data-sheet="mask"]');rotateSheet(sheet,Number(button.dataset.rotate));selectedSheet=sheet;
-}));
-document.getElementById('resetPuzzle').addEventListener('click',()=>{
- const positions={report:['4%','8%',-4],call:['35%','18%',5],mask:['57%','47%',8]};
- document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{const p=positions[sheet.dataset.sheet];sheet.style.left=p[0];sheet.style.top=p[1];setRotation(sheet,p[2]);sheet.style.zIndex=sheet.dataset.sheet==='mask'?'5':'1'});
+document.getElementById('resetUV').addEventListener('click',()=>{
+ puzzleDesk.classList.remove('uv-on');toggleUV.setAttribute('aria-pressed','false');toggleUV.textContent='☼ Tänd UV-lampan';
+ document.getElementById('uvStatus').textContent='UV-lampan är släckt. Rikta ljuset mot förundersökningsprotokollet.';
  document.getElementById('puzzleCode').value='';document.getElementById('puzzleUnlockStatus').textContent='';
+ document.getElementById('nextCase').disabled=true;
 });
 document.getElementById('submitPuzzleCode').addEventListener('click',()=>{
- const status=document.getElementById('puzzleUnlockStatus'),mask=document.querySelector('[data-sheet="mask"]'),report=document.querySelector('[data-sheet="report"]');
- const a=mask.getBoundingClientRect(),b=report.getBoundingClientRect();
- const near=Math.abs((a.left+a.right-b.left-b.right)/2)<18&&Math.abs((a.top+a.bottom-b.top-b.bottom)/2)<18;
- if(document.getElementById('puzzleCode').value.trim()==='2102'&&near){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
- else if(!near){status.textContent='Placera mallen över förundersökningen först.'}
- else{status.textContent='Fel kod. Läs av siffrorna genom hålet.'}
+ const status=document.getElementById('puzzleUnlockStatus');
+ if(!puzzleDesk.classList.contains('uv-on')){status.textContent='Tänd UV-lampan och undersök förundersökningsprotokollet först.';return}
+ if(document.getElementById('puzzleCode').value.trim()==='2102'){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
+ else{status.textContent='Fel kod. Läs den dolda texten på förundersökningsprotokollet.'}
 });
 document.getElementById('puzzleCode').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('submitPuzzleCode').click()});
 
