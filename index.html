@@ -32,12 +32,9 @@ h1{font-family:Cinzel,Georgia,serif;font-size:clamp(39px,7vw,76px);font-weight:5
 .number{font-family:Cinzel,Georgia,serif;font-size:clamp(27px,3.6vw,45px);font-weight:500;color:#fff8e9;text-shadow:0 2px 6px #0005;z-index:1}
 .door-label{position:absolute;bottom:13px;z-index:1;font-family:Cinzel,Georgia,serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#fff4d9;opacity:.9}
 .door:hover{transform:translateY(-5px);box-shadow:0 18px 32px #0007,0 0 20px #e7ca8640,inset 0 1px 0 #fff7;filter:brightness(1.08)}
-.door:nth-child(6n+1){background:linear-gradient(145deg,#c64b4b 0%,#9a2934 48%,#6e1c29 100%);border-color:#e2a5a0}
-.door:nth-child(6n+2){background:linear-gradient(145deg,#4b8055 0%,#285438 48%,#183c2a 100%);border-color:#a9c58b}
-.door:nth-child(6n+3){background:linear-gradient(145deg,#d4b56c 0%,#ad8139 48%,#76521e 100%);border-color:#f0d99c}
-.door:nth-child(6n+4){background:linear-gradient(145deg,#4b7791 0%,#2a536c 48%,#19374d 100%);border-color:#a9c8d7}
-.door:nth-child(6n+5){background:linear-gradient(145deg,#a76b91 0%,#774465 48%,#4d2a4b 100%);border-color:#dbb2cd}
-.door:nth-child(6n){background:linear-gradient(145deg,#d28b4f 0%,#ad5d31 48%,#75381f 100%);border-color:#edc095}
+/* En klassisk julpalett: endast växlande röda och gröna luckor. */
+.door:nth-child(odd){background:linear-gradient(145deg,#c94b4b 0%,#a52d35 48%,#741d29 100%);border-color:#e2a5a0}
+.door:nth-child(even){background:linear-gradient(145deg,#4b8055 0%,#285438 48%,#183c2a 100%);border-color:#a9c58b}
 footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;font-size:9px;letter-spacing:.22em;z-index:1}
 @media(max-width:720px){header{padding-top:42px}.calendar{grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.door-label{font-size:7px;letter-spacing:.14em}}
 @media(max-width:420px){.calendar{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.door{aspect-ratio:.94}.number{font-size:32px}.door .corner,.door .star{top:10px}}
