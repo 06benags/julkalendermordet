@@ -3,61 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Förundersökningsprotokoll – Julmordet</title>
+<title>Förundersökning – Julmordet</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#e9ebea;color:#202421;font:13px/1.6 Arial,Helvetica,sans-serif}
-.toolbar{max-width:850px;margin:22px auto 12px;padding:0 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#505953;font-size:12px}
-.toolbar a{color:#284b39;text-decoration:none}.toolbar a:hover{text-decoration:underline}
-button{font:inherit;cursor:pointer;border:1px solid #aeb5b0;background:#fff;padding:8px 12px;color:#29342d;border-radius:2px}
-.sheet{width:min(794px,calc(100% - 28px));min-height:1050px;margin:0 auto 36px;background:#fff;padding:54px 62px;box-shadow:0 2px 12px #00000012}
-.header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:16px;border-bottom:2px solid #26372d}
-.agency{font-size:13px;font-weight:700;letter-spacing:.04em}.office{font-size:11px;color:#5e6861;margin-top:4px}
-.doc-kind{text-align:right;font-size:10px;color:#5e6861}.doc-kind strong{display:block;color:#202421;font-size:12px;margin-top:3px}
-.ref{display:grid;grid-template-columns:1fr 1fr 1fr;margin:0 0 28px;border-bottom:1px solid #cbd0cc}
-.ref div{padding:12px 10px 12px 0}.ref div+div{border-left:1px solid #d5d9d6;padding-left:12px}
-.label{display:block;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#657069;margin-bottom:3px}
-.value{font-size:11px;font-weight:600}
-h1{font-size:21px;line-height:1.25;font-weight:600;margin:0 0 8px}
-.intro{font-size:12px;color:#4d5650;margin:0 0 24px}
-.info{display:grid;grid-template-columns:1fr 1fr;border:1px solid #cbd0cc;margin-bottom:25px}
-.cell{padding:10px 12px;border-bottom:1px solid #d9ddda;min-width:0}.cell:nth-child(odd){border-right:1px solid #d9ddda}.cell.wide{grid-column:1/-1;border-right:0}.cell:last-child{border-bottom:0}
-.cell .value{font-weight:500;line-height:1.5}
-section{margin-top:22px}h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin:0 0 9px;padding-bottom:6px;border-bottom:1px solid #cbd0cc}
-p{font-size:11px;line-height:1.75;margin:0 0 10px}
-.timeline{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;font-size:11px;line-height:1.6}
-.timeline time{font-weight:700;color:#34483b}
-.signatures{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:44px}
-.signature{border-top:1px solid #9fa8a2;padding-top:7px;font-size:10px;color:#59635c}.signature strong{display:block;color:#202421;font-weight:500;margin-top:3px}
-.footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #cbd0cc;padding-top:9px;margin-top:36px;font-size:8px;color:#68716b;letter-spacing:.04em}
-@media(max-width:600px){.sheet{padding:28px 22px;min-height:0}.header{gap:10px}.agency{font-size:12px}.doc-kind{font-size:9px}.ref{grid-template-columns:1fr}.ref div,.ref div+div{padding:8px 0;border-left:0;border-bottom:1px solid #e0e3e1}.ref div:last-child{border-bottom:0}.info{grid-template-columns:1fr}.cell:nth-child(odd){border-right:0}.cell.wide{grid-column:auto}.timeline{grid-template-columns:90px 1fr}.footer{margin-top:28px}.toolbar{margin-top:12px}}
-@media print{@page{size:A4;margin:0}body{background:#fff}.toolbar{display:none}.sheet{width:210mm;min-height:297mm;margin:0;padding:18mm 18mm 16mm;box-shadow:none}.footer{margin-top:30px}}
+*{box-sizing:border-box}body{margin:0;background:#eceeed;color:#242724;font:14px/1.65 Arial,Helvetica,sans-serif}
+.back{max-width:760px;margin:20px auto;padding:0 18px;font-size:12px}.back a{color:#34513f;text-decoration:none}
+.sheet{width:min(760px,calc(100% - 28px));margin:0 auto 40px;background:white;padding:48px 54px;box-shadow:0 2px 12px #0000000d}
+h1{font-size:19px;font-weight:600;margin:0 0 24px;padding-bottom:12px;border-bottom:1px solid #999}
+p{font-size:13px;line-height:1.8;margin:0 0 16px;white-space:pre-line}
+@media(max-width:600px){.sheet{padding:28px 22px}h1{font-size:17px}p{font-size:12px}}
+@media print{@page{size:A4;margin:0}body{background:white}.back{display:none}.sheet{width:210mm;min-height:297mm;margin:0;padding:22mm 24mm;box-shadow:none}}
 </style>
 </head>
 <body>
-<div class="toolbar"><a href="utredning.html?dag=1">← Tillbaka till utredningen</a><button type="button" onclick="window.print()">Skriv ut / spara som PDF</button></div>
+<div class="back"><a href="utredning.html?dag=1">← Tillbaka till utredningen</a></div>
 <main class="sheet">
-<div class="header"><div><div class="agency">POLISMYNDIGHETEN</div><div class="office">Polisdistrikt Vargmyren</div></div><div class="doc-kind">UTREDNINGSHANDLING<strong>Förundersökningsprotokoll</strong></div></div>
-<div class="ref"><div><span class="label">Ärendenummer</span><span class="value">2102-K12345-14</span></div><div><span class="label">Upprättat</span><span class="value">24 december 2014</span></div><div><span class="label">Status</span><span class="value">Inledande uppgifter</span></div></div>
-<h1>Misstänkt dödsfall – Benjamin Afsharazad</h1>
-<p class="intro">Inledande sammanställning. Uppgifterna är preliminära och ska bedömas tillsammans med senare förhör och teknisk undersökning.</p>
-<div class="info">
-<div class="cell"><span class="label">Avliden</span><span class="value">Benjamin Afsharazad</span></div>
-<div class="cell"><span class="label">Ärende</span><span class="value">Misstanke om mord</span></div>
-<div class="cell wide"><span class="label">Plats</span><span class="value">Skogsvägen 17, 827 94 Vargmyren</span></div>
-<div class="cell wide"><span class="label">Personer i stugan</span><span class="value">Wilmer Fries, Benji Holm, Moa Brandin, Embla Ingelman-Sundberg och Tindra Popp</span></div>
-</div>
-<section><h2>1. Sammanfattning</h2><p>Den 24 december 2014 kl. 08.32 inkom larmsamtal från Wilmer Fries. Han uppgav att han funnit Benjamin Afsharazad livlös i en säng i stugan. Skum syntes runt den avlidnes mun. Ambulans anlände kl. 09.11 och polis kl. 09.37.</p><p>Sällskapet hade tillbringat kvällen den 23 december i stugan. Middag serverades omkring kl. 19.00. Senare såg de Bingolottos Uppesittarkväll och gick till sängs vid olika tidpunkter, ungefär mellan kl. 01.00 och 02.00.</p></section>
-<section><h2>2. Inledande tidsuppgifter</h2><div class="timeline">
-<time>23 dec, 19.00</time><div>Sällskapet äter middag i stugan.</div>
-<time>Sen kväll</time><div>Sällskapet ser Bingolottos Uppesittarkväll och umgås därefter.</div>
-<time>01.00–02.00</time><div>De närvarande går till sängs vid olika tidpunkter.</div>
-<time>03.00–05.00</time><div>Wilmer uppger att han vaknade av ett ljud och såg en oidentifierad silhuett lämna Benjamins rum. Tindra uppger att hon hörde ett ensamt ljud ungefär under samma tidsintervall.</div>
-<time>08.32</time><div>SOS Alarm tar emot samtal från Wilmer Fries.</div>
-<time>09.11 / 09.37</time><div>Ambulans respektive polis anländer till adressen.</div>
-</div></section>
-<section><h2>3. Fortsatt handläggning</h2><p>Platsen och relevanta föremål ska dokumenteras och undersökas. Samtliga personer som vistades i stugan ska höras. Dödsorsak och fullständigt händelseförlopp var vid upprättandet inte slutligt fastställda. Senare tekniska fynd och förhör redovisas i separata handlingar.</p></section>
-<div class="signatures"><div class="signature">Upprättat av<strong>Utredningsgruppen · Vargmyren</strong></div><div class="signature">Dokument<strong>Inledande sammanställning · Sida 1</strong></div></div>
-<div class="footer"><span>2102-K12345-14 · VARGMYREN</span><span>FIKTIVT UTREDNINGSMATERIAL</span><span>SIDA 1</span></div>
+<h1>Förundersökning</h1>
+<p>Den 24 december 2014 kl. 08.32 inkom larmsamtal från Wilmer Fries, som uppgav att han hittat Benjamin Afsharazad livlös i en säng i stugan. Skum syntes runt den avlidnes mun. Ambulans anlände kl. 09.11 och polis kl. 09.37.
+
+Enligt de inledande uppgifterna hade sällskapet tillbringat kvällen den 23 december i stugan. Middagen serverades omkring kl. 19.00. Senare såg de Bingolottos Uppesittarkväll och gick till sängs vid olika tidpunkter, ungefär mellan kl. 01.00 och 02.00.
+
+Wilmer Fries har uppgett att han någon gång mellan kl. 03.00 och 05.00 vaknade av ett ljud och såg en oidentifierad silhuett lämna Benjamins rum. Det var för mörkt för att identifiera personen. Tindra Popp har uppgett att hon hörde ett ensamt ljud ungefär under samma tidsintervall.
+
+Dödsorsaken och det fullständiga händelseförloppet var vid upprättandet inte slutligt fastställda. Platsen och relevanta föremål ska undersökas, och samtliga närvarande ska höras. Senare tekniska fynd och förhör redovisas i separata akter.</p>
 </main>
 </body>
 </html>
