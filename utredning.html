@@ -96,6 +96,9 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 
 /* Specialdokumenten ska se ut exakt som vanliga .paper-kort på korkväggen. */
 .mini-protocol:not(.expanded){height:auto;min-height:210px;padding:18px 15px 16px;background:#f4edda;color:#25251e;box-shadow:2px 5px 10px #21150d88;overflow:hidden}
+.mini-protocol:not(.expanded){transition:transform .22s ease,box-shadow .22s ease}
+.mini-protocol:not(.expanded):hover{transform:translateY(-4px) rotate(var(--tilt,0deg));box-shadow:3px 10px 24px #0009}
+.mini-protocol:not(.expanded):focus-visible{outline:3px solid #e7ca86;outline-offset:4px}
 .mini-protocol:not(.expanded):before{display:block}
 .mini-protocol:not(.expanded) .protocol-document{display:none}
 .mini-protocol:not(.expanded) .mini-paper-content{display:contents}
