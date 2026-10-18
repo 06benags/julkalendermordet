@@ -52,29 +52,6 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .paper{cursor:zoom-in;transition:transform .22s ease,box-shadow .22s ease}
 .paper:hover{box-shadow:3px 10px 24px #0009}
 .paper:focus-visible{outline:3px solid #e7ca86;outline-offset:4px}
-/* Interaktivt pappersmallspussel i första akten */
-.archive-target{position:relative}
-.hidden-archive-code{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 clamp(20px,3vw,30px) "Courier New",monospace;letter-spacing:.16em;color:#f4edda;background:#f4edda;padding:2px 6px;z-index:4;white-space:nowrap}
-.archive-target.archive-revealed .hidden-archive-code{color:#171a1c;background:#fff;box-shadow:0 0 0 2px #fff}
-.template-paper{touch-action:none;cursor:grab;user-select:none;position:relative;min-height:210px;background:#e8dfc9;border:1px solid #b5a783;overflow:hidden;box-shadow:2px 5px 10px #21150d88}
-.template-paper:active{cursor:grabbing}
-.template-instruction{position:absolute;left:10%;right:10%;top:10%;font:10px/1.4 "Special Elite",Georgia,serif;text-align:center;color:#514936;text-transform:uppercase;letter-spacing:.04em}
-.template-mark{position:absolute;left:50%;top:31%;transform:translateX(-50%);font:700 10px Arial,sans-serif;color:#75694f;letter-spacing:.12em}
-.template-window-top,.template-window-bottom,.template-window-left,.template-window-right{position:absolute;background:#e8dfc9;border:1px solid #b5a783}
-.template-window-top{left:0;top:0;width:100%;height:42.5%}
-.template-window-bottom{left:0;top:57.5%;width:100%;height:42.5%}
-.template-window-left{left:0;top:42.5%;width:26%;height:15%}
-.template-window-right{left:74%;top:42.5%;width:26%;height:15%}
-.template-paper.placed{z-index:8;box-shadow:3px 8px 18px #0008;cursor:grab}
-.template-paper.placed .template-instruction{top:8%;font-size:clamp(8px,1vw,11px)}
-.template-paper.placed .template-mark{top:29%}
-.archive-unlock{margin:0 17px 17px;padding:18px 20px;border:1px solid #bca66e;background:#172a20;color:#fff7e5;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.archive-unlock[hidden]{display:none}
-.archive-unlock p{flex:1;min-width:190px;font-size:13px;line-height:1.5}
-.archive-unlock input{width:115px;padding:10px;border:1px solid #bca66e;background:#fff7e5;color:#172a20;font:700 16px monospace;letter-spacing:.12em}
-.archive-unlock button{padding:10px 14px;border:1px solid #e7ca86;background:#e7ca86;color:#172a20;font-weight:700;cursor:pointer}
-.archive-unlock .unlock-status{flex-basis:100%;font-size:13px;color:#e7ca86}
-@media(max-width:700px){.template-paper{min-height:180px}.archive-unlock{margin:0 8px 12px;padding:14px}.archive-unlock input{width:100px}}
 
 .paper.expanded{position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%) rotate(0deg)!important;width:min(794px,calc(100vw - 28px));aspect-ratio:210/297;height:auto;max-height:calc(100dvh - 36px);overflow:auto;padding:clamp(24px,5vw,64px);box-shadow:0 25px 100px #000c;border:1px solid #d8d2c4;cursor:zoom-out;font-size:clamp(14px,1.7vw,18px)}
 .paper.expanded h3{font-size:clamp(22px,3vw,34px);margin:16px 0}
@@ -226,6 +203,42 @@ body.paper-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.door{transition:none}.snowflake{animation-duration:45s}}
 body.case-page header,body.case-page footer,body.case-page > main:first-of-type{display:none}
 .modal{display:flex;background:#050b08eF}
+
+.note-puzzle-trigger{cursor:pointer}
+.note-puzzle-trigger .note-open-hint{display:block;margin-top:16px;padding-top:8px;border-top:1px solid #b6a98b;font:10px Inter,Arial,sans-serif;color:#75694f}
+.puzzle-overlay{display:none;position:fixed;inset:0;z-index:300;background:#07110de8;backdrop-filter:blur(5px);padding:clamp(8px,2vw,24px);overflow:auto}
+.puzzle-overlay.open{display:flex;align-items:center;justify-content:center}
+.puzzle-window{width:min(1120px,100%);background:#17271e;border:1px solid #b69b60;box-shadow:0 24px 80px #000b;padding:clamp(12px,2vw,24px);color:#fff7e5}
+.puzzle-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.puzzle-head h2{font:500 clamp(20px,3vw,30px) Cinzel,Georgia,serif}
+.puzzle-close,.puzzle-controls button,.puzzle-unlock button{border:1px solid #bca66e;background:#20382a;color:#fff7e5;padding:9px 12px;cursor:pointer}
+.puzzle-instructions{font-size:13px;line-height:1.6;color:#e4d9bd;margin:12px 0}
+.puzzle-desk{height:min(62vh,590px);min-height:410px;position:relative;overflow:hidden;border:8px solid #3c291d;background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);box-shadow:inset 0 0 22px #2a160e99}
+.puzzle-sheet{position:absolute;width:31%;height:77%;min-width:220px;max-width:340px;padding:14px 12px;background:#f4edda;color:#25251e;border:1px solid #b7aa8c;box-shadow:2px 6px 15px #21150dcc;transform-origin:center center;touch-action:none;user-select:none;cursor:grab;overflow:hidden;font-family:"Special Elite",Georgia,serif}
+.puzzle-sheet:active{cursor:grabbing}
+.sheet-agency{font:700 9px Arial,sans-serif;border-bottom:2px solid #25323b;padding-bottom:8px;margin-bottom:8px}
+.sheet-agency span{float:right;font-weight:400}
+.sheet-type{font:700 8px Arial,sans-serif;letter-spacing:.04em;margin:10px 0}
+.sheet-line{font:8px Arial,sans-serif;border-bottom:1px solid #c8bda3;padding:5px 0}
+.puzzle-sheet h3{font:700 13px Georgia,serif;margin:12px 0 8px}
+.puzzle-sheet p{font:10px/1.5 "Special Elite",Georgia,serif;margin:8px 0}
+.sheet-foot{position:absolute;bottom:12px;left:12px;right:12px;border-top:1px solid #b7aa8c;padding-top:6px;font:7px Arial,sans-serif;color:#75694f}
+.report-code{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font:700 24px "Courier New",monospace;letter-spacing:.18em;color:#25251e;background:#f4edda;padding:3px 6px;white-space:nowrap}
+.puzzle-mask{background:#e8dfc9;z-index:5}
+.mask-caption{text-align:center;font:700 10px Arial,sans-serif;line-height:1.5;color:#5c503a}
+.mask-caption span{font-weight:400;font-size:8px}
+.mask-hole{position:absolute;left:30%;top:43%;width:40%;height:13%;background:transparent;border:1px dashed #8b7b58;box-shadow:0 0 0 1200px #e8dfc9;pointer-events:none}
+.mask-bottom{position:absolute;left:8%;right:8%;bottom:12px;border-top:1px solid #b5a783;padding-top:6px;text-align:center;font:7px Arial,sans-serif;color:#75694f}
+.puzzle-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0}
+.puzzle-controls span{font-size:12px;color:#e7ca86}
+.puzzle-controls div{display:flex;gap:6px;flex-wrap:wrap}
+.puzzle-controls button{font-size:11px}
+.puzzle-unlock{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid #53634f;padding-top:12px}
+.puzzle-unlock label{font-size:12px}
+.puzzle-unlock input{width:90px;background:#fff7e5;color:#17271e;border:1px solid #bca66e;padding:10px;font:700 16px monospace;letter-spacing:.15em}
+.puzzle-unlock span{flex-basis:100%;font-size:12px;color:#e7ca86}
+@media(max-width:700px){.puzzle-desk{height:56vh;min-height:390px}.puzzle-sheet{width:56%;min-width:0;height:65%;padding:9px 7px}.puzzle-sheet h3{font-size:11px}.puzzle-sheet p{font-size:8px}.sheet-agency{font-size:7px}.sheet-line{font-size:7px}.report-code{font-size:18px}.puzzle-controls{align-items:flex-start}.puzzle-unlock{align-items:flex-start}}
+
 </style>
 </head>
 <body class="case-page">
@@ -247,10 +260,29 @@ body.case-page header,body.case-page footer,body.case-page > main:first-of-type{
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div>
   <div class="paper-lightbox" id="paperLightbox" aria-hidden="true"><button type="button" class="print-document" id="printDocument" aria-label="Skriv ut dokumentet">Skriv ut A4 ↗</button><div class="paper-lightbox-hint">Klicka på pappret eller tryck Esc för att stänga</div></div></div>
-  <div class="archive-unlock" id="archiveUnlock" hidden><p><strong>Digitalt bevisarkiv</strong><br>För in koden som framträder i fönstret för att låsa upp nästa akt.</p><input id="archiveCode" inputmode="numeric" maxlength="4" aria-label="Fyrsiffrig arkivkod" placeholder="••••"><button type="button" id="unlockArchive">Lås upp arkivet</button><div class="unlock-status" id="unlockStatus" aria-live="polite"></div></div>
-<div class="case-note" id="caseNote"></div>
+  <div class="case-note" id="caseNote"></div>
   <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div><div class="back-to-calendar"><a href="index.html">← Tillbaka till luckorna</a></div>
  </section>
+
+<div class="puzzle-overlay" id="paperPuzzle" aria-hidden="true">
+ <section class="puzzle-window" role="dialog" aria-modal="true" aria-labelledby="puzzleTitle">
+  <div class="puzzle-head"><div><div class="board-kicker">Utredningsakt 01 · Bilagegranskning</div><h2 id="puzzleTitle">Utredarnotering</h2></div><button type="button" id="closePuzzle" class="puzzle-close">Stäng ✕</button></div>
+  <p class="puzzle-instructions">Tre papper. Lägg mallen ovanpå rätt handling. Dra papperen för att flytta dem och använd vridknapparna för att justera vinkeln. Koden ska gå att läsa genom hålet.</p>
+  <div class="puzzle-desk" id="puzzleDesk">
+   <article class="puzzle-sheet puzzle-report" data-sheet="report" style="left:4%;top:8%;transform:rotate(-4deg)">
+    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">INLEDANDE TJÄNSTEANTECKNING</div><div class="sheet-line">Diarienummer: 2102-K12345-14</div><div class="sheet-line">Datum: 2014-12-24</div><h3>Förundersökningsprotokoll</h3><p>Benjamin Afsharazad anträffades livlös i sin säng. Dödsorsaken är ännu inte fastställd. Uppgifterna ska kompletteras med teknisk undersökning och förhör.</p><div class="report-code">2102</div><div class="sheet-foot">BILAGA A · SIDA 1</div>
+   </article>
+   <article class="puzzle-sheet puzzle-call" data-sheet="call" style="left:35%;top:18%;transform:rotate(5deg)">
+    <div class="sheet-agency">POLISMYNDIGHETEN <span>VARGMYREN</span></div><div class="sheet-type">BILAGA 1 · 112-SAMTAL</div><h3>Utskrift av inkommet larmsamtal</h3><div class="sheet-line">Mottaget: 08.32 · 24 december 2014</div><p><b>SOS:</b> SOS Alarm, vad har inträffat?</p><p><b>WILMER:</b> Min kompis vaknar inte. Det är vitt skum runt munnen på honom!</p><p><b>SOS:</b> Vilken adress är du på?</p><p><b>WILMER:</b> Skogsvägen 17, i Vargmyren.</p><div class="sheet-foot">BILAGA B · SAMMANSTÄLLD DIALOG</div>
+   </article>
+   <article class="puzzle-sheet puzzle-mask" data-sheet="mask" style="left:57%;top:47%;transform:rotate(8deg)">
+    <div class="mask-caption">GRANSKNINGSMALL<br><span>Rikta in med dokumentets kant</span></div><div class="mask-hole" aria-hidden="true"></div><div class="mask-bottom">ARKIVKONTROLL · VARGMYREN</div>
+   </article>
+  </div>
+  <div class="puzzle-controls"><span id="puzzleStatus" aria-live="polite">Tips: mallen ska läggas över förundersökningsprotokollet.</span><div><button type="button" data-rotate="-5">↶ Vrid −5°</button><button type="button" data-rotate="5">Vrid +5° ↷</button><button type="button" id="resetPuzzle">Återställ papper</button></div></div>
+  <div class="puzzle-unlock"><label for="puzzleCode">Kod till bevisarkivet</label><input id="puzzleCode" inputmode="numeric" maxlength="4" placeholder="••••"><button type="button" id="submitPuzzleCode">Lås upp</button><span id="puzzleUnlockStatus" aria-live="polite"></span></div>
+ </section>
+</div>
 </main>
 
 <script>
@@ -259,7 +291,7 @@ const symbols=['❄','✦','❅','·'];
 for(let i=0;i<75;i++){const f=document.createElement('span');f.className='snowflake';f.textContent=symbols[Math.floor(Math.random()*symbols.length)];f.style.setProperty('--left',Math.random()*100+'%');f.style.setProperty('--size',(7+Math.random()*15)+'px');f.style.setProperty('--opacity',(0.22+Math.random()*0.65).toFixed(2));f.style.setProperty('--duration',(13+Math.random()*24)+'s');f.style.setProperty('--delay',(-Math.random()*35)+'s');f.style.setProperty('--drift1',(Math.random()*80-40)+'px');f.style.setProperty('--drift2',(Math.random()*120-60)+'px');f.style.setProperty('--drift3',(Math.random()*100-50)+'px');snow.appendChild(f)}
 
 const cases=[
-{title:"Förundersökningen",intro:"Förundersökningsprotokollet sammanfattar larmet, de första åtgärderna och vad som ännu är oklart i utredningen.",docs:[["FÖRUNDERSÖKNINGSPROTOKOLL","Protokolltext återges i dokumentet.","AKT · 01"],["FÖRSTA OBSERVATIONER","Wilmer Fries larmsamtal och de första uppgifterna om fyndet av Benjamin.","112-SAMTAL"],["PLATSFOTO","Stugan i Vargmyren. Brottsplatsen spärrades av efter att larmet kommit in.","FOTO"],["UTREDARNOTERING","Två av handlingarna i akten beskriver samma ärende. En separat pappersmall med ett utskuret fönster har påträffats bland materialet. Placera mallen över rätt handling och rikta in den efter dokumentets markering. Läs endast det som framträder genom öppningen.","ÖPPET"],["PAPPERSMALL","Dra pappersmallen över förundersökningsprotokollet och justera den tills fönstret visar koden.","MALL · DRA MIG"]],note:"Fråga att hålla i minnet: vilka uppgifter är observationer och vilka är bara antaganden?"},
+{title:"Förundersökningen",intro:"Förundersökningsprotokollet sammanfattar larmet, de första åtgärderna och vad som ännu är oklart i utredningen.",docs:[["FÖRUNDERSÖKNINGSPROTOKOLL","Protokolltext återges i dokumentet.","AKT · 01"],["FÖRSTA OBSERVATIONER","Wilmer Fries larmsamtal och de första uppgifterna om fyndet av Benjamin.","112-SAMTAL"],["PLATSFOTO","Stugan i Vargmyren. Brottsplatsen spärrades av efter att larmet kommit in.","FOTO"],["UTREDARNOTERING","Två av handlingarna i akten beskriver samma ärende. En separat pappersmall med ett utskuret fönster har påträffats bland materialet. Placera mallen över rätt handling och rikta in den efter dokumentets markering. Läs endast det som framträder genom öppningen.","ÖPPET"]],note:"Fråga att hålla i minnet: vilka uppgifter är observationer och vilka är bara antaganden?"},
 {title:"Tidslinjen",intro:"De första tiderna måste stämma ihop innan någon slutsats dras.",docs:[["112-SAMTAL","Samtalet från Wilmer togs emot kl. 08:32 den 24 december 2014.","TID 08:32"],["AMBULANS","Ambulansen anlände kl. 09:11.","TID 09:11"],["POLIS","Polisen anlände kl. 09:37.","TID 09:37"],["FRÅGA","Dödstiden kan inte bestämmas enbart från larmtiderna. Vad vet vittnena om natten?","TIDSLINJE"]],note:"Skriv gärna en egen tidslinje. Skilj på när något hände och när det upptäcktes."},
 {title:"Sista kvällen",intro:"Sällskapet åt middag, såg Bingolotto och gjorde sig sedan i ordning för natten.",docs:[["MIDDAG · 19:00","Köttbullar och potatis serverades. Benjamin tog upp pengar som han lagt ut för Benji och Moas Maltaresa.","VITTNESUPPGIFT"],["BRÅKET","Benjamin konfronterade Benji om pengarna. Moa fick då veta mer om skulden.","KONFLIKT"],["TV-KVÄLL","Sällskapet såg Bingolottos Uppesittarkväll till omkring 00:15.","TIDSLINJE"],["LÄGGDAGS","Folk började gå och lägga sig omkring 01:00. Alla trodde att de andra sov runt 02:00.","UPPGIFT"]],note:"Ett gräl kan ge motiv, men motiv är inte samma sak som bevis för ett mord."},
 {title:"De fem i stugan",intro:"Alla fem överlevande behöver granskas utifrån vad de själva faktiskt berättar.",docs:[["BENJI HOLM","Delade sovrum med Moa. Säger att han gick och lade sig och sov hela natten.","VITTNESMÅL"],["MOA BRANDIN","Delade sovrum med Benji. Säger att hon låg med mobilen en kort stund och sedan somnade omkring 02:00.","VITTNESMÅL"],["WILMER FRIES","Delade sovrum med Benjamin. Hittade honom på morgonen.","VITTNESMÅL"],["EMBLA & TINDRA","Delade sovrum. Embla minns inget särskilt; Tindra minns ett ensamt ljud någon gång mellan 03 och 05.","VITTNESMÅL"]],note:"Jämför vad varje person själv såg eller hörde med sådant de bara antar."},
@@ -291,35 +323,6 @@ function photoSVG(kind){
  return '<svg viewBox="0 0 220 145" role="img" aria-label="Illustration av ett glöggeglas som bevisföremål"><rect width="220" height="145" fill="#d6d0bd"/><rect x="9" y="9" width="202" height="127" fill="#e8e1ce" stroke="#aaa18c"/><path d="M77 27 L143 27 L134 91 Q110 111 86 91Z" fill="#faf5e8" stroke="#6f6b5c" stroke-width="2"/><path d="M82 49 L138 49 L133 83 Q110 98 88 83Z" fill="#9b2f25" opacity=".92"/><path d="M110 91 L110 117 M89 119 L131 119" stroke="#6f6b5c" stroke-width="3" fill="none"/><circle cx="96" cy="45" r="3" fill="#9b6d37"/><circle cx="121" cy="42" r="3" fill="#9b6d37"/><path d="M35 24 L35 121 M29 30 L41 30 M29 117 L41 117" stroke="#817967" stroke-width="1"/><text x="153" y="119" fill="#6c2c27" font-size="8" font-family="monospace" transform="rotate(-8 153 119)">BEVIS 08</text><text x="110" y="132" fill="#49463c" font-size="7" text-anchor="middle" font-family="monospace">GLÖGGEGLAS · LABBANALYS</text></svg>';
 }
 
-function setupTemplateDrag(template){
- let dragging=false, offsetX=0, offsetY=0, startRect=null, startParent=null, startNext=null;
- template.addEventListener('pointerdown',e=>{
-  if(e.button!==0&&e.pointerType==='mouse')return;
-  e.preventDefault();e.stopPropagation();dragging=true;
-  startRect=template.getBoundingClientRect();startParent=template.parentElement;startNext=template.nextSibling;
-  offsetX=e.clientX-startRect.left;offsetY=e.clientY-startRect.top;
-  template.style.position='fixed';template.style.left=startRect.left+'px';template.style.top=startRect.top+'px';template.style.width=startRect.width+'px';template.style.height=startRect.height+'px';template.style.margin='0';template.style.zIndex='120';template.classList.add('dragging');
-  template.setPointerCapture(e.pointerId);
- });
- template.addEventListener('pointermove',e=>{if(dragging){template.style.left=(e.clientX-offsetX)+'px';template.style.top=(e.clientY-offsetY)+'px'}});
- const endDrag=e=>{
-  if(!dragging)return;dragging=false;
-  const x=e.clientX,y=e.clientY,target=document.querySelector('.archive-target'),rect=target?.getBoundingClientRect();
-  if(target&&rect&&x>=rect.left&&x<=rect.right&&y>=rect.top&&y<=rect.bottom){
-   const board=document.querySelector('.corkboard'),br=board.getBoundingClientRect(),width=rect.width*.9,height=rect.height*.9;
-   template.classList.add('placed');template.classList.remove('dragging');
-   template.style.position='absolute';template.style.left=(rect.left-br.left+(rect.width-width)/2)+'px';template.style.top=(rect.top-br.top+(rect.height-height)/2)+'px';template.style.width=width+'px';template.style.height=height+'px';template.style.margin='0';template.style.zIndex='20';
-   board.appendChild(template);target.classList.add('archive-revealed');
-   document.getElementById('archiveUnlock').hidden=false;
-   document.getElementById('unlockStatus').textContent='Mallen ligger rätt. Fyra siffror syns genom fönstret.';
-   document.getElementById('archiveCode').focus({preventScroll:true});
-  }else{
-   template.classList.remove('dragging');template.removeAttribute('style');
-   if(startParent){if(startNext&&startNext.parentNode===startParent)startParent.insertBefore(template,startNext);else startParent.appendChild(template)}
-  }
- };
- template.addEventListener('pointerup',endDrag);template.addEventListener('pointercancel',endDrag);
-}
 function renderCase(index){
  const c=cases[index], grid=document.getElementById('evidenceGrid');
  document.getElementById('boardTitle').textContent=c.title;
@@ -327,29 +330,23 @@ function renderCase(index){
  document.getElementById('caseNote').textContent=c.note;
  document.getElementById('caseCounter').textContent='AKT '+String(index+1).padStart(2,'0')+' AV 24';
  document.getElementById('prevCase').disabled=index===0;
- document.getElementById('nextCase').disabled=index===23||index===0;
+ document.getElementById('nextCase').disabled=index===23;
  document.getElementById('nextCase').textContent='Nästa akt →';
- document.getElementById('archiveUnlock').hidden=true;
- document.getElementById('archiveCode').value='';
- document.getElementById('unlockStatus').textContent='';
  grid.innerHTML='';
  c.docs.forEach((d,i)=>{
   const article=document.createElement('article');article.className='paper';article.style.setProperty('--tilt',((i%2===0?-1:1)*(1+(index+i)%3*.35))+'deg');
-  if(index===0&&d[0]==="PAPPERSMALL"){article.classList.add('template-paper');article.setAttribute('aria-label','Dra pappersmallen över ett dokument');article.innerHTML='<div class="template-instruction">Arkivmall · placera över rätt handling</div><div class="template-mark">RIKTPUNKT</div><div class="template-window-top"></div><div class="template-window-bottom"></div><div class="template-window-left"></div><div class="template-window-right"></div>'}
+  if(index===0&&d[0]==="UTREDARNOTERING"){article.classList.add('note-puzzle-trigger');article.innerHTML='<span class="pin"></span><div class="paper-meta">ÖPPET · BILAGA</div><h3>UTREDARNOTERING</h3><p>Tre handlingar hör ihop. En av dem döljer mer än den visar. Klicka för att granska materialet på skrivbordet.</p><span class="note-open-hint">Öppna undersökningen ↗</span>'}
   else if(index===0&&i===0){article.classList.add('mini-protocol','archive-target');article.innerHTML='<div class="protocol-document"><div class="protocol-agency"><div class="protocol-agency-name">Polismyndigheten</div><div class="protocol-region">VARGMYREN</div><div class="protocol-document-type">POLISÄRENDE</div></div><div class="protocol-register"><div><span>Polisens diarienummer</span><strong>2102-K12345-14</strong></div><div><span>Datum för upprättande</span><strong>2014-12-24</strong></div><div><span>Ärende</span><strong>Misstänkt dödsfall</strong></div><div><span>Händelseplats</span><strong>Skogsvägen 17, Vargmyren</strong></div></div><div class="protocol-confidential">TJÄNSTEANTECKNING · INLEDANDE ÅTGÄRDER</div><h3>INLEDANDE TJÄNSTEANTECKNING</h3><div class="protocol-subtitle">Dödsfall avseende Benjamin Afsharazad · 24 december 2014</div><div class="protocol-section-heading">ANMÄLAN</div><p>Den 24 december 2014 kl. 08.32 inkom larmsamtal från Wilmer Fries. Fries uppgav att han anträffat Benjamin Afsharazad livlös i dennes säng. Enligt uppgifterna vid anmälningstillfället hade Afsharazad skum kring munnen.</p><div class="protocol-section-heading">ÅTGÄRDER PÅ PLATS</div><p>Ambulans anlände till platsen kl. 09.11. Polis anlände kl. 09.37 till fritidsbostaden på Skogsvägen 17 i Vargmyren. Med hänsyn till omständigheterna kring dödsfallet vidtogs inledande utredningsåtgärder och misstanke om brott uppkom.</p><div class="protocol-section-heading">INLEDANDE OMSTÄNDIGHETER</div><p>Vid ankomsten vistades fem personer i stugan tillsammans med den avlidne: Wilmer Fries, Benji Holm, Moa Brandin, Embla Ingelman-Sundberg och Tindra Popp. Sällskapet hade enligt uppgift anlänt under kvällen den 23 december och befunnit sig i stugan under natten.</p><p>Omständigheterna kring dödsfallet, däribland uppgifterna om skum kring munnen, föranleder fortsatt utredning. Platsen ska dokumenteras och relevanta spår säkras. De personer som vistats i stugan ska höras om sina iakttagelser och förehavanden under kvällen och natten.</p><div class="protocol-section-heading">FORTSATT HANDLÄGGNING</div><p>Dödsfallet utreds som misstänkt brott. Dödsorsak och händelseförlopp är vid denna antecknings upprättande inte slutligt klarlagda. Uppgifterna ska kompletteras med resultat från teknisk undersökning, rättsmedicinsk utredning och förhör.</p><div class="protocol-signoff"><div><span>Anteckning upprättad</span><strong>Polismyndigheten · Vargmyren</strong><span>24 december 2014</span></div><div class="protocol-page-number">Sida 1</div></div><div class="protocol-footer">2102-K12345-14 <span>·</span> Tjänsteanteckning · Vargmyren</div></div>'}
   else if(index===0&&i===1){article.classList.add('mini-protocol','call-paper');article.innerHTML='<div class="protocol-document"><div class="protocol-agency"><div class="protocol-agency-name">Polismyndigheten</div><div class="protocol-region">VARGMYREN</div><div class="protocol-document-type">BILAGA 1</div></div><div class="protocol-register"><div><span>Polisens diarienummer</span><strong>2102-K12345-14</strong></div><div><span>Datum</span><strong>2014-12-24</strong></div><div><span>Mottaget</span><strong>Kl. 08.32</strong></div><div><span>Inringare</span><strong>Wilmer Fries</strong></div><div><span>Plats</span><strong>Skogsvägen 17, Vargmyren</strong></div><div><span>Ärende</span><strong>Misstänkt dödsfall</strong></div></div><div class="protocol-confidential">INKOMMET LARMSAMTAL · SAMMANSTÄLLD DIALOGUTSKRIFT</div><h3>UTSKRIFT AV INKOMMET 112-SAMTAL</h3><div class="protocol-subtitle">Larm avseende Benjamin Afsharazad · 24 december 2014</div><div class="protocol-section-heading">DIALOG</div><p><strong>SOS:</strong> SOS Alarm, vad har inträffat?</p><p><strong>WILMER:</strong> Ja … hej! Min kompis vaknar inte. Det är vitt skum runt munnen på honom!</p><p><strong>SOS:</strong> Okej. Jag hjälper dig. Vilken adress är du på?</p><p><strong>WILMER:</strong> Skogsvägen 17, i Vargmyren. Det är en stuga.</p><p><strong>SOS:</strong> Skogsvägen 17 i Vargmyren, har jag uppfattat rätt?</p><p><strong>WILMER:</strong> Ja. Snälla, ni måste komma!</p><p><strong>SOS:</strong> Hjälp är larmad. Är du hos honom nu?</p><p><strong>WILMER:</strong> Ja, jag står bredvid sängen. Jag har försökt väcka honom, men han reagerar inte.</p><p><strong>SOS:</strong> Kan du se om bröstkorgen rör sig? Verkar han andas normalt?</p><p><strong>WILMER:</strong> Jag vet inte … jag kan inte se att han andas. Han ligger helt stilla.</p><p><strong>SOS:</strong> Okej, Wilmer. Stanna kvar hos mig i telefonen. Jag ska ställa några frågor och guida dig tills hjälpen kommer. Vad heter du i efternamn?</p><p><strong>WILMER:</strong> Fries. Wilmer Fries.</p><p><strong>SOS:</strong> Tack. Vad heter din kompis?</p><p><strong>WILMER:</strong> Benjamin Afsharazad.</p><p><strong>SOS:</strong> Hur gammal är han, ungefär?</p><p><strong>WILMER:</strong> Vi är ungefär lika gamla … han är i tjugoårsåldern.</p><p><strong>SOS:</strong> Vet du när du såg honom vaken senast?</p><p><strong>WILMER:</strong> I natt. Vi tittade på Bingolotto och gick och lade oss efteråt. Jag vaknade nyss och då låg han så här.</p><p><strong>SOS:</strong> Förstår du. Är det någon mer i stugan som kan hjälpa dig?</p><p><strong>WILMER:</strong> Ja, de andra är här. Jag ska hämta dem?</p><p><strong>SOS:</strong> Om någon är precis i närheten kan du ropa på dem, men lämna inte telefonen. Följ mina instruktioner så tar vi en sak i taget.</p><div class="protocol-section-heading">ANTECKNING</div><p>Dialogen har sammanställts i läsbar form. Pauser och eventuella bakgrundsljud återges inte.</p><div class="protocol-signoff"><div><span>Bilaga till utredningsakt</span><strong>Polismyndigheten · Vargmyren</strong><span>24 december 2014</span></div><div class="protocol-page-number">Bilaga 1</div></div><div class="protocol-footer">2102-K12345-14 <span>·</span> 112-samtal · Vargmyren</div></div>'}
   else if(index===0&&i===2){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('cabin')+'</div><p class="photo-caption"><b>FOTO A</b> · Stugan vid Skogsvägen 17, Vargmyren. Illustrativ rekonstruktion.</p>'}
   else if(index===7&&i===1){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('glass')+'</div><p class="photo-caption"><b>FOTO B</b> · Glöggeglas. Illustrativ bevisbild.</p>'}
   else{article.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(i===0?'<span class="stamp">UTREDNING</span>':'')}
   if(index===0&&(i===0||i===1)){const preview=document.createElement('div');preview.className='mini-paper-content';preview.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>';article.appendChild(preview)}
-  if(index===0&&i===0){const hiddenCode=document.createElement('span');hiddenCode.className='hidden-archive-code';hiddenCode.textContent='2102';hiddenCode.setAttribute('aria-label','Dold arkivkod');article.appendChild(hiddenCode)}
-  if(article.classList.contains('template-paper')){article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-expanded','false');}
-  else {article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-label','Öppna dokumentet '+d[0]);article.setAttribute('aria-expanded','false');
+  article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-label','Öppna dokumentet '+d[0]);article.setAttribute('aria-expanded','false');
   const openPaper=()=>{if(article.classList.contains('expanded'))return;if(article.classList.contains('mini-protocol'))article.classList.add('protocol-paper');const lightbox=document.getElementById('paperLightbox');lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');article.classList.add('expanded');article.setAttribute('aria-expanded','true');document.body.classList.add('paper-open');article.focus()};
-  article.addEventListener('click',openPaper);
+  if(index===0&&d[0]==='UTREDARNOTERING'){article.addEventListener('click',()=>openPuzzle());article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPuzzle()}})}
+  else article.addEventListener('click',openPaper);
   article.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPaper()}});
-  }
-  if(article.classList.contains('template-paper')) setupTemplateDrag(article);
   grid.appendChild(article);
  });
 }
@@ -361,13 +358,58 @@ for(let day=1;day<=24;day++){const door=document.createElement('button');door.ty
 
 document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)window.location.href='utredning.html?dag='+(n-1)});
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
-document.getElementById('unlockArchive').addEventListener('click',()=>{
- const code=document.getElementById('archiveCode').value.trim(),status=document.getElementById('unlockStatus');
- if(!document.querySelector('.archive-target.archive-revealed')){status.textContent='Placera först pappersmallen över rätt dokument.';return}
- if(code==='2102'){status.textContent='Åtkomst beviljad. Nästa utredningsakt är upplåst.';document.getElementById('nextCase').disabled=false}
- else{status.textContent='Åtkomst nekad. Kontrollera siffrorna i fönstret.'}
+
+const puzzle=document.getElementById('paperPuzzle'), puzzleDesk=document.getElementById('puzzleDesk');
+let activeSheet=null,dragInfo=null,rotations={report:-4,call:5,mask:8};
+function openPuzzle(){puzzle.classList.add('open');puzzle.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
+puzzle.addEventListener('click',e=>{if(e.target===puzzle)closePuzzle()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&puzzle.classList.contains('open'))closePuzzle();if((e.key==='r'||e.key==='R')&&activeSheet&&puzzle.classList.contains('open'))rotateSheet(activeSheet,5)});
+function setRotation(sheet,deg){rotations[sheet.dataset.sheet]=deg;sheet.style.transform='rotate('+deg+'deg)';checkAlignment()}
+function rotateSheet(sheet,delta){setRotation(sheet,(rotations[sheet.dataset.sheet]||0)+delta)}
+function checkAlignment(){
+ const mask=document.querySelector('[data-sheet="mask"]'),report=document.querySelector('[data-sheet="report"]');
+ if(!mask||!report)return;
+ const a=mask.getBoundingClientRect(),b=report.getBoundingClientRect();
+ const near=Math.abs((a.left+a.right-b.left-b.right)/2)<18&&Math.abs((a.top+a.bottom-b.top-b.bottom)/2)<18;
+ const angle=Math.abs(((rotations.mask-rotations.report+180)%360+360)%360-180)<4;
+ document.getElementById('puzzleStatus').textContent=near&&angle?'Mallen ligger rätt. Läs av siffrorna genom fönstret.':'Flytta och vrid papperen. Jämför kanter och rikta in fönstret.';
+ mask.classList.toggle('aligned',near&&angle);
+}
+document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{
+ sheet.addEventListener('pointerdown',e=>{
+  if(e.button!==0&&e.pointerType==='mouse')return;
+  e.preventDefault();activeSheet=sheet;
+  const desk=puzzleDesk.getBoundingClientRect();
+  dragInfo={x:e.clientX,y:e.clientY,left:parseFloat(sheet.style.left)||0,top:parseFloat(sheet.style.top)||0,desk};
+  sheet.style.zIndex=String(10+Date.now()%1000);sheet.setPointerCapture(e.pointerId);
+ });
+ sheet.addEventListener('pointermove',e=>{
+  if(!dragInfo||activeSheet!==sheet)return;
+  const dx=(e.clientX-dragInfo.x)/dragInfo.desk.width*100,dy=(e.clientY-dragInfo.y)/dragInfo.desk.height*100;
+  sheet.style.left=Math.max(-10,Math.min(80,dragInfo.left+dx))+'%';sheet.style.top=Math.max(-5,Math.min(60,dragInfo.top+dy))+'%';checkAlignment();
+ });
+ const end=()=>{if(activeSheet===sheet){dragInfo=null;activeSheet=null;checkAlignment()}};
+ sheet.addEventListener('pointerup',end);sheet.addEventListener('pointercancel',end);
 });
-document.getElementById('archiveCode').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('unlockArchive').click()});
+document.querySelectorAll('[data-rotate]').forEach(button=>button.addEventListener('click',()=>{
+ const sheet=activeSheet||document.querySelector('[data-sheet="mask"]');rotateSheet(sheet,Number(button.dataset.rotate));activeSheet=sheet;
+}));
+document.getElementById('resetPuzzle').addEventListener('click',()=>{
+ const positions={report:['4%','8%',-4],call:['35%','18%',5],mask:['57%','47%',8]};
+ document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{const p=positions[sheet.dataset.sheet];sheet.style.left=p[0];sheet.style.top=p[1];setRotation(sheet,p[2]);sheet.style.zIndex=sheet.dataset.sheet==='mask'?'5':'1'});
+ document.getElementById('puzzleCode').value='';document.getElementById('puzzleUnlockStatus').textContent='';
+});
+document.getElementById('submitPuzzleCode').addEventListener('click',()=>{
+ const status=document.getElementById('puzzleUnlockStatus'),mask=document.querySelector('[data-sheet="mask"]'),report=document.querySelector('[data-sheet="report"]');
+ const a=mask.getBoundingClientRect(),b=report.getBoundingClientRect();
+ const near=Math.abs((a.left+a.right-b.left-b.right)/2)<18&&Math.abs((a.top+a.bottom-b.top-b.bottom)/2)<18;
+ if(document.getElementById('puzzleCode').value.trim()==='2102'&&near){status.textContent='Rätt kod. Bevisarkivet är upplåst.';document.getElementById('nextCase').disabled=false}
+ else if(!near){status.textContent='Placera mallen över förundersökningen först.'}
+ else{status.textContent='Fel kod. Läs av siffrorna genom hålet.'}
+});
+document.getElementById('puzzleCode').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('submitPuzzleCode').click()});
 
 const paperLightbox=document.getElementById('paperLightbox');
 function closeExpandedPaper(){const expanded=document.querySelector('.paper.expanded');if(!expanded)return;expanded.classList.remove('expanded');if(expanded.classList.contains('mini-protocol'))expanded.classList.remove('protocol-paper');expanded.setAttribute('aria-expanded','false');paperLightbox.classList.remove('open');paperLightbox.setAttribute('aria-hidden','true');document.body.classList.remove('paper-open');expanded.focus()}
