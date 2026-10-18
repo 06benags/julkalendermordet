@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "openai": "^6.16.0"
-  }
-}
