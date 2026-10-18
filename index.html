@@ -7,12 +7,12 @@
 <title>Julmordet – Adventskalender</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#e7ca86;--cream:#fff7e5;--forest:#10271d}
+:root{--gold:#e7ca86;--cream:#fff7e5}
 *{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;color:var(--cream);font-family:Inter,Arial,sans-serif;background:radial-gradient(ellipse at 50% 12%,#365b3b 0%,#203f2d 32%,transparent 68%),radial-gradient(ellipse at 50% 100%,#263d2b 0%,transparent 55%),linear-gradient(145deg,#091810,#142c20 48%,#091810);overflow-x:hidden;position:relative}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#f7e5b2 0.7px,transparent .7px);background-size:23px 23px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#f7e5b2 .7px,transparent .7px);background-size:23px 23px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}
 #snowfall{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:.75}
 .snowflake{position:absolute;top:-10vh;left:var(--left);font-size:var(--size);opacity:var(--opacity);color:#fff;line-height:1;user-select:none;animation:fall var(--duration) var(--delay) linear infinite;text-shadow:0 0 7px #fff9}
 @keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0)}25%{transform:translate3d(var(--drift1),25vh,0) rotate(55deg)}55%{transform:translate3d(var(--drift2),58vh,0) rotate(120deg)}100%{transform:translate3d(var(--drift3),112vh,0) rotate(210deg)}}
@@ -23,19 +23,49 @@ h1{font-family:Cinzel,Georgia,serif;font-size:clamp(39px,7vw,76px);font-weight:5
 .ornament:before,.ornament:after{content:"";height:1px;width:clamp(35px,8vw,85px);background:linear-gradient(90deg,transparent,#c5a564)}
 .ornament:after{transform:scaleX(-1)}
 .calendar{position:relative;width:min(1050px,91%);margin:28px auto 58px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.6vw,18px);z-index:1}
-.door{position:relative;aspect-ratio:.88;border:1px solid #d9bd7a;border-radius:5px;display:flex;align-items:center;justify-content:center;cursor:default;color:var(--cream);box-shadow:0 12px 24px #0005,inset 0 1px 0 #fff7,inset 0 -5px 12px #0002;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;isolation:isolate;overflow:hidden}
+.door{position:relative;aspect-ratio:.88;border:1px solid #d9bd7a;border-radius:5px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--cream);box-shadow:0 12px 24px #0005,inset 0 1px 0 #fff7,inset 0 -5px 12px #0002;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;isolation:isolate;overflow:hidden}
 .door:before{content:"";position:absolute;inset:6px;border:1px solid #f4dfaa8c;border-radius:2px;pointer-events:none}
 .door:after{content:"";position:absolute;inset:0;background:linear-gradient(128deg,#ffffff20 0%,transparent 34%,#0000000a 55%,#0003 100%);z-index:-1}
 .door .corner{position:absolute;top:12px;left:13px;color:#f5dba0;font-size:11px;opacity:.9}
 .door .star{position:absolute;top:12px;right:13px;color:#f5dba0;font-size:11px;opacity:.9}
 .number{font-family:Cinzel,Georgia,serif;font-size:clamp(27px,3.6vw,45px);font-weight:500;color:#fff8e9;text-shadow:0 2px 6px #0005;z-index:1}
 .door-label{position:absolute;bottom:13px;z-index:1;font-family:Cinzel,Georgia,serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#fff4d9;opacity:.9}
-.door:hover{transform:translateY(-5px);box-shadow:0 18px 32px #0007,0 0 20px #e7ca8640,inset 0 1px 0 #fff7;filter:brightness(1.08)}
+.door:hover,.door:focus-visible{transform:translateY(-5px);box-shadow:0 18px 32px #0007,0 0 20px #e7ca8640,inset 0 1px 0 #fff7;filter:brightness(1.08);outline:2px solid #f2dca5;outline-offset:3px}
 .door:nth-child(odd){background:linear-gradient(145deg,#c94b4b 0%,#a52d35 48%,#741d29 100%);border-color:#e2a5a0}
 .door:nth-child(even){background:linear-gradient(145deg,#4b8055 0%,#285438 48%,#183c2a 100%);border-color:#a9c58b}
 footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;font-size:9px;letter-spacing:.22em;z-index:1}
-@media(max-width:720px){header{padding-top:42px}.calendar{grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.door-label{font-size:7px;letter-spacing:.14em}}
-@media(max-width:420px){.calendar{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.door{aspect-ratio:.94}.number{font-size:32px}.door .corner,.door .star{top:10px}}
+/* Utredningsbord */
+.modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:#050b08d9;backdrop-filter:blur(7px)}
+.modal.open{display:flex}
+.board-shell{width:min(1200px,100%);max-height:94vh;overflow:auto;border:1px solid #bda36b;border-radius:8px;box-shadow:0 25px 90px #000b;background:#19251b}
+.board-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 20px;background:#101b14;border-bottom:1px solid #bda36b}
+.board-kicker{font-size:9px;letter-spacing:.24em;color:#d9bd7a;text-transform:uppercase}
+.board-title{font-family:Cinzel,Georgia,serif;font-size:clamp(18px,3vw,28px);letter-spacing:.07em;margin-top:5px}
+.close{border:1px solid #d9bd7a;color:#fff5db;background:#27392a;border-radius:50%;width:40px;height:40px;font-size:24px;cursor:pointer;flex:none}
+.board-intro{padding:15px 20px 0;color:#e5d7b5;font-size:12px;line-height:1.6}
+.corkboard{margin:17px;padding:clamp(14px,3vw,28px);background:radial-gradient(ellipse at 20% 10%,#98704b,#6c4a32 65%,#513721);border:8px solid #3c291d;box-shadow:inset 0 0 22px #2a160e99;border-radius:4px;position:relative}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start}
+.paper{position:relative;min-height:210px;padding:18px 15px 16px;background:#f4edda;color:#25251e;box-shadow:2px 5px 10px #21150d88;transform:rotate(var(--tilt,0deg));font-family:"Special Elite",Georgia,serif}
+.paper:before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:#d7c7a5}
+.paper h3{font-family:Cinzel,Georgia,serif;font-size:13px;line-height:1.4;border-bottom:1px solid #b6a98b;padding:7px 0 9px;margin-bottom:10px}
+.paper p,.paper li{font-size:11px;line-height:1.55}
+.paper ul{padding-left:15px}
+.stamp{display:inline-block;margin-top:12px;border:2px solid #9a3b32;color:#9a3b32;padding:4px 6px;font:10px "Special Elite",monospace;transform:rotate(-5deg)}
+.paper-meta{font:9px Inter,Arial,sans-serif;color:#746c5c;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.photo-paper{padding:10px;background:#f4edda}
+.photo{height:145px;background:#d9d1bb;overflow:hidden;border:1px solid #b6a98b}
+.photo svg{width:100%;height:100%;display:block}
+.photo-caption{font:10px "Special Elite",monospace;color:#37352d;line-height:1.4;padding:9px 3px 3px}
+.pin{position:absolute;top:7px;left:50%;width:12px;height:12px;border-radius:50%;background:#a72f31;box-shadow:1px 2px 3px #0008;border:1px solid #eab3a4;z-index:2}
+.paper:nth-child(3n) .pin{background:#c9a54f;border-color:#f3dda0}
+.paper:nth-child(4n) .pin{background:#315d3c;border-color:#a7c39a}
+.board-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;padding:0 20px 20px;color:#d6c7a2;font-size:11px}
+.nav-buttons{display:flex;gap:8px}
+.nav-buttons button{background:#293c2d;border:1px solid #a9915c;color:#fff2d1;padding:10px 13px;border-radius:3px;cursor:pointer;font:11px Inter,Arial,sans-serif}
+.nav-buttons button:disabled{opacity:.35;cursor:default}
+.case-note{margin:0 17px 18px;padding:13px 16px;border-left:3px solid #d9bd7a;background:#101b14;color:#e8dcc0;font-size:12px;line-height:1.6}
+@media(max-width:850px){.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.paper{min-height:190px}.photo{height:130px}}
+@media(max-width:480px){header{padding-top:42px}.calendar{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.door-label{font-size:6px;letter-spacing:.1em}.number{font-size:28px}.modal{padding:6px}.board-top{padding:12px}.corkboard{margin:10px;padding:10px;border-width:5px}.evidence-grid{gap:10px}.paper{padding:14px 10px;min-height:205px}.paper h3{font-size:11px}.paper p,.paper li{font-size:10px}.photo{height:105px}.photo-caption{font-size:9px}.board-intro{padding:12px 13px 0}.case-note{margin:0 10px 12px}}
 @media(prefers-reduced-motion:reduce){.door{transition:none}.snowflake{animation-duration:45s}}
 </style>
 </head>
@@ -46,35 +76,86 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
   <h1>Julmordet</h1>
   <div class="ornament" aria-hidden="true">✦ ❄ ✦</div>
 </header>
-<main>
-  <div class="calendar" id="calendar" aria-label="Adventskalender med 24 luckor"></div>
-</main>
+<main><div class="calendar" id="calendar" aria-label="Adventskalender med 24 luckor"></div></main>
 <footer>ETT FIKTIVT KRIMINALFALL &nbsp;·&nbsp; VARGMYREN &nbsp;·&nbsp; DECEMBER 2014</footer>
+
+<div class="modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="boardTitle">
+ <section class="board-shell">
+  <div class="board-top">
+   <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h2 class="board-title" id="boardTitle">Utredningstavla</h2></div>
+   <button class="close" id="closeModal" aria-label="Stäng utredningstavlan">×</button>
+  </div>
+  <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
+  <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div></div>
+  <div class="case-note" id="caseNote"></div>
+  <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div>
+ </section>
+</div>
+
 <script>
 const snow=document.getElementById('snowfall');
 const symbols=['❄','✦','❅','·'];
-for(let i=0;i<75;i++){
-  const flake=document.createElement('span');
-  flake.className='snowflake';
-  flake.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-  flake.style.setProperty('--left',Math.random()*100+'%');
-  flake.style.setProperty('--size',(7+Math.random()*15)+'px');
-  flake.style.setProperty('--opacity',(0.22+Math.random()*0.65).toFixed(2));
-  flake.style.setProperty('--duration',(13+Math.random()*24)+'s');
-  flake.style.setProperty('--delay',(-Math.random()*35)+'s');
-  flake.style.setProperty('--drift1',(Math.random()*80-40)+'px');
-  flake.style.setProperty('--drift2',(Math.random()*120-60)+'px');
-  flake.style.setProperty('--drift3',(Math.random()*100-50)+'px');
-  snow.appendChild(flake);
+for(let i=0;i<75;i++){const f=document.createElement('span');f.className='snowflake';f.textContent=symbols[Math.floor(Math.random()*symbols.length)];f.style.setProperty('--left',Math.random()*100+'%');f.style.setProperty('--size',(7+Math.random()*15)+'px');f.style.setProperty('--opacity',(0.22+Math.random()*0.65).toFixed(2));f.style.setProperty('--duration',(13+Math.random()*24)+'s');f.style.setProperty('--delay',(-Math.random()*35)+'s');f.style.setProperty('--drift1',(Math.random()*80-40)+'px');f.style.setProperty('--drift2',(Math.random()*120-60)+'px');f.style.setProperty('--drift3',(Math.random()*100-50)+'px');snow.appendChild(f)}
+
+const cases=[
+{title:"Fallet öppnas",intro:"Benjamin Afsharazad hittas död i stugan på julaftons morgon.",docs:[["FALLRAPPORT","Offret: Benjamin Afsharazad. Plats: Skogsvägen 17, 827 94 Vargmyren. Datum: 24 december 2014.","AKT · 01"],["FÖRSTA OBSERVATION","Wilmer Fries uppger att han hittade Benjamin i sängen på morgonen. Skum syntes runt munnen.","VITTNE"],["PLATSFOTO","Stugan i Vargmyren. Brottsplatsen spärrades av efter att larmet kommit in.","FOTO"],["UTREDARNOTERING","Dödsorsaken är ännu inte fastställd i den första rapporten. Behandla tidiga uppgifter som preliminära.","ÖPPET"]],note:"Fråga att hålla i minnet: vilka uppgifter är observationer och vilka är bara antaganden?"},
+{title:"Tidslinjen",intro:"De första tiderna måste stämma ihop innan någon slutsats dras.",docs:[["112-SAMTAL","Samtalet från Wilmer togs emot kl. 08:32 den 24 december 2014.","TID 08:32"],["AMBULANS","Ambulansen anlände kl. 09:11.","TID 09:11"],["POLIS","Polisen anlände kl. 09:37.","TID 09:37"],["FRÅGA","Dödstiden kan inte bestämmas enbart från larmtiderna. Vad vet vittnena om natten?","TIDSLINJE"]],note:"Skriv gärna en egen tidslinje. Skilj på när något hände och när det upptäcktes."},
+{title:"Sista kvällen",intro:"Sällskapet åt middag, såg Bingolotto och gjorde sig sedan i ordning för natten.",docs:[["MIDDAG · 19:00","Köttbullar och potatis serverades. Benjamin tog upp pengar som han lagt ut för Benji och Moas Maltaresa.","VITTNESUPPGIFT"],["BRÅKET","Benjamin konfronterade Benji om pengarna. Moa fick då veta mer om skulden.","KONFLIKT"],["TV-KVÄLL","Sällskapet såg Bingolottos Uppesittarkväll till omkring 00:15.","TIDSLINJE"],["LÄGGDAGS","Folk började gå och lägga sig omkring 01:00. Alla trodde att de andra sov runt 02:00.","UPPGIFT"]],note:"Ett gräl kan ge motiv, men motiv är inte samma sak som bevis för ett mord."},
+{title:"De fem i stugan",intro:"Alla fem överlevande behöver granskas utifrån vad de själva faktiskt berättar.",docs:[["BENJI HOLM","Delade sovrum med Moa. Säger att han gick och lade sig och sov hela natten.","VITTNESMÅL"],["MOA BRANDIN","Delade sovrum med Benji. Säger att hon låg med mobilen en kort stund och sedan somnade omkring 02:00.","VITTNESMÅL"],["WILMER FRIES","Delade sovrum med Benjamin. Hittade honom på morgonen.","VITTNESMÅL"],["EMBLA & TINDRA","Delade sovrum. Embla minns inget särskilt; Tindra minns ett ensamt ljud någon gång mellan 03 och 05.","VITTNESMÅL"]],note:"Jämför vad varje person själv såg eller hörde med sådant de bara antar."},
+{title:"Rummet på övervåningen",intro:"Wilmer och Benjamin delade sovrum 1. Dörren brukade vara olåst.",docs:[["WILMERS UPPGIFT","Någon gång mellan 03:00 och 05:00 vaknade Wilmer av att en dörr stängdes.","03–05"],["SILHUETTEN","Wilmer såg en oidentifierad silhuett lämna Benjamins rum. Det var för mörkt för att se vem det var.","IDENTITET OKÄND"],["VIKTIG BEGRÄNSNING","Wilmer var vaken en kort stund men trodde att Benjamin sov. Han gick sedan och lade sig igen.","VITTNESMÅL"],["FRÅGA","Kan vittnesmålet placera en viss person i rummet? Nej — inte utifrån det Wilmer kunde se.","ANALYS"]],note:"Silhuetten är en viktig ledtråd, men den identifierar inte personen."},
+{title:"Ett ljud i natten",intro:"Tindra minns ett ensamt ljud ungefär samma tid som Wilmer hörde dörren.",docs:[["TINDRAS UPPGIFT","Tindra var vaken i sängen en stund och hörde ett enstaka ljud någon gång mellan 03:00 och 05:00.","03–05"],["TRAPPAN","Trappstegen i stugan knarrar mycket. Ljudet kan ha kommit från trappan, men det är inte bekräftat.","MÖJLIG FÖRKLARING"],["JÄMFÖRELSE","Tindra tror att det kan ha varit samma ljud som Wilmer hörde. Hon kan inte säkert fastställa det.","OSÄKERT"],["SLUTSATS","Två minnen av ljud är inte automatiskt bevis för en och samma händelse.","ANALYS"]],note:"Håll flera möjliga förklaringar öppna tills något styrker en av dem."},
+{title:"Rättsmedicinsk undersökning",intro:"Den första rättsmedicinska uppgiften pekar mot förgiftning.",docs:[["PRELIMINÄRT RESULTAT","Ämnet Vesper-18 påträffades i Benjamin. Vesper-18 är ett fiktivt gift i detta fall.","LABB"],["SYMPTOM","Skum runt munnen noterades när Benjamin hittades. Det är en observation, inte i sig ett fullständigt svar.","RAPPORT"],["FÖRPACKNING","En förpackning kopplad till Vesper-18 hittades i anslutning till Benjamin och undersöktes.","BESLAG"],["VIKTIGT","Att något hittas i ett rum bevisar inte automatiskt vem som placerade det där eller vem som använde det.","BEVISVÄRDE"]],note:"Skilj på att ett föremål finns på en plats och att en person kan knytas till det."},
+{title:"Glöggen",intro:"Under glöggstunden fyllde personerna på sina glas vid olika tillfällen.",docs:[["GLÖGGSTUND","Tindra och Embla gjorde glögg och kakor. Alla fyllde på vid olika tidpunkter.","KVÄLLEN"],["GLASEN","Glöggeglasen var mycket lika varandra, vilket gjorde det möjligt att förväxla dem.","FÖREMÅL"],["LABBANALYS","Vesper-18 påträffades i ett av glöggeglasen.","LABB"],["ÖPPEN FRÅGA","Vem hade glaset när ämnet hamnade där? Analysen ensam besvarar inte den frågan.","OLÖST"]],note:"Ett glas kan visa att giftet användes — men inte automatiskt vem som tillsatte det."},
+{title:"Glaset undersöks",intro:"Spår från flera personer hittades på glaset med Vesper-18.",docs:[["DNA-SPÅR","DNA från Benji, Moa och Benjamin påträffades på glaset.","LABB"],["BENJIS GLAS","Glaset var ursprungligen Benjis. Moa hade ibland druckit ur hans glas även före den aktuella kvällen.","BAKGRUND"],["FÖRVÄXLING","Benjamin tog av misstag Benjis glas och drack ur det.","VIKTIG LEDTRÅD"],["BEGRÄNSNING","DNA visar kontakt med glaset men fastställer inte vem som tillsatte giftet eller exakt när.","BEVISVÄRDE"]],note:"Flera personers DNA är väntat om glaset har delats. Tidsordningen är central."},
+{title:"Vem drack ur glaset?",intro:"Glaset hade använts av mer än en person, både före och efter att giftet hamnade där.",docs:[["FÖRE FÖRGIFTNINGEN","Moa hade vid tidigare tillfällen druckit ur Benjis glas. Spår på glaset behöver därför inte vara från själva mordnatten.","KONTEXT"],["EFTERÅT","Benji drack ur glaset och Benjamin råkade därefter ta samma glas och dricka ur det.","TIDSLINJE"],["FÖLJD","Benjamin fick i sig giftet trots att glaset från början var Benjis.","HÄNDELSE"],["FRÅGA","Vem hade tillfälle att hantera glaset under glöggstunden? Alla relevanta uppgifter måste jämföras.","ANALYS"]],note:"Glasets ägare och personen som tillförde giftet behöver inte vara samma person."},
+{title:"Benjis och Moas rum",intro:"Benji och Moa delade sovrum 2.",docs:[["BENJI","Benji säger att han gick och lade sig och sov hela natten.","UPPGIFT"],["MOA","Moa säger att hon låg med mobilen en kort stund innan hon somnade omkring 02:00.","UPPGIFT"],["VAD BEKRÄFTAS?","Moa bekräftar att Benji lade sig. Hon kan inte genom sitt vittnesmål bekräfta varje minut av hans natt.","JÄMFÖRELSE"],["ÖPPEN PUNKT","Ett påstående om att ha sovit är inte i sig oberoende bekräftelse på hela tidsperioden.","ANALYS"]],note:"Tänk på skillnaden mellan att någon lade sig och att någon med säkerhet sov hela natten."},
+{title:"Embla och Tindra",intro:"De två delade sovrum 3.",docs:[["EMBLA","Embla minns inget särskilt mellan 03:00 och 05:00 och tror att hon sov.","UPPGIFT"],["TINDRA","Tindra minns att hon var vaken en stund och hörde ett ljud under samma tidsintervall.","UPPGIFT"],["JÄMFÖR","Ingen av dem säger sig ha sett vem som gick i huset.","VITTNESMÅL"],["SLUTSATS","Att inte minnas något är inte samma sak som att kunna bevisa att inget hände.","ANALYS"]],note:"Ett vittnesmål kan vara uppriktigt även när det är ofullständigt."},
+{title:"Pengarna till Malta",intro:"Konflikten vid middagen handlade om pengar som Benjamin hade lagt ut.",docs:[["RESAN","Benjamin hade betalat pengar för Benjis och Moas Maltaresa, där Benji friade.","BAKGRUND"],["KONFRONTATION","Benjamin tog upp de obetalda pengarna med Benji under middagen.","MIDDAG"],["MOAS KUNSKAP","Moa fick veta mer om pengarna under middagen.","TIDSPUNKT"],["BEVISFRÅGA","Skulden förklarar ett gräl, men visar inte vem som förgiftade glaset.","ANALYS"]],note:"Motiv kan finnas hos flera personer. Leta efter bevis som knyter någon till själva handlingen."},
+{title:"Bokningsbekräftelsen",intro:"En resehandling hjälper till att placera resan före händelserna i stugan.",docs:[["MALTA","Bokningsbekräftelsen för Maltaresan är daterad 24 augusti 2014.","DOKUMENT"],["TID","Resan och frieriet låg flera månader före dödsfallet i december.","TIDSLINJE"],["VAD DEN VISAR","Dokumentet stöder bakgrunden till konflikten om pengarna.","KONTEXT"],["VAD DEN INTE VISAR","En resebokning säger inget direkt om vem som hanterade glöggeglaset.","BEVISVÄRDE"]],note:"Dokument är bra för att verifiera datum, men kan vara irrelevanta för vissa frågor."},
+{title:"Vesper-18",intro:"Giftets namn återkommer i både den rättsmedicinska analysen och bevismaterialet.",docs:[["ÄMNET","Vesper-18 är det fiktiva gift som påträffades i Benjamin.","LABB"],["GLASET","Ämnet påträffades även i ett glöggeglas.","LABB"],["FÖRPACKNINGEN","En förpackning hittades i anslutning till Benjamin och blev en del av utredningen.","BESLAG"],["TVÅ MÖJLIGHETER","Förpackningen kan vara relevant, men placering och innehåll måste bedömas var för sig.","ANALYS"]],note:"Bevis som verkar peka åt samma håll kan ändå ha olika styrka och ursprung."},
+{title:"Väskan",intro:"Utredarna undersöker var förpackningen hittades och vad det faktiskt säger.",docs:[["BESLAG","En Vesper-18-förpackning hittades bland Benjamins tillhörigheter/vid hans rum.","BESLAG"],["MISSTANKE","Fyndet kan ge intryck av att Benjamin hade tillgång till giftet.","TOLKNING"],["ALTERNATIV","Utredningen måste också fråga om föremålet kan ha placerats där av någon annan.","ALTERNATIV"],["BEVISKRAV","Det finns ingen säker uppgift i fyndet ensam som visar vem som placerade förpackningen där.","BEVISVÄRDE"]],note:"Fråga alltid om ett fynd kan ha en annan rimlig förklaring."},
+{title:"Samtalet som glömdes",intro:"Benjamin hade tidigare sett information som han skickade vidare till Moa.",docs:[["SKÄRMBILD","Benjamin hade sett en skärmbild av Benjis profil på den fiktiva dejtingappen Gnista.","BAKGRUND"],["MEDDELANDET","Han skickade skärmbilden till Moa av omtanke. Han förstod inte hela betydelsen av det han sett.","BAKGRUND"],["MOAS REAKTION","Moa dolde sin ilska utåt och lät relationen verka normal.","MÖJLIGT MOTIV"],["VIKTIGT","Detta ger en möjlig förklaring till känslor och motiv, men måste vägas mot den fysiska bevisningen.","ANALYS"]],note:"Ett motiv kan vara dolt. Men motiv räcker inte utan möjlighet och koppling till giftet."},
+{title:"Gnista-profilen",intro:"En uppgift om en dejtingapp kan förändra hur tidigare händelser förstås.",docs:[["PROFILEN","Benji hade en profil på den fiktiva dejtingappen Gnista.","DIGITALT SPÅR"],["SKÄRMBILDEN","Benjamin såg profilen och skickade skärmbilden till Moa före resan till stugan.","TIDSLINJE"],["KONFLIKT","Uppgiften kan ha påverkat relationen mellan Benji och Moa.","MÖJLIGT MOTIV"],["KÄLLKRITIK","En skärmbild behöver bedömas med avseende på datum, ursprung och sammanhang.","ANALYS"]],note:"Digitala spår kan ge motiv och tidslinje. De visar inte automatiskt vem som begick brottet."},
+{title:"Glöggstunden granskas",intro:"Alla hade möjlighet att vara i närheten av glöggen när glas fylldes på.",docs:[["OLIKA TILLFÄLLEN","Sällskapet fyllde på glögg vid olika tidpunkter.","TILLFÄLLE"],["LIKA GLAS","Glasen var så lika att de kunde blandas ihop.","MÖJLIGHET"],["INGEN DIREKT OBSERVATION","Ingen av de kända uppgifterna fastställer att ett vittne såg gift tillsättas.","BEGRÄNSNING"],["ANALYS","Vem hade både möjlighet och en anledning? Jämför det med glasets DNA och händelseförlopp.","SAMMANVÄGNING"]],note:"Möjlighet är inte bevis för handling. Kombinera flera oberoende ledtrådar."},
+{title:"De sista timmarna",intro:"Nu kan uppgifterna från natten sättas ihop i en sammanhängande tidslinje.",docs:[["CIRKA 00:15","Bingolotto avslutades. Sällskapet pratade en stund till.","TIDSLINJE"],["CIRKA 01:00","Folk började gå till sängs.","TIDSLINJE"],["CIRKA 02:00","Alla trodde att de andra hade somnat omkring den här tiden.","TIDSLINJE"],["03:00–05:00","Wilmer såg en okänd silhuett lämna Benjamins rum; Tindra minns ett ljud ungefär samma tid.","TIDSLINJE"]],note:"Tiderna är ungefärliga där vittnena inte kan ange en exakt minut."},
+{title:"Vad vet vi säkert?",intro:"Skilj fastställda fynd från vittnesuppgifter och tolkningar.",docs:[["STARKA FAKTA","Vesper-18 hittades i Benjamin och i ett glöggeglas. Benjamin drack ur glaset.","FASTSTÄLLT I FALLET"],["SPÅR","DNA från Benji, Moa och Benjamin fanns på glaset.","LABB"],["OSÄKERT","Vem som tillsatte giftet och vem silhuetten var är inte direkt fastställt.","OLÖST"],["MISSTAG ATT UNDVIKA","Att anta att den som äger glaset också förgiftade det — eller att DNA ensamt pekar ut gärningspersonen.","KÄLLKRITIK"]],note:"Bygg slutsatsen av det som går att belägga, inte av vem som verkar mest misstänkt."},
+{title:"Motiv och möjlighet",intro:"Jämför de olika konflikterna med tillfälle och fysiska spår.",docs:[["BENJI","Hade en konflikt med Benjamin om återbetalningen av pengar.","KONFLIKT"],["MOA","Fick veta om skulden och hade bakgrundsinformation som kunde påverka relationen.","KONTEXT"],["SILHUETTEN","En person lämnade Benjamins rum under natten, men identifierades inte.","MÖJLIGHET"],["GLAS & GIFT","Giftet fanns i glaset, men DNA-spåren kan ha uppkommit vid olika tillfällen.","FYSISK BEVISNING"]],note:"Gör en tabell för varje person: motiv, tillfälle, stödjande bevis och motsägande uppgifter."},
+{title:"Pröva din teori",intro:"Innan du bestämmer dig, kontrollera att teorin förklarar alla centrala fynd.",docs:[["FRÅGA 1","Förklarar teorin varför Vesper-18 fanns både i Benjamin och i glöggeglaset?","KONTROLL"],["FRÅGA 2","Förklarar den varför flera personers DNA fanns på glaset utan att övertolka det?","KONTROLL"],["FRÅGA 3","Förklarar den silhuetten och förpackningen utan att behandla osäkra uppgifter som fakta?","KONTROLL"],["FRÅGA 4","Finns det någon ledtråd som motsäger teorin?","KONTROLL"]],note:"En bra teori förklarar både de ledtrådar som stöder den och de som först verkar tala emot den."},
+{title:"Slutsatserna",intro:"Utredningen har nu flera sammanhängande spår — men du måste själv väga dem.",docs:[["GIFTET","Vesper-18 orsakade förgiftningen i det fiktiva fallet.","SAMMANFATTNING"],["GLASET","Glaset var ursprungligen Benjis, men Benjamin drack ur det av misstag.","SAMMANFATTNING"],["NATTEN","En okänd person sågs lämna Benjamins rum någon gång mellan 03 och 05.","SAMMANFATTNING"],["MOTIVEN","Pengar, relationer och information från Gnista ger möjliga motiv, men bevisen måste knytas till handlingen.","SAMMANFATTNING"]],note:"Skriv ner vem du tror gjorde det, hur och varför. Vilket konkret bevis väger tyngst i din teori?"},
+{title:"Ditt slutliga svar",intro:"Sista akten samlar de viktigaste frågorna. Du kan nu formulera din egen lösning.",docs:[["VEM?","Vem hade både ett möjligt motiv och möjlighet att påverka glöggen?","DIN TEORI"],["HUR?","Hur hamnade Vesper-18 i glaset som Benjamin drack ur?","DIN TEORI"],["VARFÖR?","Vilken bakgrundsinformation kan förklara ett dolt motiv?","DIN TEORI"],["BEVISEN","Vilka fakta stöder slutsatsen — och vilka delar är fortfarande indicier?","DIN TEORI"]],note:"Mysteriet avslöjar inte gärningspersonen här. Använd alla 24 akter och dra din egen slutsats."}
+];
+
+function photoSVG(kind){
+ if(kind==='cabin')return '<svg viewBox="0 0 220 145" role="img" aria-label="Illustrerad stuga i vinternatten"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#24394a"/><stop offset="1" stop-color="#9ca9a2"/></linearGradient></defs><rect width="220" height="145" fill="url(#sky)"/><path d="M0 106 Q40 87 82 108 T160 103 T220 108 V145 H0Z" fill="#e8e9df"/><path d="M35 78 L107 24 L184 78Z" fill="#49352a"/><rect x="49" y="76" width="121" height="48" fill="#7e3329"/><path d="M28 79 L107 17 L192 79 L181 82 L107 32 L39 83Z" fill="#2e3028"/><rect x="68" y="88" width="23" height="24" fill="#f0c77b"/><rect x="126" y="87" width="23" height="24" fill="#f0c77b"/><path d="M0 127 Q40 116 70 129 T140 126 T220 128" fill="none" stroke="#fff" stroke-width="3"/><text x="110" y="139" fill="#34413d" font-size="7" text-anchor="middle" font-family="monospace">VARGMYREN · VINTER 2014</text></svg>';
+ return '<svg viewBox="0 0 220 145" role="img" aria-label="Illustration av ett glöggeglas som bevisföremål"><rect width="220" height="145" fill="#d6d0bd"/><rect x="9" y="9" width="202" height="127" fill="#e8e1ce" stroke="#aaa18c"/><path d="M77 27 L143 27 L134 91 Q110 111 86 91Z" fill="#faf5e8" stroke="#6f6b5c" stroke-width="2"/><path d="M82 49 L138 49 L133 83 Q110 98 88 83Z" fill="#9b2f25" opacity=".92"/><path d="M110 91 L110 117 M89 119 L131 119" stroke="#6f6b5c" stroke-width="3" fill="none"/><circle cx="96" cy="45" r="3" fill="#9b6d37"/><circle cx="121" cy="42" r="3" fill="#9b6d37"/><path d="M35 24 L35 121 M29 30 L41 30 M29 117 L41 117" stroke="#817967" stroke-width="1"/><text x="153" y="119" fill="#6c2c27" font-size="8" font-family="monospace" transform="rotate(-8 153 119)">BEVIS 08</text><text x="110" y="132" fill="#49463c" font-size="7" text-anchor="middle" font-family="monospace">GLÖGGEGLAS · LABBANALYS</text></svg>';
 }
+function renderCase(index){
+ const c=cases[index], grid=document.getElementById('evidenceGrid');
+ document.getElementById('boardTitle').textContent=c.title;
+ document.getElementById('boardIntro').textContent=c.intro;
+ document.getElementById('caseNote').textContent=c.note;
+ document.getElementById('caseCounter').textContent='AKT '+String(index+1).padStart(2,'0')+' AV 24';
+ document.getElementById('prevCase').disabled=index===0;
+ document.getElementById('nextCase').disabled=index===23;
+ grid.innerHTML='';
+ c.docs.forEach((d,i)=>{
+  const article=document.createElement('article');article.className='paper';article.style.setProperty('--tilt',((i%2===0?-1:1)*(1+(index+i)%3*.35))+'deg');
+  if(index===0&&i===2){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('cabin')+'</div><p class="photo-caption"><b>FOTO A</b> · Stugan vid Skogsvägen 17, Vargmyren. Illustrativ rekonstruktion.</p>'}
+  else if(index===7&&i===1){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('glass')+'</div><p class="photo-caption"><b>FOTO B</b> · Glöggeglas. Illustrativ bevisbild.</p>'}
+  else{article.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(i===0?'<span class="stamp">UTREDNING</span>':'')}
+  grid.appendChild(article);
+ });
+}
+const modal=document.getElementById('caseModal');
+function openCase(index){renderCase(index);modal.classList.add('open');document.body.style.overflow='hidden';document.getElementById('closeModal').focus()}
+function closeCase(){modal.classList.remove('open');document.body.style.overflow=''}
 const calendar=document.getElementById('calendar');
-for(let day=1;day<=24;day++){
-  const door=document.createElement('div');
-  door.className='door';
-  door.setAttribute('aria-label','Lucka '+day);
-  door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span><span class="door-label">December</span>';
-  calendar.appendChild(door);
-}
+for(let day=1;day<=24;day++){const door=document.createElement('button');door.type='button';door.className='door';door.setAttribute('aria-label','Öppna lucka '+day+' – utredningsakt');door.innerHTML='<span class="corner" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span><span class="number">'+String(day).padStart(2,'0')+'</span><span class="door-label">December</span>';door.addEventListener('click',()=>openCase(day-1));calendar.appendChild(door)}
+document.getElementById('closeModal').addEventListener('click',closeCase);
+document.getElementById('prevCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])-1;if(n>1)renderCase(n-2)});
+document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)renderCase(n-1)});
+modal.addEventListener('click',e=>{if(e.target===modal)closeCase()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeCase()});
 </script>
 </body>
 </html>
