@@ -67,7 +67,7 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 @media(max-width:850px){.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.paper{min-height:190px}.photo{height:130px}}
 @media(max-width:480px){header{padding-top:42px}.calendar{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.door-label{font-size:6px;letter-spacing:.1em}.number{font-size:28px}.modal{padding:6px}.board-top{padding:12px}.corkboard{margin:10px;padding:10px;border-width:5px}.evidence-grid{gap:10px}.paper{padding:14px 10px;min-height:205px}.paper h3{font-size:11px}.paper p,.paper li{font-size:10px}.photo{height:105px}.photo-caption{font-size:9px}.board-intro{padding:12px 13px 0}.case-note{margin:0 10px 12px}}
 @media(prefers-reduced-motion:reduce){.door{transition:none}.snowflake{animation-duration:45s}}
-body.case-page header,body.case-page main,body.case-page footer{display:none}\n.modal{display:flex;background:#050b08eF}\n</style>
+body.case-page header,body.case-page footer{display:none}\n.modal{display:flex;background:#050b08eF}\n</style>
 </head>
 <body class="case-page">
 <div id="snowfall" aria-hidden="true"></div>
@@ -90,7 +90,7 @@ body.case-page header,body.case-page main,body.case-page footer{display:none}\n.
   <div class="case-note" id="caseNote"></div>
   <div class="board-bottom"><span id="caseCounter">AKT 01 AV 24</span><div class="nav-buttons"><button id="prevCase">← Föregående</button><button id="nextCase">Nästa akt →</button></div></div>
  </section>
-</div>
+</main>
 
 <script>
 const snow=document.getElementById('snowfall');
