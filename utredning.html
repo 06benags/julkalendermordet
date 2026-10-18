@@ -63,15 +63,17 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
 .protocol-plain p{font:7px/1.55 Arial,Helvetica,sans-serif;margin:0 0 7px}
 .protocol-plain .plain-footer{border-top:1px solid #aeb5b0;margin-top:8px;padding-top:5px;display:flex;justify-content:space-between;gap:4px;font-size:5px;color:#4e565a;letter-spacing:.02em}
 .protocol-plain.expanded{background:#fff;padding:0;cursor:zoom-out}
-.protocol-plain.expanded .protocol-plain-content{font-size:13px;line-height:1.7;padding:clamp(24px,5vw,58px);background:repeating-linear-gradient(to bottom,#fff 0,#fff 29px,#edf0f1 30px)}
-.protocol-plain.expanded .plain-agency{font-size:11px}
-.protocol-plain.expanded .plain-agency small{font-size:9px}
-.protocol-plain.expanded .plain-stamp{font-size:9px;padding:5px 8px}
-.protocol-plain.expanded .plain-heading{font-size:17px;margin-bottom:12px;padding-bottom:9px}
-.protocol-plain.expanded .plain-reference{font-size:10px;margin-bottom:16px;padding-bottom:10px}
-.protocol-plain.expanded p{font:13px/1.8 Arial,Helvetica,sans-serif;margin:0 0 17px}
-.protocol-plain.expanded .plain-footer{font-size:9px;margin-top:20px;padding-top:8px}
-@media(max-width:600px){.protocol-plain.expanded p{font-size:12px}}
+.protocol-plain.expanded{aspect-ratio:210/297;min-height:0}
+.protocol-plain.expanded .protocol-plain-content{font-size:10px;line-height:1.55;padding:34px 42px;background:#fff;min-height:100%;height:100%;box-sizing:border-box}
+.protocol-plain.expanded .plain-masthead{border-bottom:1px solid #252a2d;padding-bottom:8px;margin-bottom:14px}
+.protocol-plain.expanded .plain-agency{font-size:9px}
+.protocol-plain.expanded .plain-agency small{font-size:7px}
+.protocol-plain.expanded .plain-stamp{font-size:7px;padding:4px 6px}
+.protocol-plain.expanded .plain-heading{font-size:12px;letter-spacing:.02em;margin-bottom:9px;padding-bottom:6px}
+.protocol-plain.expanded .plain-reference{font-size:8px;line-height:1.5;margin-bottom:13px;padding-bottom:8px}
+.protocol-plain.expanded p{font:10px/1.65 Arial,Helvetica,sans-serif;margin:0 0 11px;max-width:100%}
+.protocol-plain.expanded .plain-footer{font-size:7px;margin-top:16px;padding-top:6px}
+@media(max-width:600px){.protocol-plain.expanded .protocol-plain-content{padding:24px 20px}.protocol-plain.expanded p{font-size:9px}}
 .paper:hover{box-shadow:3px 10px 24px #0009}
 .paper:focus-visible{outline:3px solid #e7ca86;outline-offset:4px}
 
