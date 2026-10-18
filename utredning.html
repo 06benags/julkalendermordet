@@ -35,9 +35,9 @@ h1{font-family:Cinzel,Georgia,serif;font-size:clamp(39px,7vw,76px);font-weight:5
 .door:nth-child(even){background:linear-gradient(145deg,#4b8055 0%,#285438 48%,#183c2a 100%);border-color:#a9c58b}
 footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;font-size:9px;letter-spacing:.22em;z-index:1}
 /* Utredningsbord */
-.modal{position:relative;z-index:1;display:block;width:100%;min-height:100vh;padding:24px 16px;background:transparent;backdrop-filter:none}
+.modal{position:relative;z-index:1;display:block;width:100%;min-height:100vh;padding:0;background:transparent;backdrop-filter:none}
 .modal.open{display:block}
-.board-shell{width:min(1200px,100%);min-height:calc(100vh - 48px);margin:0 auto;overflow:visible;border:1px solid #bda36b;border-radius:8px;box-shadow:0 25px 90px #000b;background:#19251b}
+.board-shell{width:100%;min-height:100vh;margin:0;overflow:visible;border:0;border-radius:0;box-shadow:none;background:#19251b}
 .board-top{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 20px;background:#101b14;border-bottom:1px solid #bda36b}
 .board-kicker{font-size:9px;letter-spacing:.24em;color:#d9bd7a;text-transform:uppercase}
 .board-title{font-family:Cinzel,Georgia,serif;font-size:clamp(18px,3vw,28px);letter-spacing:.07em;margin-top:5px}
@@ -83,7 +83,7 @@ body.case-page header,body.case-page footer{display:none}\n.modal{display:flex;b
  <section class="board-shell">
   <div class="board-top">
    <div><div class="board-kicker">Polisutredning · Vargmyren · December 2014</div><h2 class="board-title" id="boardTitle">Utredningstavla</h2></div>
-   <button class="close" id="closeModal" aria-label="Tillbaka till kalendern" title="Tillbaka till kalendern">←</button>
+   <button class="close" id="closeModal" aria-label="Tillbaka till kalendern" title="Tillbaka till kalendern" style="width:auto;height:auto;border-radius:4px;padding:10px 14px;font-size:13px">← Kalendern</button>
   </div>
   <p class="board-intro" id="boardIntro">Samla uppgifterna, jämför vittnesmålen och fundera på vad som faktiskt går att bevisa. Alla personer är fiktiva.</p>
   <div class="corkboard"><div class="evidence-grid" id="evidenceGrid"></div></div>
