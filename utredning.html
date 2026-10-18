@@ -360,7 +360,7 @@ document.getElementById('prevCase').addEventListener('click',()=>{const n=Number
 document.getElementById('nextCase').addEventListener('click',()=>{const n=Number(document.getElementById('caseCounter').textContent.match(/\d+/)[0])+1;if(n<=24)window.location.href='utredning.html?dag='+n});
 
 const puzzle=document.getElementById('paperPuzzle'), puzzleDesk=document.getElementById('puzzleDesk');
-let activeSheet=null,dragInfo=null,rotations={report:-4,call:5,mask:8};
+let activeSheet=null,selectedSheet=null,dragInfo=null,rotations={report:-4,call:5,mask:8};
 function openPuzzle(){puzzle.classList.add('open');puzzle.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
 function closePuzzle(){puzzle.classList.remove('open');puzzle.setAttribute('aria-hidden','true');document.body.style.overflow='';}
 document.getElementById('closePuzzle').addEventListener('click',closePuzzle);
@@ -380,7 +380,7 @@ function checkAlignment(){
 document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{
  sheet.addEventListener('pointerdown',e=>{
   if(e.button!==0&&e.pointerType==='mouse')return;
-  e.preventDefault();activeSheet=sheet;
+  e.preventDefault();activeSheet=sheet;selectedSheet=sheet;
   const desk=puzzleDesk.getBoundingClientRect();
   dragInfo={x:e.clientX,y:e.clientY,left:parseFloat(sheet.style.left)||0,top:parseFloat(sheet.style.top)||0,desk};
   sheet.style.zIndex=String(10+Date.now()%1000);sheet.setPointerCapture(e.pointerId);
@@ -394,7 +394,7 @@ document.querySelectorAll('.puzzle-sheet').forEach(sheet=>{
  sheet.addEventListener('pointerup',end);sheet.addEventListener('pointercancel',end);
 });
 document.querySelectorAll('[data-rotate]').forEach(button=>button.addEventListener('click',()=>{
- const sheet=activeSheet||document.querySelector('[data-sheet="mask"]');rotateSheet(sheet,Number(button.dataset.rotate));activeSheet=sheet;
+ const sheet=selectedSheet||document.querySelector('[data-sheet="mask"]');rotateSheet(sheet,Number(button.dataset.rotate));selectedSheet=sheet;
 }));
 document.getElementById('resetPuzzle').addEventListener('click',()=>{
  const positions={report:['4%','8%',-4],call:['35%','18%',5],mask:['57%','47%',8]};
