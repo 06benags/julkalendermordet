@@ -94,6 +94,14 @@ footer{position:relative;text-align:center;padding:0 16px 30px;color:#d5c69eaa;f
  .protocol-paper.expanded .protocol-document{box-sizing:border-box!important;width:210mm!important;height:297mm!important;min-height:297mm!important;margin:0!important;padding:64px 62px 48px!important;overflow:hidden!important;background:#fff!important}
 }
 
+/* Första två dokumenten har samma miniatyrstil som övriga bevislappar på korkväggen. */
+.protocol-paper:not(.expanded) .protocol-document{display:none}
+.protocol-paper:not(.expanded) .mini-paper-content{display:block;position:relative;height:100%;padding:18px 15px 16px;background:#f4edda;color:#25251e;font-family:"Special Elite",Georgia,serif}
+.protocol-paper:not(.expanded) .mini-paper-content .paper-meta{font:9px Inter,Arial,sans-serif;color:#746c5c;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.protocol-paper:not(.expanded) .mini-paper-content h3{font-family:Cinzel,Georgia,serif;font-size:13px;line-height:1.4;border-bottom:1px solid #b6a98b;padding:7px 0 9px;margin-bottom:10px;color:#25251e}
+.protocol-paper:not(.expanded) .mini-paper-content p{font:11px/1.55 "Special Elite",Georgia,serif;margin:0;color:#25251e}
+.protocol-paper:not(.expanded) .mini-paper-content .pin{display:block}
+.protocol-paper.expanded .mini-paper-content{display:none}
 /* På korkväggen visas polisbilagorna som vanliga bevislappar; öppnade dokument behåller A4-layouten. */
 .protocol-paper:not(.expanded){aspect-ratio:auto;height:230px;min-height:230px;max-height:230px;overflow:hidden;padding:0;background:#f4edda;border:0;outline:0;box-shadow:2px 5px 10px #21150d88;transform:rotate(var(--tilt,0deg))}
 .protocol-paper:not(.expanded):after{display:none}
@@ -280,6 +288,7 @@ function renderCase(index){
   else if(index===0&&i===2){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('cabin')+'</div><p class="photo-caption"><b>FOTO A</b> · Stugan vid Skogsvägen 17, Vargmyren. Illustrativ rekonstruktion.</p>'}
   else if(index===7&&i===1){article.classList.add('photo-paper');article.innerHTML='<span class="pin"></span><div class="photo">'+photoSVG('glass')+'</div><p class="photo-caption"><b>FOTO B</b> · Glöggeglas. Illustrativ bevisbild.</p>'}
   else{article.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(i===0?'<span class="stamp">UTREDNING</span>':'')}
+  if(index===0&&(i===0||i===1)){const preview=document.createElement('div');preview.className='mini-paper-content';preview.innerHTML='<span class="pin"></span><div class="paper-meta">'+d[2]+'</div><h3>'+d[0]+'</h3><p>'+d[1]+'</p>';article.appendChild(preview)}
   article.tabIndex=0;article.setAttribute('role','button');article.setAttribute('aria-label','Öppna dokumentet '+d[0]);article.setAttribute('aria-expanded','false');
   const openPaper=()=>{if(article.classList.contains('expanded'))return;const lightbox=document.getElementById('paperLightbox');lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');article.classList.add('expanded');article.setAttribute('aria-expanded','true');document.body.classList.add('paper-open');article.focus()};
   article.addEventListener('click',openPaper);
